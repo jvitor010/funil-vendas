@@ -118,8 +118,12 @@
 <body class="min-h-screen flex flex-col relative">
 
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-        <div class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-teal-100/60 blur-[120px]"></div>
-        <div class="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-rose-50/60 blur-[120px]"></div>
+        <div
+            class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-teal-100/60 blur-[120px] hidden md:block">
+        </div>
+        <div
+            class="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-rose-50/60 blur-[120px] hidden md:block">
+        </div>
     </div>
 
     <header class="w-full py-6 relative z-10 flex justify-center items-center">
@@ -127,7 +131,7 @@
             <!-- A imagem da logo foi atualizada para logo.jpg para funcionar corretamente no mesmo diretório ou subdiretórios -->
             <img src="./logo.jpg" alt="Logo Fluxo Vital"
                 class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-sm object-cover border border-slate-100 bg-white"
-                onerror="this.style.display='none'" />
+                onerror="this.style.display='none'" loading="lazy" />
             <div class="flex flex-col">
                 <span class="m-0 p-0 leading-none">Fluxo Vital</span>
                 <span class="text-[9px] text-slate-500 uppercase tracking-widest m-0 p-0 leading-none mt-0.5">Lipedema

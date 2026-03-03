@@ -227,7 +227,7 @@
             <div class="flex items-center gap-2 font-black text-slate-800 text-base sm:text-lg tracking-tight">
                 <img src="./logo.jpg" alt="Logo Fluxo Vital"
                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-sm object-cover border border-slate-100 bg-white"
-                    onerror="this.style.display='none'" />
+                    onerror="this.style.display='none'" loading="lazy" />
                 <div class="flex flex-col">
                     <span class="m-0 p-0 leading-none font-black">Fluxo Vital</span>
                     <span
@@ -248,10 +248,10 @@
         class="relative pt-12 pb-24 px-4 overflow-hidden bg-slate-900 text-white min-h-[90vh] flex flex-col justify-center border-b-[8px] border-teal-500">
         <!-- Halos de luz de fundo -->
         <div
-            class="absolute top-0 right-0 w-[1000px] h-[1000px] bg-teal-500/10 rounded-full blur-[150px] -z-10 translate-x-1/4 -translate-y-1/4">
+            class="absolute top-0 right-0 w-[1000px] h-[1000px] bg-teal-500/10 rounded-full blur-[150px] -z-10 translate-x-1/4 -translate-y-1/4 hidden md:block">
         </div>
         <div
-            class="absolute bottom-0 left-0 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[150px] -z-10 -translate-x-1/4 translate-y-1/4">
+            class="absolute bottom-0 left-0 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[150px] -z-10 -translate-x-1/4 translate-y-1/4 hidden md:block">
         </div>
 
         <div class="max-w-5xl mx-auto text-center relative z-10">
@@ -288,7 +288,7 @@
                             <div
                                 class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center overflow-hidden">
                                 <img src="https://i.pravatar.cc/100?img=5" class="w-full h-full object-cover opacity-90"
-                                    alt="Especialista" />
+                                    alt="Especialista" loading="lazy" />
                             </div>
                         </div>
                         <div class="text-left flex-1">
@@ -444,7 +444,7 @@
     <!-- 4. ELEVAÇÃO DE CONSCIÊNCIA (Substituído listas por divs para blindar CSS externo) -->
     <section class="py-24 px-4 sm:px-6 bg-slate-50 border-y border-slate-200 relative overflow-hidden">
         <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] bg-teal-100/40 blur-[100px] rounded-full pointer-events-none">
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] bg-teal-100/40 blur-[100px] rounded-full pointer-events-none hidden md:block">
         </div>
 
         <div class="max-w-6xl mx-auto relative z-10">
@@ -505,7 +505,7 @@
                     <div
                         class="bg-slate-900 relative h-full w-full rounded-[2.4rem] p-8 md:p-10 flex flex-col overflow-hidden">
                         <div
-                            class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none">
+                            class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none hidden md:block">
                         </div>
 
                         <div class="absolute top-0 right-6 sm:right-8 -translate-y-1/2">
@@ -634,7 +634,7 @@
                                 <div
                                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-white shadow-sm shrink-0">
                                     <img src="https://i.pravatar.cc/100?img=1" alt="Avatar"
-                                        class="w-full h-full object-cover" />
+                                        class="w-full h-full object-cover" loading="lazy" />
                                 </div>
                             </div>
 
@@ -771,7 +771,8 @@
                     <div
                         class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
                         <iframe src="https://play.tynk.ai/p/db9079de-a4f7-4ba8-bcb3-dd35463829e9"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
+                            loading="lazy"></iframe>
                         <div
                             class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/60 backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="video" class="w-3 h-3 text-teal-400"></i> Depoimento
@@ -780,7 +781,8 @@
                     <div
                         class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
                         <iframe src="https://play.tynk.ai/p/7617ca53-11ef-4e3d-a476-2d4403f2b660"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
+                            loading="lazy"></iframe>
                         <div
                             class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/60 backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="video" class="w-3 h-3 text-teal-400"></i> Fim da Dor
@@ -789,7 +791,8 @@
                     <div
                         class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
                         <iframe src="https://play.tynk.ai/p/192bcd70-dec3-4129-ae38-244abfa1d404"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
+                            loading="lazy"></iframe>
                         <div
                             class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/60 backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="trending-down" class="w-3 h-3 text-teal-400"></i> Resultados
@@ -798,7 +801,8 @@
                     <div
                         class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
                         <iframe src="https://play.tynk.ai/p/aa0e62f0-c7b1-4187-8716-10e9fe62c4a6"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
+                            loading="lazy"></iframe>
                         <div
                             class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/60 backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="check-circle" class="w-3 h-3 text-teal-400"></i> Alívio
@@ -877,7 +881,8 @@
                     <i data-lucide="arrow-left" class="w-6 h-6"></i>
                     <div
                         class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border border-white/50 shrink-0">
-                        <img src="https://i.pravatar.cc/100?img=1" class="w-full h-full object-cover" alt="Aluna" />
+                        <img src="https://i.pravatar.cc/100?img=1" class="w-full h-full object-cover" alt="Aluna"
+                            loading="lazy" />
                     </div>
                     <div>
                         <span class="font-bold text-base block leading-none m-0">Marina (Aluna Premium)</span>
@@ -922,7 +927,7 @@
         <div class="absolute top-0 right-0 w-full h-1.5 bg-gradient-to-r from-teal-400 via-emerald-400 to-teal-400">
         </div>
         <div
-            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-teal-500/10 rounded-full blur-[150px] pointer-events-none">
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-teal-500/10 rounded-full blur-[150px] pointer-events-none hidden md:block">
         </div>
 
         <div class="max-w-6xl mx-auto relative z-10">
@@ -1207,7 +1212,7 @@
                 <div class="flex items-center gap-3">
                     <img src="./logo.jpg" alt="Logo Fluxo Vital"
                         class="w-10 h-10 rounded-xl shadow-sm object-cover border border-slate-700 bg-white"
-                        onerror="this.style.display='none'" />
+                        onerror="this.style.display='none'" loading="lazy" />
                     <span>Fluxo Vital</span>
                 </div>
                 <span class="text-[10px] tracking-widest uppercase text-slate-500">Lipedema Sem Complicações</span>
