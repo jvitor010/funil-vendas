@@ -319,14 +319,14 @@
                         <i data-lucide="cpu" class="w-10 h-10 text-teal-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
                     </div>
                     
-                    <h2 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Analisando o seu histórico...</h2>
+                    <h2 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Mapeando a sua rotina...</h2>
                     
                     <div class="w-full max-w-xs bg-slate-200 rounded-full h-4 overflow-hidden mb-4 shadow-inner relative">
                         <div id="analyzeBar" class="bg-gradient-to-r from-teal-400 to-teal-600 h-4 rounded-full transition-all ease-linear" style="width: 5%;"></div>
                     </div>
                     
                     <p id="analyzeText" class="text-xs font-bold text-slate-500 uppercase tracking-widest md:animate-pulse">
-                        Cruzando padrão de dores...
+                        Estruturando seu perfil...
                     </p>
                 </div>
             `;
@@ -337,9 +337,9 @@
             const analyzeText = document.getElementById('analyzeText');
 
             const analysisSteps = [
-                "Verificando histórico de inchaço diário...",
-                "Comparando dificuldade de perda de medidas...",
-                "Gerando diagnóstico do nível de inflamação..."
+                "Analisando seus hábitos e desconfortos...",
+                "Buscando as melhores rotinas de alívio...",
+                "Finalizando o seu plano prático de leveza..."
             ];
             let stepIndex = 0;
 
@@ -386,16 +386,16 @@
                     </div>
                     
                     <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
-                        O seu resultado está pronto!
+                        O seu Mapa de Leveza está pronto!
                     </h2>
                     
                     <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-8 px-2">
-                        Cruzamos os seus sintomas. Para onde devemos enviar o seu diagnóstico e o <strong>protocolo prático</strong> de alívio?
+                        Analisamos as suas respostas. Para onde devemos enviar o seu <strong>plano diário de rotina anti-inflamatória</strong> focado no alívio das pernas?
                     </p>
 
                     <form id="leadForm" class="space-y-4 text-left" onsubmit="handleLeadSubmit(event)">
                         <div>
-                            <label for="userName" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Seu Primeiro Nome</label>
+                            <label for="userName" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Como você gosta de ser chamada?</label>
                             <div class="relative">
                                 <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                                     <i data-lucide="user" class="w-5 h-5"></i>
@@ -404,7 +404,7 @@
                             </div>
                         </div>
                         <div>
-                            <label for="userEmail" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Seu melhor e-mail</label>
+                            <label for="userEmail" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Onde enviamos o seu acesso livre?</label>
                             <div class="relative">
                                 <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                                     <i data-lucide="mail" class="w-5 h-5"></i>
@@ -413,7 +413,7 @@
                             </div>
                         </div>
                         <div>
-                            <label for="userPhone" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">WhatsApp (Opcional, mas recomendado)</label>
+                            <label for="userPhone" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Seu WhatsApp (Para receber dicas úteis gratuitamente)</label>
                             <div class="relative">
                                 <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                                     <i data-lucide="message-circle" class="w-5 h-5"></i>
@@ -422,7 +422,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-600 transition-all hover:scale-[1.02] flex items-center justify-center gap-3 mt-4">
-                            Ver Meu Diagnóstico Agora <i data-lucide="unlock" class="w-5 h-5"></i>
+                            Descobrir Meu Plano de Alívio <i data-lucide="unlock" class="w-5 h-5"></i>
                         </button>
                     </form>
                     
