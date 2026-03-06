@@ -124,7 +124,8 @@
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col relative">
+<body class="min-h-screen flex flex-col relative select-none" oncontextmenu="return false;" ondragstart="return false;"
+    onselectstart="return false;">
 
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
         <div
@@ -552,6 +553,28 @@
                 window.location.href = `${baseUrl}?${params.toString()}`;
             }, 800);
         }
+    </script>
+    <script>
+        // 🔒 SISTEMA ANTI-ESPIONAGEM (DLP)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === 'U') {
+                event.preventDefault();
+            }
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+        });
+        // Console block
+        setInterval(function () {
+            !function () {
+                function e(e) { if (isNaN(e)) console.log("Spying blocked"); else e() }
+                e(function () { debugger })
+            }()
+        }, 1000);
     </script>
 </body>
 

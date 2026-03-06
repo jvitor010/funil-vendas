@@ -220,7 +220,8 @@
     </script>
 </head>
 
-<body class="antialiased selection:bg-teal-200">
+<body class="antialiased selection:bg-teal-200 select-none scroll-smooth" oncontextmenu="return false;"
+    ondragstart="return false;" onselectstart="return false;">
 
     <!-- 1. TOPBAR E NAVBAR (Sticky) -->
     <div
@@ -1410,7 +1411,7 @@
             }
         });
 
-        // 🟢 EVENTOS DE RASTREAMENTO (PIXEL & ANALYTICS - Ponto 2B)
+        // 🔒 EVENTOS DE RASTREAMENTO (PIXEL & ANALYTICS - Ponto 2B)
         function trackCheckoutEvent() {
             // Dispara o evento de Início de Checkout no Facebook Pixel
             if (typeof fbq === 'function') {
@@ -1430,6 +1431,28 @@
             }
             console.log("Evento de Checkout Rastreado com Sucesso!");
         }
+
+        // 🔒 SISTEMA ANTI-ESPIONAGEM (DLP)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === 'U') {
+                event.preventDefault();
+            }
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+        });
+
+        // Console block
+        setInterval(function () {
+            !function () {
+                function e(e) { if (isNaN(e)) console.log("Spying blocked"); else e() }
+                e(function () { debugger })
+            }()
+        }, 1000);
     </script>
 </body>
 
