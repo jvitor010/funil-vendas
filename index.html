@@ -507,8 +507,10 @@
                 try {
                     await fetch(WEBHOOK_URL, {
                         method: 'POST',
-                        mode: 'no-cors', // Evita erros de bloqueio do navegador (CORS) em automações simples
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
                         body: JSON.stringify({
                             nome: userName,
                             email: userEmail,
@@ -518,7 +520,7 @@
                         })
                     });
                 } catch (e) {
-                    console.log("Aviso: Falha silenciosa no envio do webhook, prosseguindo com o funil.", e);
+                    console.error("Aviso: Falha no envio do webhook.", e);
                 }
             }
 
