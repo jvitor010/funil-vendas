@@ -223,7 +223,7 @@
         // 🚨 PASSO 1 - CONFIGURAÇÃO DE WEBHOOK (ZAPIER / MAKE / n8n)
         // Cole aqui o link da sua automação para guardar os contatos antes do redirecionamento
         // Caso não tenha uma automação agora, deixe vazio ("")
-        const WEBHOOK_URL = "";
+        const WEBHOOK_URL = "https://hook.eu1.make.com/d9t772n4657n13a2zv1mp5ugf7m4x44k";
 
         const container = document.getElementById('quiz-container');
 
@@ -381,7 +381,7 @@
                     analyzeText.innerText = "Avaliação Concluída!";
 
                     setTimeout(() => {
-                        renderLeadCapture();
+                        renderTeaser();
                     }, 1200);
                 } else {
                     setTimeout(validateQuiz, 150);
@@ -389,6 +389,46 @@
             }
 
             setTimeout(validateQuiz, 500);
+        }
+
+        // TELA TEASER (PRÉ-CAPTURA)
+        function renderTeaser() {
+            container.innerHTML = `
+                <div class="glass-card rounded-[2.5rem] p-6 sm:p-10 shadow-2xl text-center fade-enter relative overflow-hidden border-t-[8px] border-t-teal-500">
+                    <div class="absolute top-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-teal-100 shadow-sm">
+                        <i data-lucide="check-circle" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+                    </div>
+                    
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+                        A análise confirmou: o seu problema <span class="text-rose-500">não é falta de dieta</span>.
+                    </h2>
+                    
+                    <div class="bg-rose-50 border border-rose-100 rounded-2xl p-4 sm:p-6 mb-8 text-left relative shadow-sm">
+                        <p class="text-slate-700 font-medium text-sm sm:text-base leading-relaxed m-0">
+                            Identificamos que as suas pernas pesadas e inchaço respondem a um <strong>padrão inflamatório específico</strong>. Anos de exercícios errados e dietas genéricas não funcionaram porque o foco estava errado.
+                        </p>
+                        <p class="text-slate-700 font-medium text-sm sm:text-base leading-relaxed mt-4 m-0">
+                            Existe um caminho gentil para desinchar.
+                        </p>
+                    </div>
+
+                    <p class="text-slate-500 text-sm font-bold uppercase tracking-widest mb-4">
+                        Pronta para descobrir o alívio?
+                    </p>
+
+                    <button onclick="renderLeadCapture()" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-600 transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
+                        Avançar para o Meu Plano de Ação <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                    
+                    <p class="mt-6 text-[10px] sm:text-xs text-slate-400 font-medium flex items-center justify-center gap-1">
+                        <i data-lucide="lock" class="w-3 h-3"></i> Análise 100% individualizada e sigilosa.
+                    </p>
+                </div>
+            `;
+            updateIcons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // TELA DE CAPTURA COM WHATSAPP
