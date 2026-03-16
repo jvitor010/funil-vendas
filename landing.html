@@ -11,7 +11,7 @@
     <!-- Meta Tags para Compartilhamento (WhatsApp, Facebook, etc) -->
     <meta property="og:title" content="Fluxo Vital: Lipedema Sem Complicações - A Clínica Digital">
     <meta property="og:description"
-        content="Transforme seu celular em uma Clínica 24h. Tenha uma equipe de especialistas no bolso para ativar o mecanismo de desinflamação diária.">
+        content="Recupere a leveza das suas pernas com a primeira Clínica Digital de Bolso focada em desinflamar o seu corpo.">
     <meta property="og:image" content="https://fluxovitallipedema.top/logo.jpg">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -68,9 +68,8 @@
     <link rel="prerender" href="https://play.tynk.ai/p/192bcd70-dec3-4129-ae38-244abfa1d404">
     <link rel="prerender" href="https://play.tynk.ai/p/8427f457-feef-4b8b-87cf-ccdb206c6a71">
 
-    <!-- CSS BLINDADO (Proteção contra construtores de páginas) -->
+    <!-- CSS BLINDADO -->
     <style>
-        /* Resets de segurança */
         *,
         ::before,
         ::after {
@@ -99,7 +98,6 @@
             padding: 0;
         }
 
-        /* Efeitos Premium & Glassmorphism */
         .glass-panel {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(16px);
@@ -112,13 +110,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Texturas simuladas seguras */
         .wpp-bg {
             background-color: #e5ddd5;
             background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23d1d5db' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
-        /* WhatsApp Realistic Tails */
         .wa-message-received::before {
             content: '';
             position: absolute;
@@ -140,7 +136,6 @@
             border-right: 12px solid transparent;
         }
 
-        /* Animações Isoladas */
         .pulse-btn {
             animation: pulseShadow 2.5s infinite;
             display: inline-flex !important;
@@ -151,85 +146,39 @@
         }
 
         @keyframes pulseShadow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.6);
-            }
-
-            70% {
-                box-shadow: 0 0 0 25px rgba(20, 184, 166, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.6); }
+            70% { box-shadow: 0 0 0 25px rgba(20, 184, 166, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
         }
 
         @media (min-width: 768px) {
-            .float-slow {
-                animation: float 6s ease-in-out infinite;
-            }
-
-            .float-delay-1 {
-                animation: float 6s ease-in-out 1.5s infinite;
-            }
-
-            .float-delay-2 {
-                animation: float 6s ease-in-out 3s infinite;
-            }
+            .float-slow { animation: float 6s ease-in-out infinite; }
+            .float-delay-1 { animation: float 6s ease-in-out 1.5s infinite; }
+            .float-delay-2 { animation: float 6s ease-in-out 3s infinite; }
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
         }
 
-        /* Utilities de texto */
         .text-gradient {
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hide-scroll::-webkit-scrollbar {
-            display: none;
-        }
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .hide-scroll {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Estilo da Carta de Vendas */
-        .sales-letter p {
-            margin-bottom: 1.25rem;
-        }
-
-        .sales-letter strong {
-            color: #0f172a;
-            font-weight: 800;
-        }
-
-        .sales-letter .highlight {
-            background-color: rgba(244, 63, 94, 0.1);
-            padding: 0.2rem 0.5rem;
-            border-radius: 0.25rem;
-            color: #e11d48;
-            font-weight: bold;
-        }
+        .sales-letter p { margin-bottom: 1.25rem; }
+        .sales-letter strong { color: #0f172a; font-weight: 800; }
+        .sales-letter .highlight { background-color: rgba(244, 63, 94, 0.1); padding: 0.2rem 0.5rem; border-radius: 0.25rem; color: #e11d48; font-weight: bold; }
     </style>
 
     <script>
         tailwind.config = {
-            corePlugins: {
-                preflight: true,
-            },
+            corePlugins: { preflight: true },
             theme: {
                 extend: {
                     colors: {
@@ -247,12 +196,11 @@
 <body class="antialiased selection:bg-teal-200 select-none scroll-smooth" oncontextmenu="return false;"
     ondragstart="return false;" onselectstart="return false;">
 
-    <!-- 1. TOPBAR E NAVBAR (Sticky) -->
+    <!-- 1. TOPBAR E NAVBAR -->
     <div
         class="bg-rose-600 text-white text-center py-2.5 px-4 text-[10px] sm:text-xs font-bold tracking-widest uppercase relative z-50 shadow-md">
         <span class="inline-flex items-center justify-center gap-2">
-            <i data-lucide="alert-triangle" class="w-4 h-4 animate-pulse"></i> Vagas Limitadas para o Acompanhamento
-            Premium deste mês. Inicie sua desinflamação hoje.
+            <i data-lucide="alert-triangle" class="w-4 h-4 animate-pulse"></i> O Lipedema é uma doença progressiva. Inicie sua desinflamação hoje.
         </span>
     </div>
 
@@ -265,15 +213,12 @@
                     onerror="this.style.display='none'" loading="lazy" />
                 <div class="flex flex-col">
                     <span class="m-0 p-0 leading-none font-black">Fluxo Vital</span>
-                    <span
-                        class="text-[9px] sm:text-[10px] text-slate-500 font-bold tracking-widest uppercase m-0 p-0 leading-none mt-0.5">Lipedema
-                        Sem Complicações</span>
+                    <span class="text-[9px] sm:text-[10px] text-slate-500 font-bold tracking-widest uppercase m-0 p-0 leading-none mt-0.5">Lipedema Sem Complicações</span>
                 </div>
             </div>
             <a href="#oferta"
                 class="text-xs sm:text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2 shadow-lg hover:shadow-teal-500/20 hover:-translate-y-0.5 border border-slate-700 shrink-0 no-underline">
-                <i data-lucide="crown" class="w-4 h-4 text-amber-400"></i> <span class="hidden sm:inline">Desbloquear
-                </span>Acesso Premium
+                <i data-lucide="crown" class="w-4 h-4 text-amber-400"></i> <span class="hidden sm:inline">Desbloquear </span>Acesso Premium
             </a>
         </div>
     </nav>
@@ -281,146 +226,85 @@
     <!-- 2. HERO SECTION COM GATILHO VISUAL HOLOGRÁFICO -->
     <section
         class="relative pt-12 pb-24 px-4 overflow-hidden bg-slate-900 text-white min-h-[90vh] flex flex-col justify-center border-b-[8px] border-teal-500">
-        <!-- Halos de luz de fundo -->
-        <div
-            class="absolute top-0 right-0 w-[1000px] h-[1000px] bg-teal-500/10 rounded-full blur-[150px] -z-10 translate-x-1/4 -translate-y-1/4 hidden md:block">
-        </div>
-        <div
-            class="absolute bottom-0 left-0 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[150px] -z-10 -translate-x-1/4 translate-y-1/4 hidden md:block">
-        </div>
+        
+        <div class="absolute top-0 right-0 w-[1000px] h-[1000px] bg-teal-500/10 rounded-full blur-[150px] -z-10 translate-x-1/4 -translate-y-1/4 hidden md:block"></div>
+        <div class="absolute bottom-0 left-0 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[150px] -z-10 -translate-x-1/4 translate-y-1/4 hidden md:block"></div>
 
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <div id="dynamic-badge"
-                class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-rose-500/10 text-rose-300 text-xs font-bold mb-8 border border-rose-500/20 uppercase tracking-widest md:backdrop-blur-sm mx-auto transition-all duration-500">
-                <i data-lucide="alert-octagon" class="w-4 h-4"></i> A culpa pelo inchaço não é sua
+            <!-- Nova Prova Social no Topo -->
+            <div class="flex items-center justify-center gap-[-10px] mb-6">
+                <div class="flex -space-x-3 opacity-90">
+                    <img class="w-8 h-8 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/100?img=1" alt="User">
+                    <img class="w-8 h-8 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/100?img=5" alt="User">
+                    <img class="w-8 h-8 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/100?img=9" alt="User">
+                </div>
+                <div class="ml-4 text-xs sm:text-sm font-bold text-slate-300">
+                    Junte-se a mais de <span class="text-teal-400 font-black">1.250 guerreiras</span> que já vivem sem dor.
+                </div>
             </div>
 
-            <!-- HEADLINE DINÂMICA (Será alterada pelo JS se vier do Quiz) -->
+            <!-- HEADLINE DINÂMICA -->
             <h1 id="dynamic-headline"
-                class="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.10] mb-8 m-0 transition-opacity duration-500 overflow-wrap-anywhere break-words w-full px-2">
-                Uma rotina diária para quem busca <span
-                    class="bg-gradient-to-r from-rose-400 to-orange-400 text-gradient text-transparent inline-block">mais
-                    leveza nas pernas.</span>
+                class="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.10] mb-6 m-0 transition-opacity duration-500 overflow-wrap-anywhere break-words w-full px-2">
+                Cansada de carregar o peso e a dor sozinha enquanto <span class="bg-gradient-to-r from-rose-400 to-orange-400 text-gradient text-transparent inline-block">o mundo ignora o seu sofrimento?</span>
             </h1>
 
             <p class="text-lg md:text-xl text-slate-300 font-medium mb-12 leading-relaxed max-w-3xl mx-auto m-0">
-                A primeira <strong
-                    class="text-white bg-teal-500/20 px-2 py-0.5 rounded border border-teal-500/30 shadow-sm">Clínica
-                    Digital</strong> que guia a sua desinflamação diária com o apoio de especialistas em bem-estar
-                dedicadas ao Lipedema.
+                Recupere a leveza das suas pernas e o controle da sua vida com a primeira <strong class="text-white bg-teal-500/20 px-2 py-0.5 rounded border border-teal-500/30 shadow-sm">Clínica Digital de Bolso</strong> focada em desinflamar o seu corpo.
             </p>
 
-            <!-- GATILHO VISUAL DO APP (Altura otimizada para mobile - Hierarquia Visual Ponto 2C) -->
+            <!-- GATILHO VISUAL DO APP -->
             <div
                 class="relative w-full max-w-3xl mx-auto min-h-[280px] sm:min-h-[350px] mb-12 sm:mb-16 flex items-center justify-center pointer-events-none mt-4 sm:mt-8">
 
                 <!-- Card Central de Conversa -->
-                <div
-                    class="glass-dark w-[95%] sm:max-w-[450px] rounded-[2.5rem] p-5 sm:p-6 shadow-2xl relative z-20 border border-white/20 transform hover:scale-[1.02] transition-transform">
+                <div class="glass-dark w-[95%] sm:max-w-[450px] rounded-[2.5rem] p-5 sm:p-6 shadow-2xl relative z-20 border border-white/20 transform hover:scale-[1.02] transition-transform">
                     <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-gradient-to-tr from-teal-400 to-emerald-400 p-0.5 shadow-lg shrink-0">
-                            <div
-                                class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center overflow-hidden">
-                                <img src="https://i.pravatar.cc/100?img=5" class="w-full h-full object-cover opacity-90"
-                                    alt="Especialista" loading="lazy" />
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-teal-400 to-emerald-400 p-0.5 shadow-lg shrink-0">
+                            <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center overflow-hidden">
+                                <img src="https://i.pravatar.cc/100?img=5" class="w-full h-full object-cover opacity-90" alt="Especialista" loading="lazy" />
                             </div>
                         </div>
                         <div class="text-left flex-1">
-                            <h3 class="font-bold text-white text-base sm:text-lg leading-tight m-0">Dra. Fisioterapeuta
-                            </h3>
-                            <span
-                                class="text-[9px] sm:text-[10px] text-teal-400 uppercase tracking-widest font-black flex items-center gap-1 mt-1"><span
-                                    class="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse"></span> Online
-                                Agora</span>
+                            <h3 class="font-bold text-white text-base sm:text-lg leading-tight m-0">Coach Emocional</h3>
+                            <span class="text-[9px] sm:text-[10px] text-teal-400 uppercase tracking-widest font-black flex items-center gap-1 mt-1"><span class="w-1.5 h-1.5 bg-teal-400 rounded-full animate-pulse"></span> Online Agora</span>
                         </div>
                     </div>
-                    <div
-                        class="bg-slate-800/80 md:bg-white/10 rounded-2xl rounded-tl-none p-4 md:backdrop-blur-md text-left">
-                        <p class="text-xs sm:text-sm font-medium leading-relaxed text-slate-100 m-0">"Boa tarde,
-                            querida! Sei que hoje foi um dia cansativo. Onde sente mais peso nas pernas? Clique no Botão
-                            SOS para fazermos um protocolo de alívio de 10 minutos."</p>
+                    <div class="bg-slate-800/80 md:bg-white/10 rounded-2xl rounded-tl-none p-4 md:backdrop-blur-md text-left">
+                        <p class="text-xs sm:text-sm font-medium leading-relaxed text-slate-100 m-0">"O Lipedema não é culpa sua, é uma doença inflamatória que exige acolhimento, não julgamento. Respire fundo. Estamos juntas para desinflamar as suas pernas a partir de hoje."</p>
                     </div>
                 </div>
 
-                <!-- Elementos Flutuantes Orbitando -->
                 <!-- Botão SOS Flutuante -->
-                <div
-                    class="absolute top-[-20px] right-2 sm:right-8 glass-dark rounded-2xl p-3 sm:p-4 flex items-center gap-3 shadow-2xl float-slow z-30 border border-rose-500/30 bg-rose-500/10">
-                    <div
-                        class="w-10 h-10 sm:w-12 sm:h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-rose-500/40 shrink-0">
+                <div class="absolute top-[-20px] right-2 sm:right-8 glass-dark rounded-2xl p-3 sm:p-4 flex items-center gap-3 shadow-2xl float-slow z-30 border border-rose-500/30 bg-rose-500/10">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-rose-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-rose-500/40 shrink-0">
                         <i data-lucide="activity" class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse"></i>
                     </div>
                     <div class="text-left">
                         <p class="text-xs sm:text-sm font-black text-white m-0 whitespace-nowrap">Botão SOS Dor</p>
-                        <p class="text-[9px] sm:text-[10px] font-bold text-rose-300 uppercase m-0 whitespace-nowrap">
-                            Alívio Imediato</p>
+                        <p class="text-[9px] sm:text-[10px] font-bold text-rose-300 uppercase m-0 whitespace-nowrap">Alívio Imediato</p>
                     </div>
                 </div>
 
-                <!-- Rastreador de Água Flutuante -->
-                <div
-                    class="absolute bottom-[-10px] sm:bottom-4 left-0 sm:left-4 glass-dark rounded-2xl p-4 flex flex-col gap-2 shadow-2xl float-delay-1 z-30 border border-cyan-500/30 w-40 sm:w-48 bg-cyan-500/5">
+                <!-- Rastreador Flutuante -->
+                <div class="absolute bottom-[-10px] sm:bottom-4 left-0 sm:left-4 glass-dark rounded-2xl p-4 flex flex-col gap-2 shadow-2xl float-delay-1 z-30 border border-cyan-500/30 w-40 sm:w-48 bg-cyan-500/5">
                     <div class="flex justify-between items-center w-full">
-                        <p
-                            class="text-[10px] sm:text-xs font-black text-white flex items-center gap-1 m-0 whitespace-nowrap">
+                        <p class="text-[10px] sm:text-xs font-black text-white flex items-center gap-1 m-0 whitespace-nowrap">
                             <i data-lucide="droplets" class="w-3 h-3 text-cyan-400"></i> Hidratação
                         </p>
                         <span class="text-[9px] sm:text-[10px] text-slate-400 m-0 whitespace-nowrap">1250ml</span>
                     </div>
                     <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                        <div
-                            class="bg-gradient-to-r from-cyan-400 to-blue-500 h-1.5 rounded-full w-[60%] shadow-[0_0_10px_rgba(6,182,212,0.5)]">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Badge Time de Especialistas -->
-                <div
-                    class="absolute -bottom-10 right-4 sm:right-12 glass-dark rounded-full py-2 px-3 sm:px-4 flex items-center gap-2 shadow-2xl float-delay-2 z-10 border border-white/20">
-                    <div class="flex -space-x-2 sm:-space-x-3 mr-1">
-                        <div
-                            class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 bg-violet-500 flex justify-center items-center text-white shadow-sm z-30">
-                            <i data-lucide="utensils" class="w-3 h-3 sm:w-4 sm:h-4"></i>
-                        </div>
-                        <div
-                            class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 bg-amber-500 flex justify-center items-center text-white shadow-sm z-20">
-                            <i data-lucide="message-circle" class="w-3 h-3 sm:w-4 sm:h-4"></i>
-                        </div>
-                        <div
-                            class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 bg-emerald-500 flex justify-center items-center text-white shadow-sm z-10">
-                            <i data-lucide="chef-hat" class="w-3 h-3 sm:w-4 sm:h-4"></i>
-                        </div>
-                    </div>
-                    <div class="text-left hidden sm:block">
-                        <p class="text-[10px] sm:text-xs font-bold text-white leading-tight m-0 whitespace-nowrap">Time
-                            de Especialistas</p>
-                        <p
-                            class="text-[8px] sm:text-[9px] text-teal-400 uppercase tracking-wider font-bold m-0 whitespace-nowrap">
-                            13 Profissionais</p>
+                        <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-1.5 rounded-full w-[60%] shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Botão de Chamada para Ação Refatorado -->
             <div class="flex flex-col items-center justify-center w-full relative z-40 mt-10">
                 <a href="#oferta"
                     class="pulse-btn w-full sm:w-auto bg-teal-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 px-8 sm:px-12 rounded-[1.5rem] text-center flex items-center justify-center gap-3 transition-transform duration-300 hover:scale-105 hover:-translate-y-1 no-underline">
-                    Quero Iniciar Minha Jornada de Bem-Estar <i data-lucide="arrow-right"
-                        class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    Quero Desinflamar Minhas Pernas Agora <i data-lucide="arrow-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </a>
-
-                <!-- Prova Social Inferior (Sub-CTA) -->
-                <div class="flex items-center justify-center gap-3 mt-6 opacity-80">
-                    <div class="flex text-amber-400 text-sm">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                            class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i
-                            data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star"
-                            class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-widest m-0">+10.000
-                        mulheres mais confiantes</p>
-                </div>
             </div>
         </div>
     </section>
@@ -428,131 +312,96 @@
     <!-- 3. VALIDAÇÃO DA DOR -->
     <section class="py-24 px-4 sm:px-6 bg-white relative">
         <div class="max-w-5xl mx-auto text-center">
-            <span
-                class="text-teal-600 font-bold uppercase tracking-widest text-sm mb-4 flex items-center justify-center gap-2">
+            <span class="text-teal-600 font-bold uppercase tracking-widest text-sm mb-4 flex items-center justify-center gap-2">
                 <i data-lucide="users" class="w-4 h-4"></i> Você não está sozinha
             </span>
             <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-16 leading-tight m-0">
-                Você se identifica com alguma destas <span class="text-rose-600 border-b-4 border-rose-200">batalhas
-                    diárias?</span>
+                Você se identifica com alguma destas <span class="text-rose-600 border-b-4 border-rose-200">batalhas diárias?</span>
             </h2>
 
             <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div
-                    class="bg-rose-50/50 p-8 rounded-[2rem] border border-rose-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                    <div
-                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border border-rose-50 text-rose-500">
+                <div class="bg-rose-50/50 p-8 rounded-[2rem] border border-rose-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border border-rose-50 text-rose-500">
                         <i data-lucide="anchor" class="w-8 h-8"></i>
                     </div>
                     <h3 class="text-xl font-black text-slate-800 mb-3 m-0">Pernas "de cimento"</h3>
-                    <p class="text-slate-600 leading-relaxed font-medium text-sm m-0">No final do dia, a dor é
-                        latejante. Sente um peso inexplicável que te impede de brincar com os filhos ou apenas caminhar
-                        em paz no parque.</p>
+                    <p class="text-slate-600 leading-relaxed font-medium text-sm m-0">Você acorda, coloca os pés no chão e a primeira coisa que sente é aquele peso insuportável. Suas pernas parecem que vão explodir.</p>
                 </div>
 
-                <div
-                    class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                    <div
-                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border border-slate-50 text-slate-600">
+                <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border border-slate-50 text-slate-600">
                         <i data-lucide="eye-off" class="w-8 h-8"></i>
                     </div>
                     <h3 class="text-xl font-black text-slate-800 mb-3 m-0">O Pesadelo do Espelho</h3>
-                    <p class="text-slate-600 leading-relaxed font-medium text-sm m-0">A parte de cima do corpo veste um
-                        tamanho, mas as pernas exigem calças largas e escuras. Você escolhe roupas para disfarçar, não
-                        porque gosta.</p>
+                    <p class="text-slate-600 leading-relaxed font-medium text-sm m-0">A parte de cima do corpo veste um tamanho, mas as pernas exigem calças largas e escuras. A gordura específica das pernas não sai por nada.</p>
                 </div>
 
-                <div
-                    class="bg-orange-50/50 p-8 rounded-[2rem] border border-orange-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                    <div
-                        class-="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border border-orange-50 text-orange-500">
-                        <i data-lucide="trending-down" class="w-8 h-8"></i>
+                <div class="bg-orange-50/50 p-8 rounded-[2rem] border border-orange-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform border border-orange-50 text-orange-500">
+                        <i data-lucide="mic-off" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-xl font-black text-slate-800 mb-3 m-0">"Eu faço tudo certo!"</h3>
-                    <p class="text-slate-600 leading-relaxed font-medium text-sm m-0">Já gastou fortunas em drenagens e
-                        dietas. Seu metabolismo não está quebrado, você apenas está tentando combater a inflamação com
-                        as armas erradas.</p>
+                    <h3 class="text-xl font-black text-slate-800 mb-3 m-0">Ignorada por Médicos</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium text-sm m-0">Ouvir de médicos que "é apenas gordura" ou "falta de esforço". O Lipedema exige acolhimento, não julgamento.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. ELEVAÇÃO DE CONSCIÊNCIA (Substituído listas por divs para blindar CSS externo) -->
+    <!-- 4. ELEVAÇÃO DE CONSCIÊNCIA -->
     <section class="py-24 px-4 sm:px-6 bg-slate-50 border-y border-slate-200 relative overflow-hidden">
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] bg-teal-100/40 blur-[100px] rounded-full pointer-events-none hidden md:block">
-        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] bg-teal-100/40 blur-[100px] rounded-full pointer-events-none hidden md:block"></div>
 
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center mb-16">
                 <span class="text-teal-600 font-bold uppercase tracking-widest text-sm mb-4 block">A Causa Raiz</span>
-                <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight m-0">Por que fechar a boca
-                    e suar na academia <span class="text-rose-600 border-b-4 border-rose-200">nunca funcionou para
-                        você?</span></h2>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight m-0">Por que fechar a boca e suar na academia <span class="text-rose-600 border-b-4 border-rose-200">nunca funcionou para você?</span></h2>
                 <p class="text-lg text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed m-0">
                     Compreenda a diferença fisiológica e liberte-se da culpa:
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-12 relative">
-                <div
-                    class="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-2xl border-4 border-slate-50 items-center justify-center z-20 font-black text-slate-400 text-xl">
-                    VS</div>
+                <div class="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-2xl border-4 border-slate-50 items-center justify-center z-20 font-black text-slate-400 text-xl">VS</div>
 
-                <!-- Gordura Comum (Divs em vez de LIs) -->
-                <div
-                    class="bg-white border-2 border-slate-200 p-8 md:p-10 rounded-[2.5rem] shadow-xl flex flex-col relative z-0 transition-all duration-500 hover:shadow-2xl hover:border-slate-300">
-                    <div
-                        class="w-14 h-14 bg-slate-50 rounded-full flex items-center justify-center text-slate-600 mb-8 border border-slate-200 shadow-sm">
+                <!-- Gordura Comum -->
+                <div class="bg-white border-2 border-slate-200 p-8 md:p-10 rounded-[2.5rem] shadow-xl flex flex-col relative z-0 transition-all duration-500 hover:shadow-2xl hover:border-slate-300">
+                    <div class="w-14 h-14 bg-slate-50 rounded-full flex items-center justify-center text-slate-600 mb-8 border border-slate-200 shadow-sm">
                         <i data-lucide="scale" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-2xl font-black text-slate-800 mb-6 flex items-center gap-3 tracking-tight m-0">
-                        Gordura Comum <span
-                            class="text-[10px] font-bold uppercase tracking-widest bg-slate-100 text-slate-500 px-3 py-1 rounded-full border border-slate-200">O
-                            que te dizem</span>
+                        Gordura Comum <span class="text-[10px] font-bold uppercase tracking-widest bg-slate-100 text-slate-500 px-3 py-1 rounded-full border border-slate-200">O que te dizem</span>
                     </h3>
 
                     <div class="space-y-6 text-slate-600 font-medium flex-1 text-sm sm:text-base">
                         <div class="flex gap-4 items-start">
                             <i data-lucide="minus-circle" class="w-6 h-6 mt-0.5 shrink-0 text-slate-400"></i>
-                            <p class="leading-relaxed m-0">Responde rapidamente à <strong
-                                    class="text-slate-800">restrição calórica</strong> (comer menos).</p>
+                            <p class="leading-relaxed m-0">Responde rapidamente à <strong class="text-slate-800">restrição calórica</strong> (comer menos).</p>
                         </div>
                         <div class="flex gap-4 items-start">
                             <i data-lucide="minus-circle" class="w-6 h-6 mt-0.5 shrink-0 text-slate-400"></i>
-                            <p class="leading-relaxed m-0">Diminui de forma evidente com <strong
-                                    class="text-slate-800">exercícios aeróbicos</strong> de impacto.</p>
+                            <p class="leading-relaxed m-0">Diminui de forma evidente com <strong class="text-slate-800">exercícios aeróbicos</strong> de impacto.</p>
                         </div>
                         <div class="flex gap-4 items-start">
                             <i data-lucide="minus-circle" class="w-6 h-6 mt-0.5 shrink-0 text-slate-400"></i>
-                            <p class="leading-relaxed m-0">Não causa dor aguda ao toque ou propensão a <strong
-                                    class="text-slate-800">hematomas severos</strong>.</p>
+                            <p class="leading-relaxed m-0">Não causa dor aguda ao toque ou propensão a <strong class="text-slate-800">hematomas severos</strong>.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lipedema (Divs em vez de LIs) -->
-                <div
-                    class="bg-slate-900 p-1 rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(20,184,166,0.3)] relative transform lg:-translate-y-6 z-10 group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-teal-400 via-slate-800 to-rose-500 rounded-[2.5rem] opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-                    </div>
+                <!-- Lipedema -->
+                <div class="bg-slate-900 p-1 rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(20,184,166,0.3)] relative transform lg:-translate-y-6 z-10 group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-teal-400 via-slate-800 to-rose-500 rounded-[2.5rem] opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <div class="absolute top-0 right-6 sm:right-8 -translate-y-1/2 z-30">
-                        <span
-                            class="bg-gradient-to-r from-teal-400 to-teal-500 text-slate-900 text-[10px] sm:text-xs font-black px-4 sm:px-5 py-2 rounded-full uppercase tracking-widest shadow-[0_0_20px_rgba(20,184,166,0.4)] flex items-center gap-1.5 border border-teal-200/50">
+                        <span class="bg-gradient-to-r from-teal-400 to-teal-500 text-slate-900 text-[10px] sm:text-xs font-black px-4 sm:px-5 py-2 rounded-full uppercase tracking-widest shadow-[0_0_20px_rgba(20,184,166,0.4)] flex items-center gap-1.5 border border-teal-200/50">
                             <i data-lucide="target" class="w-3 h-3"></i> Seu Caso
                         </span>
                     </div>
 
-                    <div
-                        class="bg-slate-900 relative h-full w-full rounded-[2.4rem] p-8 md:p-10 flex flex-col overflow-hidden">
-                        <div
-                            class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none hidden md:block">
-                        </div>
+                    <div class="bg-slate-900 relative h-full w-full rounded-[2.4rem] p-8 md:p-10 flex flex-col overflow-hidden">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none hidden md:block"></div>
 
-                        <div
-                            class="w-16 h-16 bg-teal-500/10 border border-teal-500/30 rounded-full flex items-center justify-center text-teal-400 mb-8 shadow-[inset_0_0_15px_rgba(20,184,166,0.2)]">
+                        <div class="w-16 h-16 bg-teal-500/10 border border-teal-500/30 rounded-full flex items-center justify-center text-teal-400 mb-8 shadow-[inset_0_0_15px_rgba(20,184,166,0.2)]">
                             <i data-lucide="activity" class="w-7 h-7"></i>
                         </div>
 
@@ -562,36 +411,98 @@
 
                         <div class="space-y-6 text-slate-300 font-medium flex-1 text-sm sm:text-base">
                             <div class="flex gap-4 items-start">
-                                <div
-                                    class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-rose-500/30">
+                                <div class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-rose-500/30">
                                     <i data-lucide="x" class="w-3 h-3 text-rose-400 font-bold"></i>
                                 </div>
-                                <p class="leading-relaxed m-0"><strong class="text-white">Resiste a dietas
-                                        agressivas.</strong> É um tecido doente que exige um protocolo de desinflamação
-                                    limpa.</p>
+                                <p class="leading-relaxed m-0"><strong class="text-white">Resiste a dietas agressivas.</strong> É um tecido doente que exige um protocolo de desinflamação limpa.</p>
                             </div>
                             <div class="flex gap-4 items-start">
-                                <div
-                                    class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-rose-500/30">
+                                <div class="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-rose-500/30">
                                     <i data-lucide="x" class="w-3 h-3 text-rose-400 font-bold"></i>
                                 </div>
-                                <p class="leading-relaxed m-0"><strong class="text-white">Piora com treinos
-                                        errados.</strong> Alto impacto aumenta a inflamação vascular, gerando mais dor.
-                                </p>
+                                <p class="leading-relaxed m-0"><strong class="text-white">Piora com treinos errados.</strong> Alto impacto aumenta a inflamação vascular, gerando mais dor.</p>
                             </div>
                             <div class="flex gap-4 items-start">
-                                <div
-                                    class="w-6 h-6 rounded-full bg-teal-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-teal-500/30 shadow-[0_0_10px_rgba(20,184,166,0.3)]">
+                                <div class="w-6 h-6 rounded-full bg-teal-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-teal-500/30 shadow-[0_0_10px_rgba(20,184,166,0.3)]">
                                     <i data-lucide="check" class="w-3 h-3 text-teal-400 font-bold"></i>
                                 </div>
-                                <p class="leading-relaxed m-0"><strong class="text-white">Exige a ferramenta
-                                        certa.</strong> Rotinas de drenagem, rastreio de hidratação e apoio
-                                    especializado para reativar seu <strong class="text-teal-400">Fluxo Vital</strong>.
-                                </p>
+                                <p class="leading-relaxed m-0"><strong class="text-white">Exige a ferramenta certa.</strong> O segredo não está em comer menos, mas em desinflamar o sistema linfático e hormonal.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.5. PARA QUEM É / MESMO QUE -->
+    <section class="py-24 px-4 sm:px-6 bg-slate-900 border-t border-slate-800 text-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight m-0">A Promessa da Nossa Clínica.</h2>
+                <p class="text-lg text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed m-0">Isso funciona para você mesmo que...</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Funciona Mesmo Que (Verde) -->
+                <div class="bg-slate-800 border border-teal-500/30 rounded-[2rem] p-8 shadow-xl relative overflow-hidden group">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-teal-500/10 rounded-full blur-3xl opacity-50 group-hover:bg-teal-500/20 transition-colors"></div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-teal-500/20 rounded-xl flex items-center justify-center text-teal-400 border border-teal-500/30">
+                            <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white m-0">Para Quem É</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-300 font-medium list-none pl-0">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-teal-400 shrink-0 mt-0.5"></i>
+                            <span>Você já tenha tentado todas as dietas e nada tenha reduzido suas pernas.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-teal-400 shrink-0 mt-0.5"></i>
+                            <span>Seu médico tenha dito que "não há o que fazer" além de cirurgia cara.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-teal-400 shrink-0 mt-0.5"></i>
+                            <span>A sua dor esteja no nível 10 e você se sinta exausta e perdida hoje.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-teal-400 shrink-0 mt-0.5"></i>
+                            <span>Você busque acolhimento emocional e não apenas instruções frias.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Para Quem Não É (Vermelho) -->
+                <div class="bg-slate-800 border border-rose-500/30 rounded-[2rem] p-8 shadow-xl relative overflow-hidden group">
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-500/10 rounded-full blur-3xl opacity-50 group-hover:bg-rose-500/20 transition-colors"></div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-rose-500/20 rounded-xl flex items-center justify-center text-rose-400 border border-rose-500/30">
+                            <i data-lucide="x-octagon" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white m-0">Para Quem NÃO É</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-300 font-medium list-none pl-0">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="x" class="w-5 h-5 text-rose-400 shrink-0 mt-0.5"></i>
+                            <span>Pessoas que buscam pílulas mágicas ou resultados sem nenhuma mudança de hábitos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="x" class="w-5 h-5 text-rose-400 shrink-0 mt-0.5"></i>
+                            <span>Quem não está disposta a dedicar 15 minutos do dia para cuidar de si mesma.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="x" class="w-5 h-5 text-rose-400 shrink-0 mt-0.5"></i>
+                            <span>Quem acredita que o Lipedema se resolve apenas com cirurgia estética (Lipoaspiração).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-teal-400 font-bold text-lg md:text-xl m-0 max-w-2xl mx-auto">
+                    Se você se identificou com a lista verde, você está pronta para deixar de ser vítima da doença e se tornar a protagonista da sua desinflamação.
+                </p>
             </div>
         </div>
     </section>
@@ -608,24 +519,14 @@
 
             <div class="bg-white border border-rose-100/50 rounded-[2rem] p-6 sm:p-14 text-left shadow-xl relative">
                 <div class="sales-letter text-slate-600 text-base sm:text-lg font-medium leading-relaxed space-y-4">
-                    <p>Olá, querida.</p>
+                    <p>Olá, guerreira.</p>
                     <p>Pare de se culpar por não conseguir emagrecer as pernas.</p>
-                    <p>Sabemos que provavelmente você já passou anos ouvindo que precisa apenas de <em>"fechar a boca e
-                            ir para a academia"</em>. Mas a parte superior do seu corpo emagrece, e as pernas continuam
-                        parecendo <span class="highlight">blocos de cimento intocáveis e dolorosos</span>.</p>
+                    <p>Sabemos que provavelmente você já passou anos ouvindo que precisa apenas de <em>"fechar a boca e ir para a academia"</em>. Mas a parte superior do seu corpo emagrece, e as pernas continuam parecendo <span class="highlight">blocos de cimento intocáveis e dolorosos</span>.</p>
                     <p>O Lipedema não é gordura comum. É um <strong>tecido inflamado</strong>.</p>
-                    <p>Enquanto continuar tentando tratá-lo com dietas de fome e treinos aeróbicos pesados, seu corpo
-                        vai entrar num estado de alerta, aumentando o inchaço e a dor vascular.</p>
-                    <p
-                        class="text-slate-900 text-xl sm:text-2xl font-black mt-8 sm:mt-10 mb-6 border-l-4 border-teal-500 pl-4">
-                        Existe um caminho mais suave.</p>
-                    <p>Imagine transformar seu celular em um <strong>Centro de Tratamento Multidisciplinar 24h</strong>.
-                        Uma clínica de bolso onde tem acesso imediato a uma Fisioterapeuta que te ensina a drenar as
-                        próprias pernas, uma Nutricionista que desvenda o que te inflama, e um Botão SOS para aqueles
-                        dias em que a dor é insuportável.</p>
-                    <p>Nós traduzimos protocolos médicos complexos em um passo a passo diário, gentil e recompensador.
-                        Chegou a hora de ativar o seu <strong class="text-teal-600">Fluxo Vital</strong> e recuperar a
-                        leveza que te foi roubada.</p>
+                    <p>Enquanto continuar tentando tratá-lo com dietas de fome e treinos aeróbicos pesados, seu corpo vai entrar num estado de alerta, aumentando o inchaço e a dor vascular.</p>
+                    <p class="text-slate-900 text-xl sm:text-2xl font-black mt-8 sm:mt-10 mb-6 border-l-4 border-teal-500 pl-4">Existe um caminho mais acolhedor.</p>
+                    <p>A maioria dos tratamentos falha porque foca apenas na cirurgia. Nosso segredo é micro-gerir sua rotina para que o corpo pare de reter líquidos e comece a responder aos estímulos certos. Não é sobre sofrer sozinha, é sobre ter um time que valida a sua dor.</p>
+                    <p>Saia do ciclo de frustração e entre para o movimento de mulheres que decidiram ser protagonistas da sua própria cura diária.</p>
                     <p class="pt-4 font-bold text-slate-800">— Equipe de Especialistas, Fluxo Vital.</p>
                 </div>
             </div>
@@ -636,15 +537,12 @@
     <section class="py-24 px-4 sm:px-6 bg-white overflow-hidden relative">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 sm:mb-20 max-w-3xl mx-auto">
-                <span
-                    class="bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 inline-block">A
-                    Solução Definitiva</span>
+                <span class="bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 inline-block">O Nosso Mecanismo</span>
                 <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight m-0">
-                    Um Time Inteiro de Especialistas <span class="text-teal-600">no seu bolso.</span>
+                    Ecossistema de Desinflamação <span class="text-teal-600">Humanizada (EDH)</span>
                 </h2>
                 <p class="text-lg text-slate-600 font-medium m-0">
-                    O Fluxo Vital não é um simples rastreador. É a primeira clínica digital que te dá acesso ilimitado a
-                    um grupo de especialistas virtuais, prontas para te guiar 24 horas por dia.
+                    Enquanto outros aplicativos são apenas rastreadores robóticos, nós somos uma rede de apoio multidisciplinar que fala a sua língua, 24 horas no seu bolso.
                 </p>
             </div>
 
@@ -652,49 +550,31 @@
 
                 <!-- MOCKUP ULTRA-REALISTA DO APLICATIVO -->
                 <div class="relative w-full aspect-[4/5] max-w-sm mx-auto flex items-center justify-center py-6">
-                    <div
-                        class="relative w-[90%] sm:w-[85%] mx-auto transition-transform duration-700 group-hover:scale-[1.02] drop-shadow-2xl">
-                        <img src="./mockup-app.png" alt="Aplicativo Fluxo Vital"
-                            class="w-full h-auto rounded-[2rem] sm:rounded-[2.5rem] object-cover" loading="lazy">
+                    <div class="relative w-[90%] sm:w-[85%] mx-auto transition-transform duration-700 group-hover:scale-[1.02] drop-shadow-2xl">
+                        <img src="./mockup-app.png" alt="Aplicativo Fluxo Vital" class="w-full h-auto rounded-[2rem] sm:rounded-[2.5rem] object-cover" loading="lazy">
                     </div>
 
-                    <div
-                        class="absolute top-10 -left-2 sm:left-0 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60">
-                        <div
-                            class="w-8 h-8 sm:w-10 sm:h-10 bg-teal-100 rounded-lg sm:rounded-xl flex items-center justify-center text-teal-600 shadow-sm">
-                            <i data-lucide="users" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                        </div>
+                    <div class="absolute top-10 -left-2 sm:left-0 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-teal-100 rounded-lg sm:rounded-xl flex items-center justify-center text-teal-600 shadow-sm"><i data-lucide="users" class="w-4 h-4 sm:w-5 sm:h-5"></i></div>
                         <div>
-                            <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">Time Completo</p>
-                            <p class="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase m-0">Apoio Acolhedor
-                            </p>
+                            <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">13 Especialistas</p>
+                            <p class="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase m-0">Apoio Acolhedor</p>
                         </div>
                     </div>
 
-                    <div class="absolute top-1/2 -right-4 sm:-right-6 -translate-y-1/2 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60"
-                        style="animation-delay: 1s;">
-                        <div
-                            class="w-8 h-8 sm:w-10 sm:h-10 bg-rose-50 rounded-lg sm:rounded-xl flex items-center justify-center text-rose-500 shadow-sm border border-rose-100">
-                            <i data-lucide="activity" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                        </div>
+                    <div class="absolute top-1/2 -right-4 sm:-right-6 -translate-y-1/2 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60" style="animation-delay: 1s;">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-rose-50 rounded-lg sm:rounded-xl flex items-center justify-center text-rose-500 shadow-sm border border-rose-100"><i data-lucide="activity" class="w-4 h-4 sm:w-5 sm:h-5"></i></div>
                         <div>
                             <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">SOS Dor</p>
-                            <p class="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase m-0">Protocolo de
-                                Alívio
-                            </p>
+                            <p class="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase m-0">Protocolo Imediato</p>
                         </div>
                     </div>
 
-                    <div class="absolute bottom-16 -left-4 sm:-left-8 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60"
-                        style="animation-delay: 2.5s;">
-                        <div
-                            class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-50 rounded-lg sm:rounded-xl flex items-center justify-center text-blue-500 shadow-sm border border-blue-100">
-                            <i data-lucide="file-text" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                        </div>
+                    <div class="absolute bottom-16 -left-4 sm:-left-8 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60" style="animation-delay: 2.5s;">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-50 rounded-lg sm:rounded-xl flex items-center justify-center text-blue-500 shadow-sm border border-blue-100"><i data-lucide="ruler" class="w-4 h-4 sm:w-5 sm:h-5"></i></div>
                         <div>
-                            <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">Relatório Clínico</p>
-                            <p class="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase m-0">Evolução do Caso
-                            </p>
+                            <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">Evolução</p>
+                            <p class="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase m-0">Diário e Medidas</p>
                         </div>
                     </div>
                 </div>
@@ -702,47 +582,43 @@
                 <!-- Benefícios Ouro Descritivos -->
                 <div class="space-y-8 sm:space-y-10">
                     <div class="flex gap-4 sm:gap-5 items-start">
-                        <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-teal-600 flex items-center justify-center shrink-0 border border-slate-100">
-                            <i data-lucide="message-square" class="w-6 h-6 sm:w-7 sm:h-7"></i>
-                        </div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-teal-600 flex items-center justify-center shrink-0 border border-slate-100"><i data-lucide="message-square" class="w-6 h-6 sm:w-7 sm:h-7"></i></div>
                         <div>
-                            <h3 class="text-lg sm:text-xl font-black text-slate-800 mb-2 m-0">Suporte Acolhedor 24h</h3>
-                            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium m-0">Nossas
-                                especialistas virtuais respondem suas dúvidas na hora. Seja para saber se o seu prato
-                                vai inflamar, qual exercício fazer hoje ou se apenas precisa de um ombro amigo para
-                                desabafar.</p>
+                            <h3 class="text-lg sm:text-xl font-black text-slate-800 mb-2 m-0">Time de Especialistas Fluxo Vital</h3>
+                            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium m-0">Acesso direto a guias virtuais humanizadas (Nutri, Personal, Coach) que respondem suas dúvidas com empatia e sem "robotês".</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 sm:gap-5 items-start">
-                        <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-rose-500 flex items-center justify-center shrink-0 border border-slate-100">
-                            <i data-lucide="activity" class="w-6 h-6 sm:w-7 sm:h-7"></i>
-                        </div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-rose-500 flex items-center justify-center shrink-0 border border-slate-100"><i data-lucide="activity" class="w-6 h-6 sm:w-7 sm:h-7"></i></div>
                         <div>
-                            <h3 class="text-lg sm:text-xl font-black text-slate-800 mb-2 m-0">Protocolos de Alívio (SOS
-                                Dor)</h3>
-                            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium m-0">Chegou em
-                                casa com as pernas latejando? Nosso avaliador clínico pede sua nota de dor de 1 a 10 e
-                                gera um protocolo mecânico imediato (drenagem, posição) para te aliviar agora mesmo.</p>
+                            <h3 class="text-lg sm:text-xl font-black text-slate-800 mb-2 m-0">SOS Alívio de Crises</h3>
+                            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium m-0">Escala de dor de 1 a 10 que gera ações imediatas (drenagem, elevação, compressas) para acabar com o desconforto na hora.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-4 sm:gap-5 items-start">
-                        <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-blue-500 flex items-center justify-center shrink-0 border border-slate-100">
-                            <i data-lucide="file-text" class="w-6 h-6 sm:w-7 sm:h-7"></i>
-                        </div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-amber-500 flex items-center justify-center shrink-0 border border-slate-100"><i data-lucide="check-square" class="w-6 h-6 sm:w-7 sm:h-7"></i></div>
                         <div>
-                            <h3 class="text-lg sm:text-xl font-black text-slate-800 mb-2 m-0">Relatórios Clínicos e
-                                Checklists</h3>
-                            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium m-0">A constância
-                                vence a intensidade. Registre sua hidratação e medidas facilmente. O sistema gera um PDF
-                                clínico do seu progresso, perfeito para levar na sua próxima consulta médica.</p>
+                            <h3 class="text-lg sm:text-xl font-black text-slate-800 mb-2 m-0">Checklist Anti-inflamatório</h3>
+                            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium m-0">Metas diárias fáceis para zerar gatilhos, focando no que realmente desinflama o Lipedema, acompanhado do Diário de Medidas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 sm:gap-5 items-start">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-blue-500 flex items-center justify-center shrink-0 border border-slate-100"><i data-lucide="users" class="w-6 h-6 sm:w-7 sm:h-7"></i></div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-slate-800 mb-2 m-0">Espaço Seguro da Comunidade</h3>
+                            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-medium m-0">Fórum em tempo real para trocar experiências e receber apoio incondicional de outras guerreiras que vivem a mesma realidade.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="text-center mt-16 max-w-2xl mx-auto">
+                <p class="text-slate-800 font-bold text-lg md:text-xl m-0 border-t border-slate-200 pt-8">
+                    Ao final de cada dia, você terá a certeza de que fez o melhor pelas suas pernas, com o suporte de quem realmente entende a doença.
+                </p>
             </div>
         </div>
     </section>
@@ -751,14 +627,11 @@
     <section class="py-24 px-4 sm:px-6 bg-slate-100 overflow-hidden border-t border-slate-200">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <span
-                    class="text-rose-500 font-bold uppercase tracking-widest text-sm mb-4 flex items-center justify-center gap-2"><i
-                        data-lucide="heart" class="w-4 h-4 fill-rose-500"></i> Elas já não sentem dor</span>
+                <span class="text-rose-500 font-bold uppercase tracking-widest text-sm mb-4 flex items-center justify-center gap-2"><i data-lucide="heart" class="w-4 h-4 fill-rose-500"></i> Elas já não sentem dor</span>
                 <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4 leading-tight m-0">
                     Histórias reais de quem assumiu<br />o controle.
                 </h2>
-                <p class="text-lg text-slate-600 font-medium m-0">Você não será a primeira a conseguir. Junte-se a elas.
-                </p>
+                <p class="text-lg text-slate-600 font-medium m-0">Você deixa de ser uma refém do inchaço para se tornar protagonista.</p>
             </div>
 
             <!-- GALERIA DE VÍDEOS DE DEPOIMENTOS -->
@@ -769,43 +642,27 @@
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mx-auto max-w-full">
-                    <div
-                        class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
-                        <iframe src="https://play.tynk.ai/p/db9079de-a4f7-4ba8-bcb3-dd35463829e9"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
-                            loading="lazy"></iframe>
-                        <div
-                            class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
+                    <div class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
+                        <iframe src="https://play.tynk.ai/p/db9079de-a4f7-4ba8-bcb3-dd35463829e9" class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="video" class="w-3 h-3 text-teal-400"></i> Depoimento
                         </div>
                     </div>
-                    <div
-                        class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
-                        <iframe src="https://play.tynk.ai/p/7617ca53-11ef-4e3d-a476-2d4403f2b660"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
-                            loading="lazy"></iframe>
-                        <div
-                            class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
+                    <div class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
+                        <iframe src="https://play.tynk.ai/p/7617ca53-11ef-4e3d-a476-2d4403f2b660" class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="video" class="w-3 h-3 text-teal-400"></i> Fim da Dor
                         </div>
                     </div>
-                    <div
-                        class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
-                        <iframe src="https://play.tynk.ai/p/192bcd70-dec3-4129-ae38-244abfa1d404"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
-                            loading="lazy"></iframe>
-                        <div
-                            class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
+                    <div class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
+                        <iframe src="https://play.tynk.ai/p/192bcd70-dec3-4129-ae38-244abfa1d404" class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="trending-down" class="w-3 h-3 text-teal-400"></i> Resultados
                         </div>
                     </div>
-                    <div
-                        class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
-                        <iframe src="https://play.tynk.ai/p/8427f457-feef-4b8b-87cf-ccdb206c6a71"
-                            class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen
-                            loading="lazy"></iframe>
-                        <div
-                            class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
+                    <div class="relative aspect-[9/16] bg-slate-900 rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
+                        <iframe src="https://play.tynk.ai/p/8427f457-feef-4b8b-87cf-ccdb206c6a71" class="w-full h-full border-none" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 sm:top-4 left-2 sm:left-4 bg-black/80 md:bg-black/60 md:backdrop-blur-md px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-white text-[9px] sm:text-[10px] font-bold pointer-events-none flex items-center gap-1.5">
                             <i data-lucide="check-circle" class="w-3 h-3 text-teal-400"></i> Alívio
                         </div>
                     </div>
@@ -825,12 +682,12 @@
                     <div class="flex text-amber-400 mb-3">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"Eu achava que já tinha passado da idade de sentir minhas pernas leves. A Nutricionista e a Fisio do app me ensinaram rotinas noturnas que desincharam meus tornozelos em 14 dias. Voltei a usar saia depois de 5 anos escondendo as pernas!"</p>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"Pela primeira vez em anos, alguém não me disse que eu estava gorda por desleixo. O acolhimento da Coach Emocional me salvou."</p>
                     <div class="flex items-center gap-3 border-t border-slate-100 pt-4 mt-auto">
-                        <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center font-bold text-teal-700 shrink-0">A</div>
+                        <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center font-bold text-teal-700 shrink-0">C</div>
                         <div>
-                            <p class="font-bold text-slate-900 text-sm m-0">Ana Lúcia, 45 anos</p>
-                            <p class="text-[10px] text-slate-500 uppercase m-0">5 meses usando o App</p>
+                            <p class="font-bold text-slate-900 text-sm m-0">Cláudia M.</p>
+                            <p class="text-[10px] text-slate-500 uppercase m-0">Lipedema Grau 2</p>
                         </div>
                     </div>
                 </div>
@@ -847,12 +704,12 @@
                     <div class="flex text-amber-400 mb-3">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"O botão SOS salvou minha sanidade mental. Nos dias de estresse em que a dor parecia rasgar minhas pernas no sofá, o protocolo de 15 minutos me deu um alívio que anti-inflamatórios pesados não davam."</p>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"O botão SOS Dor é meu melhor amigo. Quando chego do trabalho com as pernas pulsando, ele me guia no que fazer e a dor passa em minutos."</p>
                     <div class="flex items-center gap-3 border-t border-slate-100 pt-4 mt-auto">
-                        <div class="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center font-bold text-rose-700 shrink-0">C</div>
+                        <div class="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center font-bold text-rose-700 shrink-0">B</div>
                         <div>
-                            <p class="font-bold text-slate-900 text-sm m-0">Carmen T., 52 anos</p>
-                            <p class="text-[10px] text-slate-500 uppercase m-0">Lipedema Grau 2</p>
+                            <p class="font-bold text-slate-900 text-sm m-0">Beatriz R., 34 anos</p>
+                            <p class="text-[10px] text-slate-500 uppercase m-0">Diagnóstico recente</p>
                         </div>
                     </div>
                 </div>
@@ -869,22 +726,19 @@
                     <div class="flex text-amber-400 mb-3">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"As ferramentas de rastreio me mostraram que perdi 4cm de coxa num único mês marcando hidratação e medidas. Fui experimentar uma calça jeans antiga hoje de manhã e chorei ao ver que fechou sem dor."</p>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"O app tirou o peso de ter que pensar em tudo sozinha. As especialistas me dão a direção (do que comer a como me mover) e eu só sigo. É libertador!"</p>
                     <div class="flex items-center gap-3 border-t border-slate-100 pt-4 mt-auto">
-                        <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center font-bold text-amber-700 shrink-0">J</div>
+                        <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center font-bold text-amber-700 shrink-0">R</div>
                         <div>
-                            <p class="font-bold text-slate-900 text-sm m-0">Juliana B., 38 anos</p>
-                            <p class="text-[10px] text-slate-500 uppercase m-0">2 meses usando o App</p>
+                            <p class="font-bold text-slate-900 text-sm m-0">Renata S.</p>
+                            <p class="text-[10px] text-slate-500 uppercase m-0">Mãe e Profissional</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- WhatsApp Simulation -->
-            <div
-                class="max-w-md mx-auto rounded-[2.5rem] shadow-2xl overflow-hidden transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 bg-[#e5ddd5] wpp-bg flex flex-col font-[Arial,Helvetica,sans-serif] border-[6px] border-slate-900 h-[600px] relative">
-                
-                <!-- Status/Notch (Optional realism detail for phone frame) -->
+            <div class="max-w-md mx-auto rounded-[2.5rem] shadow-2xl overflow-hidden transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 bg-[#e5ddd5] wpp-bg flex flex-col font-[Arial,Helvetica,sans-serif] border-[6px] border-slate-900 h-[600px] relative">
                 <div class="h-6 bg-slate-900 w-full flex justify-between items-center px-4 shrink-0 text-white text-[10px]">
                     <span class="font-bold">14:51</span>
                     <div class="flex items-center gap-1.5 opacity-90">
@@ -894,9 +748,7 @@
                     </div>
                 </div>
 
-                <!-- WA Header -->
-                <div
-                    class="bg-[#075e54] flex items-center px-3 py-2 text-white shrink-0 shadow-sm z-10 w-full cursor-pointer">
+                <div class="bg-[#075e54] flex items-center px-3 py-2 text-white shrink-0 shadow-sm z-10 w-full cursor-pointer">
                     <div class="flex items-center gap-1 shrink-0">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
                         <img src="https://i.pravatar.cc/100?img=1" class="w-9 h-9 object-cover rounded-full border border-white/20" alt="Aluna">
@@ -905,21 +757,13 @@
                         <span class="font-bold text-[15px] leading-tight m-0">Marina (Aluna Premium)</span>
                         <span class="text-xs text-white/80 m-0">online</span>
                     </div>
-                    <div class="flex items-center gap-4 shrink-0 px-2 opacity-90">
-                        <i data-lucide="video" class="w-5 h-5 fill-current"></i>
-                        <i data-lucide="phone" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="more-vertical" class="w-5 h-5"></i>
-                    </div>
                 </div>
 
-                <!-- WA Chat Body -->
                 <div class="flex-1 overflow-y-auto px-4 pt-4 pb-20 space-y-3 hide-scroll">
-                    <!-- Date badge -->
                     <div class="flex justify-center mb-6">
                         <span class="bg-[#e1f3fb] text-[#54656f] text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-sm">ONTEM</span>
                     </div>
 
-                    <!-- Message Received 1 -->
                     <div class="flex w-full mt-2">
                         <div class="bg-white p-2 px-3 rounded-lg rounded-tl-none shadow-sm relative max-w-[85%] wa-message-received">
                             <p class="text-[14px] leading-snug text-[#111b21] m-0">Boa tarde! Só queria compartilhar que pela primeira vez em ANOS acordei sem sentir que minhas pernas pesavam uma tonelada 😭</p>
@@ -927,7 +771,6 @@
                         </div>
                     </div>
 
-                    <!-- Message Received 2 -->
                     <div class="flex w-full !mt-1">
                         <div class="bg-white p-2 px-3 rounded-lg shadow-sm relative max-w-[85%]">
                             <p class="text-[14px] leading-snug text-[#111b21] m-0">Fiz o protocolo SOS que a Fisioterapeuta do app sugeriu e minhas calças hoje entraram sem esforço. A inflamação baixou muito!</p>
@@ -935,7 +778,6 @@
                         </div>
                     </div>
 
-                    <!-- Message Sent 1 -->
                     <div class="flex justify-end w-full mt-4">
                         <div class="bg-[#dcf8c6] p-2 px-3 rounded-lg rounded-tr-none shadow-sm relative max-w-[85%] wa-message-sent">
                             <p class="text-[14px] leading-snug text-[#111b21] m-0">Que emoção ler isso, Marina! O mérito é todo seu por manter a consistência com o app. Continue registrando as medidas, você vai se orgulhar muito daqui a um mês! ❤️💪</p>
@@ -945,337 +787,137 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- WA Input Bar -->
-                <div class="bg-[#f0f2f5] px-2 py-2.5 flex items-center gap-2 shrink-0 border-t border-slate-300/50 absolute bottom-0 left-0 w-full z-10">
-                    <i data-lucide="smile" class="w-6 h-6 text-[#54656f] shrink-0 ml-1"></i>
-                    <div class="flex-1 bg-white rounded-full px-4 py-2 text-[15px] text-[#8696a0] shadow-sm flex items-center">
-                        Mensagem
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-[#00a884] shadow-sm flex items-center justify-center shrink-0 ml-1">
-                        <i data-lucide="mic" class="w-5 h-5 text-white fill-current"></i>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- 8. OFERTA PREMIUM -->
     <section id="oferta" class="py-24 px-4 sm:px-6 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-full h-1.5 bg-gradient-to-r from-teal-400 via-emerald-400 to-teal-400">
-        </div>
-        <div
-            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-teal-500/10 rounded-full blur-[150px] pointer-events-none hidden md:block">
-        </div>
+        <div class="absolute top-0 right-0 w-full h-1.5 bg-gradient-to-r from-teal-400 via-emerald-400 to-teal-400"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-teal-500/10 rounded-full blur-[150px] pointer-events-none hidden md:block"></div>
 
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center mb-16 max-w-3xl mx-auto">
-                <span
-                    class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-slate-800 text-teal-400 text-xs font-bold mb-6 uppercase tracking-widest border border-slate-700">Sua
-                    Decisão</span>
-                <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight m-0">Escolha como quer começar sua <span
-                        class="text-teal-400">desinflamação.</span></h2>
-                <p class="text-lg text-slate-400 font-medium leading-relaxed m-0">Uma única sessão de drenagem linfática
-                    custa, em média, R$ 200. Com a nossa clínica de bolso, você tem orientação contínua o mês inteiro
-                    por um valor incrivelmente menor.</p>
+                <span class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-slate-800 text-teal-400 text-xs font-bold mb-6 uppercase tracking-widest border border-slate-700">Preço promocional de lançamento</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight m-0">Escolha como quer começar sua <span class="text-teal-400">desinflamação.</span></h2>
+                <p class="text-lg text-slate-400 font-medium leading-relaxed m-0">Isso custa menos que uma única sessão de drenagem linfática manual, mas te dá suporte o mês inteiro. Você investe menos de R$ 1,25 por dia para ter uma clínica inteira no seu bolso.</p>
             </div>
 
-            <!-- BÔNUS STACKING -->
-            <div
-                class="max-w-3xl mx-auto bg-slate-800 border border-slate-700 rounded-[2rem] p-6 md:p-8 mb-16 relative shadow-2xl overflow-hidden">
-                <div
-                    class="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-widest shadow-md flex items-center gap-1">
-                    <i data-lucide="clock" class="w-3 h-3"></i> Condição Especial
+            <!-- BÔNUS STACKING ATUALIZADO -->
+            <div class="max-w-4xl mx-auto bg-slate-800 border border-slate-700 rounded-[2rem] p-6 md:p-8 mb-16 relative shadow-2xl overflow-hidden">
+                <div class="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-widest shadow-md flex items-center gap-1">
+                    <i data-lucide="clock" class="w-3 h-3"></i> Bônus de Ação Rápida
                 </div>
-                <h4 class="text-2xl font-black text-white mb-2 flex items-center gap-3 m-0"><i data-lucide="gift"
-                        class="w-8 h-8 text-rose-500"></i> Bônus de Ação Rápida:</h4>
-                <p class="text-slate-400 text-sm mb-8 font-medium m-0 mt-2">Devido à necessidade de garantir um suporte
-                    acolhedor, estes bônus estão disponíveis apenas enquanto houver vagas na Comunidade Exclusiva.</p>
-
+                <h4 class="text-2xl font-black text-white mb-8 flex items-center gap-3 m-0"><i data-lucide="gift" class="w-8 h-8 text-rose-500"></i> Desbloqueio Imediato:</h4>
+                
                 <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                    <div
-                        class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
-                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="users"
-                                class="w-5 h-5"></i> Comunidade Exclusiva</p>
-                        <p class="text-sm text-slate-400 m-0">Acesso ao grupo de apoio exclusivo no app. <br /><span
-                                class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$
-                                197,00)</span></p>
+                    <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
+                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="scan-barcode" class="w-5 h-5"></i> Guia de Rótulos Inteligente</p>
+                        <p class="text-sm text-slate-400 m-0">Remove a confusão no supermercado. Saiba quais alimentos escondem componentes que inflamam suas pernas.<br /><span class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$ 47,00)</span></p>
                     </div>
-                    <div
-                        class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
-                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="file-text"
-                                class="w-5 h-5"></i> Relatórios Inteligentes</p>
-                        <p class="text-sm text-slate-400 m-0">Geração de PDFs clínicos da sua evolução diária.
-                            <br /><span class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$
-                                97,00)</span>
-                        </p>
+                    <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
+                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="shirt" class="w-5 h-5"></i> Consultoria de Estilo e Conforto</p>
+                        <p class="text-sm text-slate-400 m-0">Aprenda a escolher roupas que não comprimem seus linfonodos e valorizam seu corpo real.<br /><span class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$ 97,00)</span></p>
                     </div>
-                    <div
-                        class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
-                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="book-open"
-                                class="w-5 h-5"></i> E-book Desinflamação Express</p>
-                        <p class="text-sm text-slate-400 m-0">O método completo de acompanhamento e listas. <br /><span
-                                class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$
-                                19,90)</span></p>
+                    <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
+                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="book-open" class="w-5 h-5"></i> Pote da Gratidão Digital</p>
+                        <p class="text-sm text-slate-400 m-0">Combate o cortisol. Ferramenta guiada pela Coach para baixar a carga de estresse diária.<br /><span class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$ 37,00)</span></p>
                     </div>
-                    <div
-                        class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
-                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="chef-hat"
-                                class="w-5 h-5"></i> 10 Receitas Rápidas</p>
-                        <p class="text-sm text-slate-400 m-0">Cardápios simples e anti-inflamatórios para o dia a dia.
-                            <br /><span class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$
-                                47,00)</span>
-                        </p>
+                    <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors">
+                        <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="users" class="w-5 h-5"></i> Comunidade de Guerreiras Fluxo Vital</p>
+                        <p class="text-sm text-slate-400 m-0">Acesso ilimitado ao grupo de apoio exclusivo direto no aplicativo.<br /><span class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$ 197,00)</span></p>
                     </div>
-                </div>
-                <!-- Bônus Destaque que ocupa as duas colunas inteiras -->
-                <div
-                    class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700 hover:border-teal-500/30 transition-colors mb-6">
-                    <p class="font-bold text-teal-400 flex items-center gap-2 mb-1 m-0"><i data-lucide="moon"
-                            class="w-5 h-5"></i> Guia de Posicionamento para Dormir sem Dor</p>
-                    <p class="text-sm text-slate-400 m-0">Acorde sem as pernas pesando uma tonelada usando técnicas
-                        posturais corretas. <br /><span
-                            class="text-xs opacity-70 mt-1 block font-bold text-slate-500">(Valor: R$ 27,00)</span></p>
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center justify-between border-t border-slate-700 pt-6 mt-4">
-                    <p class="text-slate-400 font-medium m-0">Valor total dos bônus: <span
-                            class="line-through text-slate-500 ml-1">R$ 387,90</span></p>
-                    <p
-                        class="text-2xl font-black text-teal-400 bg-teal-900/40 px-4 py-2 rounded-xl mt-4 md:mt-0 border border-teal-500/20 flex items-center gap-2 m-0">
-                        R$ 0,00 <span
-                            class="text-xs text-white bg-rose-600 px-2 py-0.5 rounded-full uppercase tracking-wider font-bold">Hoje</span>
+                    <p class="text-slate-400 font-medium m-0">Valor total dos bônus: <span class="line-through text-slate-500 ml-1">R$ 378,00</span></p>
+                    <p class="text-2xl font-black text-teal-400 bg-teal-900/40 px-4 py-2 rounded-xl mt-4 md:mt-0 border border-teal-500/20 flex items-center gap-2 m-0">
+                        R$ 0,00 <span class="text-xs text-white bg-rose-600 px-2 py-0.5 rounded-full uppercase tracking-wider font-bold">Inclusos Hoje</span>
                     </p>
                 </div>
             </div>
 
-        </div>
+            <!-- Tabela de Preços -->
+            <div class="max-w-5xl mx-auto relative z-10">
+                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
 
-        <!-- 7.5. NOVO: BOTÃO SOS DOR (Gatilho de Ansiedade) -->
-        <div class="max-w-4xl mx-auto mt-24 mb-16 relative z-10">
-            <div
-                class="bg-slate-900 border border-slate-700 rounded-[2.5rem] p-8 sm:p-12 overflow-hidden relative shadow-2xl">
-                <!-- Fundo de alerta -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-rose-600/10 rounded-full blur-[80px] -z-0"></div>
+                    <!-- Plano 1: Mensal -->
+                    <div class="bg-gradient-to-b from-emerald-400 to-teal-700 rounded-[2.5rem] p-1 shadow-[0_0_40px_rgba(16,185,129,0.3)] transform hover:scale-[1.05] transition-transform duration-300 relative z-20 md:-my-4">
+                        <div class="bg-slate-900 rounded-[2.4rem] p-6 sm:p-8 md:p-10 h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-emerald-500 text-slate-900 font-black text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1.5 sm:px-6 sm:py-2 rounded-bl-3xl shadow-md border-b border-l border-emerald-600">
+                                Início Imediato
+                            </div>
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 mb-6 border border-emerald-500/30 shadow-inner">
+                                <i data-lucide="calendar" class="w-6 h-6 sm:w-7 sm:h-7"></i>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-black mb-2 text-white leading-tight m-0">Acesso <span class="text-teal-400">Mensal</span></h3>
+                            <p class="text-sm text-slate-400 mb-6 font-medium leading-relaxed m-0">Para quem quer conhecer o método e dar os primeiros passos na desinflamação diária.</p>
+                            
+                            <div class="mb-6 pb-6 border-b border-slate-700/50 relative">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-base sm:text-lg font-bold text-slate-500 line-through">De R$ 197,00</span>
+                                </div>
+                                <span class="text-4xl sm:text-5xl font-black text-white tracking-tighter block m-0">R$ 37,00</span>
+                                <span class="text-[10px] sm:text-xs text-slate-500 block uppercase tracking-widest mt-2 font-bold m-0">Por mês • Renova todo mês</span>
+                            </div>
 
-                <div class="flex flex-col md:flex-row items-center gap-10 sm:gap-14 relative z-10">
-                    <div class="flex-1 text-center md:text-left">
-                        <div
-                            class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold mb-6 border border-rose-500/30 uppercase tracking-widest">
-                            <i data-lucide="activity" class="w-4 h-4 animate-pulse"></i> SOS Ansiedade e Dor
+                            <div class="mt-auto space-y-4">
+                                <a href="https://lastlink.com/p/C98F2075B/checkout-payment/" onclick="trackCheckoutEvent('Lipedema App Premium - Mensal', 37.00)" target="_blank" rel="noopener noreferrer" class="pulse-btn flex items-center justify-center gap-2 w-full bg-emerald-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 rounded-[1.5rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_40px_rgba(16,185,129,0.4)] no-underline">
+                                    Quero Assinar Mensal <i data-lucide="arrow-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                                </a>
+                            </div>
                         </div>
+                    </div>
 
-                        <h3 class="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
-                            Em crise de dor? <span class="text-rose-500">Aperte o botão SOS.</span>
-                        </h3>
+                    <!-- Plano 2: Trimestral (DESTAQUE) -->
+                    <div class="bg-gradient-to-b from-teal-400 to-teal-700 rounded-[2.5rem] p-1 shadow-[0_0_40px_rgba(20,184,166,0.3)] transform hover:scale-[1.05] transition-transform duration-300 relative z-20 md:-my-4">
+                        <div class="bg-slate-900 rounded-[2.4rem] p-6 sm:p-8 md:p-10 h-full flex flex-col relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-teal-500 text-slate-900 font-black text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1.5 sm:px-6 sm:py-2 rounded-bl-3xl shadow-md">
+                                Recomendado: Resultado Profundo
+                            </div>
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-teal-500/20 rounded-2xl flex items-center justify-center text-teal-400 mb-6 border border-teal-500/30 shadow-inner">
+                                <i data-lucide="crown" class="w-7 h-7 sm:w-8 sm:h-8 fill-current"></i>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-black mb-2 text-white leading-tight m-0">Fluxo Vital <span class="text-teal-400">Trimestral</span></h3>
+                            <p class="text-sm text-slate-300 mb-8 font-medium leading-relaxed m-0">O compromisso de 12 semanas exato que o seu corpo precisa para reduzir a fibrose e desinchar de verdade.</p>
 
-                        <p class="text-slate-300 font-medium text-base sm:text-lg leading-relaxed mb-6">
-                            Sabermos que a ansiedade ataca forte quando as pernas pesam e os joelhos queimam. Dentro da
-                            sua Clínica Digital, você tem um medidor de dor (Escala 1 a 10).
+                            <div class="mb-8 pb-8 border-b border-slate-700 relative">
+                                <div class="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow-[0_0_15px_rgba(225,29,72,0.5)] animate-pulse">
+                                    Mais Barato • Economize 20%
+                                </div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-base sm:text-lg font-bold text-slate-500 line-through">De R$ 497,00</span>
+                                </div>
+                                <span class="text-5xl sm:text-6xl font-black text-teal-400 tracking-tighter block m-0">R$ 97,00</span>
+                                <span class="text-[10px] sm:text-xs text-slate-400 block uppercase tracking-widest mt-2 font-bold m-0">Por 3 Meses • Acesso Fluxo Vital Imediato</span>
+                                <span class="text-sm font-bold text-amber-400 bg-amber-900/30 px-3 py-1.5 rounded-lg border border-amber-500/20 mt-4 inline-block">3x de R$ 32,33 — Menos que um Uber.</span>
+                            </div>
+
+                            <div class="mt-auto space-y-4">
+                                <a href="https://lastlink.com/p/C319C815B/checkout-payment/" onclick="trackCheckoutEvent('Lipedema App Premium - Trimestral', 97.00)" target="_blank" rel="noopener noreferrer" class="pulse-btn flex items-center justify-center gap-2 w-full bg-teal-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 rounded-[1.5rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_40px_rgba(20,184,166,0.4)] no-underline">
+                                    Quero o Plano Trimestral Fluxo Vital <i data-lucide="arrow-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 max-w-2xl mx-auto bg-slate-800 border border-slate-700 rounded-[2rem] p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 relative z-10 shadow-2xl">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 bg-teal-500/20 rounded-full flex items-center justify-center shrink-0 border border-teal-500/50">
+                        <i data-lucide="shield-check" class="w-10 h-10 sm:w-12 sm:h-12 text-teal-400"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h4 class="text-lg sm:text-xl font-black text-white mb-2 m-0">Garantia Blindada de 7 Dias</h4>
+                        <p class="text-sm text-slate-400 font-medium leading-relaxed m-0">
+                            Se em 7 dias você não sentir suas pernas mais leves ou não se sentir acolhida por nossa equipe, devolvemos cada centavo do seu investimento. Meu compromisso é que você nunca mais se sinta sozinha nessa batalha.
                         </p>
-
-                        <div
-                            class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 sm:p-5 text-left mb-6 relative">
-                            <div
-                                class="absolute -left-3 -top-3 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center border-4 border-slate-900 shadow-sm text-white font-black text-sm">
-                                IA</div>
-                            <p class="text-sm text-slate-300 font-medium m-0 pl-2">
-                                Ao indicar um pico de dor (nível crítico 8+), a nossa inteligência artificial libera
-                                instantaneamente um <strong class="text-white">protocolo imediato de alívio</strong> e
-                                fluxos respiratórios para estancar o seu sofrimento em minutos.
-                            </p>
-                        </div>
-
-                        <p
-                            class="text-teal-400 font-bold text-sm uppercase tracking-widest m-0 flex items-center justify-center md:justify-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-5 h-5"></i> Você nunca mais vai sofrer sozinha.
-                        </p>
                     </div>
-
-                    <!-- Representação visual do Botão SOS -->
-                    <div class="shrink-0 w-full sm:w-auto relative group">
-                        <div
-                            class="w-48 h-48 sm:w-56 sm:h-56 bg-rose-600 rounded-full flex flex-col items-center justify-center border-8 border-rose-900/50 shadow-[0_0_50px_rgba(225,29,72,0.4)] relative cursor-pointer transform transition-transform group-hover:scale-105 active:scale-95 mx-auto">
-                            <div
-                                class="absolute inset-0 bg-rose-500 rounded-full animate-ping opacity-20 hidden md:block group-hover:opacity-40">
-                            </div>
-                            <i data-lucide="radio" class="w-16 h-16 sm:w-20 sm:h-20 text-white mb-2"></i>
-                            <span
-                                class="text-white font-black text-2xl sm:text-3xl tracking-tighter shadow-sm">SOS</span>
-                            <span class="text-rose-200 text-xs font-bold uppercase tracking-widest mt-1">Dor
-                                Crítica</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tabela de Preços -->
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
-
-                <!-- Plano 1: Mensal (Esquerda) -->
-                <div
-                    class="bg-gradient-to-b from-emerald-400 to-teal-700 rounded-[2.5rem] p-1 shadow-[0_0_40px_rgba(16,185,129,0.3)] transform hover:scale-[1.05] transition-transform duration-300 relative z-20 md:-my-4">
-                    <div
-                        class="bg-slate-900 rounded-[2.4rem] p-6 sm:p-8 md:p-10 h-full flex flex-col relative overflow-hidden">
-
-                        <div
-                            class="absolute top-0 right-0 bg-emerald-500 text-slate-900 font-black text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1.5 sm:px-6 sm:py-2 rounded-bl-3xl shadow-md border-b border-l border-emerald-600">
-                            Início Imediato
-                        </div>
-
-                        <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 mb-6 border border-emerald-500/30 shadow-inner">
-                            <i data-lucide="calendar" class="w-6 h-6 sm:w-7 sm:h-7"></i>
-                        </div>
-
-                        <h3 class="text-xl sm:text-2xl font-black mb-2 text-white leading-tight m-0">Acesso <span
-                                class="text-teal-400">Mensal</span></h3>
-                        <p class="text-sm text-slate-400 mb-6 font-medium leading-relaxed m-0">Para quem quer conhecer o
-                            método e dar os primeiros passos na desinflamação diária.</p>
-
-                        <div class="mb-6 pb-6 border-b border-slate-700/50 relative">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-base sm:text-lg font-bold text-slate-500 line-through">De R$
-                                    197,00</span>
-                            </div>
-                            <span class="text-4xl sm:text-5xl font-black text-white tracking-tighter block m-0">R$
-                                37,00</span>
-                            <span
-                                class="text-[10px] sm:text-xs text-slate-500 block uppercase tracking-widest mt-2 font-bold m-0">Por
-                                mês • Renova todo mês</span>
-                        </div>
-
-                        <div class="space-y-3 text-sm text-slate-300 mb-8 font-medium">
-                            <div class="flex gap-3 items-start"><i data-lucide="check"
-                                    class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i><span
-                                    class="m-0 text-white">Time
-                                    de
-                                    Especialistas 24h</span></div>
-                            <div class="flex gap-3 items-start"><i data-lucide="activity"
-                                    class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i><span class="m-0">Protocolos
-                                    Ilimitados SOS Dor</span></div>
-                            <div class="flex gap-3 items-start"><i data-lucide="check"
-                                    class="w-4 h-4 text-teal-500 shrink-0 mt-0.5"></i><span class="m-0">Acesso Padrão ao
-                                    App</span></div>
-                        </div>
-
-                        <div class="mt-auto space-y-4">
-                            <a href="https://lastlink.com/p/C98F2075B/checkout-payment/"
-                                onclick="trackCheckoutEvent('Lipedema App Premium - Mensal', 37.00)" target="_blank"
-                                rel="noopener noreferrer"
-                                class="pulse-btn flex items-center justify-center gap-2 w-full bg-emerald-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 rounded-[1.5rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_40px_rgba(16,185,129,0.4)] no-underline">
-                                Quero Assinar Mensal <i data-lucide="arrow-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-                            </a>
-                            <div class="flex items-center justify-center gap-1.5 opacity-60 mt-2">
-                                <i data-lucide="lock" class="w-3 h-3 text-slate-400"></i>
-                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Pagamento
-                                    Seguro</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Plano 2: Trimestral (Direita - DESTAQUE) -->
-                <div
-                    class="bg-gradient-to-b from-teal-400 to-teal-700 rounded-[2.5rem] p-1 shadow-[0_0_40px_rgba(20,184,166,0.3)] transform hover:scale-[1.05] transition-transform duration-300 relative z-20 md:-my-4">
-                    <div
-                        class="bg-slate-900 rounded-[2.4rem] p-6 sm:p-8 md:p-10 h-full flex flex-col relative overflow-hidden">
-                        <div
-                            class="absolute top-0 right-0 bg-teal-500 text-slate-900 font-black text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1.5 sm:px-6 sm:py-2 rounded-bl-3xl shadow-md">
-                            Recomendado: Resulto Profundo
-                        </div>
-
-                        <div
-                            class="w-14 h-14 sm:w-16 sm:h-16 bg-teal-500/20 rounded-2xl flex items-center justify-center text-teal-400 mb-6 border border-teal-500/30 shadow-inner">
-                            <i data-lucide="crown" class="w-7 h-7 sm:w-8 sm:h-8 fill-current"></i>
-                        </div>
-
-                        <h3 class="text-2xl sm:text-3xl font-black mb-2 text-white leading-tight m-0">Fluxo Vital <span
-                                class="text-teal-400">Trimestral</span></h3>
-                        <p class="text-sm text-slate-300 mb-8 font-medium leading-relaxed m-0">O compromisso de 12
-                            semanas exato que o seu corpo precisa para reduzir a fibrose profunda e desinchar de
-                            verdade.</p>
-
-                        <div class="mb-8 pb-8 border-b border-slate-700 relative">
-                            <div
-                                class="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow-[0_0_15px_rgba(225,29,72,0.5)] animate-pulse">
-                                Mais Barato • Economize 20%
-                            </div>
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-base sm:text-lg font-bold text-slate-500 line-through">De R$
-                                    441,00</span>
-                            </div>
-                            <span class="text-5xl sm:text-6xl font-black text-teal-400 tracking-tighter block m-0">R$
-                                97,00</span>
-                            <span
-                                class="text-[10px] sm:text-xs text-slate-400 block uppercase tracking-widest mt-2 font-bold m-0">Por
-                                3 Meses • Acesso VIP Imediato</span>
-                            <span
-                                class="text-sm font-bold text-amber-400 bg-amber-900/30 px-3 py-1.5 rounded-lg border border-amber-500/20 mt-4 inline-block">Menos
-                                de R$ 1,00 por dia.</span>
-                        </div>
-
-                        <div class="space-y-4 text-sm text-slate-200 mb-10 font-medium">
-                            <div class="flex gap-3 items-start"><i data-lucide="sparkles"
-                                    class="w-5 h-5 text-amber-400 shrink-0 mt-1"></i><strong
-                                    class="text-white bg-teal-500/30 px-3 py-1.5 rounded border border-teal-500/50 shadow-sm leading-relaxed block w-fit m-0">Todos
-                                    os Bônus + Acompanhamento Nutricional</strong></div>
-                            <div class="flex gap-3 items-start"><i data-lucide="activity"
-                                    class="w-5 h-5 text-rose-400 shrink-0 mt-0.5"></i><span class="m-0">Protocolos
-                                    Ilimitados SOS Dor</span></div>
-                            <div class="flex gap-3 items-start"><i data-lucide="check-circle-2"
-                                    class="w-5 h-5 text-teal-400 shrink-0 mt-0.5"></i><span class="m-0">Checklists e
-                                    Rastreadores Diários</span></div>
-                            <div class="flex gap-3 items-start"><i data-lucide="file-text"
-                                    class="w-5 h-5 text-teal-400 shrink-0 mt-0.5"></i><span class="m-0">Relatórios em
-                                    PDF para levar ao médico</span></div>
-                            <div class="flex gap-3 items-start"><i data-lucide="users"
-                                    class="w-5 h-5 text-teal-400 shrink-0 mt-0.5"></i><span class="m-0">Comunidade
-                                    Exclusiva Vip</span></div>
-                        </div>
-
-                        <div class="mt-auto space-y-4">
-                            <a href="https://lastlink.com/p/C319C815B/checkout-payment/"
-                                onclick="trackCheckoutEvent('Lipedema App Premium - Trimestral', 97.00)" target="_blank"
-                                rel="noopener noreferrer"
-                                class="pulse-btn flex items-center justify-center gap-2 w-full bg-teal-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 rounded-[1.5rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_40px_rgba(20,184,166,0.4)] no-underline">
-                                Quero o Plano Trimestral VIP <i data-lucide="arrow-right"
-                                    class="w-5 h-5 sm:w-6 sm:h-6"></i>
-                            </a>
-                            <div class="flex items-center justify-center gap-1.5 opacity-60 mt-2">
-                                <i data-lucide="lock" class="w-3 h-3 text-slate-400"></i>
-                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Pagamento
-                                    100% Seguro</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="mt-20 max-w-2xl mx-auto bg-slate-800 border border-slate-700 rounded-[2rem] p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 relative z-10 shadow-2xl">
-                <div
-                    class="w-20 h-20 sm:w-24 sm:h-24 bg-teal-500/20 rounded-full flex items-center justify-center shrink-0 border border-teal-500/50">
-                    <i data-lucide="shield-check" class="w-10 h-10 sm:w-12 sm:h-12 text-teal-400"></i>
-                </div>
-                <div class="text-center sm:text-left">
-                    <h4 class="text-lg sm:text-xl font-black text-white mb-2 m-0">7 Dias de Garantia Incondicional
-                    </h4>
-                    <p class="text-sm text-slate-400 font-medium leading-relaxed m-0">
-                        Teste o App VIP. Fale com a Fisioterapeuta virtual, gere uma receita e use o botão SOS. Se
-                        não
-                        sentir que o aplicativo te trouxe clareza e alívio, basta um clique e a LastLink devolve
-                        100% do
-                        seu dinheiro. Zero burocracias.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 9. FAQ FINAL -->
+    <!-- 9. FAQ FINAL ATUALIZADO -->
     <section class="py-24 px-4 sm:px-6 bg-white border-t border-slate-200">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-16">
@@ -1284,104 +926,60 @@
             </div>
 
             <div class="space-y-4">
-                <button type="button"
-                    class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-200 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    onclick="toggleFAQ(0)">
-                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0">
-                        Vou ter acesso imediato após pagar?
-                        <i id="faq-icon-0" data-lucide="chevron-down"
-                            class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                <button type="button" class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(0)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        Isso é apenas mais um aplicativo de dieta?
+                        <i id="faq-icon-0" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
                     </h4>
                     <div id="faq-content-0" class="hidden mt-4 pt-4 border-t border-slate-200">
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0"><strong
-                                class="text-teal-700">Sim!</strong> Logo após a confirmação do pagamento, os dados de
-                            login vão diretamente para o seu e-mail e você já pode acessar o aplicativo e conversar com
-                            as Especialistas hoje mesmo.</p>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Absolutamente não. É uma Clínica Digital de Bolso. Enquanto apps de dieta focam em calorias frias, nós focamos na inflamação do Lipedema, oferecendo suporte humano de 13 especialistas, desde fisioterapeutas até chefs especializadas na sua dor.</p>
                     </div>
                 </button>
 
-                <button type="button"
-                    class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    onclick="toggleFAQ(1)">
-                    <h4
-                        class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
-                        As Especialistas do aplicativo são fáceis de usar?
-                        <i id="faq-icon-1" data-lucide="chevron-down"
-                            class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                <button type="button" class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(1)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        Eu não tenho tempo para tratamentos complexos, serve para mim?
+                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
                     </h4>
                     <div id="faq-content-1" class="hidden mt-4 pt-4 border-t border-slate-200">
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">De forma alguma são difíceis.
-                            O aplicativo foi desenhado para ser tão simples como mandar uma mensagem no WhatsApp para
-                            uma amiga. Basta clicar na especialista que quer (ex: Nutricionista) e ela até te dá botões
-                            de sugestões prontas para não ter que escrever nada se não quiser.</p>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Sim! O VIP foi desenhado para 'micro-gerir' o seu tratamento. São ações rápidas de 5 a 10 minutos que você faz ao longo do dia (como elevação de pernas no sofá) para manter seu corpo desinflamado e sob controle.</p>
                     </div>
                 </button>
 
-                <button type="button"
-                    class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    onclick="toggleFAQ(2)">
-                    <h4
-                        class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
-                        Funciona para Lipedema Grau 4?
-                        <i id="faq-icon-2" data-lucide="chevron-down"
-                            class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                <button type="button" class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(2)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        Funciona para quem já está no Estágio 2 ou 3?
+                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
                     </h4>
                     <div id="faq-content-2" class="hidden mt-4 pt-4 border-t border-slate-200">
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Absolutamente. O tratamento
-                            conservador anti-inflamatório (dieta e hábitos) é a base obrigatória para TODOS os graus. No
-                            grau 4, o aplicativo será o seu melhor parceiro no dia a dia para complementar e potenciar
-                            os tratamentos médicos ou fisioterapêuticos que já faz.</p>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Sim, o protocolo de gestão conservadora é essencial para TODOS os estágios. Ele ajuda a frear a evolução da doença e traz alívio imediato para o peso e a dor aguda nas pernas, complementando qualquer outro tratamento médico que já faça.</p>
                     </div>
                 </button>
 
-                <!-- NOVA PERGUNTA: Suporte e Erros -->
-                <button type="button"
-                    class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    onclick="toggleFAQ(3)">
-                    <h4
-                        class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
-                        E se eu tiver algum erro, falha ou dúvida sobre os produtos?
-                        <i id="faq-icon-3" data-lucide="chevron-down"
-                            class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                <button type="button" class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(3)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        E se eu tiver uma crise de dor de madrugada?
+                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
                     </h4>
                     <div id="faq-content-3" class="hidden mt-4 pt-4 border-t border-slate-200">
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Fique absolutamente tranquila!
-                            Caso enfrente qualquer dificuldade no acesso ao Aplicativo Premium, aos E-books ou tenha
-                            qualquer dúvida técnica, nós disponibilizamos um <strong class="text-teal-700">Suporte
-                                Exclusivo via WhatsApp</strong> para as nossas alunas. Nossa equipe pegará na sua mão
-                            para garantir que tudo funcione perfeitamente e você foque apenas na sua desinflamação.</p>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Você terá acesso ao Botão SOS Dor. Um avaliador imediato guiado por nossa IA que te dará o passo a passo mecânico para aliviar o edema e a pressão no exato momento da crise, no meio da noite.</p>
                     </div>
                 </button>
 
-                <!-- NOVA PERGUNTA: Restrições -->
-                <button type="button"
-                    class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    onclick="toggleFAQ(4)">
-                    <h4
-                        class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
-                        Como funciona se eu tiver restrições alimentares?
-                        <i id="faq-icon-4" data-lucide="chevron-down"
-                            class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                <button type="button" class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(4)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        Preciso comprar suplementos caros?
+                        <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
                     </h4>
                     <div id="faq-content-4" class="hidden mt-4 pt-4 border-t border-slate-200">
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">A Nutricionista do Aplicativo considerou os casos mais comuns de hipersensibilidade de quem sofre com Lipedema. As listas de compras e os desafios diários focam em <strong class="text-teal-700">alimentos in natura anti-inflamatórios genéricos</strong>. Se você for vegana, celíaca ou intolerante à lactose, as adaptações são super fáceis de aplicar no dia a dia usando as tabelas de substituição da plataforma.</p>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Não. O nosso protocolo e a Nutricionista focam em comida de verdade e ações mecânicas simples, como escovação a seco e elevação de pernas, que você pode fazer com o que já tem na sua casa e cozinha.</p>
                     </div>
                 </button>
-
-                <!-- NOVA PERGUNTA: Tempo Academias -->
-                <button type="button"
-                    class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    onclick="toggleFAQ(5)">
-                    <h4
-                        class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
-                        Não tenho energia (nem tempo) para academia. O app serve?
-                        <i id="faq-icon-5" data-lucide="chevron-down"
-                            class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
-                    </h4>
-                    <div id="faq-content-5" class="hidden mt-4 pt-4 border-t border-slate-200">
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Sim! A maioria das mulheres com Lipedema grau avançado sente dor agonizante ao fazer exercícios intensos. A Fisioterapeuta do app foca em <strong class="text-teal-700">movimentos e drenagens de 10 a 15 minutos</strong> que você vai fazer no conforto do seu sofá ou cama, usando apenas as suas mãos ou uma massagem com óleo. O foco é ativar a linfa (desinchar), e não queimar calorias até a exaustão.</p>
-                    </div>
-                </button>
+            </div>
+            
+            <div class="mt-16 text-center max-w-2xl mx-auto">
+                <p class="text-slate-800 font-bold text-lg m-0 mb-4">Você tem dois caminhos: continuar sofrendo com dietas que não funcionam e sentindo dor, ou entrar para a nossa Clínica Digital Fluxo Vital e ter uma equipe cuidando de você.</p>
+                <p class="text-slate-500 text-sm font-medium m-0">O próximo passo para a sua liberdade começa com um clique.</p>
             </div>
         </div>
     </section>
@@ -1422,16 +1020,11 @@
                     class="pulse-btn w-full sm:w-auto bg-teal-500 text-slate-900 font-black py-2.5 px-6 sm:px-8 rounded-[1rem] text-center shadow-lg shadow-teal-500/30 transition-transform duration-300 hover:scale-105 hover:-translate-y-1 flex items-center justify-center gap-2 text-sm sm:text-base no-underline">
                     Garantir Meu Acesso Premium <i data-lucide="arrow-up" class="w-4 h-4"></i>
                 </a>
-                <div class="flex items-center gap-1.5 mt-1 sm:mt-1.5 opacity-70">
-                    <i data-lucide="lock" class="w-3 h-3 text-slate-500"></i>
-                    <span class="text-[9px] text-slate-500 font-bold uppercase tracking-widest leading-none">Pagamento
-                        Seguro</span>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- 10. Exit-Intent Modal (Downsell / E-book) -->
+    <!-- 10. Exit-Intent Modal (Downsell) -->
     <div id="exit-intent-modal"
         class="hidden fixed inset-0 z-[200] bg-slate-900/95 md:bg-slate-900/90 md:backdrop-blur-sm items-center justify-center p-4">
         <div
@@ -1449,23 +1042,15 @@
                     Vai mesmo sair e arriscar gastar R$ 30.000 tentando resolver no futuro?
                 </h2>
                 <p class="text-slate-600 text-sm mb-8 font-medium leading-relaxed m-0 mt-3">
-                    Sabemos que assinar o aplicativo pode ser um grande passo. Mas adiar o controle do Lipedema hoje é
-                    garantir procedimentos caríssimos e dolorosos daqui a 2 anos. Por isso, liberamos o <strong
-                        class="text-slate-900">Mecanismo Oculto</strong> por um valor irrisório.
+                    Sabemos que assinar o aplicativo pode ser um grande passo hoje. Por isso, criamos uma opção hiper-acessível para você começar a desinflamar <strong class="text-slate-900">hoje mesmo</strong>.
                 </p>
 
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-6 text-left relative shadow-sm">
-                    <div
-                        class="absolute top-0 right-0 bg-rose-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-widest shadow-sm">
-                        Plano B</div>
-                    <h3 class="font-black text-teal-800 mb-2 flex items-center gap-2 text-lg m-0"><i data-lucide="book"
-                            class="w-5 h-5 text-teal-600 shrink-0"></i> Mapa de Desinflamação Express</h3>
-                    <p class="text-xs text-slate-500 font-medium mb-4 m-0 mt-2">O método anti-inflamatório completo em
-                        PDF. Estratégias manuais e listas de compras.</p>
+                    <div class="absolute top-0 right-0 bg-rose-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-widest shadow-sm">Plano B</div>
+                    <h3 class="font-black text-teal-800 mb-2 flex items-center gap-2 text-lg m-0"><i data-lucide="book" class="w-5 h-5 text-teal-600 shrink-0"></i> Mapa de Desinflamação Express</h3>
+                    <p class="text-xs text-slate-500 font-medium mb-4 m-0 mt-2">O método anti-inflamatório completo em PDF. Estratégias manuais e listas de compras prontas.</p>
                     <div class="text-center border-t border-slate-200 pt-4 mt-4">
-                        <span
-                            class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1 m-0">Pagamento
-                            ÚNICO de apenas:</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1 m-0">Pagamento ÚNICO de apenas:</span>
                         <span class="text-4xl font-black text-slate-900 block m-0">R$ 19,90</span>
                     </div>
                 </div>
@@ -1586,7 +1171,6 @@
 
         // 🔒 EVENTOS DE RASTREAMENTO (PIXEL & ANALYTICS - Ponto 2B)
         function trackCheckoutEvent(itemName = 'Lipedema App Premium', price = 37.00) {
-            // Dispara o evento de Início de Checkout no Facebook Pixel
             if (typeof fbq === 'function') {
                 fbq('track', 'InitiateCheckout', {
                     content_name: itemName,
@@ -1594,7 +1178,6 @@
                     value: price
                 });
             }
-            // Dispara o evento no Google Analytics
             if (typeof gtag === 'function') {
                 gtag('event', 'begin_checkout', {
                     items: [{ name: itemName, price: price }],
@@ -1618,14 +1201,6 @@
                 event.preventDefault();
             }
         });
-
-        // Console block
-        setInterval(function () {
-            !function () {
-                function e(e) { if (isNaN(e)) console.log("Spying blocked"); else e() }
-                e(function () { debugger })
-            }()
-        }, 1000);
     </script>
 </body>
 
