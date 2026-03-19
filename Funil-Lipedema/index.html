@@ -6,7 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Descubra se as dores nas pernas são Lipedema com a nossa Avaliação Clínica Rápida. Teste de 45 segundos do Fluxo Vital.">
-    <title>Avaliação Clínica Rápida - Fluxo Vital: Lipedema Sem Complicações</title>
+    <!-- Verificação de Domínio Meta/Facebook -->
+    <meta name="facebook-domain-verification" content="9h906zrakr7zwawtqm6cgkr7ozs7qs" />
+    <title>Teste Rápido - Fluxo Vital: Pernas Mais Leves</title>
+
+    <!-- Meta Tags para Compartilhamento (WhatsApp, Facebook, etc) -->
+    <meta property="og:title" content="Teste Rápido - Fluxo Vital">
+    <meta property="og:description"
+        content="Descubra se as dores nas pernas são Lipedema com a nossa Avaliação Clínica Rápida. Teste de 45 segundos do Fluxo Vital.">
+    <meta property="og:image" content="https://fluxovitallipedema.top/logo.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Teste Rápido - Fluxo Vital">
+    <meta name="twitter:description" content="Descubra se as dores nas pernas são Lipedema com a nossa Avaliação.">
+    <meta name="twitter:image" content="https://fluxovitallipedema.top/logo.jpg">
+
+    <!-- Favicon (Ícone na aba do navegador) -->
+    <link rel="icon" href="./logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="./logo.jpg">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '985855429587580');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=985855429587580&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -59,47 +96,41 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
-        .fade-enter {
-            animation: fadeEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        @keyframes fadeEnter {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .btn-pulse {
-            animation: btnPulse 2.5s infinite;
+            /* Fallback for mobile without animation */
+            display: flex;
         }
 
-        .btn-pulse:hover {
-            animation: none;
-        }
-
-        @keyframes btnPulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5);
+        @media (min-width: 768px) {
+            .glass-card {
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
             }
 
-            70% {
-                box-shadow: 0 0 0 15px rgba(20, 184, 166, 0);
+            .btn-pulse {
+                animation: btnPulse 2.5s infinite;
             }
 
-            100% {
-                box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
+            .btn-pulse:hover {
+                animation: none;
+            }
+
+            @keyframes btnPulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5);
+                }
+
+                70% {
+                    box-shadow: 0 0 0 15px rgba(20, 184, 166, 0);
+                }
+
+                100% {
+                    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
+                }
             }
         }
 
@@ -115,7 +146,8 @@
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col relative">
+<body class="min-h-screen flex flex-col relative select-none" oncontextmenu="return false;" ondragstart="return false;"
+    onselectstart="return false;">
 
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
         <div
@@ -212,8 +244,8 @@
 
         // 🚨 PASSO 1 - CONFIGURAÇÃO DE WEBHOOK (ZAPIER / MAKE / n8n)
         // Cole aqui o link da sua automação para guardar os contatos antes do redirecionamento
-        // Caso não tenha uma automação agora, deixe vazio ("")
-        const WEBHOOK_URL = "";
+        // ATENÇÃO: Crie um cenário separando do App (Não use o mesmo de cadastro pago)
+        const WEBHOOK_URL = "https://hook.eu1.make.com/jluoc4p124la4jc2c39h1m2i7qeb1i5n";
 
         const container = document.getElementById('quiz-container');
 
@@ -231,20 +263,33 @@
             container.innerHTML = `
                 <div class="glass-card rounded-[2.5rem] p-6 sm:p-8 md:p-12 shadow-2xl text-center fade-enter border-t-[6px] border-t-teal-500">
                     <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-teal-50 text-teal-600 text-[10px] font-bold mb-6 border border-teal-100 uppercase tracking-widest">
-                        <i data-lucide="stethoscope" class="w-3 h-3"></i> Avaliação Rápida (45 seg)
+                        <i data-lucide="activity" class="w-3 h-3"></i> Avaliação Clínica · 45 segundos
                     </div>
                     
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
-                        Descubra por que suas pernas doem tanto <span class="text-rose-600">(e por que a culpa não é sua).</span>
+                        Suas pernas pesam e incham mesmo fazendo tudo certo? <span class="text-rose-600">A culpa não é sua.</span>
                     </h1>
                     
-                    <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-10 px-2 sm:px-4">
-                        Se você tem uma rotina exaustiva e não aguenta mais fazer dietas genéricas que nunca afinam as suas pernas, responda a este teste rápido para descobrir se você sofre de <strong class="text-slate-800">Gordura Inflamada (Lipedema)</strong>.
+                    <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-6 px-2 sm:px-4">
+                        Responda 6 perguntas rápidas e descubra se o que você sente tem um nome — e um protocolo de alívio que funciona de verdade.
                     </p>
+
+                    <div class="flex items-center justify-center gap-2 mb-8">
+                        <div class="flex -space-x-2">
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-teal-500 flex items-center justify-center text-white text-[9px] font-black">C</div>
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-rose-400 flex items-center justify-center text-white text-[9px] font-black">B</div>
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-amber-400 flex items-center justify-center text-white text-[9px] font-black">R</div>
+                        </div>
+                        <p class="text-xs text-slate-500 font-bold m-0">+1.250 mulheres já descobriram o seu grau</p>
+                    </div>
                     
                     <button onclick="startQuiz()" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-600 transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
-                        Quero Descobrir Meu Grau <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                        Iniciar Minha Avaliação <i data-lucide="arrow-right" class="w-6 h-6"></i>
                     </button>
+
+                    <p class="mt-4 text-[10px] text-slate-400 font-medium flex items-center justify-center gap-1">
+                        <i data-lucide="shield-check" class="w-3 h-3 text-teal-500"></i> 100% gratuito e sigiloso. Sem spam.
+                    </p>
                 </div>
             `;
             updateIcons();
@@ -321,18 +366,18 @@
                 <div class="glass-card rounded-[2.5rem] p-10 shadow-2xl text-center fade-enter min-h-[400px] flex flex-col items-center justify-center">
                     <div class="relative w-24 h-24 mb-8">
                         <div class="absolute inset-0 border-[6px] border-slate-100 rounded-full"></div>
-                        <div class="absolute inset-0 border-[6px] border-teal-500 rounded-full border-t-transparent animate-spin"></div>
+                        <div class="absolute inset-0 border-[6px] border-teal-500 rounded-full border-t-transparent md:animate-spin"></div>
                         <i data-lucide="cpu" class="w-10 h-10 text-teal-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
                     </div>
                     
-                    <h2 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Analisando o seu histórico...</h2>
+                    <h2 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Mapeando a sua rotina...</h2>
                     
                     <div class="w-full max-w-xs bg-slate-200 rounded-full h-4 overflow-hidden mb-4 shadow-inner relative">
                         <div id="analyzeBar" class="bg-gradient-to-r from-teal-400 to-teal-600 h-4 rounded-full transition-all ease-linear" style="width: 5%;"></div>
                     </div>
                     
-                    <p id="analyzeText" class="text-xs font-bold text-slate-500 uppercase tracking-widest animate-pulse">
-                        Cruzando padrão de dores...
+                    <p id="analyzeText" class="text-xs font-bold text-slate-500 uppercase tracking-widest md:animate-pulse">
+                        Estruturando seu perfil...
                     </p>
                 </div>
             `;
@@ -343,9 +388,9 @@
             const analyzeText = document.getElementById('analyzeText');
 
             const analysisSteps = [
-                "Verificando histórico de inchaço diário...",
-                "Comparando dificuldade de perda de medidas...",
-                "Gerando diagnóstico do nível de inflamação..."
+                "Analisando seus hábitos e desconfortos...",
+                "Buscando as melhores rotinas de alívio...",
+                "Finalizando o seu plano prático de leveza..."
             ];
             let stepIndex = 0;
 
@@ -371,7 +416,7 @@
                     analyzeText.innerText = "Avaliação Concluída!";
 
                     setTimeout(() => {
-                        renderLeadCapture();
+                        renderTeaser();
                     }, 1200);
                 } else {
                     setTimeout(validateQuiz, 150);
@@ -379,6 +424,46 @@
             }
 
             setTimeout(validateQuiz, 500);
+        }
+
+        // TELA TEASER (PRÉ-CAPTURA)
+        function renderTeaser() {
+            container.innerHTML = `
+                <div class="glass-card rounded-[2.5rem] p-6 sm:p-10 shadow-2xl text-center fade-enter relative overflow-hidden border-t-[8px] border-t-teal-500">
+                    <div class="absolute top-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-teal-100 shadow-sm">
+                        <i data-lucide="check-circle" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+                    </div>
+                    
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+                        A análise confirmou: o seu problema <span class="text-rose-500">não é falta de dieta</span>.
+                    </h2>
+                    
+                    <div class="bg-rose-50 border border-rose-100 rounded-2xl p-4 sm:p-6 mb-8 text-left relative shadow-sm">
+                        <p class="text-slate-700 font-medium text-sm sm:text-base leading-relaxed m-0">
+                            Identificamos que as suas pernas pesadas e inchaço respondem a um <strong>padrão inflamatório específico</strong>. Anos de exercícios errados e dietas genéricas não funcionaram porque o foco estava errado.
+                        </p>
+                        <p class="text-slate-700 font-medium text-sm sm:text-base leading-relaxed mt-4 m-0">
+                            Existe um caminho gentil para desinchar.
+                        </p>
+                    </div>
+
+                    <p class="text-slate-500 text-sm font-bold uppercase tracking-widest mb-4">
+                        Pronta para descobrir o alívio?
+                    </p>
+
+                    <button onclick="renderLeadCapture()" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-600 transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
+                        Avançar para o Meu Plano de Ação <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                    
+                    <p class="mt-6 text-[10px] sm:text-xs text-slate-400 font-medium flex items-center justify-center gap-1">
+                        <i data-lucide="lock" class="w-3 h-3"></i> Análise 100% individualizada e sigilosa.
+                    </p>
+                </div>
+            `;
+            updateIcons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // TELA DE CAPTURA COM WHATSAPP
@@ -392,16 +477,16 @@
                     </div>
                     
                     <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
-                        O seu resultado está pronto!
+                        Seu protocolo personalizado está pronto!
                     </h2>
                     
                     <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-8 px-2">
-                        Cruzamos os seus sintomas. Para onde devemos enviar o seu diagnóstico e o <strong>protocolo prático</strong> de alívio?
+                        Para onde devemos enviar o seu <strong>plano diário de desinflamação</strong> — criado com base exata no seu perfil?
                     </p>
 
                     <form id="leadForm" class="space-y-4 text-left" onsubmit="handleLeadSubmit(event)">
                         <div>
-                            <label for="userName" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Seu Primeiro Nome</label>
+                            <label for="userName" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Como você gosta de ser chamada?</label>
                             <div class="relative">
                                 <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                                     <i data-lucide="user" class="w-5 h-5"></i>
@@ -410,7 +495,7 @@
                             </div>
                         </div>
                         <div>
-                            <label for="userEmail" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Seu melhor e-mail</label>
+                            <label for="userEmail" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Onde enviamos o seu acesso livre?</label>
                             <div class="relative">
                                 <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                                     <i data-lucide="mail" class="w-5 h-5"></i>
@@ -419,7 +504,7 @@
                             </div>
                         </div>
                         <div>
-                            <label for="userPhone" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">WhatsApp (Opcional, mas recomendado)</label>
+                            <label for="userPhone" class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">Seu WhatsApp (Para receber dicas úteis gratuitamente)</label>
                             <div class="relative">
                                 <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                                     <i data-lucide="message-circle" class="w-5 h-5"></i>
@@ -428,7 +513,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-600 transition-all hover:scale-[1.02] flex items-center justify-center gap-3 mt-4">
-                            Ver Meu Diagnóstico Agora <i data-lucide="unlock" class="w-5 h-5"></i>
+                            Descobrir Meu Plano de Alívio <i data-lucide="unlock" class="w-5 h-5"></i>
                         </button>
                     </form>
                     
@@ -457,8 +542,10 @@
                 try {
                     await fetch(WEBHOOK_URL, {
                         method: 'POST',
-                        mode: 'no-cors', // Evita erros de bloqueio do navegador (CORS) em automações simples
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
                         body: JSON.stringify({
                             nome: userName,
                             email: userEmail,
@@ -468,7 +555,7 @@
                         })
                     });
                 } catch (e) {
-                    console.log("Aviso: Falha silenciosa no envio do webhook, prosseguindo com o funil.", e);
+                    console.error("Aviso: Falha no envio do webhook.", e);
                 }
             }
 
@@ -492,25 +579,24 @@
                         A CULPA NÃO É SUA${displayName}.
                     </h2>
                     
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-8 text-left shadow-sm">
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-6 text-left shadow-sm">
                         <p class="text-slate-700 font-medium text-sm leading-relaxed m-0">
-                            Baseado nas suas respostas, o que você sente <strong class="text-rose-600">não é gordura comum e muito menos preguiça</strong>. Os resultados indicam um padrão claro de inflamação crônica no tecido (Lipedema). É por isso que as dietas normais não resolvem o peso nas suas pernas.
+                            Baseado nas suas respostas, o que você sente <strong class="text-rose-600">não é gordura comum e muito menos preguiça</strong>. O seu perfil indicou um padrão real de tecido inflamado. É por isso que as dietas normais e exercícios pesados não resolvem o peso e cansaço excessivo nas suas pernas.
                         </p>
                     </div>
 
-                    <p class="text-slate-500 text-xs sm:text-sm mb-6 font-bold uppercase tracking-widest">
-                        A Boa Notícia:
-                    </p>
-
-                    <p class="text-slate-600 font-medium text-sm mb-8 leading-relaxed px-2">
-                        Nós preparamos uma solução digital, simples e prática para a sua rotina corrida. Você não precisa passar por isso sozinha.
-                    </p>
+                    <div class="bg-teal-50 border border-teal-100 rounded-2xl p-4 mb-8 text-left">
+                        <p class="text-teal-800 font-bold text-sm flex items-start gap-2 m-0">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-0.5"></i>
+                            Existe um protocolo específico para o seu perfil. Preparamos uma solução digital, simples e que cabe na sua rotina corrida. Você não precisa passar por isso sozinha.
+                        </p>
+                    </div>
 
                     <button onclick="goToLandingPage()" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg sm:text-xl py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-400 hover:text-slate-900 transition-all flex justify-center items-center gap-3">
-                        <i data-lucide="play-circle" class="w-6 h-6"></i> Descobrir Como Desinflamar
+                        <i data-lucide="play-circle" class="w-6 h-6"></i> Ver Meu Protocolo de Alívio
                     </button>
                     
-                    <p class="mt-6 text-[10px] sm:text-xs text-slate-400 font-medium flex items-center justify-center gap-1">
+                    <p class="mt-4 text-[10px] sm:text-xs text-slate-400 font-medium flex items-center justify-center gap-1">
                         <i data-lucide="lock" class="w-3 h-3 text-teal-500"></i> Seus dados estão seguros. Acesse o protocolo na próxima etapa.
                     </p>
                 </div>
@@ -543,6 +629,28 @@
                 window.location.href = `${baseUrl}?${params.toString()}`;
             }, 800);
         }
+    </script>
+    <script>
+        // 🔒 SISTEMA ANTI-ESPIONAGEM (DLP)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === 'U') {
+                event.preventDefault();
+            }
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+        });
+        // Console block
+        setInterval(function () {
+            !function () {
+                function e(e) { if (isNaN(e)) console.log("Spying blocked"); else e() }
+                e(function () { debugger })
+            }()
+        }, 1000);
     </script>
 </body>
 

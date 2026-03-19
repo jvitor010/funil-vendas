@@ -216,7 +216,7 @@
                     <span class="text-[9px] sm:text-[10px] text-slate-500 font-bold tracking-widest uppercase m-0 p-0 leading-none mt-0.5">Lipedema Sem Complicações</span>
                 </div>
             </div>
-                <a href="#oferta"
+            <a href="#oferta"
                 class="text-xs sm:text-sm font-bold text-white bg-teal-600 hover:bg-teal-500 transition-all px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2 shadow-lg hover:shadow-teal-500/20 hover:-translate-y-0.5 border border-teal-500 shrink-0 no-underline">
                 <i data-lucide="heart" class="w-4 h-4 text-white"></i> <span class="hidden sm:inline">Quero </span>Minha Clínica Digital
             </a>
@@ -546,15 +546,17 @@
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+            <!-- FIX: Gap aumentado e margins reestruturadas para evitar sobreposição no mobile -->
+            <div class="grid lg:grid-cols-2 gap-24 lg:gap-16 items-center">
 
                 <!-- MOCKUP ULTRA-REALISTA DO APLICATIVO -->
-                <div class="relative w-full aspect-[4/5] max-w-sm mx-auto flex items-center justify-center py-6">
-                    <div class="relative w-[90%] sm:w-[85%] mx-auto transition-transform duration-700 group-hover:scale-[1.02] drop-shadow-2xl">
-                        <img src="./mockup-app.png" alt="Aplicativo Fluxo Vital" class="w-full h-auto rounded-[2rem] sm:rounded-[2.5rem] object-cover" loading="lazy">
+                <div class="relative w-full max-w-[280px] sm:max-w-sm mx-auto flex items-center justify-center pt-4 pb-12 sm:py-6 mb-16 lg:mb-0 mt-8 lg:mt-0">
+                    <div class="relative w-full mx-auto transition-transform duration-700 group-hover:scale-[1.02] drop-shadow-2xl">
+                        <img src="./mockup-app.png" alt="Aplicativo Fluxo Vital" class="w-full h-auto rounded-[2rem] sm:rounded-[2.5rem] object-cover relative z-10" loading="lazy">
                     </div>
 
-                    <div class="absolute top-10 -left-2 sm:left-0 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60">
+                    <!-- Posições flutuantes ajustadas para mobile para não vazarem da caixa -->
+                    <div class="absolute top-0 sm:top-10 -left-6 sm:left-0 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60">
                         <div class="w-8 h-8 sm:w-10 sm:h-10 bg-teal-100 rounded-lg sm:rounded-xl flex items-center justify-center text-teal-600 shadow-sm"><i data-lucide="users" class="w-4 h-4 sm:w-5 sm:h-5"></i></div>
                         <div>
                             <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">13 Especialistas</p>
@@ -562,7 +564,7 @@
                         </div>
                     </div>
 
-                    <div class="absolute top-1/2 -right-4 sm:-right-6 -translate-y-1/2 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60" style="animation-delay: 1s;">
+                    <div class="absolute top-1/2 -right-6 sm:-right-6 -translate-y-1/2 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60" style="animation-delay: 1s;">
                         <div class="w-8 h-8 sm:w-10 sm:h-10 bg-rose-50 rounded-lg sm:rounded-xl flex items-center justify-center text-rose-500 shadow-sm border border-rose-100"><i data-lucide="activity" class="w-4 h-4 sm:w-5 sm:h-5"></i></div>
                         <div>
                             <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">SOS Dor</p>
@@ -570,7 +572,7 @@
                         </div>
                     </div>
 
-                    <div class="absolute bottom-16 -left-4 sm:-left-8 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60" style="animation-delay: 2.5s;">
+                    <div class="absolute bottom-0 sm:bottom-16 -left-6 sm:-left-8 glass-panel rounded-xl sm:rounded-2xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3 shadow-xl float-slow z-30 border border-white/60" style="animation-delay: 2.5s;">
                         <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-50 rounded-lg sm:rounded-xl flex items-center justify-center text-blue-500 shadow-sm border border-blue-100"><i data-lucide="ruler" class="w-4 h-4 sm:w-5 sm:h-5"></i></div>
                         <div>
                             <p class="text-[10px] sm:text-xs font-black text-slate-800 m-0">Evolução</p>
@@ -580,7 +582,7 @@
                 </div>
 
                 <!-- Benefícios Ouro Descritivos -->
-                <div class="space-y-8 sm:space-y-10">
+                <div class="space-y-8 sm:space-y-10 relative z-20">
                     <div class="flex gap-4 sm:gap-5 items-start">
                         <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white shadow-md text-teal-600 flex items-center justify-center shrink-0 border border-slate-100"><i data-lucide="message-square" class="w-6 h-6 sm:w-7 sm:h-7"></i></div>
                         <div>
@@ -673,7 +675,7 @@
                 <!-- Estudo de Caso 1 -->
                 <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg transition-all group overflow-hidden flex flex-col">
                     <div class="w-full h-48 sm:h-56 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="./testimonial_real_lipedema_1.png" alt="Ana usando o aplicativo em casa" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <img src="./antes_depois_1.jpg" alt="Antes e Depois da Cláudia" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
                             <i data-lucide="check-circle" class="w-3 h-3 text-teal-500"></i>
                             <span class="text-[9px] font-bold text-slate-800 uppercase tracking-wider">Aluna Verificada</span>
@@ -695,7 +697,7 @@
                 <!-- Estudo de Caso 2 -->
                 <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg transition-all group overflow-hidden flex flex-col md:-translate-y-4">
                     <div class="w-full h-48 sm:h-56 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="./testimonial_real_lipedema_2.png" alt="Aline com pernas leves no sofá" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <img src="./antes_depois_2.jpg" alt="Antes e Depois da Beatriz" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
                             <i data-lucide="check-circle" class="w-3 h-3 text-teal-500"></i>
                             <span class="text-[9px] font-bold text-slate-800 uppercase tracking-wider">Aluna Verificada</span>
@@ -717,7 +719,7 @@
                 <!-- Estudo de Caso 3 -->
                 <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg transition-all group overflow-hidden flex flex-col">
                     <div class="w-full h-48 sm:h-56 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="./testimonial_real_lipedema_3.png" alt="Mariana experimentando calça jeans" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <img src="./antes_depois_3.jpg" alt="Antes e Depois da Renata" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
                             <i data-lucide="check-circle" class="w-3 h-3 text-teal-500"></i>
                             <span class="text-[9px] font-bold text-slate-800 uppercase tracking-wider">Aluna Verificada</span>
@@ -751,7 +753,7 @@
                 <div class="bg-[#075e54] flex items-center px-3 py-2 text-white shrink-0 shadow-sm z-10 w-full cursor-pointer">
                     <div class="flex items-center gap-1 shrink-0">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                        <img src="./testimonial_real_lipedema_1.png" class="w-9 h-9 object-cover rounded-full border border-white/20" alt="Aluna" loading="lazy">
+                        <img src="https://i.pravatar.cc/100?img=1" class="w-9 h-9 object-cover rounded-full border border-white/20" alt="Aluna" loading="lazy">
                     </div>
                     <div class="ml-2 flex flex-col justify-center flex-1">
                         <span class="font-bold text-[15px] leading-tight m-0">Marina (Aluna Premium)</span>
@@ -881,7 +883,7 @@
                             </div>
                             <span class="text-5xl sm:text-6xl font-black text-teal-400 tracking-tighter block m-0">R$ 97,00</span>
                             <span class="text-[10px] sm:text-xs text-slate-400 block uppercase tracking-widest mt-2 font-bold m-0">Acesso Completo por 3 Meses • Início Imediato</span>
-                            <span class="text-sm font-bold text-amber-400 bg-amber-900/30 px-3 py-1.5 rounded-lg border border-amber-500/20 mt-4 inline-block">3x de R$ 32,33 — Menos que um Uber por semana.</span>
+                            <span class="text-sm font-bold text-amber-400 bg-amber-900/30 px-3 py-1.5 rounded-lg border border-amber-500/20 mt-4 inline-block">3x de R$ 32,33 — Mais barato que um lanche no iFood.</span>
                         </div>
 
                         <div class="mt-auto space-y-4">
@@ -1168,8 +1170,10 @@
 
                 if (score === 'critico') {
                     headline.innerHTML = `${firstName}, o seu teste indicou a necessidade de um <span class="bg-gradient-to-r from-rose-400 to-orange-400 text-gradient">acompanhamento de rotina.</span> Mas você não precisa fazer isso sozinha.`;
-                    badge.innerHTML = `<i data-lucide="alert-triangle" class="w-4 h-4"></i> Cuidado Contínuo Necessário`;
-                    badge.className = "inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-rose-600 text-white text-xs font-bold mb-8 border border-rose-500 uppercase tracking-widest shadow-lg shadow-rose-500/30 mx-auto transition-all duration-500 animate-pulse";
+                    if (badge) {
+                        badge.innerHTML = `<i data-lucide="alert-triangle" class="w-4 h-4"></i> Cuidado Contínuo Necessário`;
+                        badge.className = "inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-rose-600 text-white text-xs font-bold mb-8 border border-rose-500 uppercase tracking-widest shadow-lg shadow-rose-500/30 mx-auto transition-all duration-500 animate-pulse";
+                    }
                 } else if (score === 'moderado') {
                     headline.innerHTML = `${firstName}, o seu dia a dia exige uma atenção <span class="bg-gradient-to-r from-rose-400 to-orange-400 text-gradient">mais gentil.</span> Nós podemos te guiar.`;
                 } else if (fname) {
@@ -1179,7 +1183,7 @@
             }
         });
 
-        // 🔒 EVENTOS DE RASTREAMENTO (PIXEL & ANALYTICS - Ponto 2B)
+        // 🔒 EVENTOS DE RASTREAMENTO (PIXEL & ANALYTICS)
         function trackCheckoutEvent(itemName = 'Lipedema App Premium', price = 37.00) {
             if (typeof fbq === 'function') {
                 fbq('track', 'InitiateCheckout', {
