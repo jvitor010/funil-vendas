@@ -263,20 +263,33 @@
             container.innerHTML = `
                 <div class="glass-card rounded-[2.5rem] p-6 sm:p-8 md:p-12 shadow-2xl text-center fade-enter border-t-[6px] border-t-teal-500">
                     <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-teal-50 text-teal-600 text-[10px] font-bold mb-6 border border-teal-100 uppercase tracking-widest">
-                        <i data-lucide="activity" class="w-3 h-3"></i> Teste Rápido (45 seg)
+                        <i data-lucide="activity" class="w-3 h-3"></i> Avaliação Clínica · 45 segundos
                     </div>
                     
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
-                        Descubra por que suas pernas doem tanto <span class="text-rose-600">(e por que a culpa não é sua).</span>
+                        Suas pernas pesam e incham mesmo fazendo tudo certo? <span class="text-rose-600">A culpa não é sua.</span>
                     </h1>
                     
-                    <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-10 px-2 sm:px-4">
-                        Se você tem uma rotina exaustiva e não aguenta mais fazer dietas genéricas que nunca afinam as suas pernas, responda a este teste rápido para descobrir se você sofre de <strong class="text-slate-800">Gordura Inflamada (Lipedema)</strong>.
+                    <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-6 px-2 sm:px-4">
+                        Responda 6 perguntas rápidas e descubra se o que você sente tem um nome — e um protocolo de alívio que funciona de verdade.
                     </p>
+
+                    <div class="flex items-center justify-center gap-2 mb-8">
+                        <div class="flex -space-x-2">
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-teal-500 flex items-center justify-center text-white text-[9px] font-black">C</div>
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-rose-400 flex items-center justify-center text-white text-[9px] font-black">B</div>
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-amber-400 flex items-center justify-center text-white text-[9px] font-black">R</div>
+                        </div>
+                        <p class="text-xs text-slate-500 font-bold m-0">+1.250 mulheres já descobriram o seu grau</p>
+                    </div>
                     
                     <button onclick="startQuiz()" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-600 transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
-                        Quero Descobrir Meu Grau <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                        Iniciar Minha Avaliação <i data-lucide="arrow-right" class="w-6 h-6"></i>
                     </button>
+
+                    <p class="mt-4 text-[10px] text-slate-400 font-medium flex items-center justify-center gap-1">
+                        <i data-lucide="shield-check" class="w-3 h-3 text-teal-500"></i> 100% gratuito e sigiloso. Sem spam.
+                    </p>
                 </div>
             `;
             updateIcons();
@@ -464,11 +477,11 @@
                     </div>
                     
                     <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
-                        O seu Mapa de Leveza está pronto!
+                        Seu protocolo personalizado está pronto!
                     </h2>
                     
                     <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-8 px-2">
-                        Analisamos as suas respostas. Para onde devemos enviar o seu <strong>plano diário de rotina anti-inflamatória</strong> focado no alívio das pernas?
+                        Para onde devemos enviar o seu <strong>plano diário de desinflamação</strong> — criado com base exata no seu perfil?
                     </p>
 
                     <form id="leadForm" class="space-y-4 text-left" onsubmit="handleLeadSubmit(event)">
@@ -566,25 +579,24 @@
                         A CULPA NÃO É SUA${displayName}.
                     </h2>
                     
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-8 text-left shadow-sm">
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-6 text-left shadow-sm">
                         <p class="text-slate-700 font-medium text-sm leading-relaxed m-0">
                             Baseado nas suas respostas, o que você sente <strong class="text-rose-600">não é gordura comum e muito menos preguiça</strong>. O seu perfil indicou um padrão real de tecido inflamado. É por isso que as dietas normais e exercícios pesados não resolvem o peso e cansaço excessivo nas suas pernas.
                         </p>
                     </div>
 
-                    <p class="text-slate-500 text-xs sm:text-sm mb-6 font-bold uppercase tracking-widest">
-                        A Boa Notícia:
-                    </p>
-
-                    <p class="text-slate-600 font-medium text-sm mb-8 leading-relaxed px-2">
-                        Nós preparamos uma solução digital, simples e prática para a sua rotina corrida. Você não precisa passar por isso sozinha.
-                    </p>
+                    <div class="bg-teal-50 border border-teal-100 rounded-2xl p-4 mb-8 text-left">
+                        <p class="text-teal-800 font-bold text-sm flex items-start gap-2 m-0">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-0.5"></i>
+                            Existe um protocolo específico para o seu perfil. Preparamos uma solução digital, simples e que cabe na sua rotina corrida. Você não precisa passar por isso sozinha.
+                        </p>
+                    </div>
 
                     <button onclick="goToLandingPage()" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg sm:text-xl py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-400 hover:text-slate-900 transition-all flex justify-center items-center gap-3">
-                        <i data-lucide="play-circle" class="w-6 h-6"></i> Descobrir Como Desinflamar
+                        <i data-lucide="play-circle" class="w-6 h-6"></i> Ver Meu Protocolo de Alívio
                     </button>
                     
-                    <p class="mt-6 text-[10px] sm:text-xs text-slate-400 font-medium flex items-center justify-center gap-1">
+                    <p class="mt-4 text-[10px] sm:text-xs text-slate-400 font-medium flex items-center justify-center gap-1">
                         <i data-lucide="lock" class="w-3 h-3 text-teal-500"></i> Seus dados estão seguros. Acesse o protocolo na próxima etapa.
                     </p>
                 </div>

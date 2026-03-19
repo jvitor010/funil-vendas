@@ -216,9 +216,9 @@
                     <span class="text-[9px] sm:text-[10px] text-slate-500 font-bold tracking-widest uppercase m-0 p-0 leading-none mt-0.5">Lipedema Sem Complicações</span>
                 </div>
             </div>
-            <a href="#oferta"
-                class="text-xs sm:text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2 shadow-lg hover:shadow-teal-500/20 hover:-translate-y-0.5 border border-slate-700 shrink-0 no-underline">
-                <i data-lucide="crown" class="w-4 h-4 text-amber-400"></i> <span class="hidden sm:inline">Desbloquear </span>Acesso Premium
+                <a href="#oferta"
+                class="text-xs sm:text-sm font-bold text-white bg-teal-600 hover:bg-teal-500 transition-all px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2 shadow-lg hover:shadow-teal-500/20 hover:-translate-y-0.5 border border-teal-500 shrink-0 no-underline">
+                <i data-lucide="heart" class="w-4 h-4 text-white"></i> <span class="hidden sm:inline">Quero </span>Minha Clínica Digital
             </a>
         </div>
     </nav>
@@ -234,9 +234,9 @@
             <!-- Nova Prova Social no Topo -->
             <div class="flex items-center justify-center gap-[-10px] mb-6">
                 <div class="flex -space-x-3 opacity-90">
-                    <img class="w-8 h-8 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/100?img=1" alt="User">
-                    <img class="w-8 h-8 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/100?img=5" alt="User">
-                    <img class="w-8 h-8 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/100?img=9" alt="User">
+                    <div class="w-8 h-8 rounded-full border-2 border-slate-900 bg-teal-500 flex items-center justify-center text-white text-[10px] font-black">C</div>
+                    <div class="w-8 h-8 rounded-full border-2 border-slate-900 bg-rose-400 flex items-center justify-center text-white text-[10px] font-black">B</div>
+                    <div class="w-8 h-8 rounded-full border-2 border-slate-900 bg-amber-400 flex items-center justify-center text-white text-[10px] font-black">R</div>
                 </div>
                 <div class="ml-4 text-xs sm:text-sm font-bold text-slate-300">
                     Junte-se a mais de <span class="text-teal-400 font-black">1.250 guerreiras</span> que já vivem sem dor.
@@ -262,7 +262,7 @@
                     <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
                         <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-teal-400 to-emerald-400 p-0.5 shadow-lg shrink-0">
                             <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center overflow-hidden">
-                                <img src="https://i.pravatar.cc/100?img=5" class="w-full h-full object-cover opacity-90" alt="Especialista" loading="lazy" />
+                                <div class="w-full h-full bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white font-black text-xl">CE</div>
                             </div>
                         </div>
                         <div class="text-left flex-1">
@@ -751,7 +751,7 @@
                 <div class="bg-[#075e54] flex items-center px-3 py-2 text-white shrink-0 shadow-sm z-10 w-full cursor-pointer">
                     <div class="flex items-center gap-1 shrink-0">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                        <img src="https://i.pravatar.cc/100?img=1" class="w-9 h-9 object-cover rounded-full border border-white/20" alt="Aluna">
+                        <img src="./testimonial_real_lipedema_1.png" class="w-9 h-9 object-cover rounded-full border border-white/20" alt="Aluna" loading="lazy">
                     </div>
                     <div class="ml-2 flex flex-col justify-center flex-1">
                         <span class="font-bold text-[15px] leading-tight m-0">Marina (Aluna Premium)</span>
@@ -837,79 +837,89 @@
                 </div>
             </div>
 
-            <!-- Tabela de Preços -->
-            <div class="max-w-5xl mx-auto relative z-10">
-                <div class="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+            <!-- ÂNCORA DE PREÇO VISUAL -->
+            <div class="max-w-2xl mx-auto mb-10 bg-slate-800/60 border border-slate-700 rounded-2xl px-6 py-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+                <div class="flex items-center gap-3 text-slate-300 text-sm font-bold">
+                    <i data-lucide="x-circle" class="w-5 h-5 text-rose-400 shrink-0"></i>
+                    <span>1 sessão de drenagem manual = <strong class="text-white">R$ 150,00</strong></span>
+                </div>
+                <div class="hidden sm:block w-px h-8 bg-slate-600"></div>
+                <div class="flex items-center gap-3 text-slate-300 text-sm font-bold">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-teal-400 shrink-0"></i>
+                    <span>Fluxo Vital — 3 meses completos = <strong class="text-teal-400">R$ 1,07/dia</strong></span>
+                </div>
+            </div>
 
-                    <!-- Plano 1: Mensal -->
-                    <div class="bg-gradient-to-b from-emerald-400 to-teal-700 rounded-[2.5rem] p-1 shadow-[0_0_40px_rgba(16,185,129,0.3)] transform hover:scale-[1.05] transition-transform duration-300 relative z-20 md:-my-4">
-                        <div class="bg-slate-900 rounded-[2.4rem] p-6 sm:p-8 md:p-10 h-full flex flex-col relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-emerald-500 text-slate-900 font-black text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1.5 sm:px-6 sm:py-2 rounded-bl-3xl shadow-md border-b border-l border-emerald-600">
-                                Início Imediato
-                            </div>
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 mb-6 border border-emerald-500/30 shadow-inner">
-                                <i data-lucide="calendar" class="w-6 h-6 sm:w-7 sm:h-7"></i>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-black mb-2 text-white leading-tight m-0">Acesso <span class="text-teal-400">Mensal</span></h3>
-                            <p class="text-sm text-slate-400 mb-6 font-medium leading-relaxed m-0">Para quem quer conhecer o método e dar os primeiros passos na desinflamação diária.</p>
-                            
-                            <div class="mb-6 pb-6 border-b border-slate-700/50 relative">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="text-base sm:text-lg font-bold text-slate-500 line-through">De R$ 197,00</span>
-                                </div>
-                                <span class="text-4xl sm:text-5xl font-black text-white tracking-tighter block m-0">R$ 37,00</span>
-                                <span class="text-[10px] sm:text-xs text-slate-500 block uppercase tracking-widest mt-2 font-bold m-0">Por mês • Renova todo mês</span>
-                            </div>
+            <!-- TIMER DE URGÊNCIA -->
+            <div class="max-w-2xl mx-auto mb-12 text-center">
+                <div class="inline-flex items-center gap-3 bg-rose-900/40 border border-rose-500/40 rounded-full px-5 py-2.5">
+                    <i data-lucide="clock" class="w-4 h-4 text-rose-400 animate-pulse"></i>
+                    <span class="text-sm font-bold text-rose-300">Preço de lançamento encerra em: </span>
+                    <span id="countdown-timer" class="text-sm font-black text-white tabular-nums">15:00</span>
+                </div>
+            </div>
 
-                            <div class="mt-auto space-y-4">
-                                <a href="https://lastlink.com/p/C98F2075B/checkout-payment/" onclick="trackCheckoutEvent('Lipedema App Premium - Mensal', 37.00)" target="_blank" rel="noopener noreferrer" class="pulse-btn flex items-center justify-center gap-2 w-full bg-emerald-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 rounded-[1.5rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_40px_rgba(16,185,129,0.4)] no-underline">
-                                    Quero Assinar Mensal <i data-lucide="arrow-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-                                </a>
-                            </div>
+            <!-- Plano Principal: Trimestral em destaque máximo -->
+            <div class="max-w-lg mx-auto mb-8">
+                <div class="bg-gradient-to-b from-teal-400 to-teal-700 rounded-[2.5rem] p-1 shadow-[0_0_60px_rgba(20,184,166,0.4)]">
+                    <div class="bg-slate-900 rounded-[2.4rem] p-6 sm:p-10 h-full flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-teal-500 text-slate-900 font-black text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1.5 sm:px-6 sm:py-2 rounded-bl-3xl shadow-md">
+                            ✦ Mais Popular — Resultado Profundo
                         </div>
-                    </div>
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-teal-500/20 rounded-2xl flex items-center justify-center text-teal-400 mb-6 border border-teal-500/30 shadow-inner">
+                            <i data-lucide="crown" class="w-7 h-7 sm:w-8 sm:h-8 fill-current"></i>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black mb-2 text-white leading-tight m-0">Fluxo Vital — <span class="text-teal-400">Clínica Digital de Bolso</span></h3>
+                        <p class="text-sm text-slate-300 mb-8 font-medium leading-relaxed m-0">12 semanas de protocolo contínuo — o tempo exato que o seu corpo precisa para reduzir a inflamação e desinchar de verdade.</p>
 
-                    <!-- Plano 2: Trimestral (DESTAQUE) -->
-                    <div class="bg-gradient-to-b from-teal-400 to-teal-700 rounded-[2.5rem] p-1 shadow-[0_0_40px_rgba(20,184,166,0.3)] transform hover:scale-[1.05] transition-transform duration-300 relative z-20 md:-my-4">
-                        <div class="bg-slate-900 rounded-[2.4rem] p-6 sm:p-8 md:p-10 h-full flex flex-col relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-teal-500 text-slate-900 font-black text-[10px] sm:text-xs uppercase tracking-widest px-4 py-1.5 sm:px-6 sm:py-2 rounded-bl-3xl shadow-md">
-                                Recomendado: Resultado Profundo
+                        <div class="mb-8 pb-8 border-b border-slate-700 relative">
+                            <div class="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow-[0_0_15px_rgba(225,29,72,0.5)] animate-pulse">
+                                Economize 51% — Preço de Lançamento
                             </div>
-                            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-teal-500/20 rounded-2xl flex items-center justify-center text-teal-400 mb-6 border border-teal-500/30 shadow-inner">
-                                <i data-lucide="crown" class="w-7 h-7 sm:w-8 sm:h-8 fill-current"></i>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-base sm:text-lg font-bold text-slate-500 line-through">De R$ 497,00</span>
                             </div>
-                            <h3 class="text-2xl sm:text-3xl font-black mb-2 text-white leading-tight m-0">Fluxo Vital <span class="text-teal-400">Trimestral</span></h3>
-                            <p class="text-sm text-slate-300 mb-8 font-medium leading-relaxed m-0">O compromisso de 12 semanas exato que o seu corpo precisa para reduzir a fibrose e desinchar de verdade.</p>
+                            <span class="text-5xl sm:text-6xl font-black text-teal-400 tracking-tighter block m-0">R$ 97,00</span>
+                            <span class="text-[10px] sm:text-xs text-slate-400 block uppercase tracking-widest mt-2 font-bold m-0">Acesso Completo por 3 Meses • Início Imediato</span>
+                            <span class="text-sm font-bold text-amber-400 bg-amber-900/30 px-3 py-1.5 rounded-lg border border-amber-500/20 mt-4 inline-block">3x de R$ 32,33 — Menos que um Uber por semana.</span>
+                        </div>
 
-                            <div class="mb-8 pb-8 border-b border-slate-700 relative">
-                                <div class="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow-[0_0_15px_rgba(225,29,72,0.5)] animate-pulse">
-                                    Mais Barato • Economize 20%
-                                </div>
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="text-base sm:text-lg font-bold text-slate-500 line-through">De R$ 497,00</span>
-                                </div>
-                                <span class="text-5xl sm:text-6xl font-black text-teal-400 tracking-tighter block m-0">R$ 97,00</span>
-                                <span class="text-[10px] sm:text-xs text-slate-400 block uppercase tracking-widest mt-2 font-bold m-0">Por 3 Meses • Acesso Fluxo Vital Imediato</span>
-                                <span class="text-sm font-bold text-amber-400 bg-amber-900/30 px-3 py-1.5 rounded-lg border border-amber-500/20 mt-4 inline-block">3x de R$ 32,33 — Menos que um Uber.</span>
-                            </div>
-
-                            <div class="mt-auto space-y-4">
-                                <a href="https://lastlink.com/p/C319C815B/checkout-payment/" onclick="trackCheckoutEvent('Lipedema App Premium - Trimestral', 97.00)" target="_blank" rel="noopener noreferrer" class="pulse-btn flex items-center justify-center gap-2 w-full bg-teal-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 rounded-[1.5rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_40px_rgba(20,184,166,0.4)] no-underline">
-                                    Quero o Plano Trimestral Fluxo Vital <i data-lucide="arrow-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-                                </a>
-                            </div>
+                        <div class="mt-auto space-y-4">
+                            <a href="https://lastlink.com/p/C319C815B/checkout-payment/" onclick="trackCheckoutEvent('Lipedema App Premium - Trimestral', 97.00)" target="_blank" rel="noopener noreferrer" class="pulse-btn flex items-center justify-center gap-2 w-full bg-teal-500 text-slate-900 font-black text-lg sm:text-xl py-4 sm:py-5 rounded-[1.5rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 shadow-[0_10px_40px_rgba(20,184,166,0.4)] no-underline">
+                                Quero Minha Clínica Digital Agora <i data-lucide="arrow-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                            </a>
+                            <p class="text-center text-xs text-slate-500 font-bold flex items-center justify-center gap-1.5 m-0">
+                                <i data-lucide="lock" class="w-3 h-3 text-teal-500"></i> Pagamento seguro · Acesso imediato após confirmação
+                            </p>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Plano Mensal — posição secundária -->
+            <div class="max-w-lg mx-auto mb-8">
+                <div class="bg-slate-800 border border-slate-700 rounded-[2rem] p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 justify-between">
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold m-0 mb-1">Prefere começar devagar?</p>
+                        <h4 class="text-lg font-black text-white m-0">Plano Mensal — R$ 37,00/mês</h4>
+                        <p class="text-xs text-slate-400 font-medium m-0 mt-1">Renova mensalmente. Cancele quando quiser.</p>
+                    </div>
+                    <a href="https://lastlink.com/p/C98F2075B/checkout-payment/" onclick="trackCheckoutEvent('Lipedema App Premium - Mensal', 37.00)" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-slate-700 hover:bg-slate-600 text-white font-black text-sm py-3 px-6 rounded-xl transition-all no-underline text-center whitespace-nowrap">
+                        Assinar Mensal
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-lg mx-auto mt-2">
 
                 <div class="mt-20 max-w-2xl mx-auto bg-slate-800 border border-slate-700 rounded-[2rem] p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 relative z-10 shadow-2xl">
                     <div class="w-20 h-20 sm:w-24 sm:h-24 bg-teal-500/20 rounded-full flex items-center justify-center shrink-0 border border-teal-500/50">
                         <i data-lucide="shield-check" class="w-10 h-10 sm:w-12 sm:h-12 text-teal-400"></i>
                     </div>
                     <div class="text-center sm:text-left">
-                        <h4 class="text-lg sm:text-xl font-black text-white mb-2 m-0">Garantia Blindada de 7 Dias</h4>
+                        <h4 class="text-lg sm:text-xl font-black text-white mb-2 m-0">Garantia Blindada de 30 Dias</h4>
                         <p class="text-sm text-slate-400 font-medium leading-relaxed m-0">
-                            Se em 7 dias você não sentir suas pernas mais leves ou não se sentir acolhida por nossa equipe, devolvemos cada centavo do seu investimento. Meu compromisso é que você nunca mais se sinta sozinha nessa batalha.
+                            Se em 30 dias você não sentir suas pernas mais leves ou não se sentir acolhida por nossa equipe, devolvemos cada centavo do seu investimento — sem burocracia, sem perguntas. Meu compromisso é que você nunca mais se sinta sozinha nessa batalha.
                         </p>
                     </div>
                 </div>
@@ -942,7 +952,7 @@
                         <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
                     </h4>
                     <div id="faq-content-1" class="hidden mt-4 pt-4 border-t border-slate-200">
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Sim! O VIP foi desenhado para 'micro-gerir' o seu tratamento. São ações rápidas de 5 a 10 minutos que você faz ao longo do dia (como elevação de pernas no sofá) para manter seu corpo desinflamado e sob controle.</p>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Sim! A Clínica Digital foi desenhada para 'micro-gerir' o seu tratamento. São ações rápidas de 5 a 10 minutos que você faz ao longo do dia (como elevação de pernas no sofá) para manter seu corpo desinflamado e sob controle.</p>
                     </div>
                 </button>
 
@@ -1016,9 +1026,9 @@
                         data-lucide="unlock" class="w-3 h-3"></i> Acesso imediato após pagamento</p>
             </div>
             <div class="w-full sm:w-auto flex flex-col items-center">
-                <a href="#oferta" onclick="trackCheckoutEvent('Lipedema App Premium - Promocional', 37.00)"
+                <a href="#oferta" onclick="trackCheckoutEvent('Lipedema App Premium - Sticky CTA', 97.00)"
                     class="pulse-btn w-full sm:w-auto bg-teal-500 text-slate-900 font-black py-2.5 px-6 sm:px-8 rounded-[1rem] text-center shadow-lg shadow-teal-500/30 transition-transform duration-300 hover:scale-105 hover:-translate-y-1 flex items-center justify-center gap-2 text-sm sm:text-base no-underline">
-                    Garantir Meu Acesso Premium <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                    Quero Minha Clínica Digital <i data-lucide="arrow-up" class="w-4 h-4"></i>
                 </a>
             </div>
         </div>
@@ -1187,6 +1197,27 @@
             }
             console.log("Evento de Checkout Rastreado: " + itemName + " - R$ " + price);
         }
+
+        // ⏱️ COUNTDOWN TIMER (15 min reiniciável por sessão)
+        (function() {
+            const timerEl = document.getElementById('countdown-timer');
+            if (!timerEl) return;
+            const key = 'fv_timer_end';
+            let endTime = sessionStorage.getItem(key);
+            if (!endTime) {
+                endTime = Date.now() + 15 * 60 * 1000;
+                sessionStorage.setItem(key, endTime);
+            }
+            function tick() {
+                const remaining = Math.max(0, endTime - Date.now());
+                const m = Math.floor(remaining / 60000).toString().padStart(2, '0');
+                const s = Math.floor((remaining % 60000) / 1000).toString().padStart(2, '0');
+                timerEl.textContent = m + ':' + s;
+                if (remaining > 0) setTimeout(tick, 1000);
+                else { endTime = Date.now() + 15 * 60 * 1000; sessionStorage.setItem(key, endTime); tick(); }
+            }
+            tick();
+        })();
 
         // 🔒 SISTEMA ANTI-ESPIONAGEM (DLP)
         document.addEventListener('contextmenu', event => event.preventDefault());
