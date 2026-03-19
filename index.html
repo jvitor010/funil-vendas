@@ -537,6 +537,16 @@
             btn.classList.add('opacity-80', 'cursor-wait');
             updateIcons();
 
+            // 🟢 META PIXEL — Evento Lead (dispara ao capturar o contato)
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'Quiz Lipedema - Lead Capturado',
+                    content_category: 'Lipedema',
+                    value: 0,
+                    currency: 'BRL'
+                });
+            }
+
             // Lógica de Envio de Dados (Webhook)
             if (WEBHOOK_URL) {
                 try {
@@ -610,6 +620,15 @@
             btn.classList.remove('btn-pulse');
             btn.classList.add('opacity-80', 'cursor-wait');
             updateIcons();
+
+            // 🟢 META PIXEL — ViewContent (transição para a landing page)
+            if (typeof fbq === 'function') {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Landing Page Fluxo Vital',
+                    content_category: 'Lipedema',
+                    content_type: 'product'
+                });
+            }
 
             let severity = 'leve';
             if (userScore >= 9) severity = 'critico';
