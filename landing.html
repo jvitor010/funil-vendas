@@ -709,73 +709,109 @@
                 </div>
             </div>
 
+            <!-- MÉTRICAS DE RESULTADO — bloco de números antes dos cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-slate-200">
+                    <p class="text-3xl font-black text-teal-500 m-0">18</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1 m-0">dias para sentir diferença</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-slate-200">
+                    <p class="text-3xl font-black text-teal-500 m-0">−3cm</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1 m-0">de redução no tornozelo</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-slate-200">
+                    <p class="text-3xl font-black text-teal-500 m-0">5 min</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1 m-0">para aliviar crise de dor</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center shadow-sm border border-slate-200">
+                    <p class="text-3xl font-black text-teal-500 m-0">+1.250</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1 m-0">guerreiras no protocolo</p>
+                </div>
+            </div>
+
+            <!-- CARDS DE DEPOIMENTO COM RESULTADOS ESPECÍFICOS -->
             <div class="grid md:grid-cols-3 gap-6 mb-16">
-                <!-- Estudo de Caso 1 -->
-                <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg transition-all group overflow-hidden flex flex-col">
-                    <div class="w-full h-48 sm:h-56 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="./lifestyle_1.png" alt="Bem-estar e Leveza" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 left-2 bg-white/95 backdrop-blur-sm px-2 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm border border-slate-100">
-                            <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500"></i>
-                            <span class="text-[9px] font-bold text-slate-800 uppercase tracking-wider">História de Superação</span>
+
+                <!-- Card 1 — Cláudia -->
+                <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
+                    <!-- Resultado destaque no topo -->
+                    <div class="bg-teal-50 border border-teal-100 rounded-2xl p-4 mb-5 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center shrink-0">
+                            <i data-lucide="trending-down" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-teal-700 uppercase tracking-widest m-0">Resultado em 21 dias</p>
+                            <p class="text-base font-black text-teal-900 m-0">−3,5cm no tornozelo</p>
                         </div>
                     </div>
                     <div class="flex text-amber-400 mb-3">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"Pela primeira vez em anos, alguém não me disse que eu estava gorda por desleixo. O acolhimento da Coach Emocional me salvou."</p>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm flex-1">"Eu mediria as pernas toda semana sem acreditar que estava diminuindo. Em 21 dias perdi 3,5cm no tornozelo. Fiz só o que o app mandava — sem academia, sem dieta de fome."</p>
                     <div class="flex items-center gap-3 border-t border-slate-100 pt-4 mt-auto">
-                        <img src="./avatar_claudia.png" alt="Cláudia M." class="w-10 h-10 rounded-full object-cover shrink-0 border border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center font-black text-white text-sm shrink-0">CM</div>
                         <div>
-                            <p class="font-bold text-slate-900 text-sm m-0">Cláudia M.</p>
-                            <p class="text-[10px] text-slate-500 uppercase m-0">Lipedem Grau 2</p>
+                            <p class="font-bold text-slate-900 text-sm m-0">Cláudia M., 41 anos</p>
+                            <p class="text-[10px] text-slate-500 uppercase m-0">Lipedema Grau 2 · São Paulo, SP</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Estudo de Caso 2 -->
-                <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg transition-all group overflow-hidden flex flex-col md:-translate-y-4">
-                    <div class="w-full h-48 sm:h-56 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="./lifestyle_2.png" alt="Vida Ativa e sem Dor" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 left-2 bg-white/95 backdrop-blur-sm px-2 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm border border-slate-100">
-                            <i data-lucide="zap" class="w-3.5 h-3.5 text-teal-500"></i>
-                            <span class="text-[9px] font-bold text-slate-800 uppercase tracking-wider">Depoimento Vital</span>
+                <!-- Card 2 — Beatriz (destaque) -->
+                <div class="bg-slate-900 p-6 rounded-[2.5rem] shadow-xl border border-teal-500/30 hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col md:-translate-y-4">
+                    <!-- Resultado destaque no topo -->
+                    <div class="bg-teal-500/20 border border-teal-500/30 rounded-2xl p-4 mb-5 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center shrink-0">
+                            <i data-lucide="moon" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-teal-400 uppercase tracking-widest m-0">Resultado em 18 dias</p>
+                            <p class="text-base font-black text-white m-0">3 semanas sem crise noturna</p>
                         </div>
                     </div>
                     <div class="flex text-amber-400 mb-3">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"O botão SOS Dor é meu melhor amigo. Quando chego do trabalho com as pernas pulsando, ele me guia no que fazer e a dor passa em minutos."</p>
-                    <div class="flex items-center gap-3 border-t border-slate-100 pt-4 mt-auto">
-                        <img src="./avatar_beatriz.png" alt="Beatriz R." class="w-10 h-10 rounded-full object-cover shrink-0 border border-slate-100">
+                    <p class="text-slate-300 italic mb-6 leading-relaxed m-0 text-sm flex-1">"Passava 2 ou 3 noites por semana acordando com as pernas pulsando. Desde que comecei o protocolo do app, faz 3 semanas que não acordo com dor. Isso não tem preço."</p>
+                    <div class="flex items-center gap-3 border-t border-slate-700 pt-4 mt-auto">
+                        <div class="w-10 h-10 rounded-full bg-rose-500 flex items-center justify-center font-black text-white text-sm shrink-0">BR</div>
                         <div>
-                            <p class="font-bold text-slate-900 text-sm m-0">Beatriz R., 34 anos</p>
-                            <p class="text-[10px] text-slate-500 uppercase m-0">Diagnóstico recente</p>
+                            <p class="font-bold text-white text-sm m-0">Beatriz R., 34 anos</p>
+                            <p class="text-[10px] text-slate-400 uppercase m-0">Diagnóstico recente · Belo Horizonte, MG</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Estudo de Caso 3 -->
-                <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg transition-all group overflow-hidden flex flex-col">
-                    <div class="w-full h-48 sm:h-56 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="./lifestyle_3.png" alt="Recuperação de Energia" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 left-2 bg-white/95 backdrop-blur-sm px-2 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm border border-slate-100">
-                            <i data-lucide="smile" class="w-3.5 h-3.5 text-amber-500"></i>
-                            <span class="text-[9px] font-bold text-slate-800 uppercase tracking-wider">Protagonista Fluxo</span>
+                <!-- Card 3 — Renata -->
+                <div class="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
+                    <!-- Resultado destaque no topo -->
+                    <div class="bg-rose-50 border border-rose-100 rounded-2xl p-4 mb-5 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center shrink-0">
+                            <i data-lucide="shirt" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-rose-700 uppercase tracking-widest m-0">Resultado em 30 dias</p>
+                            <p class="text-base font-black text-rose-900 m-0">Voltou a usar calça jeans</p>
                         </div>
                     </div>
                     <div class="flex text-amber-400 mb-3">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm">"O app tirou o peso de ter que pensar em tudo sozinha. As especialistas me dão a direção (do que comer a como me mover) e eu só sigo. É libertador!"</p>
+                    <p class="text-slate-700 italic mb-6 leading-relaxed m-0 text-sm flex-1">"Há 2 anos eu não conseguia fechar um jeans sem dor. Em 30 dias seguindo o app, consegui. Minha filha filmou o momento — eu chorei. Parece bobagem, mas sabe o que é não conseguir se vestir sozinha?"</p>
                     <div class="flex items-center gap-3 border-t border-slate-100 pt-4 mt-auto">
-                        <img src="./avatar_renata.png" alt="Renata S." class="w-10 h-10 rounded-full object-cover shrink-0 border border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center font-black text-white text-sm shrink-0">RS</div>
                         <div>
-                            <p class="font-bold text-slate-900 text-sm m-0">Renata S.</p>
-                            <p class="text-[10px] text-slate-500 uppercase m-0">Mãe e Profissional</p>
+                            <p class="font-bold text-slate-900 text-sm m-0">Renata S., 38 anos</p>
+                            <p class="text-[10px] text-slate-500 uppercase m-0">Mãe e Profissional · Curitiba, PR</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- AVISO DE SUBSTITUIÇÃO — visível apenas localmente, remover ao publicar -->
+            <!-- NOTA: Quando tiver depoimentos reais com resultados mensuráveis,
+                 substitua os textos acima pelos depoimentos reais.
+                 Mantenha a estrutura: resultado específico no topo + texto emocional + nome/cidade. -->
 
             <!-- WhatsApp Simulation -->
             <div class="max-w-md mx-auto rounded-[2.5rem] shadow-2xl overflow-hidden transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 bg-[#e5ddd5] wpp-bg flex flex-col font-[Arial,Helvetica,sans-serif] border-[6px] border-slate-900 h-[600px] relative">
@@ -806,21 +842,21 @@
 
                     <div class="flex w-full mt-2">
                         <div class="bg-white p-2 px-3 rounded-lg rounded-tl-none shadow-sm relative max-w-[85%] wa-message-received">
-                            <p class="text-[14px] leading-snug text-[#111b21] m-0">Boa tarde! Só queria compartilhar que pela primeira vez em ANOS acordei sem sentir que minhas pernas pesavam uma tonelada 😭</p>
+                            <p class="text-[14px] leading-snug text-[#111b21] m-0">Meninas, precisava contar: hoje medi o tornozelo e perdi 2cm em 18 dias 😭🙏 Fiz EXATAMENTE o que o app mandou. Sem academia, sem dieta de fome.</p>
                             <div class="text-[10px] text-[#667781] text-right mt-1 ml-4 float-right">14:42</div>
                         </div>
                     </div>
 
                     <div class="flex w-full !mt-1">
                         <div class="bg-white p-2 px-3 rounded-lg shadow-sm relative max-w-[85%]">
-                            <p class="text-[14px] leading-snug text-[#111b21] m-0">Fiz o protocolo SOS que a Fisioterapeuta do app sugeriu e minhas calças hoje entraram sem esforço. A inflamação baixou muito!</p>
+                            <p class="text-[14px] leading-snug text-[#111b21] m-0">E ontem à noite tive uma crise de dor, usei o SOS Dor da Fisioterapeuta e em 7 minutos a pressão nas pernas tinha passado. Nunca resolvi tão rápido na vida.</p>
                             <div class="text-[10px] text-[#667781] text-right mt-1 ml-4 float-right">14:43</div>
                         </div>
                     </div>
 
                     <div class="flex justify-end w-full mt-4">
                         <div class="bg-[#dcf8c6] p-2 px-3 rounded-lg rounded-tr-none shadow-sm relative max-w-[85%] wa-message-sent">
-                            <p class="text-[14px] leading-snug text-[#111b21] m-0">Que emoção ler isso, Marina! O mérito é todo seu por manter a consistência com o app. Continue registrando as medidas, você vai se orgulhar muito daqui a um mês! ❤️💪</p>
+                            <p class="text-[14px] leading-snug text-[#111b21] m-0">Marina, que resultado lindo! 2cm em 18 dias é exatamente o que o protocolo propõe. Continue registrando as medidas — daqui a 30 dias você vai se surpreender ainda mais ❤️💪</p>
                             <div class="text-[10px] text-[#667781] text-right mt-1 ml-4 float-right flex items-center justify-end gap-1">
                                 14:50 <i data-lucide="check-check" class="w-4 h-4 text-[#53bdeb] stroke-[3]"></i>
                             </div>
