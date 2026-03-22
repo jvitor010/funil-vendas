@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Descubra se as dores nas pernas são Lipedema com a nossa Avaliação Clínica Rápida. Teste de 45 segundos do Fluxo Vital.">
+    <!-- Verificação de Domínio Meta/Facebook -->
+    <meta name="facebook-domain-verification" content="9h906zrakr7zwawtqm6cgkr7ozs7qs" />
+    <title>Teste Rápido - Fluxo Vital: Pernas Mais Leves</title>
+
+    <!-- Meta Tags para Compartilhamento (WhatsApp, Facebook, etc) -->
+    <meta property="og:title" content="Teste Rápido - Fluxo Vital">
+    <meta property="og:description"
+        content="Descubra se as dores nas pernas são Lipedema com a nossa Avaliação Clínica Rápida. Teste de 45 segundos do Fluxo Vital.">
+    <meta property="og:image" content="https://fluxovitallipedema.top/logo.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Teste Rápido - Fluxo Vital">
+    <meta name="twitter:description" content="Descubra se as dores nas pernas são Lipedema com a nossa Avaliação.">
+    <meta name="twitter:image" content="https://fluxovitallipedema.top/logo.jpg">
+
+    <!-- Favicon (Ícone na aba do navegador) -->
+    <link rel="icon" href="./logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="./logo.jpg">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '985855429587580');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=985855429587580&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: true,
+            },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: { 50: '#f0fdfa', 100: '#ccfbf1', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 900: '#134e4a' },
+                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 800: '#1e293b', 900: '#0f172a' },
+                        rose: { 50: '#fff1f2', 400: '#fb7185', 500: '#f43f5e', 600: '#e11d48' },
+                        amber: { 400: '#fbbf24', 500: '#f59e0b' }
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box !important;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-pulse {
+            /* Fallback for mobile without animation */
+            display: flex;
+        }
+
+        @media (min-width: 768px) {
+            .glass-card {
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+            }
+
+            .btn-pulse {
+                animation: btnPulse 2.5s infinite;
+            }
+
+            .btn-pulse:hover {
+                animation: none;
+            }
+
+            @keyframes btnPulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5);
+                }
+
+                70% {
+                    box-shadow: 0 0 0 15px rgba(20, 184, 166, 0);
+                }
+
+                100% {
+                    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
+                }
+            }
+        }
+
+        .answer-btn {
+            transition: all 0.3s ease;
+        }
+
+        .answer-selected {
+            border-color: #14b8a6 !important;
+            background-color: #f0fdfa !important;
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col relative select-none" oncontextmenu="return false;" ondragstart="return false;"
+    onselectstart="return false;">
+
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <div
+            class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-teal-100/60 blur-[120px] hidden md:block">
+        </div>
+        <div
+            class="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-rose-50/60 blur-[120px] hidden md:block">
+        </div>
+    </div>
+
+    <header class="w-full py-6 relative z-10 flex justify-center items-center">
+        <div class="flex items-center gap-2 font-black text-slate-800 text-lg tracking-tight">
+            <!-- A imagem da logo foi atualizada para logo.jpg para funcionar corretamente no mesmo diretório ou subdiretórios -->
+            <img src="./logo.jpg" alt="Logo Fluxo Vital"
+                class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-sm object-cover border border-slate-100 bg-white"
+                onerror="this.style.display='none'" loading="lazy" />
+            <div class="flex flex-col">
+                <span class="m-0 p-0 leading-none">Fluxo Vital</span>
+                <span class="text-[9px] text-slate-500 uppercase tracking-widest m-0 p-0 leading-none mt-0.5">Lipedema
+                    Sem Complicações</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 flex items-center justify-center p-4 sm:p-6 w-full relative z-10 w-full overflow-hidden">
+        <div id="quiz-container" class="w-full max-w-xl mx-auto px-2 sm:px-0">
+            <!-- Conteúdo Dinâmico -->
+        </div>
+    </main>
+
+    <footer class="py-6 text-center text-xs text-slate-400 font-medium relative z-10 w-full">
+        <p class="flex items-center justify-center gap-1"><i data-lucide="shield-check"
+                class="w-4 h-4 text-teal-500"></i> Ambiente Clínico Seguro e 100% Privado</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        const quizData = [
+            {
+                question: "No fim do dia, após a correria do trabalho e cuidar da casa, você sente suas pernas pesadas, latejando ou parecendo 'blocos de cimento'?",
+                answers: [
+                    { text: "Sim, parecem pesar uma tonelada", icon: "check", color: "teal" },
+                    { text: "Sinto apenas um cansaço leve", icon: "minus", color: "amber" },
+                    { text: "Não, minhas pernas ficam normais", icon: "x", color: "rose" }
+                ]
+            },
+            {
+                question: "Você faz dieta, se esforça, seu rosto e barriga emagrecem... mas as pernas continuam grossas, doloridas e não diminuem?",
+                answers: [
+                    { text: "Exatamente! As pernas não mudam", icon: "check", color: "teal" },
+                    { text: "Demoram muito mais para afinar", icon: "minus", color: "amber" },
+                    { text: "Não, eu emagreço por igual", icon: "x", color: "rose" }
+                ]
+            },
+            {
+                question: "Você já deixou de usar shorts ou vestidos porque tem vergonha da textura (bolinhas ou nódulos) e do volume das suas pernas?",
+                answers: [
+                    { text: "Sempre, vivo escondendo as pernas", icon: "check", color: "teal" },
+                    { text: "Evito em algumas ocasiões", icon: "minus", color: "amber" },
+                    { text: "Uso roupas curtas sem problemas", icon: "x", color: "rose" }
+                ]
+            },
+            {
+                question: "Você sente dor ou muita sensibilidade quando alguém aperta levemente suas pernas, ou até mesmo quando seu filho ou pet encostam nelas?",
+                answers: [
+                    { text: "Sim, qualquer toque leve já dói", icon: "check", color: "teal" },
+                    { text: "Sinto apenas um pequeno incômodo", icon: "minus", color: "amber" },
+                    { text: "Não sinto dor ao toque", icon: "x", color: "rose" }
+                ]
+            },
+            {
+                question: "O inchaço nas suas pernas costuma parar exatamente na linha dos tornozelos (criando um aspecto de 'garrote'), deixando seus pés normais?",
+                answers: [
+                    { text: "Sim, faz exatamente essa marca", icon: "check", color: "teal" },
+                    { text: "Às vezes, mas meu pé incha também", icon: "minus", color: "amber" },
+                    { text: "Não tenho esse formato no tornozelo", icon: "x", color: "rose" }
+                ]
+            },
+            {
+                question: "Você percebe o aparecimento de hematomas (roxos) nas pernas com frequência, sem nem lembrar de ter batido em nada?",
+                answers: [
+                    { text: "Vivo com roxos misteriosos nas pernas", icon: "check", color: "teal" },
+                    { text: "Aparecem, mas só de vez em quando", icon: "minus", color: "amber" },
+                    { text: "Raramente tenho hematomas", icon: "x", color: "rose" }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userScore = 0;
+        let userName = "";
+        // userEmail e userPhone removidos — captura simplificada para só nome
+
+        // 🚨 PASSO 1 - CONFIGURAÇÃO DE WEBHOOK (ZAPIER / MAKE / n8n)
+        // Cole aqui o link da sua automação para guardar os contatos antes do redirecionamento
+        // ATENÇÃO: Crie um cenário separando do App (Não use o mesmo de cadastro pago)
+        const WEBHOOK_URL = "https://hook.eu1.make.com/jluoc4p124la4jc2c39h1m2i7qeb1i5n";
+
+        const container = document.getElementById('quiz-container');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWelcome();
+        });
+
+        const updateIcons = () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        };
+
+        function renderWelcome() {
+            container.innerHTML = `
+                <div class="glass-card rounded-[2.5rem] p-6 sm:p-8 md:p-12 shadow-2xl text-center fade-enter border-t-[6px] border-t-teal-500">
+                    <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-teal-50 text-teal-600 text-[10px] font-bold mb-6 border border-teal-100 uppercase tracking-widest">
+                        <i data-lucide="activity" class="w-3 h-3"></i> Avaliação Clínica · 45 segundos
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
+                        Suas pernas pesam e incham mesmo fazendo tudo certo? <span class="text-rose-600">A culpa não é sua.</span>
+                    </h1>
+                    
+                    <p class="text-slate-600 font-medium text-sm sm:text-base leading-relaxed mb-6 px-2 sm:px-4">
+                        Responda 6 perguntas rápidas e descubra se o que você sente tem um nome — e um protocolo de alívio que funciona de verdade.
+                    </p>
+
+                    <div class="flex items-center justify-center gap-2 mb-8">
+                        <div class="flex -space-x-2">
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-teal-500 flex items-center justify-center text-white text-[9px] font-black">C</div>
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-rose-400 flex items-center justify-center text-white text-[9px] font-black">B</div>
+                            <div class="w-7 h-7 rounded-full border-2 border-white bg-amber-400 flex items-center justify-center text-white text-[9px] font-black">R</div>
+                        </div>
+                        <p class="text-xs text-slate-500 font-bold m-0">+1.250 mulheres já descobriram o seu grau</p>
+                    </div>
+                    
+                    <button onclick="startQuiz()" class="btn-pulse w-full bg-teal-500 text-white font-black text-lg py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-600 transition-all hover:scale-[1.02] flex items-center justify-center gap-3">
+                        Iniciar Minha Avaliação <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                    </button>
+
+                    <p class="mt-4 text-[10px] text-slate-400 font-medium flex items-center justify-center gap-1">
+                        <i data-lucide="shield-check" class="w-3 h-3 text-teal-500"></i> 100% gratuito e sigiloso. Sem spam.
+                    </p>
+                </div>
+            `;
+            updateIcons();
+        }
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            userScore = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const currentData = quizData[currentQuestionIndex];
+            const progressPercentage = ((currentQuestionIndex) / quizData.length) * 100;
+
+            const answersHtml = currentData.answers.map((answer, index) => `
+                <button onclick="handleAnswer(this, ${index})" class="answer-btn w-full text-left bg-white border-2 border-slate-100 p-4 sm:p-5 rounded-2xl text-slate-700 font-bold hover:border-slate-400 transition-all flex justify-between items-center shadow-sm text-base sm:text-lg">
+                    ${answer.text}
+                    <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center transition-colors icon-wrapper shrink-0 ml-3">
+                        <i data-lucide="${answer.icon}" class="w-5 h-5 text-${answer.color}-500"></i>
+                    </div>
+                </button>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="glass-card rounded-[2.5rem] p-6 sm:p-10 shadow-2xl fade-enter">
+                    <div class="mb-10">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1"><i data-lucide="activity" class="w-3 h-3"></i> Analisando perfil...</span>
+                            <span class="text-xs font-black text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Pergunta ${currentQuestionIndex + 1} de ${quizData.length}</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden shadow-inner">
+                            <div class="bg-gradient-to-r from-teal-400 to-teal-500 h-2.5 rounded-full transition-all duration-700 ease-out" style="width: ${progressPercentage}%"></div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 mb-10 leading-snug min-h-[6rem] tracking-tight">
+                        ${currentData.question}
+                    </h2>
+
+                    <div class="space-y-4" id="answers-wrapper">
+                        ${answersHtml}
+                    </div>
+                </div>
+            `;
+            updateIcons();
+        }
+
+        function handleAnswer(btnElement, answerIndex) {
+            if (answerIndex === 0) userScore += 2;
+            if (answerIndex === 1) userScore += 1;
+
+            const allBtns = document.querySelectorAll('.answer-btn');
+            allBtns.forEach(btn => {
+                btn.style.pointerEvents = 'none';
+                btn.classList.add('opacity-50');
+            });
+
+            btnElement.classList.remove('opacity-50');
+            btnElement.classList.add('answer-selected');
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizData.length) {
+                    renderQuestion();
+                } else {
+                    renderAnalysis();
+                }
+            }, 400);
+        }
+
+        function renderAnalysis() {
+            container.innerHTML = `
+                <div class="glass-card rounded-[2.5rem] p-10 shadow-2xl text-center fade-enter min-h-[400px] flex flex-col items-center justify-center">
+                    <div class="relative w-24 h-24 mb-8">
+                        <div class="absolute inset-0 border-[6px] border-slate-100 rounded-full"></div>
+                        <div class="absolute inset-0 border-[6px] border-teal-500 rounded-full border-t-transparent md:animate-spin"></div>
+                        <i data-lucide="cpu" class="w-10 h-10 text-teal-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></i>
+                    </div>
+                    
+                    <h2 class="text-2xl font-black text-slate-900 mb-6 tracking-tight">Mapeando a sua rotina...</h2>
+                    
+                    <div class="w-full max-w-xs bg-slate-200 rounded-full h-4 overflow-hidden mb-4 shadow-inner relative">
+                        <div id="analyzeBar" class="bg-gradient-to-r from-teal-400 to-teal-600 h-4 rounded-full transition-all ease-linear" style="width: 5%;"></div>
+                    </div>
+                    
+                    <p id="analyzeText" class="text-xs font-bold text-slate-500 uppercase tracking-widest md:animate-pulse">
+                        Estruturando seu perfil...
+                    </p>
+                </div>
+            `;
+            updateIcons();
+
+            let progress = 5;
+            const analyzeBar = document.getElementById('analyzeBar');
+            const analyzeText = document.getElementById('analyzeText');
+
+            const analysisSteps = [
+                "Analisando seus hábitos e desconfortos...",
+                "Buscando as melhores rotinas de alívio...",
+                "Finalizando o seu plano prático de leveza..."
+            ];
+            let stepIndex = 0;
+
+            function validateQuiz() {
+                progress += Math.random() * 4 + 1;
+                analyzeBar.style.width = Math.min(progress, 100) + "%";
+
+                if (progress > 30 && progress < 60 && stepIndex === 0) {
+                    analyzeText.innerText = analysisSteps[0];
+                    stepIndex++;
+                } else if (progress > 60 && progress < 85 && stepIndex === 1) {
+                    analyzeText.innerText = analysisSteps[1];
+                    stepIndex++;
+                } else if (progress > 85 && stepIndex === 2) {
+                    analyzeText.innerText = analysisSteps[2];
+                    stepIndex++;
+                }
+
+                if (progress >= 100) {
+                    analyzeBar.style.width = "100%";
+                    analyzeText.classList.remove('animate-pulse');
+                    analyzeText.classList.add('text-teal-600');
+                    analyzeText.innerText = "Avaliação Concluída!";
+
+                    setTimeout(() => {
+                        renderTeaser();
+                    }, 1200);
+                } else {
+                    setTimeout(validateQuiz, 150);
+                }
+            }
+
+            setTimeout(validateQuiz, 500);
+        }
+
+        // RESULTADO DO QUIZ — tela única com nome + redirect direto
+        function renderTeaser() {
+            // Disparar ViewContent UMA ÚNICA VEZ
+            if (typeof fbq === 'function') {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Resultado Quiz Lipedema',
+                    content_category: 'Lipedema'
+                });
+            }
+
+            let severity = 'leve';
+            if (userScore >= 9) severity = 'critico';
+            else if (userScore >= 5) severity = 'moderado';
+
+            container.innerHTML = `
+                <div class="glass-card rounded-[2.5rem] p-6 sm:p-10 shadow-2xl text-center fade-enter relative overflow-hidden border-t-[8px] border-t-rose-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="w-20 h-20 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-5 border border-rose-100 shadow-sm">
+                        <i data-lucide="alert-triangle" class="w-10 h-10"></i>
+                    </div>
+
+                    <div class="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-rose-200">
+                        <i data-lucide="activity" class="w-3 h-3"></i> Avaliação Concluída
+                    </div>
+
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4 leading-tight tracking-tight uppercase">
+                        A CULPA NÃO É SUA.
+                    </h2>
+
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-4 text-left shadow-sm">
+                        <p class="text-slate-700 font-medium text-sm leading-relaxed m-0">
+                            Baseado nas suas respostas, o que você sente
+                            <strong class="text-rose-600">não é gordura comum e muito menos preguiça</strong>.
+                            Seu perfil indicou um padrão real de tecido inflamado — é por isso que dietas normais
+                            e exercícios pesados nunca funcionaram.
+                        </p>
+                    </div>
+
+                    <div class="bg-teal-50 border border-teal-100 rounded-2xl p-4 mb-6 text-left">
+                        <p class="text-teal-800 font-bold text-sm flex items-start gap-2 m-0">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-0.5"></i>
+                            Existe um protocolo específico para o seu perfil. Uma solução digital,
+                            simples e que cabe na sua rotina. Você não precisa passar por isso sozinha.
+                        </p>
+                    </div>
+
+                    <div class="mb-4 text-left">
+                        <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">
+                            Como gosta de ser chamada?
+                        </label>
+                        <div class="relative">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                                <i data-lucide="user" class="w-5 h-5"></i>
+                            </div>
+                            <input type="text" id="quickName" placeholder="Seu primeiro nome"
+                                class="w-full bg-slate-50 border-2 border-slate-200 p-4 pl-12 rounded-[1.25rem] text-slate-800 font-medium focus:outline-none focus:border-teal-500 focus:bg-white transition-all shadow-sm text-base">
+                        </div>
+                    </div>
+
+                    <div class="mb-5 text-left">
+                        <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">
+                            Seu melhor e-mail
+                        </label>
+                        <div class="relative">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <input type="email" id="quickEmail" placeholder="seuemail@exemplo.com"
+                                class="w-full bg-slate-50 border-2 border-slate-200 p-4 pl-12 rounded-[1.25rem] text-slate-800 font-medium focus:outline-none focus:border-teal-500 focus:bg-white transition-all shadow-sm text-base">
+                        </div>
+                        <p id="email-error" class="text-rose-500 text-xs mt-1 ml-1 hidden">Por favor, informe um e-mail válido.</p>
+                    </div>
+
+                    <button onclick="goToLandingPage('${severity}')"
+                        class="btn-pulse w-full bg-teal-500 text-white font-black text-lg sm:text-xl py-5 rounded-[1.5rem] shadow-xl hover:bg-teal-400 hover:text-slate-900 transition-all flex justify-center items-center gap-3">
+                        <i data-lucide="play-circle" class="w-6 h-6"></i> Ver Meu Protocolo de Alívio
+                    </button>
+
+                    <p class="mt-4 text-[10px] sm:text-xs text-slate-400 font-medium flex items-center justify-center gap-1">
+                        <i data-lucide="lock" class="w-3 h-3 text-teal-500"></i>
+                        100% gratuito e sigiloso. Sem spam.
+                    </p>
+                </div>
+            `;
+            updateIcons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToLandingPage(severity) {
+            const nameInput = document.getElementById('quickName');
+            const emailInput = document.getElementById('quickEmail');
+            const emailError = document.getElementById('email-error');
+
+            userName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Voce';
+
+            // Validar email (obrigatório)
+            const emailValue = emailInput ? emailInput.value.trim() : '';
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+            if (!emailValid) {
+                if (emailError) emailError.classList.remove('hidden');
+                if (emailInput) { emailInput.classList.add('border-rose-400'); emailInput.focus(); }
+                return;
+            }
+            if (emailError) emailError.classList.add('hidden');
+            if (emailInput) emailInput.classList.remove('border-rose-400');
+
+            // Pixel Lead — dispara uma única vez ao avançar
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'Quiz Lipedema - Acesso a Landing',
+                    content_category: 'Lipedema',
+                    value: 0,
+                    currency: 'BRL'
+                });
+            }
+
+            // Webhook em background sem bloquear redirect
+            if (WEBHOOK_URL) {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        nome: userName,
+                        email: emailValue,
+                        whatsapp: '',
+                        pontuacao: userScore,
+                        origem: 'Quiz Lipedema'
+                    })
+                }).catch(() => {});
+            }
+
+            const sev = severity || (userScore >= 9 ? 'critico' : userScore >= 5 ? 'moderado' : 'leve');
+
+            const params = new URLSearchParams({
+                fname: userName.split(' ')[0],
+                score: sev,
+                src: 'quiz_funnel'
+            });
+
+            window.location.href = './landing.html?' + params.toString();
+        }
+
+    </script>
+    <script>
+        // 🔒 SISTEMA ANTI-ESPIONAGEM (DLP)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) {
+                event.preventDefault();
+            }
+            if (event.ctrlKey && event.key === 'U') {
+                event.preventDefault();
+            }
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+        });
+        // Console block
+        setInterval(function () {
+            !function () {
+                function e(e) { if (isNaN(e)) console.log("Spying blocked"); else e() }
+                e(function () { debugger })
+            }()
+        }, 1000);
+    </script>
+</body>
+
+</html>
