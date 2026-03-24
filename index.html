@@ -487,16 +487,15 @@
 
                     <div class="mb-5 text-left">
                         <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 ml-1">
-                            Seu melhor e-mail
+                            WhatsApp <span class="text-slate-400 font-normal normal-case tracking-normal">(opcional)</span>
                         </label>
                         <div class="relative">
                             <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-                                <i data-lucide="mail" class="w-5 h-5"></i>
+                                <i data-lucide="smartphone" class="w-5 h-5"></i>
                             </div>
-                            <input type="email" id="quickEmail" placeholder="seuemail@exemplo.com"
+                            <input type="tel" id="quickWhatsapp" placeholder="(11) 99999-9999"
                                 class="w-full bg-slate-50 border-2 border-slate-200 p-4 pl-12 rounded-[1.25rem] text-slate-800 font-medium focus:outline-none focus:border-teal-500 focus:bg-white transition-all shadow-sm text-base">
                         </div>
-                        <p id="email-error" class="text-rose-500 text-xs mt-1 ml-1 hidden">Por favor, informe um e-mail válido.</p>
                     </div>
 
                     <button onclick="goToLandingPage('${severity}')"
@@ -516,21 +515,10 @@
 
         function goToLandingPage(severity) {
             const nameInput = document.getElementById('quickName');
-            const emailInput = document.getElementById('quickEmail');
-            const emailError = document.getElementById('email-error');
+            const whatsappInput = document.getElementById('quickWhatsapp');
 
             userName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Voce';
-
-            // Validar email (obrigatório)
-            const emailValue = emailInput ? emailInput.value.trim() : '';
-            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
-            if (!emailValid) {
-                if (emailError) emailError.classList.remove('hidden');
-                if (emailInput) { emailInput.classList.add('border-rose-400'); emailInput.focus(); }
-                return;
-            }
-            if (emailError) emailError.classList.add('hidden');
-            if (emailInput) emailInput.classList.remove('border-rose-400');
+            const whatsappValue = whatsappInput ? whatsappInput.value.trim() : '';
 
             // Pixel Lead — dispara uma única vez ao avançar
             if (typeof fbq === 'function') {
@@ -549,8 +537,8 @@
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify({
                         nome: userName,
-                        email: emailValue,
-                        whatsapp: '',
+                        email: '',
+                        whatsapp: whatsappValue,
                         pontuacao: userScore,
                         origem: 'Quiz Lipedema'
                     })
