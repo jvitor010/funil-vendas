@@ -51,18 +51,37 @@
         gtag('config', 'SUA_TAG_ID');
     </script> -->
 
+    <!-- ⚡ RESOURCE HINTS — Pré-conexão com todos os domínios externos -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="preconnect" href="https://lastlink.com">
+    <link rel="dns-prefetch" href="https://lastlink.com">
+    <link rel="preconnect" href="https://hook.eu1.make.com">
+    <link rel="dns-prefetch" href="https://hook.eu1.make.com">
+    <link rel="preconnect" href="https://play.tynk.ai">
+    <link rel="dns-prefetch" href="https://play.tynk.ai">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — preload crítico -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800;900&display=swap">
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800;900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
+    </noscript>
 
-    <link rel="preconnect" href="https://play.tynk.ai">
-    <link rel="dns-prefetch" href="https://play.tynk.ai">
+    <!-- Prefetch checkout (usuário clica → já carregado) -->
+    <link rel="prefetch" href="https://lastlink.com/p/C98F2075B/checkout-payment/">
+
+    <link rel="prerender" href="https://play.tynk.ai/p/0d3835ad-9c0d-40d9-bb73-a923ddc6a436">
     <link rel="prerender" href="https://play.tynk.ai/p/0d3835ad-9c0d-40d9-bb73-a923ddc6a436">
     <link rel="prerender" href="https://play.tynk.ai/p/db9079de-a4f7-4ba8-bcb3-dd35463829e9">
     <link rel="prerender" href="https://play.tynk.ai/p/7617ca53-11ef-4e3d-a476-2d4403f2b660">
@@ -175,6 +194,40 @@
         .sales-letter p { margin-bottom: 1.25rem; }
         .sales-letter strong { color: #0f172a; font-weight: 800; }
         .sales-letter .highlight { background-color: rgba(244, 63, 94, 0.1); padding: 0.2rem 0.5rem; border-radius: 0.25rem; color: #e11d48; font-weight: bold; }
+
+        /* ⚡ PERFORMANCE — paint containment em seções abaixo do fold */
+        section:not(:first-of-type) {
+            content-visibility: auto;
+            contain-intrinsic-size: 0 600px;
+        }
+
+        /* ⚡ PERFORMANCE — hardware acceleration em elementos animados */
+        .pulse-btn, .float-slow, .float-delay-1, .float-delay-2 {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* 🔒 ANTI-ESPIONAGEM — bloquear impressão da página */
+        @media print {
+            body { display: none !important; }
+        }
+
+        /* 🔒 ANTI-ESPIONAGEM — overlay de alerta DevTools */
+        #devtools-warning {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.97);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-align: center;
+            padding: 2rem;
+        }
     </style>
 
     <script>
@@ -196,6 +249,13 @@
 
 <body class="antialiased selection:bg-teal-200 select-none scroll-smooth" oncontextmenu="return false;"
     ondragstart="return false;" onselectstart="return false;">
+
+    <!-- 🔒 OVERLAY DEVTOOLS -->
+    <div id="devtools-warning" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.97);z-index:99999;align-items:center;justify-content:center;flex-direction:column;gap:1rem;color:#f8fafc;font-family:sans-serif;text-align:center;padding:2rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <p style="font-size:1.25rem;font-weight:900;margin:0;">Acesso Restrito</p>
+        <p style="font-size:0.875rem;color:#94a3b8;margin:0;max-width:320px;">Esta página é protegida por direitos autorais. Feche as ferramentas de desenvolvedor para continuar.</p>
+    </div>
 
     <!-- 1. TOPBAR E NAVBAR -->
     <div
@@ -1171,13 +1231,12 @@
                 </div>
             </div>
 
-            <!-- GRUPO DE PREÇOS EM 2 COLUNAS -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16 items-stretch">
-                <!-- Plano Mensal — Posição Secundária -->
-                <!-- Plano Mensal — DESTAQUE MÁXIMO -->
-                <div class="bg-gradient-to-b from-teal-400 to-teal-700 rounded-[2.6rem] p-1 shadow-[0_0_60px_rgba(20,184,166,0.4)] relative transform md:scale-105 z-20 order-1">
+            <!-- OFERTA ÚNICA -->
+            <div class="flex justify-center mb-16">
+                <!-- Plano Mensal — OFERTA ÚNICA -->
+                <div class="bg-gradient-to-b from-teal-400 to-teal-700 rounded-[2.6rem] p-1 shadow-[0_0_60px_rgba(20,184,166,0.4)] relative z-20 w-full max-w-xl">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-rose-600 text-white font-black text-[10px] uppercase tracking-widest px-6 py-2 rounded-full shadow-lg border-2 border-slate-900 z-30 whitespace-nowrap">
-                        ✦ Teste Sem Compromisso ✦
+                        ✦ Oferta de Lançamento · Vagas Limitadas ✦
                     </div>
                     <div class="bg-slate-900 rounded-[2.5rem] p-8 sm:p-10 h-full flex flex-col relative overflow-hidden">
                         <div class="w-14 h-14 bg-teal-500/20 rounded-2xl flex items-center justify-center text-teal-400 mb-6 border border-teal-500/30">
@@ -1216,6 +1275,81 @@
                                 Acesso ilimitado ao App Fluxo Vital.
                             </li>
                         </ul>
+
+                        <!-- BÔNUS EXCLUSIVOS -->
+                        <div class="bg-slate-800/60 border border-amber-500/30 rounded-2xl p-5 mb-6">
+                            <p class="text-xs font-black text-amber-400 uppercase tracking-widest mb-1 m-0 flex items-center gap-2">
+                                <i data-lucide="gift" class="w-4 h-4"></i> Bônus Exclusivos — Só para quem assina hoje
+                            </p>
+                            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-4 m-0">Incluídos sem custo adicional</p>
+                            <div class="space-y-3">
+
+                                <div class="flex items-start gap-3 bg-slate-900/60 rounded-xl p-3 border border-slate-700/50">
+                                    <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center shrink-0 border border-amber-500/30">
+                                        <i data-lucide="calendar-check" class="w-4 h-4 text-amber-400"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-xs font-black text-white m-0 leading-snug">Protocolo de Choque de 90 Dias</p>
+                                        <p class="text-[10px] text-slate-400 font-medium m-0 mt-0.5 leading-relaxed">Plano dia a dia para os primeiros 3 meses: o que fazer, quando e como para desinflamar de forma progressiva.</p>
+                                    </div>
+                                    <span class="text-[10px] font-black text-amber-400 shrink-0 whitespace-nowrap">+ R$47</span>
+                                </div>
+
+                                <div class="flex items-start gap-3 bg-slate-900/60 rounded-xl p-3 border border-slate-700/50">
+                                    <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center shrink-0 border border-amber-500/30">
+                                        <i data-lucide="pill" class="w-4 h-4 text-amber-400"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-xs font-black text-white m-0 leading-snug">Guia de Suplementação Ativa</p>
+                                        <p class="text-[10px] text-slate-400 font-medium m-0 mt-0.5 leading-relaxed">Quais suplementos têm evidência para lipedema, quais evitar e como combinar sem conflitos.</p>
+                                    </div>
+                                    <span class="text-[10px] font-black text-amber-400 shrink-0 whitespace-nowrap">+ R$37</span>
+                                </div>
+
+                                <div class="flex items-start gap-3 bg-slate-900/60 rounded-xl p-3 border border-slate-700/50">
+                                    <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center shrink-0 border border-amber-500/30">
+                                        <i data-lucide="shopping-basket" class="w-4 h-4 text-amber-400"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-xs font-black text-white m-0 leading-snug">Kit Lista de Compras Anti-Inflamatória</p>
+                                        <p class="text-[10px] text-slate-400 font-medium m-0 mt-0.5 leading-relaxed">Lista semanal pronta para o supermercado com os alimentos que reduzem inflamação — e os que sabotam sem você perceber.</p>
+                                    </div>
+                                    <span class="text-[10px] font-black text-amber-400 shrink-0 whitespace-nowrap">+ R$27</span>
+                                </div>
+
+                                <div class="flex items-start gap-3 bg-slate-900/60 rounded-xl p-3 border border-slate-700/50">
+                                    <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center shrink-0 border border-amber-500/30">
+                                        <i data-lucide="moon" class="w-4 h-4 text-amber-400"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-xs font-black text-white m-0 leading-snug">Protocolo do Sono Restaurador</p>
+                                        <p class="text-[10px] text-slate-400 font-medium m-0 mt-0.5 leading-relaxed">7 práticas para melhorar a qualidade do sono — o fator invisível que intensifica a inflamação no lipedema.</p>
+                                    </div>
+                                    <span class="text-[10px] font-black text-amber-400 shrink-0 whitespace-nowrap">+ R$27</span>
+                                </div>
+
+                                <div class="flex items-start gap-3 bg-slate-900/60 rounded-xl p-3 border border-slate-700/50">
+                                    <div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center shrink-0 border border-amber-500/30">
+                                        <i data-lucide="activity" class="w-4 h-4 text-amber-400"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-xs font-black text-white m-0 leading-snug">Guia de Movimento Sem Dor</p>
+                                        <p class="text-[10px] text-slate-400 font-medium m-0 mt-0.5 leading-relaxed">Exercícios adaptados para lipedema que aliviam o inchaço sem agravar a dor — validados pelo seu Fisioterapeuta IA.</p>
+                                    </div>
+                                    <span class="text-[10px] font-black text-amber-400 shrink-0 whitespace-nowrap">+ R$37</span>
+                                </div>
+
+                            </div>
+
+                            <!-- Total stack -->
+                            <div class="mt-4 pt-4 border-t border-slate-700 flex items-center justify-between">
+                                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest m-0">Valor total dos bônus</p>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-black text-slate-500 line-through">R$ 175,00</span>
+                                    <span class="text-sm font-black text-amber-400">GRÁTIS</span>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- O que acontece após assinar -->
                         <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 mb-6">
@@ -1262,47 +1396,6 @@
                     </div>
                 </div>
 
-                <!-- Plano Trimestral — Secundário -->
-                <div class="bg-slate-800/50 border border-slate-700 rounded-[2.5rem] p-8 flex flex-col relative group hover:border-slate-600 transition-colors order-2">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal-500 text-slate-900 font-black text-[10px] uppercase tracking-widest px-6 py-2 rounded-full shadow-lg border-2 border-slate-900 z-30 whitespace-nowrap">
-                        ✦ Mais Popular - Resultado Profundo ✦
-                    </div>
-                    <div class="w-12 h-12 bg-slate-700/50 rounded-2xl flex items-center justify-center text-slate-400 mb-6 border border-slate-600">
-                        <i data-lucide="crown" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-black mb-2 text-white m-0">Ciclo de Transformação <span class="text-teal-400">(Trimestral)</span></h3>
-                    <p class="text-sm text-slate-400 mb-8 font-medium leading-relaxed m-0 text-teal-300">Pague 2 meses e leve o 3º de presente</p>
-
-                    <div class="mb-8 pb-8 border-b border-slate-700">
-                        <span class="text-sm font-bold text-slate-500 line-through opacity-70">De R$ 441,00</span>
-                        <div class="flex items-baseline gap-1">
-                            <span class="text-4xl font-black text-white block m-0">R$ 97,00</span>
-                            <span class="text-sm font-bold text-slate-500">/total</span>
-                        </div>
-                        <span class="text-[10px] text-slate-500 block uppercase tracking-widest mt-2 font-bold m-0">Acesso Total por 3 Meses • R$ 1,07 por dia</span>
-                    </div>
-
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3 text-sm text-slate-300 font-medium">
-                            <i data-lucide="check" class="w-5 h-5 text-teal-400 shrink-0"></i>
-                            Tudo do Plano Mensal
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-slate-300 font-medium">
-                            <i data-lucide="check" class="w-5 h-5 text-teal-400 shrink-0"></i>
-                            Protocolo de Choque de 90 dias
-                        </li>
-                        <li class="flex items-start gap-3 text-sm text-amber-400 font-black">
-                            <i data-lucide="star" class="w-5 h-5 text-amber-500 shrink-0 fill-amber-500/20"></i>
-                            Guia de Suplementação Ativa
-                        </li>
-                    </ul>
-
-                    <div class="mt-auto">
-                        <a href="https://lastlink.com/p/C319C815B/checkout-payment/" onclick="trackCheckoutEvent('Lipedem App Premium - Trimestral', 97.00)" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full bg-slate-700 text-white font-black text-base py-4 rounded-2xl transition-all hover:bg-slate-600 no-underline">
-                            QUERO TRANSFORMAR MEU CORPO <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
 
             <div class="max-w-lg mx-auto mt-2">
@@ -1743,19 +1836,47 @@
             }
         }
 
-        // 🔒 SISTEMA ANTI-ESPIONAGEM (DLP)
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.addEventListener('keydown', function (event) {
-            if (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) {
-                event.preventDefault();
-            }
-            if (event.ctrlKey && event.key === 'U') {
-                event.preventDefault();
-            }
-            if (event.key === 'F12') {
-                event.preventDefault();
-            }
+        // 🔒 SISTEMA ANTI-ESPIONAGEM (DLP) v2
+        // Bloquear menu de contexto
+        document.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Bloquear atalhos de inspeção, salvamento e impressão
+        document.addEventListener('keydown', function(e) {
+            const blocked =
+                e.key === 'F12' ||
+                (e.ctrlKey && e.key === 'u') ||
+                (e.ctrlKey && e.key === 'U') ||
+                (e.ctrlKey && e.key === 's') ||
+                (e.ctrlKey && e.key === 'S') ||
+                (e.ctrlKey && e.key === 'p') ||
+                (e.ctrlKey && e.key === 'P') ||
+                (e.ctrlKey && e.shiftKey && ['i','I','j','J','c','C','k','K'].includes(e.key));
+            if (blocked) e.preventDefault();
         });
+
+        // Bloquear iframe embedding (clickjacking)
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+
+        // Detecção de DevTools por tamanho de janela
+        (function detectDevTools() {
+            const threshold = 160;
+            const overlay = document.getElementById('devtools-warning');
+            function check() {
+                const widthDiff = window.outerWidth - window.innerWidth;
+                const heightDiff = window.outerHeight - window.innerHeight;
+                if (overlay) {
+                    if (widthDiff > threshold || heightDiff > threshold) {
+                        overlay.style.display = 'flex';
+                    } else {
+                        overlay.style.display = 'none';
+                    }
+                }
+            }
+            window.addEventListener('resize', check);
+            setInterval(check, 1500);
+        })();
     </script>
 </body>
 
