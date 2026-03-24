@@ -564,7 +564,7 @@
                     Quero Minha Clínica Digital <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
                 <p class="text-xs text-slate-400 font-medium mt-3 flex items-center justify-center gap-1">
-                    <i data-lucide="lock" class="w-3 h-3 text-teal-500"></i> Acesso imediato · Garantia de 30 dias
+                    <i data-lucide="lock" class="w-3 h-3 text-teal-500"></i> Acesso imediato · Garantia de 7 dias
                 </p>
             </div>
 
@@ -1298,9 +1298,12 @@
                         <i data-lucide="shield-check" class="w-10 h-10 sm:w-12 sm:h-12 text-teal-400"></i>
                     </div>
                     <div class="text-center sm:text-left">
-                        <h4 class="text-lg sm:text-xl font-black text-white mb-2 m-0 text-teal-400 uppercase tracking-widest">Sua Segurança é Minha Prioridade</h4>
-                        <p class="text-sm text-slate-400 font-medium leading-relaxed m-0 italic">
-                            "Você já tentou muita coisa que prometeu e não entregou. Por isso a regra aqui é simples: use por 7 dias. Se suas pernas não estiverem mais leves, se não sentir diferença no peso e na dor — me manda uma mensagem e devolvo cada centavo. Sem formulário, sem justificativa, sem estresse. Estamos juntas."
+                        <h4 class="text-lg sm:text-xl font-black text-white mb-3 m-0 text-teal-400 uppercase tracking-widest">Garantia Incondicional de 7 Dias</h4>
+                        <p class="text-sm text-slate-300 font-medium leading-relaxed m-0 italic mb-4">
+                            "Você já gastou dinheiro com dietas que prometeram e não entregaram. Já ouviu médicos que minimizaram sua dor. Já tentou exercícios que machucaram mais do que ajudaram. Eu sei disso. Por isso não peço que você confie às cegas — só que experimente por 7 dias."
+                        </p>
+                        <p class="text-sm text-slate-400 font-medium leading-relaxed m-0">
+                            Se no 7º dia suas pernas não estiverem mais leves, se não sentir nenhuma diferença — <strong class="text-white">me manda uma mensagem e devolvo cada centavo em até 24 horas.</strong> Sem formulário, sem justificativa, sem burocracia. A única coisa que você tem a perder é a dor.
                         </p>
                     </div>
                 </div>
@@ -1367,15 +1370,78 @@
                         <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Não. O nosso protocolo e a Nutricionista focam em comida de verdade e ações mecânicas simples, como escovação a seco e elevação de pernas, que você pode fazer com o que já tem na sua casa e cozinha.</p>
                     </div>
                 </button>
+
+                <!-- FAQ crítico: objeção de assinatura -->
+                <button type="button" class="w-full bg-teal-50 rounded-[1.5rem] p-6 border border-teal-200 hover:border-teal-400 hover:bg-teal-100 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(5)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        <span class="flex items-center gap-2"><i data-lucide="credit-card" class="w-5 h-5 text-teal-500 shrink-0"></i> É assinatura? Tenho medo de cobranças indevidas.</span>
+                        <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                    </h4>
+                    <div id="faq-content-5" class="hidden mt-4 pt-4 border-t border-teal-200">
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Sim, é uma assinatura mensal de R$37 — e você tem controle total. Para cancelar, basta enviar uma mensagem para o nosso suporte a qualquer momento e a cobrança para imediatamente no mesmo dia. Não existe multa, fidelidade ou burocracia. Se dentro dos primeiros 7 dias não sentir diferença, devolvemos seu dinheiro integralmente — só precisamos que nos diga e processamos em até 24h.</p>
+                    </div>
+                </button>
+
+                <!-- FAQ crítico: tempo para resultado -->
+                <button type="button" class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(6)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        Em quanto tempo verei resultado?
+                        <i id="faq-icon-6" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                    </h4>
+                    <div id="faq-content-6" class="hidden mt-4 pt-4 border-t border-slate-200">
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">Já no primeiro acesso, com o Botão SOS Dor, você pode sentir alívio em 10 minutos numa crise aguda. Para redução de inchaço e leveza nas pernas, o protocolo anti-inflamatório mostra resultados a partir de 7 a 14 dias de uso consistente. Os melhores resultados — como redução de medidas — acontecem entre 21 e 90 dias. O mais importante: você começa a sentir a diferença antes mesmo do fim da primeira semana.</p>
+                    </div>
+                </button>
+
+                <!-- FAQ crítico: comparação de custo -->
+                <button type="button" class="w-full bg-slate-50 rounded-[1.5rem] p-6 border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-colors cursor-pointer group shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-teal-500" onclick="toggleFAQ(7)">
+                    <h4 class="font-bold text-slate-800 flex justify-between items-center text-base sm:text-lg m-0 group-hover:text-teal-900 transition-colors">
+                        Vale a pena pagar R$37/mês se posso buscar informação grátis na internet?
+                        <i id="faq-icon-7" data-lucide="chevron-down" class="w-5 h-5 text-teal-500 transform transition-transform duration-300 shrink-0 ml-4"></i>
+                    </h4>
+                    <div id="faq-content-7" class="hidden mt-4 pt-4 border-t border-slate-200">
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed m-0">A internet tem informação dispersa, genérica e contraditória. O Fluxo Vital tem 13 especialistas que respondem com base no SEU perfil, grau de lipedema e histórico. É a diferença entre pesquisar sintoma no Google e ter uma médica olhando para o seu caso específico. Além disso, 1 sessão de drenagem manual custa R$150. Com R$37, você tem o equivalente a um protocolo de drenagem guiado para usar todos os dias do mês.</p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- ROI de Saúde — Ponto 17 -->
+            <div class="mt-16 bg-slate-900 rounded-[2rem] p-8 text-white mb-10">
+                <p class="text-xs font-black text-rose-400 uppercase tracking-widest mb-6 text-center m-0">O custo de não tratar o lipedema</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                    <div class="text-center">
+                        <p class="text-2xl font-black text-white m-0">R$150</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 m-0">1 sessão de drenagem</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-black text-white m-0">R$600</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 m-0">Drenagem por mês (4x)</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-black text-white m-0">R$400</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 m-0">Consulta especialista</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-black text-rose-400 m-0">R$25k+</p>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 m-0">Lipoaspiração linfática</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-700 pt-6 text-center">
+                    <p class="text-slate-300 font-medium text-sm m-0">Com o Fluxo Vital, você tem <strong class="text-teal-400">protocolos de drenagem guiados todos os dias</strong>, nutricionista e fisioterapeuta disponíveis 24h — por <strong class="text-teal-400">R$1,23/dia.</strong></p>
+                </div>
             </div>
 
             <!-- CTA pós-FAQ direto para oferta -->
-            <div class="mt-16 text-center max-w-2xl mx-auto">
-                <p class="text-slate-800 font-bold text-lg m-0 mb-6">Você tem dois caminhos: continuar sofrendo com dietas que não funcionam e sentindo dor, ou entrar para a Clínica Digital Fluxo Vital e ter uma equipe cuidando de você.</p>
+            <div class="text-center max-w-2xl mx-auto">
+                <p class="text-slate-800 font-black text-xl m-0 mb-3">Você chegou até aqui porque sabe que algo precisa mudar.</p>
+                <p class="text-slate-500 font-medium text-base m-0 mb-8">Mulheres com lipedema que buscaram suporte especializado relatam sentir diferença a partir do 7º dia. Hoje pode ser o seu dia 1.</p>
                 <a href="#oferta"
-                    class="inline-flex items-center justify-center gap-3 bg-teal-500 hover:bg-teal-600 text-white font-black text-base sm:text-lg px-8 py-4 rounded-[1.5rem] shadow-xl transition-all hover:scale-[1.02] no-underline">
-                    Sim, quero minha Clínica Digital <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    class="inline-flex items-center justify-center gap-3 bg-teal-500 hover:bg-teal-600 text-white font-black text-base sm:text-xl px-10 py-5 rounded-[1.5rem] shadow-xl transition-all hover:scale-[1.02] no-underline">
+                    Quero começar hoje por R$1,23/dia <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
+                <p class="text-xs text-slate-400 font-bold mt-4 flex items-center justify-center gap-2 uppercase tracking-widest m-0">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-teal-500"></i> 7 dias de garantia · Cancele quando quiser
+                </p>
             </div>
         </div>
     </section>
