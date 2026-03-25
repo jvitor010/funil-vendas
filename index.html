@@ -244,7 +244,7 @@
         // 🚨 PASSO 1 - CONFIGURAÇÃO DE WEBHOOK (ZAPIER / MAKE / n8n)
         // Cole aqui o link da sua automação para guardar os contatos antes do redirecionamento
         // ATENÇÃO: Crie um cenário separando do App (Não use o mesmo de cadastro pago)
-        const WEBHOOK_URL = "https://hook.eu1.make.com/jluoc4p124la4jc2c39h1m2i7qeb1i5n";
+        const WEBHOOK_URL = "https://hourless-gemma-unconsumable.ngrok-free.dev/webhook/fluxovital-captura";
 
         const container = document.getElementById('quiz-container');
 
@@ -534,7 +534,7 @@
             if (WEBHOOK_URL) {
                 fetch(WEBHOOK_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'ngrok-skip-browser-warning': 'true' },
                     body: JSON.stringify({
                         nome: userName,
                         email: '',

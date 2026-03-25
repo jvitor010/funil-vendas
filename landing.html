@@ -58,8 +58,8 @@
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="preconnect" href="https://lastlink.com">
     <link rel="dns-prefetch" href="https://lastlink.com">
-    <link rel="preconnect" href="https://hook.eu1.make.com">
-    <link rel="dns-prefetch" href="https://hook.eu1.make.com">
+    <link rel="preconnect" href="https://hourless-gemma-unconsumable.ngrok-free.dev">
+    <link rel="dns-prefetch" href="https://hourless-gemma-unconsumable.ngrok-free.dev">
     <link rel="preconnect" href="https://play.tynk.ai">
     <link rel="dns-prefetch" href="https://play.tynk.ai">
 
@@ -1813,10 +1813,10 @@
             }
             const params = new URLSearchParams(window.location.search);
             const fname = params.get('fname') || '';
-            const WEBHOOK_LP = 'https://hook.eu1.make.com/jluoc4p124la4jc2c39h1m2i7qeb1i5n';
+            const WEBHOOK_LP = 'https://hourless-gemma-unconsumable.ngrok-free.dev/webhook/fluxovital-captura';
             fetch(WEBHOOK_LP, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' },
                 body: JSON.stringify({
                     nome: fname,
                     whatsapp: input.value.trim(),
