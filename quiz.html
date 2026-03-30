@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico do Sono - CJO</title>
+    <!-- DNS Prefetch & Preconnect (Performance) -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <!-- Prefetch next page -->
+    <link rel="prefetch" href="sales.html">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- React & ReactDOM -->
@@ -407,5 +417,7 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<QuizApp />);
     </script>
+    <!-- Anti-Spy Shield -->
+    <script src="./assets/shield.js" defer></script>
 </body>
 </html>

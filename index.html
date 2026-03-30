@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Código das Janelas de Ouro | Diagnóstico do Sono do Bebê</title>
     <meta name="description" content="Descubra o que está atrapalhando o sono do seu bebê. Faça o diagnóstico gratuito em menos de 2 minutos.">
+    <!-- DNS Prefetch & Preconnect (Performance) -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="./assets/index_hero.png">
+    <!-- Preload next page -->
+    <link rel="prefetch" href="quiz.html">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - display=swap for fast render -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
                     colors: {
-                        gold: {
-                            100: '#fef3c7',
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            900: '#78350f',
-                        },
-                        brand: {
-                            dark: '#1a1a1a',
-                            green: '#10b981',
-                            lightBg: '#f8f8f8'
-                        }
+                        gold: { 100:'#fef3c7', 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706', 900:'#78350f' },
+                        brand: { dark:'#1a1a1a', green:'#10b981', lightBg:'#f8f8f8' }
                     }
                 }
             }
@@ -35,72 +35,35 @@
     </script>
 
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #fdfaf6;
-            background-image: radial-gradient(circle at 15% 50%, rgba(255, 230, 200, 0.4), transparent 30%),
-                              radial-gradient(circle at 85% 30%, rgba(250, 220, 190, 0.4), transparent 30%),
-                              radial-gradient(circle at 50% 80%, rgba(245, 240, 235, 0.5), transparent 40%);
-            background-attachment: fixed;
-        }
-
-        .pulse-btn {
-            animation: pulse-shadow 2s infinite;
-        }
-        @keyframes pulse-shadow {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-up { animation: fadeInUp 0.6s ease-out forwards; }
-        .fade-up-d1 { animation: fadeInUp 0.6s ease-out 0.12s forwards; opacity: 0; }
-        .fade-up-d2 { animation: fadeInUp 0.6s ease-out 0.24s forwards; opacity: 0; }
-        .fade-up-d3 { animation: fadeInUp 0.6s ease-out 0.36s forwards; opacity: 0; }
+        body{font-family:'Montserrat',sans-serif;background-color:#fdfaf6;background-image:radial-gradient(circle at 15% 50%,rgba(255,230,200,.4),transparent 30%),radial-gradient(circle at 85% 30%,rgba(250,220,190,.4),transparent 30%),radial-gradient(circle at 50% 80%,rgba(245,240,235,.5),transparent 40%);background-attachment:fixed}
+        .pulse-btn{animation:pulse-shadow 2s infinite}
+        @keyframes pulse-shadow{0%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 15px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+        .fade-up{animation:fadeInUp .6s ease-out forwards}
+        .fade-up-d1{animation:fadeInUp .6s ease-out .12s forwards;opacity:0}
+        .fade-up-d2{animation:fadeInUp .6s ease-out .24s forwards;opacity:0}
+        .fade-up-d3{animation:fadeInUp .6s ease-out .36s forwards;opacity:0}
     </style>
 </head>
 <body class="antialiased text-gray-800 min-h-screen">
 
     <!-- HERO SECTION -->
     <header class="w-full max-w-lg mx-auto pt-10 pb-6 px-5 flex flex-col items-center text-center">
-
-        <!-- Small Logo Line -->
         <div class="fade-up w-10 h-1 bg-brand-dark rounded-full mb-8"></div>
-
-        <!-- Headline -->
         <h1 class="fade-up text-[26px] sm:text-3xl font-extrabold text-gray-900 leading-[1.2] mb-5">
             Descubra por que seu bebê briga com o sono ou acorda tantas vezes durante a madrugada
         </h1>
-
-        <!-- Subheadline -->
         <p class="fade-up-d1 text-[15px] text-gray-500 font-medium mb-8 leading-relaxed max-w-md">
             Responda algumas perguntas rápidas e descubra o que pode estar atrapalhando o sono do seu bebê.
         </p>
-
-        <!-- Photo -->
         <div class="fade-up-d2 w-full rounded-2xl overflow-hidden mb-8 shadow-sm">
-            <img 
-                src="./assets/index_hero.png" 
-                alt="Mãe sorrindo olhando bebê dormindo no berço" 
-                class="w-full h-auto object-cover"
-                width="600"
-                height="400"
-                loading="eager"
-            >
+            <img src="./assets/index_hero.png" alt="Mãe sorrindo olhando bebê dormindo no berço" class="w-full h-auto object-cover" width="600" height="400" loading="eager" fetchpriority="high" decoding="async">
         </div>
-
-        <!-- CTA Button -->
         <div class="fade-up-d3 w-full">
             <a href="quiz.html" class="w-full flex items-center justify-center gap-2 bg-brand-green hover:bg-emerald-600 text-white font-bold text-base py-4 px-8 rounded-xl shadow-md transition-all duration-300 hover:-translate-y-0.5 pulse-btn">
                 Começar Agora
             </a>
-            <p class="text-gray-400 text-xs mt-3 font-medium">
-                Gratuito · Leva menos de 2 minutos
-            </p>
+            <p class="text-gray-400 text-xs mt-3 font-medium">Gratuito · Leva menos de 2 minutos</p>
         </div>
     </header>
 
@@ -128,5 +91,7 @@
         <p class="text-gray-300 text-[9px] mt-1">Este site não faz parte do Facebook, Google ou de qualquer plataforma de anúncios.</p>
     </footer>
 
+    <!-- Anti-Spy Shield -->
+    <script src="./assets/shield.js" defer></script>
 </body>
 </html>
