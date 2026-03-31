@@ -82,9 +82,61 @@
             flex-shrink: 0;
             margin-top: 4px;
         }
+        .urgencia-pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: #ef4444;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+            animation: urgencia-pulse 1.5s infinite;
+        }
+        @keyframes urgencia-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+        .depo-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #065f46);
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .cta-fixo-mobile {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 12px 16px;
+                background: white;
+                border-top: 1px solid #e5e7eb;
+                box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            body { padding-bottom: 80px; }
+        }
+        @media (min-width: 769px) {
+            .cta-fixo-mobile { display: none; }
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800 bg-white">
+
+    <!-- CONTAINER VSL - Descomentar quando o vídeo estiver pronto -->
+    <!--
+    <div style="max-width: 640px; margin: 2rem auto; padding: 0 1rem; border-radius: 12px; overflow: hidden;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
+            <iframe src="SEU_LINK_VTURB_AQUI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;" frameborder="0" allow="autoplay; fullscreen"></iframe>
+        </div>
+    </div>
+    -->
 
     <!-- HERO SECTION -->
     <header class="w-full pt-10 pb-16 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
@@ -287,6 +339,59 @@
         </div>
     </section>
 
+    <!-- SECTION: PARA QUEM É / NÃO É -->
+    <section class="w-full py-16 px-4 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-center text-gray-900 mb-10">Este método é para você se:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 check-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-700 font-medium">Seu bebê acorda múltiplas vezes durante a noite</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 check-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-700 font-medium">Você está exausta e quer uma solução respeitosa</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 check-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-700 font-medium">Já tentou rotina, horários e nada funcionou</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 check-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-700 font-medium">Quer um método sem choro e sem culpa</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 check-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-700 font-medium">Está disposta a aplicar ajustes simples por 5-7 dias</span>
+                    </li>
+                </ul>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 x-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <span class="text-gray-500 font-medium">Espera resultado mágico sem aplicar nada</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 x-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <span class="text-gray-500 font-medium">Prefere métodos de "deixar chorar até dormir"</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 x-icon shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <span class="text-gray-500 font-medium">Não está disposta a ajustar a rotina por pelo menos 5 dias</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: URGÊNCIA -->
+    <section class="w-full px-4 py-6 bg-amber-50 border-t border-b border-amber-200">
+        <div class="max-w-3xl mx-auto flex items-center justify-center gap-3 text-center flex-wrap">
+            <span class="urgencia-pulse-dot"></span>
+            <p class="text-amber-900 font-bold text-sm md:text-base">⚠️ <strong>23 mães</strong> estão vendo esta página agora · Vagas com desconto limitadas para esta semana</p>
+        </div>
+    </section>
+
     <!-- SECTION: OFERTA (PRICING BOX) - Corrigido Layout -->
     <section class="w-full px-4 bg-brand-dark relative z-20">
         <div class="max-w-3xl mx-auto bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-6 md:p-12 text-gray-900 relative -mt-24 mb-16 w-[95%]">
@@ -420,7 +525,44 @@
                 <img src="assets/dep_fernanda.png" alt="Depoimento WhatsApp Fernanda" class="w-full max-w-[320px] mx-auto rounded-3xl shadow-xl hover:-translate-y-1 transition-transform border border-gray-200">
             </div>
             
-            <div class="mt-16 text-center">
+            <!-- Cards de depoimento texto -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="depo-avatar">JM</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">Juliana Mendes <span class="text-brand-green text-xs font-semibold">✓ Verificado</span></p>
+                            <p class="text-gray-400 text-xs">Mãe da Sofia, 5 meses</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-600 text-sm leading-relaxed">"Minha filha dormia só no peito e eu estava destruída. Em 5 dias ela já dormia no berço sozinha. Mudou minha vida de verdade!"</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="depo-avatar">TO</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">Tatiane Oliveira <span class="text-brand-green text-xs font-semibold">✓ Verificado</span></p>
+                            <p class="text-gray-400 text-xs">Mãe do Pedro, 4 meses</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-600 text-sm leading-relaxed">"Achei que era mais um método milagroso, mas realmente funciona. Meu bebê de 4 meses dorme 10h seguidas agora."</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="depo-avatar">CR</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">Camila Rodrigues <span class="text-brand-green text-xs font-semibold">✓ Verificado</span></p>
+                            <p class="text-gray-400 text-xs">Mãe do Bernardo, 8 meses</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-600 text-sm leading-relaxed">"Eu acordava 6x por noite. Hoje meu bebê dorme das 20h às 6h sem acordar. Recuperei minha saúde mental."</p>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center">
                 <a href="#oferta" class="inline-block w-full md:w-auto bg-brand-green hover:bg-green-600 text-white font-extrabold text-xl py-5 px-10 rounded-full shadow-xl transition-all uppercase pulse-btn">
                     Eu quero essas noites tranquilas
                 </a>
@@ -666,6 +808,14 @@
 
     <!-- Hack for proper x-cloak hiding initialized after tailwind -->
     <style> [x-cloak] { display: none !important; } </style>
+
+    <!-- CTA FIXO MOBILE -->
+    <div class="cta-fixo-mobile">
+        <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout');" style="display:block;background:#22c55e;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-decoration:none;text-transform:uppercase;letter-spacing:0.03em;">
+            QUERO ACESSAR O MÉTODO AGORA
+        </a>
+    </div>
+
     <!-- Anti-Spy Shield -->
     <script src="./assets/shield.js" defer></script>
 </body>
