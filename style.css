@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-navy: #0F172A;
+    --primary-light: #1E293B;
+    --secondary-gold: #F59E0B;
+    --accent-indigo: #6366F1;
+    --soft-cream: #FAF9F6;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: radial-gradient(circle at top left, #F8FAFC, #F1F5F9);
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Glassmorphism Refinado */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Buttons Modernos */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 2.5rem;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary-gold), #D97706);
+    color: white;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+}
+
+/* Hero Section Refined */
+.hero {
+    padding: 120px 0;
+    position: relative;
+}
+
+.badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--accent-indigo);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to bottom right, var(--primary-navy), var(--accent-indigo));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+/* Quiz Visual Cards */
+.quiz-wrapper {
+    max-width: 900px;
+    margin: 60px auto;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #E2E8F0;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--secondary-gold);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.question-title {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.option-card {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 24px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.option-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--secondary-gold);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.option-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 18px;
+    object-fit: cover;
+    margin-bottom: 1.25rem;
+}
+
+.option-label {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--primary-navy);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.75rem; }
+    .options-grid { grid-template-columns: 1fr; }
+    .hero { padding: 60px 0; }
+}
