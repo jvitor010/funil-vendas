@@ -13,7 +13,12 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
-    fbq('track', 'Lead', {content_name: 'Chegou na Oferta/VSL'});
+    fbq('track', 'ViewContent', {
+        content_name: 'CJO - Codigo das Janelas de Ouro',
+        content_category: 'Infoproduto',
+        value: 27.00,
+        currency: 'BRL'
+    });
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
@@ -21,7 +26,22 @@
     <!-- End Meta Pixel Code -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Código das Janelas de Ouro</title>
+    <title>Código das Janelas de Ouro | Método Oficial</title>
+    <meta name="description" content="Descubra o método simples e respeitoso para fazer seu bebê dormir sem choro. O Código das Janelas de Ouro ajuda mães exaustas a recuperarem suas noites em poucos dias.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com.br/vendas">
+    <meta property="og:title" content="Código das Janelas de Ouro | Bebê dormindo sem choro">
+    <meta property="og:description" content="O método que identifica o momento biológico exato do sono do seu bebê.">
+    <meta property="og:image" content="assets/hero.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Código das Janelas de Ouro">
+    <meta property="twitter:description" content="Faça seu bebê dormir sem choro e recupere suas noites.">
+    <meta property="twitter:image" content="assets/hero.png">
+
     <!-- DNS Prefetch & Preconnect (Performance) -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -196,10 +216,10 @@
     <!-- SECTION: VSL -->
     <section style="width:100%;padding:40px 16px;background:white;">
         <div style="max-width:768px;margin:0 auto;width:100%;">
-            <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:visible;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);">
+            <div style="position:relative;width:100%;padding-bottom:calc(56.25% + 72px);height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);">
                 <iframe
                     src="https://play.tynk.ai/p/adc26f30-1fea-4d9f-b33c-3de1fd6a6e5c"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px;"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowfullscreen
                 ></iframe>
@@ -446,7 +466,7 @@
                 <span class="flex items-center gap-1"><svg class="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Garantia Incondicional 7 Dias</span>
             </div>
 
-            <a id="oferta" href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout');" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-[22px] md:text-[28px] py-6 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block whitespace-normal md:whitespace-nowrap">
+            <a id="oferta" href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout', { content_name: 'CJO - Codigo das Janelas de Ouro', value: 27.00, currency: 'BRL' });" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-[22px] md:text-[28px] py-6 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block whitespace-normal md:whitespace-nowrap">
                 QUERO ACESSAR O MÉTODO AGORA
             </a>
             <p class="text-center text-gray-400 text-sm mt-3 font-medium">↓ Acesso liberado em menos de 2 minutos</p>
@@ -640,7 +660,7 @@
 
         <!-- Segunda CTA (captura quem leu a garantia inteira) -->
         <div class="max-w-xl mx-auto mt-12 text-center">
-            <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout');" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-lg md:text-2xl py-5 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block">
+            <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout', { content_name: 'CJO - Botao Garantia', value: 27.00, currency: 'BRL' });" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-lg md:text-2xl py-5 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block">
                 SIM, QUERO COMEÇAR AGORA POR R$ 27,00
             </a>
             <p class="text-gray-400 text-sm mt-3 font-medium">↓ Garantia de 7 dias · Sem risco</p>
@@ -836,7 +856,7 @@
 
     <!-- CTA FIXO MOBILE -->
     <div class="cta-fixo-mobile">
-        <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout');" style="display:block;background:#22c55e;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-decoration:none;text-transform:uppercase;letter-spacing:0.03em;">
+        <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout', { content_name: 'CJO - CTA Fixo Mobile', value: 27.00, currency: 'BRL' });" style="display:block;background:#22c55e;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-decoration:none;text-transform:uppercase;letter-spacing:0.03em;">
             QUERO ACESSAR O MÉTODO AGORA
         </a>
     </div>
