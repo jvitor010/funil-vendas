@@ -15,6 +15,31 @@
     fbq('track', 'PageView');
     fbq('track', 'Purchase', {value: 27.00, currency: 'BRL', content_name: 'CJO - Codigo das Janelas de Ouro'});
     fbq('track', 'ViewContent', {content_name: 'Upsell Masterclass'});
+
+    // FUNÇÃO PARA PRESERVAR PARÂMETROS DE URL NO UPSELL
+    function getQueryString() {
+        return window.location.search;
+    }
+
+    function trackUpsell(destination) {
+        // Dispara o evento de InitiateCheckout para o Upsell
+        fbq('track', 'InitiateCheckout', {
+            content_name: 'Masterclass Blindagem',
+            value: 67.00,
+            currency: 'BRL'
+        });
+        
+        // Redireciona preservando os parâmetros (fbclid, UTMs)
+        const params = getQueryString();
+        const baseChar = destination.includes('?') ? '&' : '?';
+        window.location.href = destination + (params ? baseChar + params.substring(1) : '');
+    }
+
+    function goToMembersArea() {
+        const params = getQueryString();
+        const destination = 'https://lastlink.com/f/codigodasjanelasdeourocjo/members-area';
+        window.location.href = destination + params;
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
@@ -270,18 +295,17 @@
                 </div>
 
                 <!-- CTA -->
-                <a href="https://lastlink.com/p/C185193A7/checkout-payment/"
-                   onclick="fbq('track','InitiateCheckout',{content_name:'Masterclass Blindagem',value:67.00,currency:'BRL'})"
+                <button onclick="trackUpsell('https://lastlink.com/p/C185193A7/checkout-payment/')"
                    class="btn-sim">
                     ✅ Sim, quero blindar o sono do meu bebê
-                </a>
+                </button>
 
                 <div class="garantia">
                     <svg style="width:14px;height:14px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
                     Pagamento seguro · Garantia de 7 dias
                 </div>
 
-                <button class="btn-nao" onclick="window.location.href='https://lastlink.com/f/codigodasjanelasdeourocjo/members-area'">
+                <button class="btn-nao" onclick="goToMembersArea()">
                     Não obrigada, já estou satisfeita com o que comprei
                 </button>
 
@@ -318,7 +342,7 @@
 
                 if (remaining <= 0) {
                     clearInterval(interval);
-                    bar.innerHTML = '⏰ Oferta encerrada. <a href="https://lastlink.com/f/codigodasjanelasdeourocjo/members-area" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
+                    bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
                 }
             }
 

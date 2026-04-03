@@ -58,6 +58,43 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     
     <script>
+        // Função para capturar parâmetros da URL e persistir nos links de checkout
+        function getPreservedParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const preserved = {};
+            // Lista de parâmetros importantes para o Facebook Ads
+            const keysToKeep = ['fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src'];
+            
+            keysToKeep.forEach(key => {
+                if (urlParams.has(key)) preserved[key] = urlParams.get(key);
+            });
+            return preserved;
+        }
+
+        function trackCheckout(location = 'Geral') {
+            const params = getPreservedParams();
+            const baseUrl = "https://lastlink.com/p/CDF5A76C7/checkout-payment/";
+            const finalUrl = new URL(baseUrl);
+            
+            // Adiciona parâmetros capturados à URL de checkout
+            Object.keys(params).forEach(key => finalUrl.searchParams.set(key, params[key]));
+
+            // Dispara evento do Facebook
+            fbq('track', 'InitiateCheckout', {
+                content_name: 'CJO - Codigo das Janelas de Ouro',
+                content_category: 'Infoproduto',
+                content_ids: ['CJO01'],
+                value: 27.00,
+                currency: 'BRL',
+                content_location: location
+            });
+
+            // Redireciona com um pequeno delay para garantir o disparo do pixel
+            setTimeout(() => {
+                window.location.href = finalUrl.toString();
+            }, 300);
+        }
+
         tailwind.config = {
             theme: {
                 extend: {
@@ -149,19 +186,10 @@
 </head>
 <body class="antialiased text-gray-800 bg-white">
 
-    <!-- CONTAINER VSL - Descomentar quando o vídeo estiver pronto -->
-    <!--
-    <div style="max-width: 640px; margin: 2rem auto; padding: 0 1rem; border-radius: 12px; overflow: hidden;">
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.12);">
-            <iframe src="SEU_LINK_VTURB_AQUI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;" frameborder="0" allow="autoplay; fullscreen"></iframe>
-        </div>
-    </div>
-    -->
-
-    <!-- HERO SECTION -->
-    <header class="w-full pt-10 pb-16 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="flex flex-col items-center md:items-start mb-6">
+    <!-- HEADER & HEADLINE -->
+    <header class="w-full pt-10 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center">
+        <div class="w-full flex flex-col items-center text-center">
+            <div class="flex flex-col items-center mb-6">
                 <!-- Moon/Stars Icon (O Segredo Logo style) -->
                 <svg class="w-16 h-16 text-gold-500 mb-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12.1,22c-5.5,0-10-4.5-10-10c0-4.4,2.9-8.3,7.1-9.6c0.4-0.1,0.8,0.1,1,0.5c0.1,0.4,0,0.8-0.3,1.1 C8.1,5.6,7,7.7,7,10c0,3.9,3.1,7,7,7c2.3,0,4.4-1.1,5.9-2.9c0.2-0.3,0.7-0.4,1.1-0.3c0.4,0.1,0.6,0.6,0.5,1 C20.3,19,16.4,22,12.1,22z"/>
@@ -170,10 +198,39 @@
                 <h2 class="text-gold-600 font-semibold tracking-[0.1em] uppercase text-lg md:text-xl">Janelas de Ouro</h2>
             </div>
 
-            <h1 class="text-3xl md:text-[40px] font-extrabold text-gray-900 leading-[1.15] mb-6">
+            <h1 class="text-3xl md:text-[40px] font-extrabold text-gray-900 leading-[1.15] mb-6 max-w-4xl mx-auto">
                 Descubra por que seu bebê resiste ao sono — e como resolver isso <span class="text-brand-green">sem deixar ele chorar</span>, mesmo que você já tenha tentado de tudo.
             </h1>
+        </div>
+    </header>
 
+    <!-- SECTION: VSL -->
+    <section id="vsl-section" style="width:100%;padding:0 16px 40px;background:white;">
+        <div style="max-width:768px;margin:0 auto;width:100%;">
+            <div style="position:relative;width:100%;padding-bottom:calc(56.25% + 72px);height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);background:#000;">
+                <iframe
+                    src="https://play.tynk.ai/p/adc26f30-1fea-4d9f-b33c-3de1fd6a6e5c"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <p style="text-align:center;margin-top:12px;font-size:13px;color:#999;font-weight:600;">🔊 Ative o som e assista até o final</p>
+            <div style="margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:10px;">
+                <button onclick="trackCheckout('Principal Topo')"
+                   style="display:block;width:100%;max-width:480px;background:#10b981;color:white;text-align:center;font-weight:800;font-size:17px;padding:18px 24px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(16,185,129,0.4);text-transform:uppercase;letter-spacing:0.03em; border: none; cursor: pointer;">
+                    Quero o acesso agora por R$27
+                </button>
+                <p style="font-size:11px;color:#10b981;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin:0;">
+                    🔒 Pagamento seguro · Acesso imediato · Garantia de 7 dias
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESUMO DE BENEFÍCIOS (ABAIXO DA HEADLINE) -->
+    <section class="w-full pb-16 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
             <p class="text-gray-600 text-lg md:text-xl font-medium mb-8 leading-relaxed">
                 O problema não é a rotina. É a janela. Quando você aprende a identificar o momento exato em que o bebê está pronto para dormir, tudo muda — em dias, não meses.
             </p>
@@ -193,9 +250,9 @@
                 </li>
             </ul>
 
-            <a href="#oferta" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-xl md:text-2xl py-5 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn">
+            <button onclick="trackCheckout('Beneficios')" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-xl md:text-2xl py-5 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn border-none cursor-pointer">
                 Quero fazer meu bebê dormir sem choro
-            </a>
+            </button>
             
             <div class="flex items-center justify-center md:justify-start gap-2 md:gap-4 mt-4 w-full text-green-700 font-bold text-[11px] md:text-sm uppercase tracking-wide flex-wrap">
                 <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Acesso imediato</span>
@@ -210,31 +267,6 @@
             <img src="assets/hero.png" alt="Mãe cuidando do bebê" class="w-4/5 md:w-full object-cover rounded-xl shadow-lg border-4 border-gray-50 opacity-90">
             <!-- Mockup posicionado por cima -->
             <img src="assets/capa_ebook_premium.jpg" alt="Ebook Código das Janelas de Ouro" class="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-8 w-1/3 md:w-2/5 drop-shadow-2xl rounded-lg border border-gray-200 bg-white p-2">
-        </div>
-    </header>
-
-    <!-- SECTION: VSL -->
-    <section style="width:100%;padding:40px 16px;background:white;">
-        <div style="max-width:768px;margin:0 auto;width:100%;">
-            <div style="position:relative;width:100%;padding-bottom:calc(56.25% + 72px);height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);">
-                <iframe
-                    src="https://play.tynk.ai/p/adc26f30-1fea-4d9f-b33c-3de1fd6a6e5c"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
-            </div>
-            <p style="text-align:center;margin-top:12px;font-size:13px;color:#999;font-weight:600;">🔊 Ative o som e assista até o final</p>
-            <div style="margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:10px;">
-                <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/"
-                   onclick="fbq('track','InitiateCheckout',{content_name:'CJO - Codigo das Janelas de Ouro',value:27.00,currency:'BRL'})"
-                   style="display:block;width:100%;max-width:480px;background:#10b981;color:white;text-align:center;font-weight:800;font-size:17px;padding:18px 24px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(16,185,129,0.4);text-transform:uppercase;letter-spacing:0.03em;">
-                    Quero o acesso agora por R$27
-                </a>
-                <p style="font-size:11px;color:#10b981;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin:0;">
-                    🔒 Pagamento seguro · Acesso imediato · Garantia de 7 dias
-                </p>
-            </div>
         </div>
     </section>
 
