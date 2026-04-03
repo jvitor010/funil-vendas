@@ -13,8 +13,38 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
+    
+    // NOTA: Se você configurou o Pixel diretamente no painel da Lastlink (CAPI/Nativo), 
+    // o evento Purchase abaixo pode causar contagem duplicada. 
+    // Se as vendas aparecerem duplicadas, remova a linha abaixo.
     fbq('track', 'Purchase', {value: 27.00, currency: 'BRL', content_name: 'CJO - Codigo das Janelas de Ouro'});
-    fbq('track', 'ViewContent', {content_name: 'Upsell Masterclass'});
+    
+    fbq('track', 'ViewContent', {
+        content_name: 'CJO - Upsell Masterclass',
+        content_category: 'Upsell',
+        value: 67.00,
+        currency: 'BRL'
+    });
+
+    // Função para preservar parâmetros da URL
+    function getCheckoutUrl(baseUrl) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const url = new URL(baseUrl);
+        urlParams.forEach((value, key) => {
+            url.searchParams.set(key, value);
+        });
+        return url.toString();
+    }
+
+    function trackUpsell() {
+        fbq('track','InitiateCheckout',{
+            content_name:'CJO - Upsell Masterclass',
+            value:67.00,
+            currency:'BRL'
+        });
+        const baseUrl = 'https://lastlink.com/p/C185193A7/checkout-payment/';
+        window.location.href = getCheckoutUrl(baseUrl);
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
@@ -278,11 +308,9 @@
                 </div>
 
                 <!-- CTA -->
-                <a href="https://lastlink.com/p/C185193A7/checkout-payment/"
-                   onclick="fbq('track','InitiateCheckout',{content_name:'Masterclass Blindagem',value:67.00,currency:'BRL'})"
-                   class="btn-sim">
+                <button onclick="trackUpsell()" class="btn-sim">
                     ✅ Sim, quero blindar o sono do meu bebê
-                </a>
+                </button>
 
                 <div class="garantia">
                     <svg style="width:14px;height:14px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
