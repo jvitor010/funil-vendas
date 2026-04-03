@@ -498,9 +498,9 @@
                 <span class="flex items-center gap-1"><svg class="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Garantia Incondicional 7 Dias</span>
             </div>
 
-            <a id="oferta" href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout', { content_name: 'CJO - Codigo das Janelas de Ouro', value: 27.00, currency: 'BRL' });" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-[22px] md:text-[28px] py-6 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block whitespace-normal md:whitespace-nowrap">
+            <button id="oferta" onclick="trackCheckout('Caixa de Preco')" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-[22px] md:text-[28px] py-6 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block whitespace-normal md:whitespace-nowrap border-none cursor-pointer">
                 QUERO ACESSAR O MÉTODO AGORA
-            </a>
+            </button>
             <p class="text-center text-gray-400 text-sm mt-3 font-medium">↓ Acesso liberado em menos de 2 minutos</p>
 
             <!-- Micro-copy Garantia (Elimina última objeção) -->
@@ -692,9 +692,9 @@
 
         <!-- Segunda CTA (captura quem leu a garantia inteira) -->
         <div class="max-w-xl mx-auto mt-12 text-center">
-            <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout', { content_name: 'CJO - Botao Garantia', value: 27.00, currency: 'BRL' });" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-lg md:text-2xl py-5 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block">
+            <button onclick="trackCheckout('Garantia')" class="w-full bg-brand-green hover:bg-green-600 text-white font-extrabold text-lg md:text-2xl py-5 px-8 rounded-full shadow-xl transition-all text-center uppercase pulse-btn block border-none cursor-pointer">
                 SIM, QUERO COMEÇAR AGORA POR R$ 27,00
-            </a>
+            </button>
             <p class="text-gray-400 text-sm mt-3 font-medium">↓ Garantia de 7 dias · Sem risco</p>
         </div>
     </section>
@@ -888,9 +888,9 @@
 
     <!-- CTA FIXO MOBILE -->
     <div class="cta-fixo-mobile">
-        <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" onclick="fbq('track', 'InitiateCheckout', { content_name: 'CJO - CTA Fixo Mobile', value: 27.00, currency: 'BRL' });" style="display:block;background:#22c55e;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-decoration:none;text-transform:uppercase;letter-spacing:0.03em;">
+        <button onclick="trackCheckout('CTA Fixo Mobile')" style="display:block;width:100%;border:none;cursor:pointer;background:#22c55e;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-transform:uppercase;letter-spacing:0.03em;">
             QUERO ACESSAR O MÉTODO AGORA
-        </a>
+        </button>
     </div>
 
 
