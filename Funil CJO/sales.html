@@ -159,9 +159,9 @@
     -->
 
     <!-- HERO SECTION -->
-    <header class="w-full pt-10 pb-16 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="flex flex-col items-center md:items-start mb-6">
+    <header class="w-full pt-10 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center">
+        <div class="w-full flex flex-col items-center text-center">
+            <div class="flex flex-col items-center mb-6">
                 <!-- Moon/Stars Icon (O Segredo Logo style) -->
                 <svg class="w-16 h-16 text-gold-500 mb-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12.1,22c-5.5,0-10-4.5-10-10c0-4.4,2.9-8.3,7.1-9.6c0.4-0.1,0.8,0.1,1,0.5c0.1,0.4,0,0.8-0.3,1.1 C8.1,5.6,7,7.7,7,10c0,3.9,3.1,7,7,7c2.3,0,4.4-1.1,5.9-2.9c0.2-0.3,0.7-0.4,1.1-0.3c0.4,0.1,0.6,0.6,0.5,1 C20.3,19,16.4,22,12.1,22z"/>
@@ -170,12 +170,42 @@
                 <h2 class="text-gold-600 font-semibold tracking-[0.1em] uppercase text-lg md:text-xl">Janelas de Ouro</h2>
             </div>
 
-            <h1 class="text-3xl md:text-[40px] font-extrabold text-gray-900 leading-[1.15] mb-6">
+            <h1 class="text-3xl md:text-[40px] font-extrabold text-gray-900 leading-[1.15] mb-6 max-w-4xl mx-auto">
                 Descubra por que seu bebê resiste ao sono — e como resolver isso <span class="text-brand-green">sem deixar ele chorar</span>, mesmo que você já tenha tentado de tudo.
             </h1>
+        </div>
+    </header>
 
+    <!-- SECTION: VSL (MOVED UP) -->
+    <section id="vsl-section" style="width:100%;padding:0 16px 40px;background:white;">
+        <div style="max-width:768px;margin:0 auto;width:100%;">
+            <div style="position:relative;width:100%;padding-bottom:calc(56.25% + 72px);height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);background:#000;">
+                <iframe
+                    src="https://play.tynk.ai/p/adc26f30-1fea-4d9f-b33c-3de1fd6a6e5c"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <p style="text-align:center;margin-top:12px;font-size:13px;color:#999;font-weight:600;">🔊 Ative o som e assista até o final</p>
+            <div style="margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:10px;">
+                <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/"
+                   onclick="fbq('track','InitiateCheckout',{content_name:'CJO - Codigo das Janelas de Ouro',value:27.00,currency:'BRL'})"
+                   style="display:block;width:100%;max-width:480px;background:#10b981;color:white;text-align:center;font-weight:800;font-size:17px;padding:18px 24px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(16,185,129,0.4);text-transform:uppercase;letter-spacing:0.03em;">
+                    Quero o acesso agora por R$27
+                </a>
+                <p style="font-size:11px;color:#10b981;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin:0;">
+                    🔒 Pagamento seguro · Acesso imediato · Garantia de 7 dias
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION (UNDER VSL) -->
+    <div class="w-full pb-16 px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
             <p class="text-gray-600 text-lg md:text-xl font-medium mb-8 leading-relaxed">
-                O problema não é a rotina. É a janela. Quando você aprende a identificar o momento exato em que o bebê está pronto para dormir, tudo muda — em dias, não meses.
+                O problema não é a rotina. É a janela. Quando você aprende a identificar o momento exato em que o bebê está pronto for dormir, tudo muda — em dias, não meses.
             </p>
 
             <ul class="space-y-4 mb-10 w-full text-left">
@@ -211,32 +241,8 @@
             <!-- Mockup posicionado por cima -->
             <img src="assets/capa_ebook_premium.jpg" alt="Ebook Código das Janelas de Ouro" class="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-8 w-1/3 md:w-2/5 drop-shadow-2xl rounded-lg border border-gray-200 bg-white p-2">
         </div>
-    </header>
+    </div>
 
-    <!-- SECTION: VSL -->
-    <section style="width:100%;padding:40px 16px;background:white;">
-        <div style="max-width:768px;margin:0 auto;width:100%;">
-            <div style="position:relative;width:100%;padding-bottom:calc(56.25% + 42px);height:0;overflow:hidden;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);">
-                <iframe
-                    src="https://play.tynk.ai/p/adc26f30-1fea-4d9f-b33c-3de1fd6a6e5c"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
-            </div>
-            <p style="text-align:center;margin-top:12px;font-size:13px;color:#999;font-weight:600;">🔊 Ative o som e assista até o final</p>
-            <div style="margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:10px;">
-                <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/"
-                   onclick="fbq('track','InitiateCheckout',{content_name:'CJO - Codigo das Janelas de Ouro',value:27.00,currency:'BRL'})"
-                   style="display:block;width:100%;max-width:480px;background:#10b981;color:white;text-align:center;font-weight:800;font-size:17px;padding:18px 24px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(16,185,129,0.4);text-transform:uppercase;letter-spacing:0.03em;">
-                    Quero o acesso agora por R$27
-                </a>
-                <p style="font-size:11px;color:#10b981;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin:0;">
-                    🔒 Pagamento seguro · Acesso imediato · Garantia de 7 dias
-                </p>
-            </div>
-        </div>
-    </section>
 
     <!-- SECTION: IDENTIFICAÇÃO DO PROBLEMA (Dark Mode) -->
     <section class="w-full py-20 px-4 bg-brand-dark text-white">
@@ -861,98 +867,9 @@
         </a>
     </div>
 
-    <!-- EXIT-INTENT POPUP -->
-    <style>
-        .exit-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:exitFadeIn 0.3s ease}
-        .exit-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:420px;background:white;border-radius:16px;padding:32px 24px;z-index:10000;text-align:center;animation:exitSlideUp 0.3s ease;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-        .exit-modal h2{font-size:22px;font-weight:800;color:#1a1a1a;margin-bottom:12px;line-height:1.3;font-family:'Montserrat',sans-serif}
-        .exit-modal p{font-size:15px;color:#555;line-height:1.7;margin-bottom:16px}
-        .exit-badge{display:inline-flex;align-items:center;gap:6px;background:#f0fdf4;color:#166534;font-size:13px;font-weight:600;padding:8px 16px;border-radius:8px;margin-bottom:20px;font-family:'Montserrat',sans-serif}
-        .exit-cta{display:block;width:100%;background:#22c55e;color:white;font-size:16px;font-weight:800;padding:16px 24px;border:none;border-radius:12px;cursor:pointer;text-decoration:none;text-align:center;transition:background 0.2s;box-shadow:0 4px 14px rgba(34,197,94,0.3);font-family:'Montserrat',sans-serif}
-        .exit-cta:hover{background:#16a34a}
-        .exit-close-link{display:block;margin-top:12px;font-size:13px;color:#aaa;cursor:pointer;text-decoration:underline;border:none;background:none;width:100%;text-align:center;font-family:'Montserrat',sans-serif}
-        .exit-close-link:hover{color:#888}
-        .exit-x{position:absolute;top:12px;right:16px;font-size:24px;color:#ccc;cursor:pointer;border:none;background:none;line-height:1}
-        .exit-x:hover{color:#999}
-        @keyframes exitFadeIn{from{opacity:0}to{opacity:1}}
-        @keyframes exitSlideUp{from{opacity:0;transform:translate(-50%,-45%)}to{opacity:1;transform:translate(-50%,-50%)}}
     </style>
 
-    <div id="exitOverlay" class="exit-overlay">
-        <div id="exitModal" class="exit-modal">
-            <button class="exit-x" onclick="closeExitPopup()">×</button>
-            <h2>Antes de ir, uma coisa importante...</h2>
-            <p>Sei que decidir pode ser difícil, ainda mais com sono atrasado e cansaço acumulado. Mas quero te lembrar de algo:<br><br>
-            Você tem <strong style="color:#1a1a1a">7 dias de garantia total</strong>. Se o método não funcionar para o seu bebê, devolvemos cada centavo — sem perguntas.<br><br>
-            Ou seja: o único risco real é <strong style="color:#1a1a1a">NÃO tentar</strong> e continuar acordando de madrugada.</p>
-            <div class="exit-badge">🔒 Garantia incondicional de 7 dias · Risco zero</div>
-            <a href="https://lastlink.com/p/CDF5A76C7/checkout-payment/" class="exit-cta" onclick="fbq('track', 'InitiateCheckout', { content_name: 'CJO Exit Intent', value: 27.00, currency: 'BRL' })">Quero testar sem risco por R$27 →</a>
-            <button class="exit-close-link" onclick="closeExitPopupFinal()">Não, obrigada</button>
-        </div>
-    </div>
 
-    <script>
-    (function() {
-        var STORAGE_KEY = 'cjo_exit_sales_shown';
-        var DELAY_MS = 8000;
-        var purchaseClicked = false;
-
-        if (sessionStorage.getItem(STORAGE_KEY)) return;
-
-        // Marcar se clicou em qualquer botão de compra
-        document.querySelectorAll('a[href*="lastlink.com"]').forEach(function(el) {
-            el.addEventListener('click', function() { purchaseClicked = true; });
-        });
-
-        var isReady = false;
-        var hasShown = false;
-
-        setTimeout(function() { isReady = true; }, DELAY_MS);
-
-        // DESKTOP: mouse saindo pelo topo
-        document.addEventListener('mouseout', function(e) {
-            if (!isReady || hasShown || purchaseClicked) return;
-            if (e.clientY <= 0 && e.relatedTarget === null) {
-                showExitPopup();
-            }
-        });
-
-        // MOBILE: scroll rápido para o topo
-        var lastScrollY = window.scrollY;
-        window.addEventListener('scroll', function() {
-            var currentY = window.scrollY;
-            var velocity = lastScrollY - currentY;
-            lastScrollY = currentY;
-            if (!isReady || hasShown || purchaseClicked) return;
-            if (velocity > 100 && currentY < 150) {
-                showExitPopup();
-            }
-        }, { passive: true });
-
-        function showExitPopup() {
-            if (hasShown) return;
-            hasShown = true;
-            sessionStorage.setItem(STORAGE_KEY, 'true');
-            var overlay = document.getElementById('exitOverlay');
-            overlay.style.display = 'block';
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) closeExitPopup();
-            });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeExitPopup();
-            });
-        }
-
-        window.closeExitPopup = function() {
-            document.getElementById('exitOverlay').style.display = 'none';
-        };
-
-        window.closeExitPopupFinal = function() {
-            document.getElementById('exitOverlay').style.display = 'none';
-            sessionStorage.setItem(STORAGE_KEY, 'final');
-        };
-    })();
-    </script>
 
     <!-- Anti-Spy Shield -->
     <script src="./assets/shield.js" defer></script>

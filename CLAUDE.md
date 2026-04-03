@@ -28,7 +28,7 @@ sales.html — Página de vendas com VSL + copy + depoimentos + oferta
     ↓
 Checkout Lastlink (externo) — Com order bumps + upsell + downsell
     ↓
-obrigado.html — Página de obrigado (a criar, com upsell embutido)
+obrigado.html — Página de obrigado ativa com Upsell Masterclass (R$67)
 ```
 
 ---
@@ -115,8 +115,9 @@ obrigado.html — Página de obrigado (a criar, com upsell embutido)
 - [x] Barra de urgência "23 mães estão vendo esta página agora"
 - [x] Seção "Para quem é / Para quem não é"
 - [x] CTA fixo no rodapé mobile (sticky bottom)
-- [x] Exit-intent popup com garantia de 7 dias (delay 8s, 1x por sessão)
-- [x] VSL inserida (iframe Tynk.ai) — bug de CSS corrigido, funcionando ✅
+- [x] Exit-intent popup REMOVIDO por solicitação estratégica
+- [x] VSL movida para o topo da página (logo abaixo da headline) ✅
+- [x] Padding da VSL ajustado para 72px (evita corte de legenda no mobile) ✅
 - [x] CTA abaixo da VSL com pixel InitiateCheckout
 
 ---
@@ -142,8 +143,9 @@ O AD4 (imagem estática com hook "Ele não está com sono? Mentira. Ele está co
 **Variação 4:** Mãe embalando + "Você está embalando. Ele está produzindo ADRENALINA. O efeito é oposto."
 **Variação 5:** Bebê agitado + "15 minutos. É o que separa um bebê DORMINDO de um bebê com ADRENALINA."
 
-### 🟡 4. Pausar AD2 no Meta Ads
-AD2 é o pior ad set (CTR 1.69%, CPC R$2,93, apenas 7 LPV em 2 dias). Deve ser pausado ASAP. Isso é feito no Gerenciador de Anúncios, não no código.
+### ✅ 4. Pausar AD2 no Meta Ads — Recomendação dada
+### ✅ 5. Remover Exit-intent do Quiz e Sales — CONCLUÍDO
+### ✅ 6. Mover VSL para o topo — CONCLUÍDO
 
 ---
 

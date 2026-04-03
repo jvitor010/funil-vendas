@@ -439,99 +439,9 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<QuizApp />);
     </script>
-    <!-- EXIT-INTENT POPUP -->
-    <style>
-        .exit-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:exitFadeIn 0.3s ease}
-        .exit-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:420px;background:white;border-radius:16px;padding:32px 24px;z-index:10000;text-align:center;animation:exitSlideUp 0.3s ease;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-        .exit-modal h2{font-size:22px;font-weight:800;color:#1a1a1a;margin-bottom:12px;line-height:1.3;font-family:'Montserrat',sans-serif}
-        .exit-modal p{font-size:15px;color:#555;line-height:1.7;margin-bottom:16px}
-        .exit-testimonial{background:#fafafa;border-radius:12px;padding:16px;margin-bottom:20px;text-align:left;border:1px solid #f0f0f0}
-        .exit-testimonial .stars{color:#facc15;font-size:14px;margin-bottom:6px}
-        .exit-testimonial .quote{font-size:13px;color:#555;line-height:1.6;font-style:italic}
-        .exit-testimonial .author{font-size:12px;color:#999;margin-top:6px}
-        .exit-cta{display:block;width:100%;background:#22c55e;color:white;font-size:16px;font-weight:800;padding:16px 24px;border:none;border-radius:12px;cursor:pointer;text-decoration:none;text-align:center;transition:background 0.2s;box-shadow:0 4px 14px rgba(34,197,94,0.3);font-family:'Montserrat',sans-serif}
-        .exit-cta:hover{background:#16a34a}
-        .exit-close-link{display:block;margin-top:12px;font-size:13px;color:#aaa;cursor:pointer;text-decoration:underline;border:none;background:none;width:100%;text-align:center;font-family:'Montserrat',sans-serif}
-        .exit-close-link:hover{color:#888}
-        .exit-x{position:absolute;top:12px;right:16px;font-size:24px;color:#ccc;cursor:pointer;border:none;background:none;line-height:1}
-        .exit-x:hover{color:#999}
-        @keyframes exitFadeIn{from{opacity:0}to{opacity:1}}
-        @keyframes exitSlideUp{from{opacity:0;transform:translate(-50%,-45%)}to{opacity:1;transform:translate(-50%,-50%)}}
     </style>
 
-    <div id="exitOverlay" class="exit-overlay">
-        <div id="exitModal" class="exit-modal">
-            <button class="exit-x" onclick="closeExitPopup()">×</button>
-            <h2>Espera! Seu diagnóstico está quase pronto...</h2>
-            <p>Você está a poucos cliques de descobrir o erro invisível que está bagunçando o sono do seu bebê. Leva menos de 1 minuto para terminar.</p>
-            <div class="exit-testimonial">
-                <div class="stars">★★★★★</div>
-                <div class="quote">"Quase desisti no meio, mas terminei e descobri que estava errando o horário da soneca. Em 3 dias meu bebê já dormia melhor."</div>
-                <div class="author">— Priscila, mãe do Davi</div>
-            </div>
-            <button class="exit-cta" onclick="closeExitPopup()">Voltar ao Diagnóstico →</button>
-            <button class="exit-close-link" onclick="closeExitPopupFinal()">Não, quero sair</button>
-        </div>
-    </div>
 
-    <script>
-    (function() {
-        var STORAGE_KEY = 'cjo_exit_quiz_shown';
-        var DELAY_MS = 3000;
-
-        if (sessionStorage.getItem(STORAGE_KEY)) return;
-
-        var isReady = false;
-        var hasShown = false;
-
-        setTimeout(function() { isReady = true; }, DELAY_MS);
-
-        // DESKTOP: mouse saindo pelo topo
-        document.addEventListener('mouseout', function(e) {
-            if (!isReady || hasShown) return;
-            // Não disparar se já está na tela de resultado
-            if (document.querySelector('a[href="sales.html"]')) return;
-            if (e.clientY <= 0 && e.relatedTarget === null) {
-                showExitPopup();
-            }
-        });
-
-        // MOBILE: scroll rápido para o topo
-        var lastScrollY = window.scrollY;
-        window.addEventListener('scroll', function() {
-            var currentY = window.scrollY;
-            var velocity = lastScrollY - currentY;
-            lastScrollY = currentY;
-            if (!isReady || hasShown) return;
-            if (velocity > 100 && currentY < 150) {
-                showExitPopup();
-            }
-        }, { passive: true });
-
-        function showExitPopup() {
-            if (hasShown) return;
-            hasShown = true;
-            sessionStorage.setItem(STORAGE_KEY, 'true');
-            var overlay = document.getElementById('exitOverlay');
-            overlay.style.display = 'block';
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) closeExitPopup();
-            });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeExitPopup();
-            });
-        }
-
-        window.closeExitPopup = function() {
-            document.getElementById('exitOverlay').style.display = 'none';
-        };
-
-        window.closeExitPopupFinal = function() {
-            document.getElementById('exitOverlay').style.display = 'none';
-            sessionStorage.setItem(STORAGE_KEY, 'final');
-        };
-    })();
-    </script>
 
     <!-- Anti-Spy Shield -->
     <script src="./assets/shield.js" defer></script>
