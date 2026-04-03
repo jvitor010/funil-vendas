@@ -13,37 +13,32 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
-    
-    // NOTA: Se você configurou o Pixel diretamente no painel da Lastlink (CAPI/Nativo), 
-    // o evento Purchase abaixo pode causar contagem duplicada. 
-    // Se as vendas aparecerem duplicadas, remova a linha abaixo.
     fbq('track', 'Purchase', {value: 27.00, currency: 'BRL', content_name: 'CJO - Codigo das Janelas de Ouro'});
-    
-    fbq('track', 'ViewContent', {
-        content_name: 'CJO - Upsell Masterclass',
-        content_category: 'Upsell',
-        value: 67.00,
-        currency: 'BRL'
-    });
+    fbq('track', 'ViewContent', {content_name: 'Upsell Masterclass'});
 
-    // Função para preservar parâmetros da URL
-    function getCheckoutUrl(baseUrl) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const url = new URL(baseUrl);
-        urlParams.forEach((value, key) => {
-            url.searchParams.set(key, value);
-        });
-        return url.toString();
+    // FUNÇÃO PARA PRESERVAR PARÂMETROS DE URL NO UPSELL
+    function getQueryString() {
+        return window.location.search;
     }
 
-    function trackUpsell() {
-        fbq('track','InitiateCheckout',{
-            content_name:'CJO - Upsell Masterclass',
-            value:67.00,
-            currency:'BRL'
+    function trackUpsell(destination) {
+        // Dispara o evento de InitiateCheckout para o Upsell
+        fbq('track', 'InitiateCheckout', {
+            content_name: 'Masterclass Blindagem',
+            value: 67.00,
+            currency: 'BRL'
         });
-        const baseUrl = 'https://lastlink.com/p/C185193A7/checkout-payment/';
-        window.location.href = getCheckoutUrl(baseUrl);
+        
+        // Redireciona preservando os parâmetros (fbclid, UTMs)
+        const params = getQueryString();
+        const baseChar = destination.includes('?') ? '&' : '?';
+        window.location.href = destination + (params ? baseChar + params.substring(1) : '');
+    }
+
+    function goToMembersArea() {
+        const params = getQueryString();
+        const destination = 'https://lastlink.com/f/codigodasjanelasdeourocjo/members-area';
+        window.location.href = destination + params;
     }
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -52,15 +47,7 @@
     <!-- End Meta Pixel Code -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesso Liberado | Código das Janelas de Ouro</title>
-    <meta name="description" content="Seu acesso ao Método CJO foi enviado para o seu e-mail. Veja esta oferta exclusiva enquanto aguarda.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seusite.com.br/obrigado">
-    <meta property="og:title" content="Parabéns pela sua compra! - CJO">
-    <meta property="og:description" content="Seu bebê está um passo mais próximo de noites tranquilas.">
-    <meta property="og:image" content="assets/hero.png">
+    <title>Compra Confirmada | Código das Janelas de Ouro</title>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -308,7 +295,8 @@
                 </div>
 
                 <!-- CTA -->
-                <button onclick="trackUpsell()" class="btn-sim">
+                <button onclick="trackUpsell('https://lastlink.com/p/C185193A7/checkout-payment/')"
+                   class="btn-sim">
                     ✅ Sim, quero blindar o sono do meu bebê
                 </button>
 
@@ -317,7 +305,7 @@
                     Pagamento seguro · Garantia de 7 dias
                 </div>
 
-                <button class="btn-nao" onclick="window.location.href='https://lastlink.com/f/codigodasjanelasdeourocjo/members-area'">
+                <button class="btn-nao" onclick="goToMembersArea()">
                     Não obrigada, já estou satisfeita com o que comprei
                 </button>
 
@@ -354,7 +342,7 @@
 
                 if (remaining <= 0) {
                     clearInterval(interval);
-                    bar.innerHTML = '⏰ Oferta encerrada. <a href="https://lastlink.com/f/codigodasjanelasdeourocjo/members-area" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
+                    bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
                 }
             }
 

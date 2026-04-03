@@ -21,20 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Código das Janelas de Ouro | Diagnóstico do Sono do Bebê</title>
-    <meta name="description" content="Descubra o erro invisível que faz seu bebê brigar com o sono. Faça o diagnóstico gratuito em menos de 2 minutos.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seusite.com.br/">
-    <meta property="og:title" content="O Código das Janelas de Ouro">
-    <meta property="og:description" content="Descubra por que seu bebê não dorme — e como resolver sem choro.">
-    <meta property="og:image" content="assets/hero.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Código das Janelas de Ouro">
-    <meta property="twitter:description" content="Ajudando mães exaustas a recuperarem suas noites.">
-    <meta property="twitter:image" content="assets/hero.png">
+    <meta name="description" content="Descubra o que está atrapalhando o sono do seu bebê. Faça o diagnóstico gratuito em menos de 2 minutos.">
     <!-- DNS Prefetch & Preconnect (Performance) -->
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -61,6 +48,25 @@
                     }
                 }
             }
+        }
+
+        // Função para capturar parâmetros da URL e persistir nos links
+        function getPreservedParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const preserved = {};
+            const keysToKeep = ['fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src'];
+            
+            keysToKeep.forEach(key => {
+                if (urlParams.has(key)) preserved[key] = urlParams.get(key);
+            });
+            return preserved;
+        }
+
+        function goToQuiz() {
+            const params = getPreservedParams();
+            const finalUrl = new URL("quiz.html", window.location.href);
+            Object.keys(params).forEach(key => finalUrl.searchParams.set(key, params[key]));
+            window.location.href = finalUrl.toString();
         }
     </script>
 
@@ -97,22 +103,22 @@
         </div>
         
         <div class="fade-up-d3 w-full space-y-3">
-            <a href="quiz.html" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
+            <button onClick="goToQuiz()" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
                 <span class="text-[15px]">👶 0 a 3 meses</span>
                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
-            <a href="quiz.html" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
+            </button>
+            <button onClick="goToQuiz()" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
                 <span class="text-[15px]">🧸 4 a 6 meses</span>
                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
-            <a href="quiz.html" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
+            </button>
+            <button onClick="goToQuiz()" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
                 <span class="text-[15px]">🍼 7 a 11 meses</span>
                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
-            <a href="quiz.html" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
+            </button>
+            <button onClick="goToQuiz()" class="w-full flex items-center justify-between bg-white hover:bg-gold-50 border-2 border-gray-100 hover:border-gold-400 text-left font-bold text-gray-700 hover:text-gold-900 py-4 px-6 rounded-xl shadow-sm transition-all duration-300 transform hover:-translate-y-1">
                 <span class="text-[15px]">🏃‍♀️ 1 ano ou mais</span>
                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
+            </button>
             <p class="text-gray-400 text-[11px] mt-4 font-medium text-center uppercase tracking-wide">Gratuito · Leva menos de 2 minutos</p>
         </div>
     </header>
