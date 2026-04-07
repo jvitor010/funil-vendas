@@ -15,7 +15,7 @@
     fbq('track', 'PageView');
 
     fbq('track', 'Purchase', {
-        value: 27.00,
+        value: 37.00,
         currency: 'BRL',
         content_name: 'CJO - Codigo das Janelas de Ouro',
         content_ids: ['CJO01'],
@@ -40,7 +40,12 @@
         // Redireciona preservando os parâmetros (fbclid, UTMs)
         const params = getQueryString();
         const baseChar = destination.includes('?') ? '&' : '?';
-        window.location.href = destination + (params ? baseChar + params.substring(1) : '');
+        const finalUrl = destination + (params ? baseChar + params.substring(1) : '');
+
+        // Delay de 300ms para garantir o disparo do pixel no Meta Ads
+        setTimeout(() => {
+            window.location.href = finalUrl;
+        }, 300);
     }
 
     function goToMembersArea() {
