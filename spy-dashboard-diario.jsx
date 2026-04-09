@@ -265,6 +265,205 @@ FAÇA A SEGUINTE ANÁLISE:
     ]
   },
   {
+    id: "diagnosticar_esteira",
+    icon: "🔧",
+    title: "Diagnosticar Esteira de Backend",
+    desc: "Analisa upsell, order bump, take rate e ticket médio — encontra o gargalo que está travando receita",
+    prompt: `Você é um especialista em esteiras de backend de tráfego direto.
+
+Analise minha esteira etapa por etapa e entregue um diagnóstico completo.
+
+MINHA ESTEIRA ATUAL:
+{ESTEIRA}
+
+MÉTRICAS DISPONÍVEIS:
+{METRICAS_BACKEND}
+
+DIAGNÓSTICO POR ELEMENTO:
+
+Order Bump:
+- Take rate: saudável > 15% | OK 5-15% | problema < 5%
+- Impacto no ticket médio: saudável > 20% | OK 8-20% | problema < 8%
+
+Upsell Imediato:
+- Take rate: saudável > 20% | OK 8-20% | problema < 8%
+
+UP1:
+- Take rate: saudável > 12% | OK 5-12% | problema < 5%
+
+Downsell:
+- Take rate: saudável > 25% | OK 10-25% | problema < 10%
+
+Backredirect:
+- Take rate: saudável > 10% | OK 3-10% | problema < 3%
+
+ENTREGUE:
+
+1. MAPA DA ESTEIRA — o que existe vs. o que falta
+2. DIAGNÓSTICO POR ELEMENTO — semáforo 🔴🟡🟢 + razão do problema
+3. GARGALO PRINCIPAL — qual elemento está travando mais receita
+4. VERIFICAÇÃO DE CONGRUÊNCIA — cada oferta parte da dor instalada pelo front-end?
+5. AVISO PIX — o link de upsell está sendo entregue por WhatsApp/e-mail após confirmação? (crítico no BR)
+
+ENTREGA FINAL:
+🔴 PROBLEMA CRÍTICO — o que resolver agora (em ordem de impacto)
+🟡 PONTOS DE ATENÇÃO
+🟢 O QUE ESTÁ FUNCIONANDO
+🎯 AÇÃO #1 — a mais impactante e executável
+📊 PROJEÇÃO — quanto o ticket médio pode crescer se corrigir o item #1
+
+REGRA: Sempre diagnostique de cima para baixo — OB antes de UP, UP antes de DS.`,
+    variables: [
+      { key: "ESTEIRA", label: "Descreva sua esteira atual", placeholder: "Ex: OB R$19 (checklist) → UP1 R$67 (masterclass) → DS R$37", multiline: true },
+      { key: "METRICAS_BACKEND", label: "Métricas disponíveis", placeholder: "Ex: OB take rate 8%, UP1 take rate 3%, ticket médio R$43...", multiline: true }
+    ]
+  },
+  {
+    id: "construir_esteira",
+    icon: "🏗️",
+    title: "Construir Esteira de Backend do Zero",
+    desc: "Cria toda a estrutura de OB → UP → DS → BR com ofertas, copy e lógica de ticket",
+    prompt: `Você é um estrategista de esteiras de backend de tráfego direto.
+
+Vou construir minha esteira do zero. Conduza a construção em etapas sequenciais.
+
+FRONT-END:
+- Produto: {PRODUTO_FRONTEND}
+- Mecanismo único: {MECANISMO}
+- Promessa principal: {PROMESSA}
+- Ticket: R$ {TICKET_FRONTEND}
+- Público: {PUBLICO}
+
+ETAPA 1 — EXTRAÇÃO DE DORES
+Com base no front-end acima, mapeie:
+- 5 dores PRESENTES (que o comprador tem AGORA, antes de qualquer resultado)
+- 3 dores FUTURAS (que vão aparecer depois que o produto resolver o primeiro problema)
+- Linguagem exata que o público usa para descrever essas dores
+
+ETAPA 2 — 5 IDEIAS DE ORDER BUMP
+Para cada dor presente, crie uma oferta de OB com os 6 campos:
+1. Nome: [Tipo de entrega] + [resultado] + [para quem / em quanto tempo]
+2. Dor que ataca: qual das 5 dores
+3. Transformação: De [estado atual] → Para [estado desejado]
+4. Mecanismo único: o que diferencia
+5. Formato: checklist / template / planilha / mini-aula (mínimo esforço pro comprador)
+6. Faixa de preço: R$9–67
+
+Filtro das melhores — 4 critérios:
+✅ Congruência com o front-end
+✅ Dor presente (não futura)
+✅ Produção em menos de 3 dias
+✅ Esforço mínimo para o comprador
+
+ETAPA 3 — ESTRUTURA DA ESTEIRA COMPLETA
+Mapeie os elementos em sequência:
+OB → Upsell Imediato (pós-pagamento) → UP1 + DS1 + DS2 → UP2 + DS1 + DS2 → Backredirect → Formulário de Matrícula
+
+Para cada elemento: nome da oferta, dor que ataca, ticket sugerido, take rate esperado
+
+REFERÊNCIA DE TICKET:
+- Order Bump: R$9–67
+- Upsell Imediato: 30–50% do front-end
+- UP1: validado por teste
+- DS1 do UP1: 50–60% do UP1
+- Backredirect: R$9–27
+
+ETAPA 4 — AVISO CRÍTICO PARA MERCADO BR
+Quem paga por Pix frequentemente não retorna para ver o upsell. Indique quais etapas precisam ter link entregue por WhatsApp/e-mail imediatamente após confirmação do pagamento.
+
+ENTREGUE:
+📋 Mapa completo da esteira com tickets e take rates esperados
+💰 Projeção de ticket médio com esteira completa vs. só front-end
+🎯 Qual OB testar primeiro e por quê`,
+    variables: [
+      { key: "PRODUTO_FRONTEND", label: "Produto do front-end", placeholder: "Ex: Código das Janelas de Ouro — método de sono para bebês" },
+      { key: "MECANISMO", label: "Mecanismo único", placeholder: "Ex: Janela de Ouro — sincronização com ritmo circadiano do bebê" },
+      { key: "PROMESSA", label: "Promessa principal", placeholder: "Ex: Bebê dormindo sozinho em dias, sem choro" },
+      { key: "TICKET_FRONTEND", label: "Ticket do front-end (R$)", placeholder: "27" },
+      { key: "PUBLICO", label: "Público-alvo", placeholder: "Ex: Mães com bebês 0-24 meses, exaustas com despertares noturnos" }
+    ]
+  },
+  {
+    id: "copy_upsell",
+    icon: "✍️",
+    title: "Gerar Copy de Upsell (11 Blocos)",
+    desc: "Escreve o roteiro completo do vídeo de upsell com a sequência psicológica dos 11 blocos",
+    prompt: `Você é um copywriter de direct response especializado em upsell de alta conversão.
+
+Escreva a copy completa de um vídeo de upsell usando os 11 blocos na sequência psicológica obrigatória.
+
+DADOS DA OFERTA:
+- Produto principal (front-end): {FRONTEND}
+- Oferta do upsell: {OFERTA_UP}
+- Dor que ataca: {DOR}
+- Transformação: De {DE} → Para {PARA}
+- Mecanismo único: {MECANISMO_UP}
+- Ticket: R$ {TICKET_UP}
+- Âncora de preço (valor total do stack): R$ {ANCORA}
+- Público: {PUBLICO}
+- Provas sociais disponíveis: {PROVAS}
+
+ROTEIRO — 11 BLOCOS EM SEQUÊNCIA OBRIGATÓRIA:
+
+BLOCO 01 — Padrão de Interrupção + Ancoragem de Medo
+(0–15s · para antes de sair · NÃO revela que é oferta)
+
+BLOCO 02 — Validação + Incompletude
+(alivia ansiedade · planta gap · "você fez certo, mas...")
+
+BLOCO 03 — Curiosity Gap + Promessa Emocional
+(tensão máxima antes do reveal · não resolve ainda)
+
+BLOCO 04 — Micro-Compromisso
+(pequeno "sim" que cria momentum → "você concorda que...")
+
+BLOCO 05 — Reframe Filosófico
+(eleva acima do funcional · conecta com identidade da pessoa)
+
+BLOCO 06 — Frame de Tribo + Permissão
+(remove julgamento · "pessoas como você...")
+
+BLOCO 07 — Prova Social — Transformação
+(2 histórias reais: antes específico + resultado com número)
+
+BLOCO 08 — Value Stacking
+(cada entregável + título + promessa + valor ancorado individualmente)
+
+BLOCO 09 — Ancoragem de Preço
+(3 etapas: stack total → corte → reveal do preço real)
+
+BLOCO 10 — Prova Social — Objeção Específica
+(ataca a dúvida residual mais comum desse público)
+
+BLOCO 11 — Escassez Final + CTA
+(urgência real · preço · botão de "não" discreto abaixo)
+
+REGRA CRÍTICA BLOCOS 01–03: NÃO começar com pitch. Os primeiros 3 blocos existem para aliviar ansiedade — qualquer sinal de venda nos primeiros segundos ativa resistência.
+
+TAMBÉM ENTREGUE:
+- Texto da thumbnail do vídeo (nunca autoplay — escreva: "Bem-vindo, novo membro" ou "Veja como acessar seu produto")
+- Pré-headline de alívio de ansiedade (antes do vídeo · não é pitch)
+- Headline para assistir o vídeo (não revela a oferta)
+- Copy abaixo do vídeo (reforço para assistir)
+- Texto do botão de CTA + texto do botão de "não" (discreto)
+
+Tom: direto. Sem firula. Vocabulário do público: {VOCABULARIO}
+Responda em português brasileiro nativo.`,
+    variables: [
+      { key: "FRONTEND", label: "Produto do front-end", placeholder: "Ex: Código das Janelas de Ouro" },
+      { key: "OFERTA_UP", label: "Oferta do upsell", placeholder: "Ex: Protocolo de Emergência — 7 rituais para noites de caos" },
+      { key: "DOR", label: "Dor que ataca", placeholder: "Ex: As noites caóticas que o método padrão não cobre" },
+      { key: "DE", label: "Estado atual (De)", placeholder: "Ex: acordando em pânico sem saber o que fazer" },
+      { key: "PARA", label: "Estado desejado (Para)", placeholder: "Ex: tendo um protocolo exato para qualquer situação" },
+      { key: "MECANISMO_UP", label: "Mecanismo único", placeholder: "Ex: Janela de Cortisol de Emergência" },
+      { key: "TICKET_UP", label: "Ticket do upsell (R$)", placeholder: "37" },
+      { key: "ANCORA", label: "Âncora de preço (R$)", placeholder: "197" },
+      { key: "PUBLICO", label: "Público", placeholder: "Ex: mãe exausta, bebê 4-12 meses, já comprou o método principal" },
+      { key: "PROVAS", label: "Provas sociais disponíveis", placeholder: "Ex: depoimentos de mães que usaram em emergências..." },
+      { key: "VOCABULARIO", label: "Vocabulário do nicho", placeholder: "Ex: janela, cortisol, madrugada, choro, colo, ritual..." }
+    ]
+  },
+  {
     id: "dominio_spy",
     icon: "🗺️",
     title: "Mapear Domínios do Concorrente",
@@ -367,12 +566,165 @@ const automationGuide = [
   }
 ];
 
+const backendPrompts = [
+  {
+    id: "p1",
+    label: "P1 — Extrair Dores da VSL",
+    when: "Não tem base de clientes ainda, ou quer mapear o que a VSL instalou na cabeça do comprador.",
+    prompt: `Analise detalhadamente a copy dessa VSL e me entregue:
+
+1. O mecanismo único — o que essa solução faz que nenhuma outra faz
+2. As 5 maiores dores do público que essa VSL está atacando
+3. As principais objeções que a copy está quebrando
+4. As crenças instaladas na cabeça do comprador após assistir
+5. O estado emocional do lead antes e depois da VSL
+
+Seja específico. Quero a psicologia real, não resumo genérico.
+Responda em português brasileiro.
+
+[VSL]: {cole aqui a transcrição completa}`
+  },
+  {
+    id: "p2",
+    label: "P2 — Extrair Dores do Formulário",
+    when: "Tem 50+ respostas de clientes acumuladas.",
+    prompt: `Você é um estrategista de ofertas de direct response.
+Analise essas respostas de pesquisa de público e me entregue:
+
+1. As 5 maiores dores presentes — problemas que eles têm AGORA, antes de qualquer resultado. Ordene por frequência e intensidade.
+
+2. As 3 maiores dores futuras — problemas que vão aparecer depois que o produto principal resolver o primeiro.
+
+3. O perfil psicológico do comprador:
+   - O que ele mais teme perder
+   - O que ele mais deseja conquistar
+   - O que já tentou que não funcionou
+   - Qual crença está travando ele agora
+
+4. As 3 melhores oportunidades de upsell com base nesses dados.
+   Para cada uma: nome, dor que ataca, formato sugerido, faixa de preço.
+
+Use a linguagem exata das respostas quando possível.
+Responda em português brasileiro. Seja direto.
+
+[RESPOSTAS]: {cole aqui as respostas do formulário}`
+  },
+  {
+    id: "p3",
+    label: "P3 — Mineração de UGC (Internet Pública)",
+    when: "Quer dados brutos e psicologicamente profundos sem base de clientes.",
+    prompt: `Você é um especialista em mineração de audiência e antropólogo digital.
+Sua missão é garimpar a internet pública para encontrar e extrair histórias reais, desabafos, piadas e expressões do público-alvo abaixo.
+
+NÃO resuma. NÃO analise. Extraia citações literais.
+
+Público: [PÚBLICO]
+Problema central: [PROBLEMA]
+
+Execute buscas nos seguintes vetores:
+
+1. Desabafos e reclamações (Reddit, YouTube, Facebook público, fóruns)
+2. Piadas e zuação (Twitter/X, Reddit, comentários YouTube)
+3. Histórias do dia a dia (Blogs pessoais, Reddit, YouTube)
+
+Para cada história encontrada, entregue:
+- Plataforma de origem
+- Citação literal do usuário (não resuma)
+- URL ou contexto da fonte
+
+Priorize UGC real. Evite artigos corporativos e notícias.
+Responda em português brasileiro nativo.`
+  },
+  {
+    id: "p4",
+    label: "P4 — Gerar 10 Ideias de Order Bump",
+    when: "Tem as 5 dores mapeadas e quer gerar as ofertas. Dica: após o output, peça 'Agora seja mais agressivo — nomes melhores e mais específicos'. A segunda rodada é consistentemente melhor.",
+    prompt: `Você é um estrategista de ofertas de direct response especializado em criar order bumps de alta conversão.
+
+Produto principal (front-end):
+[FRONT-END] — descreva o produto, o mecanismo único e a promessa principal
+
+Dores presentes identificadas na pesquisa:
+[DORES] — cole as 5 dores exatamente como saíram da pesquisa
+
+Crie 10 ideias de order bump. Para cada uma entregue:
+
+1. Nome — [Tipo de entrega] + [resultado] + [para quem / em quanto tempo]
+2. Dor que ataca — qual das 5 dores essa oferta resolve
+3. Transformação — De [estado atual] → Para [estado desejado]
+4. Mecanismo único — o que diferencia, uma frase sem jargão
+5. Formato de entrega — justificado pelo esforço mínimo pro comprador
+6. Faixa de preço sugerida — único valor para o primeiro teste
+
+Seja agressivo nas ofertas. Nome chiclete, desejo imediato.
+Priorize dor presente. Responda em português brasileiro.`
+  },
+  {
+    id: "p5",
+    label: "P5 — Copy Completa dos 11 Blocos",
+    when: "Tem os 6 campos preenchidos e quer o roteiro do vídeo de upsell. Use junto com a skill 'Gerar Copy de Upsell'.",
+    prompt: `Você é um copywriter de direct response especializado em upsell.
+Escreva a copy completa de um vídeo de upsell usando os 11 blocos abaixo.
+
+DADOS DA OFERTA:
+Produto principal (front-end): [descreva]
+Oferta do upsell: [nome + o que é + o que entrega]
+Dor que ataca: [a dor presente específica]
+Transformação: [de onde está para onde vai]
+Mecanismo único: [o que diferencia]
+Ticket: [preço do upsell]
+Âncora de preço: [valor total do stack]
+Público: [quem é, vocabulário, nível de consciência]
+Provas sociais disponíveis: [depoimentos ou resultados reais]
+
+Escreva o roteiro seguindo os 11 blocos:
+BLOCO 01 — Padrão de Interrupção (para antes de sair · não revela oferta)
+BLOCO 02 — Validação + Incompletude (alivia ansiedade · planta gap)
+BLOCO 03 — Curiosity Gap + Promessa Emocional (tensão antes do reveal)
+BLOCO 04 — Micro-Compromisso (pequeno sim que cria momentum)
+BLOCO 05 — Reframe Filosófico (eleva acima do funcional · identidade)
+BLOCO 06 — Frame de Tribo + Permissão (remove julgamento)
+BLOCO 07 — Prova Social — Transformação (2 histórias: antes + resultado)
+BLOCO 08 — Value Stacking (entregáveis + título + promessa + valor ancorado)
+BLOCO 09 — Ancoragem de Preço (stack → corte → reveal em 3 etapas)
+BLOCO 10 — Prova Social — Objeção Específica (ataca dúvida residual)
+BLOCO 11 — Escassez Final + CTA (urgência · preço · botão)
+
+Tom: direto. Sem firula.
+Vocabulário do público: [insere termos do nicho]
+Responda em português brasileiro nativo.`
+  },
+  {
+    id: "p6",
+    label: "P6 — Construção da Página Completa",
+    when: "Tem a copy dos 11 blocos pronta e quer o briefing de design para builder ou IA de código.",
+    prompt: `Você é um especialista em páginas de upsell de alta conversão.
+
+Com base na copy abaixo, crie um prompt completo de construção de página para ser usado em IA de geração de código ou landing page builder.
+
+O prompt deve incluir:
+1. Estrutura — ordem exata: pré-headline → headline → vídeo → copy → CTA
+2. Design — paleta de cores (hex), tipografia, estilo geral
+3. Vídeo e thumbnail — texto exato + dimensões + instrução de NÃO usar autoplay
+   (Texto de thumbnail: "Bem-vindo, novo membro" ou "Veja como acessar seu produto")
+4. Elementos de conversão — CTA (cor, texto, tamanho) + botão de "não" (discreto, abaixo do CTA)
+5. Animações — entrada por seção, hover do botão, destaque no reveal de preço
+6. Mobile — adaptações, ordem em tela pequena, tamanho mínimo de fonte e botão
+7. Copy formatada — cada bloco com instrução de design
+
+Entregue em formato de prompt único pronto para colar no Claude, Cursor ou qualquer builder de página.
+
+[COPY]: {cole aqui a copy dos 11 blocos gerada pelo P5}`
+  }
+];
+
 export default function SpyDashboard() {
   const [activeTab, setActiveTab] = useState("skills");
   const [activeSkill, setActiveSkill] = useState(null);
   const [formValues, setFormValues] = useState({});
   const [copiedId, setCopiedId] = useState(null);
   const [expandedAuto, setExpandedAuto] = useState(null);
+  const [expandedBackend, setExpandedBackend] = useState(null);
 
   const handleCopy = (text, id) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -445,6 +797,9 @@ export default function SpyDashboard() {
             </button>
             <button onClick={() => setActiveTab("auto")} style={tabStyle(activeTab === "auto")}>
               🤖 Como Automatizar
+            </button>
+            <button onClick={() => setActiveTab("backend")} style={tabStyle(activeTab === "backend")}>
+              💰 Backend / Upsell
             </button>
             <button onClick={() => setActiveTab("rotina")} style={tabStyle(activeTab === "rotina")}>
               📋 Rotina Diária
@@ -758,6 +1113,124 @@ export default function SpyDashboard() {
                 >
                   {copiedId === "quick" ? "✅" : "📋"}
                 </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ─────── BACKEND TAB ─────── */}
+        {activeTab === "backend" && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div style={{
+              background: "linear-gradient(135deg, rgba(34,197,94,0.08), rgba(16,185,129,0.04))",
+              border: "1px solid rgba(34,197,94,0.2)",
+              borderRadius: 14,
+              padding: "20px 24px"
+            }}>
+              <h2 style={{ fontSize: 18, fontWeight: 800, margin: "0 0 6px", color: "#fafafa" }}>
+                💰 Prompts de Backend — Upsell10x
+              </h2>
+              <p style={{ fontSize: 13, color: "#a1a1aa", margin: "0 0 10px", lineHeight: 1.6 }}>
+                6 prompts prontos para toda a operação de backend. Da extração de dores à construção da página.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 8 }}>
+                {[
+                  { label: "Upsell ≠ faturamento — é teto de CPA. Quem tem esteira aguenta pagar mais por clique e vence o leilão.", color: "#22c55e" },
+                  { label: "A métrica de backend é ticket médio, não taxa de conversão. Um OB com 8% pode bater um com 50% se o ticket for maior.", color: "#f59e0b" },
+                  { label: "Congruência é a variável #1. A oferta que parte da dor instalada pela VSL dispensa nova persuasão.", color: "#f97316" },
+                ].map((p, i) => (
+                  <div key={i} style={{
+                    background: "rgba(0,0,0,0.3)",
+                    borderLeft: `3px solid ${p.color}`,
+                    borderRadius: 8,
+                    padding: "10px 12px"
+                  }}>
+                    <p style={{ fontSize: 12, color: "#a1a1aa", margin: 0, lineHeight: 1.5 }}>{p.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {backendPrompts.map((bp, i) => (
+              <div key={bp.id} style={{
+                background: "rgba(255,255,255,0.02)",
+                border: expandedBackend === i ? "1px solid rgba(34,197,94,0.3)" : "1px solid rgba(255,255,255,0.06)",
+                borderRadius: 14,
+                overflow: "hidden"
+              }}>
+                <button
+                  onClick={() => setExpandedBackend(expandedBackend === i ? null : i)}
+                  style={{
+                    width: "100%", padding: "16px 20px",
+                    background: "none", border: "none",
+                    cursor: "pointer", textAlign: "left",
+                    display: "flex", justifyContent: "space-between", alignItems: "center",
+                    color: "inherit"
+                  }}
+                >
+                  <div>
+                    <h3 style={{ fontSize: 15, fontWeight: 700, margin: "0 0 3px", color: "#fafafa" }}>{bp.label}</h3>
+                    <p style={{ fontSize: 12, color: "#71717a", margin: 0 }}>{bp.when}</p>
+                  </div>
+                  <span style={{
+                    fontSize: 20, color: "#22c55e",
+                    transform: expandedBackend === i ? "rotate(45deg)" : "rotate(0)",
+                    transition: "transform 0.2s"
+                  }}>+</span>
+                </button>
+
+                {expandedBackend === i && (
+                  <div style={{ padding: "0 20px 20px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 8 }}>
+                      <button
+                        onClick={() => handleCopy(bp.prompt, bp.id)}
+                        style={{
+                          padding: "8px 16px", borderRadius: 8,
+                          background: copiedId === bp.id ? "#22c55e" : "#10b981",
+                          border: "none", color: "white", cursor: "pointer",
+                          fontSize: 13, fontWeight: 700
+                        }}
+                      >
+                        {copiedId === bp.id ? "✅ Copiado!" : "📋 Copiar Prompt"}
+                      </button>
+                    </div>
+                    <pre style={{
+                      background: "rgba(0,0,0,0.4)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: 10,
+                      padding: "16px",
+                      fontSize: 12,
+                      lineHeight: 1.7,
+                      color: "#a1a1aa",
+                      whiteSpace: "pre-wrap",
+                      wordBreak: "break-word",
+                      maxHeight: 400,
+                      overflowY: "auto",
+                      margin: 0
+                    }}>
+                      {bp.prompt}
+                    </pre>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div style={{
+              background: "rgba(234,179,8,0.05)",
+              border: "1px solid rgba(234,179,8,0.15)",
+              borderRadius: 14,
+              padding: "20px 24px"
+            }}>
+              <h3 style={{ fontSize: 15, fontWeight: 700, color: "#eab308", margin: "0 0 10px" }}>
+                📋 Sequência de uso dos prompts
+              </h3>
+              <div style={{ fontSize: 13, color: "#a1a1aa", lineHeight: 1.8 }}>
+                <p style={{ margin: "0 0 4px" }}>⸻ <strong style={{color:"#fafafa"}}>Fase 1 — Descoberta de dores</strong></p>
+                <p style={{ margin: "0 0 10px 20px" }}>P1 (tem VSL) → P2 (tem respostas de clientes) → P3 (quer UGC da internet)</p>
+                <p style={{ margin: "0 0 4px" }}>⸻ <strong style={{color:"#fafafa"}}>Fase 2 — Criar as ofertas</strong></p>
+                <p style={{ margin: "0 0 10px 20px" }}>P4 → gera 10 ideias → filtra as 5 melhores → testa OBs por ticket médio</p>
+                <p style={{ margin: "0 0 4px" }}>⸻ <strong style={{color:"#fafafa"}}>Fase 3 — Escrever e construir</strong></p>
+                <p style={{ margin: "0 20px" }}>P5 → copy dos 11 blocos → P6 → briefing da página pronto para builder</p>
               </div>
             </div>
           </div>

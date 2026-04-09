@@ -54,6 +54,36 @@ Os arquivos de produção e ferramentas de suporte estão organizados assim:
 
 ---
 
+## 👥 INTELIGÊNCIA DE AUDIÊNCIA (Benchmark 03-06/04/2026)
+> Dados extraídos da campanha Nova ABO (Broad/Aberto) — 5 conjuntos, R$27/dia.
+> Usar como referência para segmentação e posicionamento em campanhas futuras.
+
+### Perfil Demográfico — Quem está consumindo o criativo:
+| Faixa Etária | Gênero | Alcance | Impressões | Frequência |
+|---|---|---|---|---|
+| **25-34** | **Feminino** | **4.019** | **7.056** | **1,76** |
+| **35-44** | **Feminino** | **3.257** | **5.624** | **1,73** |
+| 25-34 | Masculino | 573 | 741 | 1,29 |
+| 35-44 | Masculino | 414 | 606 | 1,46 |
+| 45-54 | Feminino | 198 | 289 | 1,46 |
+| 55-64 | Feminino | 135 | 205 | 1,52 |
+
+> **Conclusão**: Público dominante é **Feminino 25-44 anos** (70%+ do alcance). Masculino é residual. Em campanhas futuras com segmentação manual, focar nessa faixa.
+
+### Posicionamentos — Distribuição de alcance:
+| Posicionamento | Plataforma | Alcance | Impressões | Frequência |
+|---|---|---|---|---|
+| **Instagram Stories** | Instagram | **3.308** | **5.228** | **1,58** |
+| **Feed** | Instagram | **3.181** | **4.464** | **1,40** |
+| Feed | Facebook | 2.947 | 4.388 | 1,49 |
+| Instagram Reels | Instagram | 2.594 | 3.072 | 1,18 |
+| Facebook Reels | Facebook | 303 | 403 | 1,33 |
+| Feed do Threads | Threads | 354 | 373 | 1,05 |
+
+> **Conclusão**: **Instagram Stories + Feed Instagram** lideram em alcance e frequência — são os posicionamentos prioritários. Facebook Feed performou bem também. Reels teve alcance relevante mas frequência baixa (1,18). Threads é residual — considerar excluir em campanhas futuras para concentrar budget.
+
+---
+
 ## 🚀 COMO CONTINUAR
 - Use o `spy-dashboard-diário.jsx` para analisar métricas semanais.
 - Antes de subir novos criativos, consulte o `Marketing JV\mecanismos_vencedores.md`.
