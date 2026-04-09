@@ -1,8 +1,8 @@
 # CLAUDE.md — Contexto do Projeto CJO (Código das Janelas de Ouro)
 
-> **ESTADO ATUAL**: Funil 100% corrigido e otimizado para tráfego pago.
-> Parâmetros de rastreamento (UTMs/fbclid) agora persistem por todo o funil.
-> Eventos do Pixel limpos e precisos.
+> **ESTADO ATUAL** (09/04/2026): Migração completa de Lastlink → Kiwify concluída.
+> Checkout novo: `https://pay.kiwify.com.br/HHjLKvh` | Upsell: `https://pay.kiwify.com.br/yjLTyo4`
+> Agente WhatsApp X1 ativo com funil de 9 estágios. App bônus no ar: `https://www.fluxovital.top/app.html`
 
 ---
 
@@ -22,35 +22,67 @@ Os arquivos de produção e ferramentas de suporte estão organizados assim:
 ## 🎯 RASTREAMENTO E PIXEL (Meta Ads)
 **ID Principal:** 1803679593924822
 
+### Plataforma de Pagamento: Kiwify (migrado de Lastlink em 09/04/2026)
+- **Checkout principal CJO R$37:** `https://pay.kiwify.com.br/HHjLKvh`
+- **Upsell Masterclass R$67:** `https://pay.kiwify.com.br/yjLTyo4`
+- **Order Bump Protocolo Cofre R$27:** configurado dentro do produto Kiwify
+- Pixel Meta ID `1803679593924822` configurado nativamente na Kiwify (qualidade 9.3/10)
+- **"Disparar Purchase ao gerar PIX"** → ATIVADO
+
 ### Fluxo de Eventos e Delay Técnico:
 | Página | Evento Pixel | Regra de Disparo |
 |--------|--------------|-------------------|
 | `index.html` | `PageView` | Carregamento da página. |
 | `quiz.html` | `ViewContent` | Abertura do quiz. |
-| `quiz.html` | `Lead` | Finalização das 6 perguntas (antes do resultado). |
+| `quiz.html` | `Lead` | Finalização das perguntas (antes do resultado). |
 | `sales.html` | `ViewContent` | Carregamento da oferta. |
-| `sales.html` | `InitiateCheckout` | **Clique no botão** (Lastlink) da oferta de R$27. |
-| `obrigado.html` | `Purchase` | Tracking nativo Lastlink + Tracking manual para o Upsell de R$67. |
+| `sales.html` | `InitiateCheckout` | **Clique no botão** (Kiwify) da oferta de R$37. |
+| `obrigado.html` | `Purchase` | Tracking nativo Kiwify + manual para Upsell R$67. |
 
 > [!IMPORTANT]
-> **Delay de Pixel (Upsell)**: Na `obrigado.html`, as funções de checkout utilizam um **delay de 300ms** via `setTimeout` para garantir que o Meta Ads capture o evento de `InitiateCheckout` ou `Purchase` antes do redirecionamento.
+> **Delay de Pixel (Upsell)**: Na `obrigado.html`, delay de 300ms via `setTimeout` antes do redirecionamento para garantir disparo do `InitiateCheckout` no Meta.
 
 ---
 
 ## 🛠 DECISÕES DE DESIGN E CRO
-1. **Estrutura Sales**: **Headline (H1)** clara no topo -> **VSL** central -> **CTA** imediato (R$27).
-2. **Upsell**: Masterclass Blindagem (R$67) com timer de escassez de 15 minutos na página de obrigado.
-3. **Popups**: Todos os overlays de exit-intent foram **REMOVIDOS** para simplificar a jornada.
-4. **Segurança**: Script `shield.js` obrigatório em todas as páginas production.
+1. **Estrutura Sales**: Headline → CTA scroll (sem VSL — removida por CRO) → oferta R$37.
+2. **Preço atual**: R$37 (parcelamento 3x R$13,33). VSL removida para aumentar velocidade de conversão.
+3. **Upsell**: Masterclass Blindagem R$67 — timer 15min na obrigado.html.
+4. **Order Bump**: Protocolo Cofre R$27 — configurado no checkout Kiwify.
+5. **Bônus**: App Janelas de Ouro em `https://www.fluxovital.top/app.html` — gratuito, entregue na área de membros e email de boas-vindas.
+6. **Popups**: Exit-intent **REMOVIDOS**.
+7. **Segurança**: `shield.js` obrigatório em todas as páginas.
+8. **Área de membros**: Kiwify — PDF `CJO.pdf` hospedado no Google Drive, linkado na área.
 
 ---
 
-## 📈 ESTRATÉGIA E PERFORMANCE (Benchmark 04/04/2026)
-- **Fase Atual**: Lançamento da **Creative Engine V5** (Teste de Conceitos).
-- **Setup Campanha**: Meta Ads **ABO 1-1-1** em 5 conjuntos independentes.
-- **Orçamento**: R$ 27,00 por conjunto/dia.
-- **Público**: Broad / Aberto (Foco 100% no criativo para segmentar).
-- **Meta de CTR**: > 2.0% em criativos de Nível N1 (Unaware).
+## 📈 ESTRATÉGIA E PERFORMANCE (Benchmark 03-09/04/2026)
+- **Fase Atual**: Creative Engine V5 + lançamento campanha X1 (WhatsApp).
+- **Setup Campanha**: Meta Ads **ABO** — 7 conjuntos ativos/pausados.
+- **Orçamento base**: R$27/dia por conjunto (AD4 escalado para R$40/dia).
+- **Público**: Broad / Aberto — Feminino 25-44.
+- **Meta de CTR**: > 2.0% em criativos N1.
+
+### Resultado Acumulado (03-09/04):
+| Adset | Criativo | Gasto | CTR | CPC | IC | Vendas | ROAS |
+|---|---|---|---|---|---|---|---|
+| AD4 | Bebê Dormindo | R$229 | 2,30% | R$1,10 | 41 | 4 | 0,62x |
+| V2 | Dormir hora errada | R$92 | 4,39% | R$0,91 | 21 | 2 | 0,80x |
+| V3 | Sentada berço | R$75 | 1,68% | R$2,27 | 8 | 1 | 0,49x |
+| V1 | Coxixando | R$76 | 1,63% | R$1,90 | 8 | 0 | 0 |
+| AD3 | Mãe madrugada | R$102 | 1,11% | R$1,75 | 2 | 1 | 0,41x |
+| **TOTAL** | | **R$789** | | | **~96** | **~8** | **~0,42x** |
+
+### Diagnóstico AD4 (crítico):
+- Dias 1-2 (R$27/dia): **4 vendas** — ROAS positivo
+- Após escala para R$40/dia: **0 vendas** nos dias seguintes — IC continuam chegando (41 total) mas sem conversão
+- **Causa provável**: escala alterou o público-alvo do algoritmo (saiu da fase de aprendizado ideal) + mudança de checkout Lastlink→Kiwify no mesmo período
+- **Checkout**: IC→Compra histórico = ~8% (Lastlink). Kiwify ainda não tem dados suficientes para comparação.
+
+### Agente WhatsApp X1:
+- Ativo em `fluxovital` (Evolution API + N8N)
+- Funil de 9 estágios: Conexão → Conscientização → Curiosidade → Mecanismo → Benefícios → Prova Social → Oportunidade → Riscos → Fechamento
+- Checkout com UTM: `https://pay.kiwify.com.br/HHjLKvh?utm_source=whatsapp&utm_medium=x1&utm_campaign=cjo`
 
 ---
 
@@ -88,4 +120,11 @@ Os arquivos de produção e ferramentas de suporte estão organizados assim:
 - Use o `spy-dashboard-diário.jsx` para analisar métricas semanais.
 - Antes de subir novos criativos, consulte o `Marketing JV\mecanismos_vencedores.md`.
 - Priorize sempre o **viewport Mobile (375px)** em qualquer alteração visual.
-- Verifique se o `fbclid` persiste até a URL final da checkout para garantir a atribuição.
+- UTMs e fbclid persistem nos links Kiwify via `getPreservedParams()` na `sales.html`.
+
+## 🔄 DECISÕES PENDENTES (09/04/2026)
+- [ ] AD4 (Bebê Dormindo): decidir entre pausar ou voltar para R$27/dia — ver análise abaixo
+- [ ] Aguardar primeiras vendas na Kiwify para validar novo IC→Compra
+- [ ] Criar variações do conceito V2 ("dormir na hora errada") — ângulo comprovado
+- [ ] Configurar retargeting de IC sem Purchase (público quente de ~96 pessoas)
+- [ ] Confirmar link exato da área de membros Kiwify para atualizar `obrigado.html`
