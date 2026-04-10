@@ -79,20 +79,9 @@
             // Adiciona parâmetros capturados à URL de checkout
             Object.keys(params).forEach(key => finalUrl.searchParams.set(key, params[key]));
 
-            // Dispara evento do Facebook
-            fbq('track', 'InitiateCheckout', {
-                content_name: 'CJO - Codigo das Janelas de Ouro',
-                content_category: 'Infoproduto',
-                content_ids: ['CJO01'],
-                value: 37.00,
-                currency: 'BRL',
-                content_location: location
-            });
-
-            // Redireciona com um pequeno delay para garantir o disparo do pixel
-            setTimeout(() => {
-                window.location.href = finalUrl.toString();
-            }, 300);
+            // Redireciona imediatamente sem delay. 
+            // O evento 'InitiateCheckout' será disparado com maior precisão nativamente pelo próprio checkout da Kiwify.
+            window.location.href = finalUrl.toString();
         }
 
         tailwind.config = {
