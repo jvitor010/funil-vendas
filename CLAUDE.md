@@ -1,8 +1,8 @@
 # CLAUDE.md — Contexto do Projeto CJO (Código das Janelas de Ouro)
 
-> **ESTADO ATUAL** (09/04/2026): Migração completa de Lastlink → Kiwify concluída.
-> Checkout novo: `https://pay.kiwify.com.br/HHjLKvh` | Upsell: `https://pay.kiwify.com.br/yjLTyo4`
-> Agente WhatsApp X1 ativo com funil de 9 estágios. App bônus no ar: `https://www.fluxovital.top/app.html`
+> **ESTADO ATUAL** (10/04/2026): Agente WhatsApp estabilizado para V4 com `gemini-flash-latest`.
+> Checkout ativo: `https://pay.kiwify.com.br/HHjLKvh` | Upsell: `https://pay.kiwify.com.br/yjLTyo4`
+> Agente WhatsApp X1 refinado: Persona Dra. Renata ajustada (menos endearments, mais parágrafos).
 
 ---
 
@@ -79,10 +79,16 @@ Os arquivos de produção e ferramentas de suporte estão organizados assim:
 - **Causa provável**: escala alterou o público-alvo do algoritmo (saiu da fase de aprendizado ideal) + mudança de checkout Lastlink→Kiwify no mesmo período
 - **Checkout**: IC→Compra histórico = ~8% (Lastlink). Kiwify ainda não tem dados suficientes para comparação.
 
-### Agente WhatsApp X1:
-- Ativo em `fluxovital` (Evolution API + N8N)
-- Funil de 9 estágios: Conexão → Conscientização → Curiosidade → Mecanismo → Benefícios → Prova Social → Oportunidade → Riscos → Fechamento
-- Checkout com UTM: `https://pay.kiwify.com.br/HHjLKvh?utm_source=whatsapp&utm_medium=x1&utm_campaign=cjo`
+### Agente WhatsApp X1 (Versão 4 — 10/04/2026):
+- **Motor**: Gemini API (`gemini-flash-latest`) — Substituiu o 1.5 que gerava erro 404.
+- **Estrutura**: N8N + Evolution API (Instância `fluxovital`).
+- **Build**: Controlado pelo `build-workflow.js`.
+- **Lógica**: Baseada em **Objetivos Dinâmicos** (Estágios 1 a 9).
+- **Diretrizes de Persona**: 
+  - Dra. Renata Tinoco (Autoridade Acolhedora).
+  - Máximo de 1 termo carinhoso ("mamãe"/"meu amor") por mensagem.
+  - Formatação obrigatória com parágrafos duplos (`\n\n`) para legibilidade.
+- **Checkout com UTM**: `https://pay.kiwify.com.br/HHjLKvh?utm_source=whatsapp&utm_medium=x1&utm_campaign=cjo`
 
 ---
 
@@ -123,8 +129,8 @@ Os arquivos de produção e ferramentas de suporte estão organizados assim:
 - UTMs e fbclid persistem nos links Kiwify via `getPreservedParams()` na `sales.html`.
 
 ## 🔄 DECISÕES PENDENTES (09/04/2026)
-- [ ] AD4 (Bebê Dormindo): decidir entre pausar ou voltar para R$27/dia — ver análise abaixo
-- [ ] Aguardar primeiras vendas na Kiwify para validar novo IC→Compra
-- [ ] Criar variações do conceito V2 ("dormir na hora errada") — ângulo comprovado
-- [ ] Configurar retargeting de IC sem Purchase (público quente de ~96 pessoas)
-- [ ] Confirmar link exato da área de membros Kiwify para atualizar `obrigado.html`
+- [x] Agente WhatsApp V4: Estabilizado com `gemini-flash-latest` (10/04).
+- [ ] AD4 (Bebê Dormindo): decidir entre pausar ou voltar para R$27/dia.
+- [ ] Monitorar se a formatação de parágrafos V4 está mantendo o engajamento.
+- [ ] Configurar retargeting de IC sem Purchase (público quente de ~96 pessoas).
+- [ ] Confirmar link exato da área de membros Kiwify para atualizar `obrigado.html`.

@@ -15,6 +15,16 @@
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', {content_name: 'Quiz Sono do Bebe'});
     
+    // Utmify Pixel
+    (function() {
+      window.pixelId = "69dbc14dfcc05c2755ef01dc";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    })();
+
     // Função para capturar parâmetros da URL e persistir nos links
     function getPreservedParams() {
         const urlParams = new URLSearchParams(window.location.search);
