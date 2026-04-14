@@ -14,7 +14,7 @@
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
 
-    fbq('track', 'ViewContent', {content_name: 'Upsell Masterclass'});
+    fbq('track', 'ViewContent', {content_name: 'Upsell Plano Turbo'});
 
     // FUNÇÃO PARA PRESERVAR PARÂMETROS DE URL NO UPSELL
     function getQueryString() {
@@ -23,7 +23,7 @@
 
     function trackUpsell(destination) {
         fbq('track', 'InitiateCheckout', {
-            content_name: 'Masterclass Blindagem',
+            content_name: 'Plano de Implementacao Turbo',
             value: 57.00,
             currency: 'BRL'
         });
@@ -356,18 +356,18 @@
             <div class="upsell-header">
                 <div class="tag">🔒 Oferta exclusiva pós-compra</div>
                 <h2 style="font-size:22px;font-weight:900;line-height:1.25;margin-bottom:10px;">
-                    Masterclass Blindagem do Sono Profundo
+                    🌙 Plano de Implementação Turbo
                 </h2>
                 <p style="font-size:14px;color:#d1d5db;font-weight:500;line-height:1.5;margin-bottom:20px;">
-                    O passo avançado para garantir que as janelas que você aprendeu <strong style="color:white;">nunca voltem a fechar</strong> — nem nas regressões, doenças ou viagens.
+                    O roteiro <strong style="color:white;">noite a noite</strong> para você aplicar o Código das Janelas de Ouro e ver resultados em até <strong style="color:#fbbf24;">7 dias</strong> — mesmo que já tenha tentado de tudo antes.
                 </p>
             </div>
 
             <!-- MOCKUP DO PRODUTO -->
             <div class="mockup-wrapper">
                 <img
-                    src="../Criativos/media-1 (9).jpeg"
-                    alt="Masterclass Blindagem do Sono Profundo — Código das Janelas de Ouro"
+                    src="../Criativos/Upsells/upsell1_capa_plano_turbo.png"
+                    alt="Plano de Implementação Turbo — Código das Janelas de Ouro"
                     loading="eager"
                 >
             </div>
@@ -380,15 +380,15 @@
             <div class="upsell-body">
 
                 <!-- ANTES / DEPOIS -->
-                <p style="font-size:12px;font-weight:800;color:#6b7280;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;text-align:center;">Sem vs. Com a Masterclass</p>
+                <p style="font-size:12px;font-weight:800;color:#6b7280;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;text-align:center;">Sem vs. Com o Plano Turbo</p>
                 <div class="resultado-box">
                     <div class="resultado-item sem">
                         <span class="label">❌ Sem</span>
-                        Cada regressão parece o fim. Começa tudo do zero. Noites de crise duram semanas.
+                        Lê o método, mas trava na hora de aplicar. Abandona tudo no 2º dia de choro.
                     </div>
                     <div class="resultado-item com">
                         <span class="label">✅ Com</span>
-                        Sabe exatamente o que fazer. Recupera o sono em dias. Bebê segue crescendo com rotina.
+                        Sabe exatamente o que fazer em cada noite. Chega na Noite 7 com o bebê dormindo.
                     </div>
                 </div>
 
@@ -398,24 +398,24 @@
 
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Como blindar o sono durante regressões (4, 8, 12, 18 meses) sem perder tudo que conquistou</span>
+                    <span>Roteiro dia a dia das <strong>7 noites de transformação</strong> — com o passo a passo exato de cada ritual</span>
                 </div>
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Protocolo de recuperação rápida para noites de crise — doenças, dentição e viagens</span>
+                    <span>Protocolo SOS para não desistir na <strong>Crise da Noite 3</strong> — o ponto onde 80% das mães abandonam</span>
                 </div>
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Como estender as janelas conforme o bebê cresce (dos 4 meses até os 2 anos)</span>
+                    <span>Checklist noturno + <strong>Diário de Sono</strong> para registrar a evolução e manter a consistência</span>
                 </div>
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Técnica de consolidação do sono noturno para bebês que ainda acordam 2-3x por noite</span>
+                    <span>Mini-guia bônus: <strong>os 5 problemas mais comuns</strong> na implementação e como resolver cada um</span>
                 </div>
 
                 <div class="depo">
-                    "Eu achei que ia precisar começar do zero na regressão dos 8 meses. Com a Masterclass eu soube exatamente o que fazer e em 4 dias meu filho voltou a dormir igual antes."
-                    <strong>— Renata M., mãe do Theo (10 meses)</strong>
+                    "Eu tinha o método na mão mas travava toda noite sem saber o que fazer quando ele chorava. Com o Plano Turbo, eu sabia exatamente o próximo passo. Na Noite 5 ele dormiu do jeitinho certo! 😭💛"
+                    <strong>— Camila R., mãe do Miguel (7 meses)</strong>
                 </div>
 
                 <hr class="divider">
@@ -431,8 +431,8 @@
 
                 <!-- CTA -->
                 <button onclick="trackUpsell('https://pay.kiwify.com.br/yjLTyo4')" class="btn-sim">
-                    ✅ Sim, quero blindar o sono do meu bebê
-                    <span class="sub">Acesso imediato • Pagamento seguro</span>
+                    🌙 Sim! Quero o meu Plano das 7 Noites
+                    <span class="sub">Acesso imediato ao roteiro completo • Pagamento seguro</span>
                 </button>
 
                 <div class="garantia">
