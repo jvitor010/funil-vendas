@@ -14,7 +14,7 @@
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
 
-    fbq('track', 'ViewContent', {content_name: 'Upsell Plano Turbo'});
+    fbq('track', 'ViewContent', {content_name: 'Upsell Masterclass'});
 
     // FUNÇÃO PARA PRESERVAR PARÂMETROS DE URL NO UPSELL
     function getQueryString() {
@@ -22,14 +22,19 @@
     }
 
     function trackUpsell(destination) {
+        // Dispara o evento de InitiateCheckout para o Upsell
         fbq('track', 'InitiateCheckout', {
-            content_name: 'Plano de Implementacao Turbo',
-            value: 57.00,
+            content_name: 'Masterclass Blindagem',
+            value: 67.00,
             currency: 'BRL'
         });
+        
+        // Redireciona preservando os parâmetros (fbclid, UTMs)
         const params = getQueryString();
         const baseChar = destination.includes('?') ? '&' : '?';
         const finalUrl = destination + (params ? baseChar + params.substring(1) : '');
+
+        // Delay de 300ms para garantir o disparo do pixel no Meta Ads
         setTimeout(() => {
             window.location.href = finalUrl;
         }, 300);
@@ -45,6 +50,8 @@
     src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- Utmify Pixel removido desta página — Purchase já rastreado nativamente pela Kiwify (qualidade 9.3/10). Mantido apenas em index/quiz/sales para atribuição de UTMs. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Confirmada | Código das Janelas de Ouro</title>
@@ -98,16 +105,15 @@
         .upsell-box {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
             overflow: hidden;
             max-width: 600px;
             margin: 0 auto;
-            border: 2px solid #f3f4f6;
         }
         .upsell-header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            padding: 28px 24px 0;
+            padding: 28px 24px 24px;
             text-align: center;
         }
         .upsell-header .tag {
@@ -122,69 +128,7 @@
             border-radius: 50px;
             margin-bottom: 14px;
         }
-
-        /* MOCKUP IMAGE */
-        .mockup-wrapper {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 0 24px;
-            display: flex;
-            justify-content: center;
-        }
-        .mockup-wrapper img {
-            width: 100%;
-            max-width: 340px;
-            border-radius: 12px 12px 0 0;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* URGENCY STRIP */
-        .urgency-strip {
-            background: linear-gradient(90deg, #dc2626, #b91c1c);
-            color: white;
-            text-align: center;
-            padding: 10px 16px;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
         .upsell-body { padding: 24px 20px; }
-
-        /* ANTES/DEPOIS */
-        .resultado-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .resultado-item {
-            border-radius: 12px;
-            padding: 12px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 1.5;
-        }
-        .resultado-item.sem {
-            background: #fef2f2;
-            border: 1.5px solid #fca5a5;
-            color: #991b1b;
-        }
-        .resultado-item.com {
-            background: #f0fdf4;
-            border: 1.5px solid #86efac;
-            color: #166534;
-        }
-        .resultado-item .label {
-            display: block;
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 6px;
-            opacity: 0.8;
-        }
 
         .beneficio {
             display: flex;
@@ -208,15 +152,6 @@
         }
         .beneficio .check svg { width: 11px; height: 11px; color: white; }
 
-        /* PREÇO */
-        .preco-box {
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            border: 2px solid #86efac;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0 24px;
-        }
         .preco-original {
             text-decoration: line-through;
             color: #9ca3af;
@@ -224,35 +159,23 @@
             font-weight: 600;
         }
         .preco-upsell {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 900;
             color: #10b981;
             line-height: 1;
         }
-        .preco-upsell span { font-size: 20px; }
-        .preco-economia {
-            display: inline-block;
-            background: #fbbf24;
-            color: #78350f;
-            font-size: 11px;
-            font-weight: 900;
-            padding: 3px 10px;
-            border-radius: 50px;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+        .preco-upsell span { font-size: 18px; }
 
         /* BOTÕES */
         .btn-sim {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: #10b981;
             color: white;
             text-align: center;
             font-weight: 900;
-            font-size: 16px;
-            padding: 20px 20px 16px;
+            font-size: 15px;
+            padding: 18px 20px;
             border-radius: 50px;
             text-decoration: none;
             text-transform: uppercase;
@@ -260,16 +183,6 @@
             animation: pulse-shadow 2s infinite;
             border: none;
             cursor: pointer;
-            line-height: 1.2;
-        }
-        .btn-sim .sub {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            opacity: 0.85;
-            text-transform: none;
-            letter-spacing: 0;
-            margin-top: 3px;
         }
         @keyframes pulse-shadow {
             0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.45); }
@@ -280,7 +193,7 @@
             display: block;
             width: 100%;
             text-align: center;
-            font-size: 11px;
+            font-size: 12px;
             color: #9ca3af;
             font-weight: 600;
             padding: 14px 8px 4px;
@@ -296,7 +209,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             font-size: 11px;
             color: #6b7280;
             font-weight: 600;
@@ -317,13 +230,6 @@
             line-height: 1.6;
         }
         .depo strong { display: block; font-style: normal; font-size: 12px; color: #6b7280; margin-top: 8px; }
-
-        /* DIVISOR */
-        .divider {
-            border: none;
-            border-top: 1px solid #f3f4f6;
-            margin: 20px 0;
-        }
     </style>
 </head>
 <body>
@@ -351,88 +257,54 @@
 
         <!-- UPSELL BOX -->
         <div class="upsell-box">
-
-            <!-- HEADER ESCURO -->
             <div class="upsell-header">
                 <div class="tag">🔒 Oferta exclusiva pós-compra</div>
                 <h2 style="font-size:22px;font-weight:900;line-height:1.25;margin-bottom:10px;">
-                    🌙 Plano de Implementação Turbo
+                    Masterclass Blindagem do Sono Profundo
                 </h2>
-                <p style="font-size:14px;color:#d1d5db;font-weight:500;line-height:1.5;margin-bottom:20px;">
-                    O roteiro <strong style="color:white;">noite a noite</strong> para você aplicar o Código das Janelas de Ouro e ver resultados em até <strong style="color:#fbbf24;">7 dias</strong> — mesmo que já tenha tentado de tudo antes.
+                <p style="font-size:14px;color:#d1d5db;font-weight:500;line-height:1.5;">
+                    O passo avançado para garantir que as janelas que você aprendeu <strong style="color:white;">nunca voltem a fechar</strong> — nem nas regressões, doenças ou viagens.
                 </p>
             </div>
 
-            <!-- MOCKUP DO PRODUTO -->
-            <div class="mockup-wrapper">
-                <img
-                    src="../Criativos/Upsells/upsell1_capa_plano_turbo.png"
-                    alt="Plano de Implementação Turbo — Código das Janelas de Ouro"
-                    loading="eager"
-                >
-            </div>
-
-            <!-- FAIXA DE URGÊNCIA -->
-            <div class="urgency-strip">
-                🔥 Esta oferta desaparece quando o timer zerar
-            </div>
-
             <div class="upsell-body">
-
-                <!-- ANTES / DEPOIS -->
-                <p style="font-size:12px;font-weight:800;color:#6b7280;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;text-align:center;">Sem vs. Com o Plano Turbo</p>
-                <div class="resultado-box">
-                    <div class="resultado-item sem">
-                        <span class="label">❌ Sem</span>
-                        Lê o método, mas trava na hora de aplicar. Abandona tudo no 2º dia de choro.
-                    </div>
-                    <div class="resultado-item com">
-                        <span class="label">✅ Com</span>
-                        Sabe exatamente o que fazer em cada noite. Chega na Noite 7 com o bebê dormindo.
-                    </div>
-                </div>
-
-                <hr class="divider">
 
                 <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.05em;">O que você vai aprender:</p>
 
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Roteiro dia a dia das <strong>7 noites de transformação</strong> — com o passo a passo exato de cada ritual</span>
+                    <span>Como blindar o sono durante regressões (4, 8, 12, 18 meses) sem perder tudo que conquistou</span>
                 </div>
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Protocolo SOS para não desistir na <strong>Crise da Noite 3</strong> — o ponto onde 80% das mães abandonam</span>
+                    <span>Protocolo de recuperação rápida para noites de crise — doenças, dentição e viagens</span>
                 </div>
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Checklist noturno + <strong>Diário de Sono</strong> para registrar a evolução e manter a consistência</span>
+                    <span>Como estender as janelas conforme o bebê cresce (dos 4 meses até os 2 anos)</span>
                 </div>
                 <div class="beneficio">
                     <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Mini-guia bônus: <strong>os 5 problemas mais comuns</strong> na implementação e como resolver cada um</span>
+                    <span>Técnica de consolidação do sono noturno para bebês que ainda acordam 2-3x por noite</span>
                 </div>
 
                 <div class="depo">
-                    "Eu tinha o método na mão mas travava toda noite sem saber o que fazer quando ele chorava. Com o Plano Turbo, eu sabia exatamente o próximo passo. Na Noite 5 ele dormiu do jeitinho certo! 😭💛"
-                    <strong>— Camila R., mãe do Miguel (7 meses)</strong>
+                    "Eu achei que ia precisar começar do zero na regressão dos 8 meses. Com a Masterclass eu soube exatamente o que fazer e em 4 dias meu filho voltou a dormir igual antes."
+                    <strong>— Renata M., mãe do Theo (10 meses)</strong>
                 </div>
 
-                <hr class="divider">
-
                 <!-- PREÇO -->
-                <div class="preco-box">
+                <div style="text-align:center;margin:20px 0 24px;">
                     <p class="preco-original">De R$197,00</p>
-                    <p style="font-size:12px;font-weight:700;color:#6b7280;margin:4px 0 2px;">Por apenas</p>
-                    <p class="preco-upsell"><span>R$</span>57<span style="font-size:14px;color:#6b7280;font-weight:600;">,00</span></p>
-                    <span class="preco-economia">Você economiza R$140,00 agora</span>
-                    <p style="font-size:11px;color:#9ca3af;font-weight:600;margin-top:10px;">Uma única vez — não é assinatura</p>
+                    <p style="font-size:13px;font-weight:700;color:#6b7280;margin:4px 0 2px;">Por apenas</p>
+                    <p class="preco-upsell"><span>R$</span>67<span style="font-size:14px;color:#6b7280;font-weight:600;">,00</span></p>
+                    <p style="font-size:11px;color:#9ca3af;font-weight:600;margin-top:4px;">Uma única vez — não é assinatura</p>
                 </div>
 
                 <!-- CTA -->
-                <button onclick="trackUpsell('https://pay.kiwify.com.br/yjLTyo4')" class="btn-sim">
-                    🌙 Sim! Quero o meu Plano das 7 Noites
-                    <span class="sub">Acesso imediato ao roteiro completo • Pagamento seguro</span>
+                <button onclick="trackUpsell('https://pay.kiwify.com.br/yjLTyo4')"
+                   class="btn-sim">
+                    ✅ Sim, quero blindar o sono do meu bebê
                 </button>
 
                 <div class="garantia">
@@ -453,7 +325,7 @@
     <script>
         (function() {
             var TIMER_KEY = 'cjo_upsell_timer';
-            var DURATION = 15 * 60;
+            var DURATION = 15 * 60; // 15 minutos em segundos
 
             var end = sessionStorage.getItem(TIMER_KEY);
             if (!end) {
