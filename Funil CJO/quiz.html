@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <!-- Meta Pixel Code -->
@@ -15,6 +15,16 @@
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', {content_name: 'Quiz Sono do Bebe'});
     
+    // Utmify Pixel
+    (function() {
+      window.pixelId = "69dbc14dfcc05c2755ef01dc";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    })();
+
     // Função para capturar parâmetros da URL e persistir nos links
     function getPreservedParams() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -126,7 +136,7 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect } = React;
+        const { useState } = React;
 
         const quizData = [
             {
@@ -154,27 +164,56 @@
             },
             {
                 id: 3,
-                preTitle: "A solução para o fim das madrugadas caóticas.",
-                title: "Se pudéssemos te entregar o 'Código Biológico' exato da sua criança, para ela aceitar dormir sem choro, você usaria?",
+                preTitle: "Entendemos. Você não está sozinha — milhares de mães passam exatamente por isso.",
+                title: "Você já tentou algum método de sono antes?",
                 image: "assets/quiz_solution.png",
                 options: [
-                    "Sim, preciso disso imediatamente!",
-                    "Com certeza, minha saúde depende disso hoje",
-                    "Talvez, preciso ver como funciona",
-                    "Não, pretendo continuar do mesmo jeito"
+                    "Sim, tentei várias coisas e nenhuma funcionou de verdade",
+                    "Tentei dicas da internet mas durou apenas alguns dias",
+                    "Tentei mas desisti porque meu bebê chorou muito",
+                    "Não tentei nada ainda — não sei por onde começar"
                 ]
+            }
+        ];
+
+        const diagnosisMap = [
+            {
+                error: "o horário errado de colocá-lo para dormir",
+                detail: "Seu bebê está sendo colocado para dormir FORA da Janela de Ouro — quando o cortisol já dominou o corpo dele, tornando o processo de adormecer uma batalha diária de choro e resistência.",
+                solution: "Ajustando o horário do ritual em apenas 20 a 30 minutos, o processo de adormecer pode mudar completamente — sem choro e sem luta."
+            },
+            {
+                error: "ciclos de sono incompletos por falta da Janela Certa",
+                detail: "Esses despertares não são fome nem cólica — são sinais de que o bebê ainda não aprendeu a completar seus ciclos de sono sozinho por falta do gatilho biológico correto.",
+                solution: "Com o Código das Janelas, ele aprende a se reconectar ao sono entre os ciclos sem precisar da sua intervenção de madrugada."
+            },
+            {
+                error: "uma associação de sono que impede a independência",
+                detail: "Seu bebê aprendeu que colo ou peito equivale a sono. Toda vez que ele acorda entre ciclos, busca essa associação. Isso não é culpa sua — é um padrão que pode ser corrigido gentilmente.",
+                solution: "O Código ensina como substituir essa associação por um gatilho que permite o sono independente, sem choro excessivo e sem abandono."
+            },
+            {
+                error: "uma inversão no ciclo circadiano do seu bebê",
+                detail: "Acordar muito cedo indica que a Janela da Manhã está mal calibrada. O ciclo circadiano do seu bebê está desregulado — provavelmente por exposição à luz ou horário de soneca incorreto.",
+                solution: "Ajustando as janelas do dia, o horário de despertar matinal se regula naturalmente em poucos dias, sem nenhuma intervenção brusca."
             }
         ];
 
         const letters = ['A', 'B', 'C', 'D'];
 
         function QuizApp() {
-            const [currentStep, setCurrentStep] = useState(0);
-            const [isLoading, setIsLoading] = useState(false);
-            const [loadingText, setLoadingText] = useState("Analisando padrões biológicos...");
-            const [showResult, setShowResult] = useState(false);
+            const [currentStep, setCurrentStep] = React.useState(0);
+            const [firstAnswerIndex, setFirstAnswerIndex] = React.useState(0);
+            const [isLoading, setIsLoading] = React.useState(false);
+            const [loadingText, setLoadingText] = React.useState("Analisando padrões biológicos...");
+            const [showCapture, setShowCapture] = React.useState(false);
+            const [showResult, setShowResult] = React.useState(false);
+            const [nome, setNome] = React.useState('');
+            const [telefone, setTelefone] = React.useState('');
+            const [captureError, setCaptureError] = React.useState('');
 
-            const handleAnswer = () => {
+            const handleAnswer = (index) => {
+                if (currentStep === 0) { setFirstAnswerIndex(index); }
                 if (currentStep < quizData.length - 1) {
                     setCurrentStep(prev => prev + 1);
                 } else {
@@ -184,38 +223,53 @@
 
             const startLoadingSequence = () => {
                 setIsLoading(true);
-                
                 const steps = [
                     "Analisando padrões biológicos informados...",
                     "Mapeando o ciclo circadiano correspondente à idade...",
                     "Encontrando falhas críticas nas Janelas de Sono...",
                     "Montando o seu diagnóstico personalizado CJO..."
                 ];
-                
                 let i = 0;
                 const interval = setInterval(() => {
                     i++;
-                    if (i < steps.length) {
-                        setLoadingText(steps[i]);
-                    } else {
+                    if (i < steps.length) { setLoadingText(steps[i]); }
+                    else {
                         clearInterval(interval);
                         fbq('track', 'Lead', { content_name: 'Quiz Completo' });
                         setIsLoading(false);
-                        setShowResult(true);
+                        setShowCapture(true);
                     }
                 }, 1800);
             };
 
+            const formatPhone = (value) => {
+                const n = value.replace(/\D/g, '');
+                if (n.length <= 2) return n;
+                if (n.length <= 7) return `(${n.slice(0,2)}) ${n.slice(2)}`;
+                return `(${n.slice(0,2)}) ${n.slice(2,7)}-${n.slice(7,11)}`;
+            };
+
+            const handleCapture = (e) => {
+                e.preventDefault();
+                const clean = telefone.replace(/\D/g, '');
+                if (nome.trim().length < 2) { setCaptureError('Por favor, insira seu nome.'); return; }
+                if (clean.length < 10) { setCaptureError('Por favor, insira um WhatsApp válido.'); return; }
+                setCaptureError('');
+                fbq('track', 'Lead', { content_name: 'Captura WhatsApp Quiz' });
+                setShowCapture(false);
+                setShowResult(true);
+            };
+
+            const diagnosis = diagnosisMap[firstAnswerIndex] || diagnosisMap[0];
+            const firstName = nome ? nome.trim().split(' ')[0] : '';
+
             const renderProgressBar = () => {
-                const progress = ((currentStep) / quizData.length) * 100;
+                const progress = (currentStep / quizData.length) * 100;
                 return (
                     <div className="mt-6 mb-8 max-w-[320px] mx-auto">
                         <p className="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Pergunta {currentStep + 1} de {quizData.length}</p>
                         <div className="w-full bg-gray-200/80 h-1.5 rounded-full overflow-hidden backdrop-blur-sm shadow-inner">
-                            <div 
-                                className="bg-gray-800 h-full rounded-full transition-all duration-700 ease-out"
-                                style={{ width: `${progress}%` }}
-                            ></div>
+                            <div className="bg-gray-800 h-full rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
                         </div>
                     </div>
                 );
@@ -225,44 +279,23 @@
                 return (
                     <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center max-w-lg mx-auto fade-in">
                         <div className="w-20 h-20 mb-8 rounded-full border-4 border-gray-200 border-t-yellow-500 animate-spin shadow-lg"></div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-2 font-Montserrat">Estamos analisando as respostas do seu diagnóstico de sono...</h2>
+                        <h2 className="text-2xl font-bold text-gray-800 mb-2">Estamos analisando as respostas do seu diagnóstico de sono...</h2>
                         <p className="text-gray-500 text-sm mb-8">Identificando possíveis fatores que podem estar atrapalhando o sono do seu bebê.</p>
-                        
-                        {/* Barra de progresso */}
                         <div className="w-full max-w-[340px] mb-2">
-                            <div className="flex justify-between items-center mb-1.5">
-                                <span className="text-gray-500 text-sm font-semibold">Carregando...</span>
-                                <span className="text-gray-500 text-sm font-semibold" id="loadPercent"></span>
-                            </div>
                             <div className="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden shadow-inner">
                                 <div className="h-full rounded-full loading-bar w-full" style={{animation: 'fillUp 7.2s linear forwards'}}></div>
                             </div>
                         </div>
-
                         <p className="text-gray-500 font-medium mb-8 min-h-[24px] text-sm mt-3">{loadingText}</p>
-
-                        {/* Depoimentos */}
                         <div className="w-full space-y-3 mt-2">
                             <div className="bg-white rounded-xl p-4 text-left border border-gray-100 shadow-sm">
-                                <div className="flex gap-0.5 mb-2">
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                </div>
+                                <div className="flex gap-0.5 mb-2"><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span></div>
                                 <p className="font-bold text-gray-800 text-sm">Juliana Mendes</p>
                                 <p className="text-gray-400 text-xs mb-2">@ju.mendes_</p>
                                 <p className="text-gray-600 text-sm leading-relaxed">Minha filha dormia só no peito e eu estava destruída. Em 5 dias ela já dormia no berço sozinha. Mudou minha vida!</p>
                             </div>
                             <div className="bg-white rounded-xl p-4 text-left border border-gray-100 shadow-sm">
-                                <div className="flex gap-0.5 mb-2">
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                    <span className="text-yellow-400 text-sm">★</span>
-                                </div>
+                                <div className="flex gap-0.5 mb-2"><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span></div>
                                 <p className="font-bold text-gray-800 text-sm">Tatiane Oliveira</p>
                                 <p className="text-gray-400 text-xs mb-2">@tati.oliveira</p>
                                 <p className="text-gray-600 text-sm leading-relaxed">Achei que era mais um método milagroso, mas realmente funciona. Meu bebê de 4 meses dorme 10h seguidas agora.</p>
@@ -272,141 +305,104 @@
                 );
             }
 
+            if (showCapture) {
+                return (
+                    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 max-w-lg mx-auto fade-in">
+                        <div className="bg-yellow-100 text-yellow-600 rounded-full w-16 h-16 flex items-center justify-center mb-5 shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 text-center mb-3 leading-tight">Seu diagnóstico está pronto! 🎉</h2>
+                        <p className="text-gray-500 text-center text-base mb-8 max-w-sm leading-relaxed">Identificamos <span className="font-bold text-gray-800">o problema exato</span> que está atrapalhando o sono do seu bebê. Preencha os dados para ver seu resultado personalizado:</p>
+                        <form onSubmit={handleCapture} className="w-full max-w-sm flex flex-col gap-4">
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-1.5">Seu nome</label>
+                                <input type="text" placeholder="Como posso te chamar?" value={nome} onChange={e => setNome(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-4 py-3.5 text-gray-800 font-medium focus:outline-none focus:border-yellow-400 transition-colors text-base" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-1.5">Seu WhatsApp</label>
+                                <input type="tel" placeholder="(00) 00000-0000" value={telefone} onChange={e => setTelefone(formatPhone(e.target.value))} maxLength={15} className="w-full border-2 border-gray-200 rounded-xl px-4 py-3.5 text-gray-800 font-medium focus:outline-none focus:border-yellow-400 transition-colors text-base" />
+                            </div>
+                            {captureError && (<p className="text-red-500 text-sm font-semibold text-center">{captureError}</p>)}
+                            <button type="submit" className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold text-lg py-4 px-8 rounded-full shadow-[0_8px_30px_rgb(34,197,94,0.3)] hover:shadow-[0_8px_30px_rgb(34,197,94,0.5)] transition-all uppercase tracking-wide mt-2">
+                                Ver meu diagnóstico →
+                            </button>
+                            <p className="text-xs text-gray-400 text-center font-medium">🔒 Seus dados são 100% seguros. Não enviamos spam.</p>
+                        </form>
+                    </div>
+                );
+            }
+
             if (showResult) {
                 return (
                     <div className="min-h-screen flex flex-col items-center pt-8 pb-20 px-4 max-w-2xl mx-auto fade-in">
-                        
                         <div className="flex flex-col items-center justify-center mb-6">
                             <div className="bg-yellow-100 text-yellow-600 rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                             </div>
                             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] text-center leading-tight">
-                                Identificamos um erro crucial na rotina do seu bebê
+                                {firstName ? `${firstName}, identificamos` : 'Identificamos'} o erro exato no sono do seu bebê
                             </h2>
                         </div>
-
-                        <p className="text-gray-600 text-center text-lg mb-8 max-w-lg font-medium">
-                            Isso explica exatamente por que ele briga com o <span className="font-bold text-gray-900 border-b-2 border-yellow-400">SONO</span> e acorda exausto várias vezes à noite...
-                        </p>
-
-                        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-full max-w-md mb-8">
-                            <p className="text-gray-800 font-bold text-center mb-4 text-lg">
-                                Se isso não for corrigido agora, a tendência é piorar:
-                            </p>
+                        <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-5 w-full max-w-md mb-6">
+                            <p className="text-xs font-black text-amber-600 uppercase tracking-widest mb-2">📋 Diagnóstico personalizado</p>
+                            <p className="text-gray-800 font-bold text-lg leading-snug">O problema identificado é <span className="text-red-600">{diagnosis.error}</span>.</p>
+                            <p className="text-gray-600 text-sm mt-3 leading-relaxed">{diagnosis.detail}</p>
+                        </div>
+                        <p className="text-gray-600 text-center text-lg mb-6 max-w-lg font-medium">Isso explica exatamente por que ele briga com o <span className="font-bold text-gray-900 border-b-2 border-yellow-400">SONO</span> e acorda exausto várias vezes à noite...</p>
+                        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-full max-w-md mb-6">
+                            <p className="text-gray-800 font-bold text-center mb-4 text-lg">Se isso não for corrigido agora, a tendência é piorar:</p>
                             <ul className="space-y-4 text-gray-700 font-medium w-full">
-                                <li className="flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                                    </div>
-                                    <span>Noites cada vez mais <span className="font-bold text-red-500">CANSATIVAS</span></span>
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                                    </div>
-                                    <span>Bebê <span className="font-bold uppercase text-red-500">Irritado</span> e dependente de colo</span>
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                                    </div>
-                                    <span>Você <span className="font-bold uppercase text-red-500">Exausta</span> e sem energia</span>
-                                </li>
+                                <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Noites cada vez mais <span className="font-bold text-red-500">CANSATIVAS</span></span></li>
+                                <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Bebê <span className="font-bold uppercase text-red-500">Irritado</span> e dependente de colo</span></li>
+                                <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Você <span className="font-bold uppercase text-red-500">Exausta</span> e sem energia</span></li>
                             </ul>
                         </div>
-
-                        <p className="text-gray-600 text-center mb-8 max-w-lg leading-relaxed text-lg">
-                            A boa notícia é que isso tem solução simples! Quando você entende como aplicar o <strong className="text-yellow-600">Código das Janelas de Ouro</strong>.
-                        </p>
-
-                        <h3 className="text-[#15803d] font-bold text-2xl text-center mb-10 max-w-lg px-2 leading-snug">
-                            Temos a Solução que mostra exatamente o que ajustar na rotina para fazer ele dormir sozinho a noite toda!
-                        </h3>
-
-                        {/* TRANSIÇÃO PARA VENDAS */}
-                        <p className="text-gray-600 text-center text-base mb-6 max-w-md font-medium leading-relaxed">
-                            Preparamos uma solução específica para o padrão de sono do seu bebê.
-                            Clique abaixo para ver o diagnóstico completo e entender como corrigir
-                            esse erro antes que ele se agrave.
-                        </p>
-
-                        {/* BOTAO PARA VSL/VENDAS */}
+                        <div className="bg-green-50 border border-green-200 rounded-2xl p-5 w-full max-w-md mb-8">
+                            <p className="text-xs font-black text-green-600 uppercase tracking-widest mb-2">✅ A solução</p>
+                            <p className="text-gray-700 text-sm leading-relaxed">{diagnosis.solution}</p>
+                        </div>
+                        <h3 className="text-[#15803d] font-bold text-2xl text-center mb-8 max-w-lg px-2 leading-snug">Temos a solução exata para corrigir esse padrão e fazer ele dormir sozinho a noite toda!</h3>
+                        <p className="text-gray-600 text-center text-base mb-6 max-w-md font-medium leading-relaxed">Preparamos a solução específica para o padrão de sono do seu bebê. Clique abaixo para entender como corrigir esse erro antes que ele se agrave.</p>
                         <button onClick={goToSales} className="w-full max-w-md bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold text-xl py-5 px-8 rounded-full shadow-[0_8px_30px_rgb(34,197,94,0.3)] hover:shadow-[0_8px_30px_rgb(34,197,94,0.5)] transition-all text-center uppercase tracking-wide flex justify-center items-center gap-3">
-                            Ver meu Diagnóstico Completo e a Solução
+                            Ver a solução completa
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </button>
                         <p className="text-sm font-medium text-gray-400 mt-4 flex items-center justify-center gap-2">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                             Acesso seguro e instantâneo · Menos de 2 minutos
                         </p>
-
                     </div>
                 );
             }
 
             const currentData = quizData[currentStep];
-
             return (
                 <div className="min-h-screen flex flex-col max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-20 relative">
-                    
-                    {/* Botão Voltar */}
                     {currentStep > 0 && (
-                        <button 
-                            onClick={() => setCurrentStep(prev => prev - 1)}
-                            className="absolute top-4 left-4 sm:left-6 text-gray-400 hover:text-gray-800 transition-colors bg-white/50 backdrop-blur rounded-full p-2 shadow-sm"
-                        >
+                        <button onClick={() => setCurrentStep(prev => prev - 1)} className="absolute top-4 left-4 sm:left-6 text-gray-400 hover:text-gray-800 transition-colors bg-white/50 backdrop-blur rounded-full p-2 shadow-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                         </button>
                     )}
-
                     {renderProgressBar()}
-
                     <div className="flex flex-col items-center w-full mt-2 sm:mt-6 fade-in" key={currentStep}>
-                        
-                        {/* Pre-title */}
-                        {currentData.preTitle && (
-                            <p className="text-center text-sm sm:text-base text-gray-500 font-medium mb-3 max-w-2xl px-2">
-                                {currentData.preTitle}
-                            </p>
-                        )}
-
-                        {/* Title */}
-                        <h1 className="text-2xl sm:text-[32px] font-bold text-gray-800 text-center mb-10 px-2 leading-tight tracking-tight">
-                            {currentData.title}
-                        </h1>
-
-                        {/* Image */}
+                        {currentData.preTitle && (<p className="text-center text-sm sm:text-base text-gray-500 font-medium mb-3 max-w-2xl px-2">{currentData.preTitle}</p>)}
+                        <h1 className="text-2xl sm:text-[32px] font-bold text-gray-800 text-center mb-10 px-2 leading-tight tracking-tight">{currentData.title}</h1>
                         {currentData.image && (
                             <div className="w-full max-w-[500px] mb-8 rounded-[20px] overflow-hidden shadow-lg border border-white/40 ring-4 ring-white/20">
                                 <img src={currentData.image} alt={currentData.title} className="w-full h-auto object-cover max-h-[260px] sm:max-h-[320px] hover:scale-105 transition-transform duration-700" />
                             </div>
                         )}
-
-                        {/* Options */}
                         <div className="w-full max-w-[500px] flex flex-col gap-3 sm:gap-4">
                             {currentData.options.map((option, index) => (
-                                <button
-                                    key={index}
-                                    onClick={handleAnswer}
-                                    className="option-btn group w-full bg-white/80 backdrop-blur-sm border-2 border-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] rounded-2xl p-3 sm:p-4 focus:outline-none flex items-center justify-start gap-4"
-                                >
-                                    <div className="letter-box w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-gray-100/80 text-gray-500 font-bold text-base sm:text-lg rounded-xl flex items-center justify-center border border-gray-200/50 shadow-sm">
-                                        {letters[index]}
-                                    </div>
-                                    <div className="text-left text-gray-700 font-semibold text-[15px] sm:text-[17px] leading-snug pr-2 group-hover:text-gray-900 transition-colors">
-                                        {option}
-                                    </div>
-                                    
-                                    {/* Seta Sutil no final para induzir o clique */}
-                                    <div className="ml-auto text-gray-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                                    </div>
+                                <button key={index} onClick={() => handleAnswer(index)} className="option-btn group w-full bg-white/80 backdrop-blur-sm border-2 border-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] rounded-2xl p-3 sm:p-4 focus:outline-none flex items-center justify-start gap-4">
+                                    <div className="letter-box w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-gray-100/80 text-gray-500 font-bold text-base sm:text-lg rounded-xl flex items-center justify-center border border-gray-200/50 shadow-sm">{letters[index]}</div>
+                                    <div className="text-left text-gray-700 font-semibold text-[15px] sm:text-[17px] leading-snug pr-2 group-hover:text-gray-900 transition-colors">{option}</div>
+                                    <div className="ml-auto text-gray-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
                                 </button>
                             ))}
                         </div>
-
                     </div>
                 </div>
             );
@@ -415,8 +411,6 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<QuizApp />);
     </script>
-
-
     <!-- Anti-Spy Shield -->
     <script src="./assets/shield.js" defer></script>
 </body>
