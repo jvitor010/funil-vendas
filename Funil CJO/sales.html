@@ -24,6 +24,17 @@
     src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- Utmify Pixel -->
+    <script>
+      window.pixelId = "69dbc14dfcc05c2755ef01dc";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <!-- End Utmify Pixel -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Código das Janelas de Ouro | Método Oficial</title>
@@ -79,9 +90,20 @@
             // Adiciona parâmetros capturados à URL de checkout
             Object.keys(params).forEach(key => finalUrl.searchParams.set(key, params[key]));
 
-            // Redireciona imediatamente sem delay. 
-            // O evento 'InitiateCheckout' será disparado com maior precisão nativamente pelo próprio checkout da Kiwify.
-            window.location.href = finalUrl.toString();
+            // Dispara evento do Facebook
+            fbq('track', 'InitiateCheckout', {
+                content_name: 'CJO - Codigo das Janelas de Ouro',
+                content_category: 'Infoproduto',
+                content_ids: ['CJO01'],
+                value: 37.00,
+                currency: 'BRL',
+                content_location: location
+            });
+
+            // Redireciona com um pequeno delay para garantir o disparo do pixel
+            setTimeout(() => {
+                window.location.href = finalUrl.toString();
+            }, 300);
         }
 
         tailwind.config = {
@@ -208,10 +230,10 @@
         <div style="max-width:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;">
             <button onclick="document.getElementById('oferta').scrollIntoView({behavior:'smooth'})"
                style="display:block;width:100%;background:#10b981;color:white;text-align:center;font-weight:800;font-size:17px;padding:18px 24px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(16,185,129,0.4);text-transform:uppercase;letter-spacing:0.03em;border:none;cursor:pointer;">
-                Quero descobrir a Janela do meu bebê →
+                QUERO ACESSAR O MÉTODO AGORA →
             </button>
             <p style="font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin:0;">
-                Método gratuito para ler · Oferta especial abaixo
+                Método científico · Garantia de 7 dias · R$37
             </p>
         </div>
     </section>
@@ -254,7 +276,7 @@
         <div class="w-full md:w-1/2 relative flex justify-center mt-10 md:mt-0">
             <img src="assets/hero.png" alt="Mãe cuidando do bebê" class="w-4/5 md:w-full object-cover rounded-xl shadow-lg border-4 border-gray-50 opacity-90">
             <!-- Mockup posicionado por cima -->
-            <img src="assets/capa_ebook_premium.jpg" alt="Ebook Código das Janelas de Ouro" class="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-8 w-1/3 md:w-2/5 drop-shadow-2xl rounded-lg border border-gray-200 bg-white p-2">
+            <img src="assets/cjo_mockup_op1_luxury_gold.png" alt="Ebook Código das Janelas de Ouro" class="absolute -bottom-10 -right-4 md:-bottom-16 md:-right-8 w-1/3 md:w-2/5 drop-shadow-2xl rounded-lg border border-gray-200 bg-white p-2">
         </div>
     </section>
 
@@ -345,7 +367,7 @@
         </div>
 
         <div class="w-full md:w-1/2 flex justify-center relative mt-10 md:mt-0">
-            <img src="assets/capa_ebook_premium.jpg" alt="Código CJO Livro" class="w-2/3 md:w-2/3 object-cover shadow-2xl rounded-sm ml-auto z-10 transition-transform bg-white p-2 hover:scale-[1.02]">
+            <img src="assets/cjo_mockup_op1_luxury_gold.png" alt="Código CJO Livro" class="w-2/3 md:w-2/3 object-cover shadow-2xl rounded-sm ml-auto z-10 transition-transform bg-white p-2 hover:scale-[1.02]">
         </div>
     </section>
 
@@ -467,7 +489,7 @@
                     <span class="text-[10px] font-semibold uppercase tracking-wider mt-1">seg</span>
                 </div>
             </div>
-            <p class="text-amber-800 font-semibold text-xs md:text-sm">Após o prazo, o preço volta ao valor normal de consultoria</p>
+            <p class="text-amber-800 font-semibold text-xs md:text-sm">Após o prazo, o preço volta para R$ 97,00</p>
         </div>
     </section>
     <script>
@@ -547,7 +569,6 @@
             </div>
 
             <div class="border-[3px] border-brand-green rounded-2xl p-6 mb-8 bg-green-50/30 text-center">
-                <p class="text-gray-500 font-semibold text-sm md:text-base mb-3 leading-relaxed">O que consultoras de sono cobram R$800 a R$1.500 para ensinar,<br>você acessa hoje por menos que uma pizza grande:</p>
                 <p class="text-brand-green font-extrabold text-xl md:text-2xl uppercase tracking-wider mb-2">VOCÊ PAGA APENAS</p>
                 <p class="text-[50px] md:text-[60px] font-black text-brand-green leading-none">R$ 37,00</p>
                 <p class="text-gray-600 font-bold text-lg md:text-xl mt-1">ou em até 3x de R$ 13,33 no cartão</p>

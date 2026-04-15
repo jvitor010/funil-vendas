@@ -14,8 +14,6 @@
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', {content_name: 'Quiz Sono do Bebe'});
-    
-    // Utmify Pixel
     (function() {
       window.pixelId = "69dbc14dfcc05c2755ef01dc";
       var a = document.createElement("script");
@@ -24,19 +22,13 @@
       a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
       document.head.appendChild(a);
     })();
-
-    // Função para capturar parâmetros da URL e persistir nos links
     function getPreservedParams() {
         const urlParams = new URLSearchParams(window.location.search);
         const preserved = {};
         const keysToKeep = ['fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src'];
-        
-        keysToKeep.forEach(key => {
-            if (urlParams.has(key)) preserved[key] = urlParams.get(key);
-        });
+        keysToKeep.forEach(key => { if (urlParams.has(key)) preserved[key] = urlParams.get(key); });
         return preserved;
     }
-
     function goToSales() {
         const params = getPreservedParams();
         const finalUrl = new URL("sales.html", window.location.href);
@@ -44,232 +36,83 @@
         window.location.href = finalUrl.toString();
     }
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1" /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnóstico do Sono - CJO</title>
-    <!-- DNS Prefetch & Preconnect (Performance) -->
+    <title>Diagnostico do Sono - CJO</title>
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <!-- Prefetch next page -->
     <link rel="prefetch" href="sales.html">
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #fdfaf6;
-            background-image: radial-gradient(circle at 15% 50%, rgba(255, 230, 200, 0.4), transparent 30%),
-                              radial-gradient(circle at 85% 30%, rgba(250, 220, 190, 0.4), transparent 30%),
-                              radial-gradient(circle at 50% 80%, rgba(245, 240, 235, 0.5), transparent 40%);
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
-        
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
-
-        .fade-in {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .option-btn {
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .option-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
-            border-color: #eab308; /* Tailwind Yellow 500 */
-        }
-        
-        .option-btn:active {
-            transform: translateY(0);
-        }
-
-        .letter-box {
-            transition: all 0.25s;
-        }
-        
-        .option-btn:hover .letter-box {
-            background-color: #fef08a; /* Yellow 200 */
-            color: #854d0e; /* Yellow 800 */
-        }
-
-        .loading-bar {
-            background-size: 200% 100%;
-            background-image: linear-gradient(90deg, #1f2937 0%, #4b5563 50%, #1f2937 100%);
-            animation: loadProgress infinite 1.5s ease-in-out;
-        }
-
-        @keyframes loadProgress {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        @keyframes fillUp {
-            from { width: 0%; }
-        }
+        body { font-family: 'Outfit', sans-serif; background-color: #fdfaf6; background-image: radial-gradient(circle at 15% 50%, rgba(255,230,200,0.4), transparent 30%), radial-gradient(circle at 85% 30%, rgba(250,220,190,0.4), transparent 30%); min-height: 100vh; }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+        .option-btn { transition: all 0.25s cubic-bezier(0.4,0,0.2,1); }
+        .option-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 20px -8px rgba(0,0,0,0.08); border-color: #eab308; }
+        .option-btn:active { transform: translateY(0); }
+        .letter-box { transition: all 0.25s; }
+        .option-btn:hover .letter-box { background-color: #fef08a; color: #854d0e; }
+        .loading-bar { background-size: 200% 100%; background-image: linear-gradient(90deg, #1f2937 0%, #4b5563 50%, #1f2937 100%); animation: loadProgress infinite 1.5s ease-in-out; }
+        @keyframes loadProgress { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        @keyframes fillUp { from { width: 0%; } }
     </style>
 </head>
 <body>
     <div id="root"></div>
-
     <script type="text/babel">
-        const { useState } = React;
-
+        const letters = ['A','B','C','D'];
         const quizData = [
-            {
-                id: 1,
-                title: "O que mais atrapalha o sono do seu bebê hoje?",
-                image: "assets/quiz_intro.png",
-                options: [
-                    "Demora muito para dormir chorando",
-                    "Acorda várias vezes de madrugada",
-                    "Só dorme no colo ou no peito (associação forte)",
-                    "Acorda muito cedo e não volta a dormir"
-                ]
-            },
-            {
-                id: 2,
-                preTitle: "A maioria das mães relata exaustão física por causa das múltiplas interrupções de madrugada. Como é a sua realidade hoje?",
-                title: "Quantas vezes o bebê costuma acordar por noite?",
-                image: "assets/quiz_struggle.png",
-                options: [
-                    "1 a 2 vezes (É cansativo, mas eu controlo)",
-                    "3 a 4 vezes (Estou começando a não aguentar o cansaço)",
-                    "5 a 8 vezes (Estou no meu limite absoluto de privação)",
-                    "Acorda de hora em hora (É um pesadelo, preciso de ajuda urgente)"
-                ]
-            },
-            {
-                id: 3,
-                preTitle: "Entendemos. Você não está sozinha — milhares de mães passam exatamente por isso.",
-                title: "Você já tentou algum método de sono antes?",
-                image: "assets/quiz_solution.png",
-                options: [
-                    "Sim, tentei várias coisas e nenhuma funcionou de verdade",
-                    "Tentei dicas da internet mas durou apenas alguns dias",
-                    "Tentei mas desisti porque meu bebê chorou muito",
-                    "Não tentei nada ainda — não sei por onde começar"
-                ]
-            }
+            { id:1, title:"O que mais atrapalha o sono do seu bebe hoje?", image:"assets/quiz_intro.png", options:["Demora muito para dormir chorando","Acorda varias vezes de madrugada","So dorme no colo ou no peito (associacao forte)","Acorda muito cedo e nao volta a dormir"] },
+            { id:2, preTitle:"A maioria das maes relata exaustao fisica por causa das multiplas interrupcoes de madrugada. Como e a sua realidade hoje?", title:"Quantas vezes o bebe costuma acordar por noite?", image:"assets/quiz_struggle.png", options:["1 a 2 vezes (E cansativo, mas eu controlo)","3 a 4 vezes (Estou comecando a nao aguentar o cansaco)","5 a 8 vezes (Estou no meu limite absoluto de privacao)","Acorda de hora em hora (E um pesadelo, preciso de ajuda urgente)"] },
+            { id:3, preTitle:"Entendemos. Voce nao esta sozinha - milhares de maes passam exatamente por isso.", title:"Voce ja tentou algum metodo de sono antes?", image:"assets/quiz_solution.png", options:["Sim, tentei varias coisas e nenhuma funcionou de verdade","Tentei dicas da internet mas durou apenas alguns dias","Tentei mas desisti porque meu bebe chorou muito","Nao tentei nada ainda - nao sei por onde comecar"] }
         ];
-
         const diagnosisMap = [
-            {
-                error: "o horário errado de colocá-lo para dormir",
-                detail: "Seu bebê está sendo colocado para dormir FORA da Janela de Ouro — quando o cortisol já dominou o corpo dele, tornando o processo de adormecer uma batalha diária de choro e resistência.",
-                solution: "Ajustando o horário do ritual em apenas 20 a 30 minutos, o processo de adormecer pode mudar completamente — sem choro e sem luta."
-            },
-            {
-                error: "ciclos de sono incompletos por falta da Janela Certa",
-                detail: "Esses despertares não são fome nem cólica — são sinais de que o bebê ainda não aprendeu a completar seus ciclos de sono sozinho por falta do gatilho biológico correto.",
-                solution: "Com o Código das Janelas, ele aprende a se reconectar ao sono entre os ciclos sem precisar da sua intervenção de madrugada."
-            },
-            {
-                error: "uma associação de sono que impede a independência",
-                detail: "Seu bebê aprendeu que colo ou peito equivale a sono. Toda vez que ele acorda entre ciclos, busca essa associação. Isso não é culpa sua — é um padrão que pode ser corrigido gentilmente.",
-                solution: "O Código ensina como substituir essa associação por um gatilho que permite o sono independente, sem choro excessivo e sem abandono."
-            },
-            {
-                error: "uma inversão no ciclo circadiano do seu bebê",
-                detail: "Acordar muito cedo indica que a Janela da Manhã está mal calibrada. O ciclo circadiano do seu bebê está desregulado — provavelmente por exposição à luz ou horário de soneca incorreto.",
-                solution: "Ajustando as janelas do dia, o horário de despertar matinal se regula naturalmente em poucos dias, sem nenhuma intervenção brusca."
-            }
+            { error:"o horario errado de coloca-lo para dormir", detail:"Seu bebe esta sendo colocado para dormir FORA da Janela de Ouro - quando o cortisol ja dominou o corpo dele, tornando o processo de adormecer uma batalha diaria.", solution:"Ajustando o horario do ritual em apenas 20 a 30 minutos, o processo de adormecer pode mudar completamente - sem choro e sem luta." },
+            { error:"ciclos de sono incompletos por falta da Janela Certa", detail:"Esses despertares nao sao fome nem colica - sao sinais de que o bebe ainda nao aprendeu a completar seus ciclos de sono sozinho por falta do gatilho biologico correto.", solution:"Com o Codigo das Janelas, ele aprende a se reconectar ao sono entre os ciclos sem precisar da sua intervencao de madrugada." },
+            { error:"uma associacao de sono que impede a independencia", detail:"Seu bebe aprendeu que colo ou peito equivale a sono. Toda vez que ele acorda entre ciclos, busca essa associacao. Isso nao e culpa sua - e um padrao que pode ser corrigido gentilmente.", solution:"O Codigo ensina como substituir essa associacao por um gatilho que permite o sono independente, sem choro excessivo e sem abandono." },
+            { error:"uma inversao no ciclo circadiano do seu bebe", detail:"Acordar muito cedo indica que a Janela da Manha esta mal calibrada. O ciclo circadiano do seu bebe esta desregulado - provavelmente por exposicao a luz ou horario de soneca incorreto.", solution:"Ajustando as janelas do dia, o horario de despertar matinal se regula naturalmente em poucos dias, sem nenhuma intervencao brusca." }
         ];
-
-        const letters = ['A', 'B', 'C', 'D'];
 
         function QuizApp() {
             const [currentStep, setCurrentStep] = React.useState(0);
             const [firstAnswerIndex, setFirstAnswerIndex] = React.useState(0);
             const [isLoading, setIsLoading] = React.useState(false);
-            const [loadingText, setLoadingText] = React.useState("Analisando padrões biológicos...");
-            const [showCapture, setShowCapture] = React.useState(false);
+            const [loadingText, setLoadingText] = React.useState("Analisando padroes biologicos...");
             const [showResult, setShowResult] = React.useState(false);
-            const [nome, setNome] = React.useState('');
-            const [telefone, setTelefone] = React.useState('');
-            const [captureError, setCaptureError] = React.useState('');
 
             const handleAnswer = (index) => {
                 if (currentStep === 0) { setFirstAnswerIndex(index); }
-                if (currentStep < quizData.length - 1) {
-                    setCurrentStep(prev => prev + 1);
-                } else {
-                    startLoadingSequence();
-                }
+                if (currentStep < quizData.length - 1) { setCurrentStep(prev => prev + 1); }
+                else { startLoadingSequence(); }
             };
 
             const startLoadingSequence = () => {
                 setIsLoading(true);
-                const steps = [
-                    "Analisando padrões biológicos informados...",
-                    "Mapeando o ciclo circadiano correspondente à idade...",
-                    "Encontrando falhas críticas nas Janelas de Sono...",
-                    "Montando o seu diagnóstico personalizado CJO..."
-                ];
+                const steps = ["Analisando padroes biologicos informados...","Mapeando o ciclo circadiano correspondente a idade...","Encontrando falhas criticas nas Janelas de Sono...","Montando o seu diagnostico personalizado CJO..."];
                 let i = 0;
                 const interval = setInterval(() => {
                     i++;
                     if (i < steps.length) { setLoadingText(steps[i]); }
-                    else {
-                        clearInterval(interval);
-                        fbq('track', 'Lead', { content_name: 'Quiz Completo' });
-                        setIsLoading(false);
-                        setShowCapture(true);
-                    }
+                    else { clearInterval(interval); fbq('track','Lead',{content_name:'Quiz Completo'}); setIsLoading(false); setShowResult(true); }
                 }, 1800);
             };
 
-            const formatPhone = (value) => {
-                const n = value.replace(/\D/g, '');
-                if (n.length <= 2) return n;
-                if (n.length <= 7) return `(${n.slice(0,2)}) ${n.slice(2)}`;
-                return `(${n.slice(0,2)}) ${n.slice(2,7)}-${n.slice(7,11)}`;
-            };
-
-            const handleCapture = (e) => {
-                e.preventDefault();
-                const clean = telefone.replace(/\D/g, '');
-                if (nome.trim().length < 2) { setCaptureError('Por favor, insira seu nome.'); return; }
-                if (clean.length < 10) { setCaptureError('Por favor, insira um WhatsApp válido.'); return; }
-                setCaptureError('');
-                fbq('track', 'Lead', { content_name: 'Captura WhatsApp Quiz' });
-                setShowCapture(false);
-                setShowResult(true);
-            };
-
             const diagnosis = diagnosisMap[firstAnswerIndex] || diagnosisMap[0];
-            const firstName = nome ? nome.trim().split(' ')[0] : '';
 
             const renderProgressBar = () => {
                 const progress = (currentStep / quizData.length) * 100;
                 return (
                     <div className="mt-6 mb-8 max-w-[320px] mx-auto">
                         <p className="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Pergunta {currentStep + 1} de {quizData.length}</p>
-                        <div className="w-full bg-gray-200/80 h-1.5 rounded-full overflow-hidden backdrop-blur-sm shadow-inner">
-                            <div className="bg-gray-800 h-full rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
+                        <div className="w-full bg-gray-200/80 h-1.5 rounded-full overflow-hidden shadow-inner">
+                            <div className="bg-gray-800 h-full rounded-full transition-all duration-700 ease-out" style={{ width: ${progress}% }}></div>
                         </div>
                     </div>
                 );
@@ -278,58 +121,19 @@
             if (isLoading) {
                 return (
                     <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center max-w-lg mx-auto fade-in">
-                        <div className="w-20 h-20 mb-8 rounded-full border-4 border-gray-200 border-t-yellow-500 animate-spin shadow-lg"></div>
-                        <h2 className="text-2xl font-bold text-gray-800 mb-2">Estamos analisando as respostas do seu diagnóstico de sono...</h2>
-                        <p className="text-gray-500 text-sm mb-8">Identificando possíveis fatores que podem estar atrapalhando o sono do seu bebê.</p>
+                        <div className="w-20 h-20 mb-6 rounded-full border-4 border-gray-200 border-t-yellow-500 animate-spin shadow-lg"></div>
+                        <h2 className="text-xl font-bold text-gray-800 mb-2">Analisando o diagnostico de sono do seu bebe...</h2>
+                        <p className="text-gray-500 text-sm mb-4">Identificando os fatores que podem estar atrapalhando o sono.</p>
                         <div className="w-full max-w-[340px] mb-2">
                             <div className="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden shadow-inner">
                                 <div className="h-full rounded-full loading-bar w-full" style={{animation: 'fillUp 7.2s linear forwards'}}></div>
                             </div>
                         </div>
-                        <p className="text-gray-500 font-medium mb-8 min-h-[24px] text-sm mt-3">{loadingText}</p>
-                        <div className="w-full space-y-3 mt-2">
-                            <div className="bg-white rounded-xl p-4 text-left border border-gray-100 shadow-sm">
-                                <div className="flex gap-0.5 mb-2"><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span></div>
-                                <p className="font-bold text-gray-800 text-sm">Juliana Mendes</p>
-                                <p className="text-gray-400 text-xs mb-2">@ju.mendes_</p>
-                                <p className="text-gray-600 text-sm leading-relaxed">Minha filha dormia só no peito e eu estava destruída. Em 5 dias ela já dormia no berço sozinha. Mudou minha vida!</p>
-                            </div>
-                            <div className="bg-white rounded-xl p-4 text-left border border-gray-100 shadow-sm">
-                                <div className="flex gap-0.5 mb-2"><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span><span className="text-yellow-400 text-sm">★</span></div>
-                                <p className="font-bold text-gray-800 text-sm">Tatiane Oliveira</p>
-                                <p className="text-gray-400 text-xs mb-2">@tati.oliveira</p>
-                                <p className="text-gray-600 text-sm leading-relaxed">Achei que era mais um método milagroso, mas realmente funciona. Meu bebê de 4 meses dorme 10h seguidas agora.</p>
-                            </div>
+                        <p className="text-gray-500 font-medium mb-6 min-h-[24px] text-sm mt-2">{loadingText}</p>
+                        <div className="w-full max-w-[300px]">
+                            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 text-center">O que as maes estao dizendo</p>
+                            <img src="../Criativos/wpp_depoimento_camila_cjo_v2.png" alt="Depoimento WhatsApp - mae que aplicou o metodo CJO" className="w-full rounded-2xl shadow-xl border border-gray-100" style={{maxHeight:'400px',objectFit:'cover',objectPosition:'top'}} />
                         </div>
-                    </div>
-                );
-            }
-
-            if (showCapture) {
-                return (
-                    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 max-w-lg mx-auto fade-in">
-                        <div className="bg-yellow-100 text-yellow-600 rounded-full w-16 h-16 flex items-center justify-center mb-5 shadow-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 text-center mb-3 leading-tight">Seu diagnóstico está pronto! 🎉</h2>
-                        <p className="text-gray-500 text-center text-base mb-8 max-w-sm leading-relaxed">Identificamos <span className="font-bold text-gray-800">o problema exato</span> que está atrapalhando o sono do seu bebê. Preencha os dados para ver seu resultado personalizado:</p>
-                        <form onSubmit={handleCapture} className="w-full max-w-sm flex flex-col gap-4">
-                            <div>
-                                <label className="block text-sm font-bold text-gray-700 mb-1.5">Seu nome</label>
-                                <input type="text" placeholder="Como posso te chamar?" value={nome} onChange={e => setNome(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-4 py-3.5 text-gray-800 font-medium focus:outline-none focus:border-yellow-400 transition-colors text-base" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-bold text-gray-700 mb-1.5">Seu WhatsApp</label>
-                                <input type="tel" placeholder="(00) 00000-0000" value={telefone} onChange={e => setTelefone(formatPhone(e.target.value))} maxLength={15} className="w-full border-2 border-gray-200 rounded-xl px-4 py-3.5 text-gray-800 font-medium focus:outline-none focus:border-yellow-400 transition-colors text-base" />
-                            </div>
-                            {captureError && (<p className="text-red-500 text-sm font-semibold text-center">{captureError}</p>)}
-                            <button type="submit" className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold text-lg py-4 px-8 rounded-full shadow-[0_8px_30px_rgb(34,197,94,0.3)] hover:shadow-[0_8px_30px_rgb(34,197,94,0.5)] transition-all uppercase tracking-wide mt-2">
-                                Ver meu diagnóstico →
-                            </button>
-                            <p className="text-xs text-gray-400 text-center font-medium">🔒 Seus dados são 100% seguros. Não enviamos spam.</p>
-                        </form>
                     </div>
                 );
             }
@@ -341,37 +145,35 @@
                             <div className="bg-yellow-100 text-yellow-600 rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                             </div>
-                            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] text-center leading-tight">
-                                {firstName ? `${firstName}, identificamos` : 'Identificamos'} o erro exato no sono do seu bebê
-                            </h2>
+                            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1a1a1a] text-center leading-tight">Identificamos o erro exato no sono do seu bebe</h2>
                         </div>
                         <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-5 w-full max-w-md mb-6">
-                            <p className="text-xs font-black text-amber-600 uppercase tracking-widest mb-2">📋 Diagnóstico personalizado</p>
-                            <p className="text-gray-800 font-bold text-lg leading-snug">O problema identificado é <span className="text-red-600">{diagnosis.error}</span>.</p>
+                            <p className="text-xs font-black text-amber-600 uppercase tracking-widest mb-2">Diagnostico personalizado</p>
+                            <p className="text-gray-800 font-bold text-lg leading-snug">O problema identificado e <span className="text-red-600">{diagnosis.error}</span>.</p>
                             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{diagnosis.detail}</p>
                         </div>
-                        <p className="text-gray-600 text-center text-lg mb-6 max-w-lg font-medium">Isso explica exatamente por que ele briga com o <span className="font-bold text-gray-900 border-b-2 border-yellow-400">SONO</span> e acorda exausto várias vezes à noite...</p>
+                        <p className="text-gray-600 text-center text-lg mb-6 max-w-lg font-medium">Isso explica exatamente por que ele briga com o <span className="font-bold text-gray-900 border-b-2 border-yellow-400">SONO</span> e acorda exausto varias vezes a noite...</p>
                         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-full max-w-md mb-6">
-                            <p className="text-gray-800 font-bold text-center mb-4 text-lg">Se isso não for corrigido agora, a tendência é piorar:</p>
+                            <p className="text-gray-800 font-bold text-center mb-4 text-lg">Se isso nao for corrigido agora, a tendencia e piorar:</p>
                             <ul className="space-y-4 text-gray-700 font-medium w-full">
                                 <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Noites cada vez mais <span className="font-bold text-red-500">CANSATIVAS</span></span></li>
-                                <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Bebê <span className="font-bold uppercase text-red-500">Irritado</span> e dependente de colo</span></li>
-                                <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Você <span className="font-bold uppercase text-red-500">Exausta</span> e sem energia</span></li>
+                                <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Bebe <span className="font-bold uppercase text-red-500">Irritado</span> e dependente de colo</span></li>
+                                <li className="flex items-center gap-3"><div className="w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><span>Voce <span className="font-bold uppercase text-red-500">Exausta</span> e sem energia</span></li>
                             </ul>
                         </div>
                         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 w-full max-w-md mb-8">
-                            <p className="text-xs font-black text-green-600 uppercase tracking-widest mb-2">✅ A solução</p>
+                            <p className="text-xs font-black text-green-600 uppercase tracking-widest mb-2">A solucao</p>
                             <p className="text-gray-700 text-sm leading-relaxed">{diagnosis.solution}</p>
                         </div>
-                        <h3 className="text-[#15803d] font-bold text-2xl text-center mb-8 max-w-lg px-2 leading-snug">Temos a solução exata para corrigir esse padrão e fazer ele dormir sozinho a noite toda!</h3>
-                        <p className="text-gray-600 text-center text-base mb-6 max-w-md font-medium leading-relaxed">Preparamos a solução específica para o padrão de sono do seu bebê. Clique abaixo para entender como corrigir esse erro antes que ele se agrave.</p>
+                        <h3 className="text-[#15803d] font-bold text-2xl text-center mb-8 max-w-lg px-2 leading-snug">Temos a solucao exata para corrigir esse padrao e fazer ele dormir sozinho a noite toda!</h3>
+                        <p className="text-gray-600 text-center text-base mb-6 max-w-md font-medium leading-relaxed">Preparamos a solucao especifica para o padrao de sono do seu bebe. Clique abaixo para entender como corrigir esse erro antes que ele se agrave.</p>
                         <button onClick={goToSales} className="w-full max-w-md bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold text-xl py-5 px-8 rounded-full shadow-[0_8px_30px_rgb(34,197,94,0.3)] hover:shadow-[0_8px_30px_rgb(34,197,94,0.5)] transition-all text-center uppercase tracking-wide flex justify-center items-center gap-3">
-                            Ver a solução completa
+                            Ver a solucao completa
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </button>
                         <p className="text-sm font-medium text-gray-400 mt-4 flex items-center justify-center gap-2">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                            Acesso seguro e instantâneo · Menos de 2 minutos
+                            Acesso seguro e instantaneo - Menos de 2 minutos
                         </p>
                     </div>
                 );
