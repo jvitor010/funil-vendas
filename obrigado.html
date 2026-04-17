@@ -13,31 +13,22 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
-
     fbq('track', 'ViewContent', {content_name: 'Upsell Masterclass'});
 
-    // FUNÇÃO PARA PRESERVAR PARÂMETROS DE URL NO UPSELL
     function getQueryString() {
         return window.location.search;
     }
 
     function trackUpsell(destination) {
-        // Dispara o evento de InitiateCheckout para o Upsell
         fbq('track', 'InitiateCheckout', {
             content_name: 'Masterclass Blindagem',
             value: 67.00,
             currency: 'BRL'
         });
-        
-        // Redireciona preservando os parâmetros (fbclid, UTMs)
         const params = getQueryString();
         const baseChar = destination.includes('?') ? '&' : '?';
         const finalUrl = destination + (params ? baseChar + params.substring(1) : '');
-
-        // Delay de 300ms para garantir o disparo do pixel no Meta Ads
-        setTimeout(() => {
-            window.location.href = finalUrl;
-        }, 300);
+        setTimeout(() => { window.location.href = finalUrl; }, 300);
     }
 
     function goToMembersArea() {
@@ -51,7 +42,6 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Utmify Pixel removido desta página — Purchase já rastreado nativamente pela Kiwify (qualidade 9.3/10). Mantido apenas em index/quiz/sales para atribuição de UTMs. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Confirmada | Código das Janelas de Ouro</title>
@@ -59,157 +49,383 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #fdfaf6;
+            background: #f5f3ef;
             color: #1a1a1a;
             min-height: 100vh;
         }
 
-        /* TIMER */
+        /* ── TIMER BAR ── */
         #timer-bar {
-            background: #1a1a1a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 40%, #7f1d1d 100%);
+            background-size: 200% 100%;
+            animation: shimmer-bar 3s ease-in-out infinite;
             color: white;
             text-align: center;
-            padding: 10px 16px;
+            padding: 11px 16px;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.02em;
+            line-height: 1.4;
         }
-        #timer-bar span { color: #fbbf24; font-size: 15px; }
-        #countdown { font-size: 18px; font-weight: 900; color: #f87171; }
-
-        /* CONFIRMAÇÃO */
-        .confirm-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: #d1fae5;
-            border: 1.5px solid #10b981;
-            border-radius: 50px;
-            padding: 8px 20px;
-            font-size: 12px;
-            font-weight: 800;
-            color: #065f46;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            width: fit-content;
-            margin: 0 auto 20px;
+        @keyframes shimmer-bar {
+            0%   { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
-        .confirm-badge svg { width: 16px; height: 16px; flex-shrink: 0; }
-
-        /* UPSELL BOX */
-        .upsell-box {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-            overflow: hidden;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .upsell-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 28px 24px 24px;
-            text-align: center;
-        }
-        .upsell-header .tag {
-            display: inline-block;
-            background: #fbbf24;
-            color: #1a1a1a;
-            font-size: 10px;
+        #timer-bar .label { color: #fca5a5; }
+        #countdown {
+            font-size: 17px;
             font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 4px 12px;
-            border-radius: 50px;
-            margin-bottom: 14px;
+            color: #fef08a;
+            letter-spacing: 0.04em;
         }
-        .upsell-body { padding: 24px 20px; }
 
-        .beneficio {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: #374151;
-            font-weight: 500;
+        /* ── HERO CONFIRMAÇÃO ── */
+        .hero-confirm {
+            background: linear-gradient(160deg, #064e3b 0%, #065f46 60%, #047857 100%);
+            color: white;
+            text-align: center;
+            padding: 36px 20px 40px;
         }
-        .beneficio .check {
-            width: 20px;
-            height: 20px;
+        .check-circle {
+            width: 68px;
+            height: 68px;
             background: #10b981;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 0 0 12px rgba(16,185,129,0.2), 0 0 0 24px rgba(16,185,129,0.08);
+            animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+        @keyframes pop-in {
+            0%   { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .check-circle svg { width: 34px; height: 34px; color: white; }
+        .hero-confirm h1 {
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+        .hero-confirm h1 .gold { color: #fbbf24; }
+        .hero-confirm p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            line-height: 1.6;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        /* ── WRAPPER PRINCIPAL ── */
+        .main-wrap {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 0 16px 80px;
+        }
+
+        /* ── BRIDGE HOOK ── */
+        .bridge {
+            background: white;
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-top: -20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .bridge .hook-label {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+        .bridge h2 {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        .bridge h2 em { font-style: normal; color: #dc2626; }
+        .bridge p {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.65;
+            font-weight: 500;
+        }
+
+        /* ── STATS ROW ── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px 10px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .stat-card .num {
+            font-size: 22px;
+            font-weight: 900;
+            color: #dc2626;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .stat-card .desc {
+            font-size: 10px;
+            font-weight: 700;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1.4;
+        }
+
+        /* ── FEAR BOX ── */
+        .fear-box {
+            background: #1a1a1a;
+            border-radius: 14px;
+            padding: 20px 18px;
+            margin: 20px 0;
+            border-left: 4px solid #dc2626;
+        }
+        .fear-box p {
+            font-size: 13px;
+            color: #e5e7eb;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        .fear-box strong { color: #fca5a5; }
+
+        /* ── UPSELL CARD ── */
+        .upsell-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 32px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        .upsell-card-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 24px 20px 20px;
+            text-align: center;
+        }
+        .upsell-card-header .badge {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+        .upsell-card-header h3 {
+            font-size: 21px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        .upsell-card-header h3 span { color: #fbbf24; }
+        .upsell-card-header p {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.55;
+            font-weight: 500;
+        }
+
+        .upsell-card-body { padding: 22px 20px 0; }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .benefit-icon {
+            font-size: 20px;
+            line-height: 1;
             flex-shrink: 0;
             margin-top: 1px;
         }
-        .beneficio .check svg { width: 11px; height: 11px; color: white; }
-
-        .preco-original {
-            text-decoration: line-through;
-            color: #9ca3af;
-            font-size: 14px;
+        .benefit-text {
+            font-size: 13px;
+            color: #1f2937;
             font-weight: 600;
+            line-height: 1.5;
         }
-        .preco-upsell {
-            font-size: 36px;
+        .benefit-text span {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        /* ── TESTIMONIAL ── */
+        .testimonial {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-radius: 14px;
+            padding: 18px 16px;
+            margin: 20px 0;
+            border: 1.5px solid #fde68a;
+            position: relative;
+        }
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -8px;
+            left: 16px;
+            font-size: 60px;
+            color: #fbbf24;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .testimonial p {
+            font-size: 13px;
+            color: #451a03;
+            line-height: 1.65;
+            font-weight: 600;
+            font-style: italic;
+            padding-top: 10px;
+        }
+        .testimonial .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .testimonial .author-dot {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 900;
+            color: white;
+            flex-shrink: 0;
+        }
+        .testimonial .author-info {
+            font-size: 11px;
+            font-weight: 700;
+            color: #78350f;
+            line-height: 1.4;
+        }
+        .testimonial .author-info span {
+            display: block;
+            font-weight: 500;
+            color: #92400e;
+        }
+
+        /* ── PRICE BLOCK ── */
+        .price-block {
+            background: #0f172a;
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 4px 0 0;
+        }
+        .price-block .de {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+        .price-block .por {
+            font-size: 12px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin: 4px 0 2px;
+        }
+        .price-block .valor {
+            font-size: 52px;
             font-weight: 900;
             color: #10b981;
             line-height: 1;
         }
-        .preco-upsell span { font-size: 18px; }
+        .price-block .valor sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
+        .price-block .valor sub { font-size: 18px; color: #6ee7b7; font-weight: 700; }
+        .price-block .once {
+            font-size: 11px;
+            color: #475569;
+            font-weight: 600;
+            margin-top: 6px;
+        }
 
-        /* BOTÕES */
+        /* ── CTA BUTTON ── */
+        .cta-wrap { padding: 20px 20px 24px; }
         .btn-sim {
             display: block;
             width: 100%;
-            background: #10b981;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             color: white;
             text-align: center;
             font-weight: 900;
             font-size: 15px;
-            padding: 18px 20px;
-            border-radius: 50px;
+            padding: 20px 16px;
+            border-radius: 14px;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            animation: pulse-shadow 2s infinite;
             border: none;
             cursor: pointer;
+            line-height: 1.4;
+            animation: pulse-glow 2s infinite;
+            position: relative;
+            overflow: hidden;
         }
-        @keyframes pulse-shadow {
-            0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.45); }
-            70%  { box-shadow: 0 0 0 16px rgba(16,185,129,0); }
+        .btn-sim::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: sweep 2.5s ease-in-out infinite;
+        }
+        @keyframes sweep {
+            0%   { left: -100%; }
+            100% { left: 200%; }
+        }
+        @keyframes pulse-glow {
+            0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
+            70%  { box-shadow: 0 0 0 18px rgba(16,185,129,0); }
             100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
         }
-        .btn-nao {
-            display: block;
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            color: #9ca3af;
-            font-weight: 600;
-            padding: 14px 8px 4px;
-            text-decoration: underline;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .btn-nao:hover { color: #6b7280; }
+        .btn-sim .line1 { font-size: 16px; display: block; }
+        .btn-sim .line2 { font-size: 12px; display: block; opacity: 0.88; margin-top: 3px; font-weight: 600; }
 
-        /* GARANTIA */
-        .garantia {
+        .garantia-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             font-size: 11px;
             color: #6b7280;
             font-weight: 600;
@@ -217,123 +433,178 @@
             text-align: center;
         }
 
-        /* DEPOIMENTO */
-        .depo {
-            background: #f9fafb;
-            border-left: 3px solid #10b981;
-            border-radius: 0 12px 12px 0;
-            padding: 14px 16px;
-            margin: 20px 0;
-            font-size: 13px;
-            color: #374151;
-            font-style: italic;
-            line-height: 1.6;
+        .btn-nao {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 11px;
+            color: #9ca3af;
+            font-weight: 600;
+            padding: 16px 8px 0;
+            text-decoration: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1.5;
         }
-        .depo strong { display: block; font-style: normal; font-size: 12px; color: #6b7280; margin-top: 8px; }
+        .btn-nao:hover { color: #6b7280; text-decoration: underline; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 380px) {
+            .hero-confirm h1 { font-size: 21px; }
+            .stats-row { gap: 7px; }
+            .stat-card .num { font-size: 19px; }
+            .price-block .valor { font-size: 44px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- BARRA DE TIMER -->
+    <!-- TIMER BAR -->
     <div id="timer-bar">
-        ⚡ Oferta especial expira em: <span id="countdown">15:00</span> — só para quem acabou de comprar
+        <span class="label">⚡ Oferta exclusiva expira em: </span>
+        <span id="countdown">15:00</span>
+        <span class="label"> — só para quem acabou de comprar</span>
     </div>
 
-    <main style="max-width:640px;margin:0 auto;padding:32px 16px 60px;">
+    <!-- HERO CONFIRMAÇÃO -->
+    <div class="hero-confirm">
+        <div class="check-circle">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+        <h1>Compra confirmada! 🎉<br>Acesso ao <span class="gold">Código das Janelas de Ouro</span><br>liberado agora.</h1>
+        <p>Você receberá tudo no seu e-mail em instantes. Mas antes de fechar esta página, leia com atenção — isso pode mudar tudo.</p>
+    </div>
 
-        <!-- CONFIRMAÇÃO -->
-        <div class="confirm-badge">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-            Compra confirmada!
+    <div class="main-wrap">
+
+        <!-- BRIDGE HOOK -->
+        <div class="bridge">
+            <div class="hook-label">⚠️ Aviso importante</div>
+            <h2>Você aprendeu a <em>abrir</em> as janelas.<br>Mas quem vai garantir que elas <em>não fechem</em>?</h2>
+            <p>Regressões, doenças, dentição, viagens — a maioria das mães perde em <strong>3 noites</strong> tudo que levou <strong>3 semanas</strong> para construir. Não porque o método falhou. Porque ninguém as preparou para o que vem depois.</p>
         </div>
 
-        <h1 style="text-align:center;font-size:26px;font-weight:900;line-height:1.2;margin-bottom:10px;">
-            Seu acesso ao <span style="color:#d97706;">Código das Janelas de Ouro</span> foi liberado 🎉
-        </h1>
+        <!-- STATS ROW -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="num">100%</div>
+                <div class="desc">Bebês passam por regressões</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">4x</div>
+                <div class="desc">Regressões antes dos 18 meses</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">48h</div>
+                <div class="desc">Recuperação com o protocolo certo</div>
+            </div>
+        </div>
 
-        <p style="text-align:center;font-size:14px;color:#6b7280;font-weight:500;margin-bottom:32px;line-height:1.6;">
-            Verifique seu e-mail para acessar o material. Enquanto isso, temos <strong style="color:#1a1a1a;">uma proposta única</strong> reservada pra você agora.
-        </p>
+        <!-- FEAR BOX -->
+        <div class="fear-box">
+            <p>Sem saber o que fazer, a maioria das mães cede ao resgate às 2h da manhã — e em 72 horas o bebê volta à estaca zero. <strong>A regressão não apaga o método. Mas o desespero apaga tudo.</strong></p>
+        </div>
 
-        <!-- UPSELL BOX -->
-        <div class="upsell-box">
-            <div class="upsell-header">
-                <div class="tag">🔒 Oferta exclusiva pós-compra</div>
-                <h2 style="font-size:22px;font-weight:900;line-height:1.25;margin-bottom:10px;">
-                    Masterclass Blindagem do Sono Profundo
-                </h2>
-                <p style="font-size:14px;color:#d1d5db;font-weight:500;line-height:1.5;">
-                    O passo avançado para garantir que as janelas que você aprendeu <strong style="color:white;">nunca voltem a fechar</strong> — nem nas regressões, doenças ou viagens.
-                </p>
+        <!-- UPSELL CARD -->
+        <div class="upsell-card">
+            <div class="upsell-card-header">
+                <div class="badge">🔒 Oferta exclusiva pós-compra</div>
+                <h3>Masterclass<br><span>Blindagem do Sono Profundo</span></h3>
+                <p>O protocolo avançado para garantir que as janelas que você aprendeu <strong style="color:white;">nunca voltem a fechar</strong> — nas regressões, nas crises e nas viagens.</p>
             </div>
 
-            <div class="upsell-body">
+            <div class="upsell-card-body">
 
-                <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.05em;">O que você vai aprender:</p>
-
-                <div class="beneficio">
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Como blindar o sono durante regressões (4, 8, 12, 18 meses) sem perder tudo que conquistou</span>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-text">
+                        Como blindar o sono nas 4 grandes regressões
+                        <span>4, 8, 12 e 18 meses — sem perder o que você construiu</span>
+                    </div>
                 </div>
-                <div class="beneficio">
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Protocolo de recuperação rápida para noites de crise — doenças, dentição e viagens</span>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">
+                        Protocolo de recuperação em 48h para noites de crise
+                        <span>Doenças, dentição e viagens — respondendo certo desde a 1ª noite</span>
+                    </div>
                 </div>
-                <div class="beneficio">
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Como estender as janelas conforme o bebê cresce (dos 4 meses até os 2 anos)</span>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-text">
+                        Como estender as janelas conforme o bebê cresce
+                        <span>Dos 4 meses aos 2 anos — ajuste automático da rotina</span>
+                    </div>
                 </div>
-                <div class="beneficio">
-                    <div class="check"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Técnica de consolidação do sono noturno para bebês que ainda acordam 2-3x por noite</span>
-                </div>
-
-                <div class="depo">
-                    "Eu achei que ia precisar começar do zero na regressão dos 8 meses. Com a Masterclass eu soube exatamente o que fazer e em 4 dias meu filho voltou a dormir igual antes."
-                    <strong>— Renata M., mãe do Theo (10 meses)</strong>
-                </div>
-
-                <!-- PREÇO -->
-                <div style="text-align:center;margin:20px 0 24px;">
-                    <p class="preco-original">De R$197,00</p>
-                    <p style="font-size:13px;font-weight:700;color:#6b7280;margin:4px 0 2px;">Por apenas</p>
-                    <p class="preco-upsell"><span>R$</span>67<span style="font-size:14px;color:#6b7280;font-weight:600;">,00</span></p>
-                    <p style="font-size:11px;color:#9ca3af;font-weight:600;margin-top:4px;">Uma única vez — não é assinatura</p>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌙</div>
+                    <div class="benefit-text">
+                        Técnica de consolidação do sono noturno
+                        <span>Para bebês que ainda acordam 2-3x por noite após o método</span>
+                    </div>
                 </div>
 
-                <!-- CTA -->
-                <button onclick="trackUpsell('https://pay.kiwify.com.br/yjLTyo4')"
-                   class="btn-sim">
-                    ✅ Sim, quero blindar o sono do meu bebê
+            </div>
+
+            <!-- TESTIMONIAL -->
+            <div style="padding: 0 20px;">
+                <div class="testimonial">
+                    <p>Eu achei que ia precisar começar do zero na regressão dos 8 meses. Com a Masterclass eu soube exatamente o que fazer — e em 4 dias meu filho voltou a dormir igual antes. Sem choro, sem desespero.</p>
+                    <div class="author">
+                        <div class="author-dot">R</div>
+                        <div class="author-info">
+                            Renata M.
+                            <span>Mãe do Theo, 10 meses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRICE BLOCK -->
+            <div class="price-block">
+                <div class="de">De R$197,00</div>
+                <div class="por">Por apenas</div>
+                <div class="valor"><sup>R$</sup>67<sub>,00</sub></div>
+                <div class="once">Uma única vez — não é assinatura</div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-wrap">
+                <button onclick="trackUpsell('https://pay.kiwify.com.br/yjLTyo4')" class="btn-sim">
+                    <span class="line1">✅ Sim, quero blindar o sono do meu bebê</span>
+                    <span class="line2">Garantir por R$67 · Acesso imediato</span>
                 </button>
 
-                <div class="garantia">
-                    <svg style="width:14px;height:14px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
-                    Pagamento seguro · Garantia de 7 dias
+                <div class="garantia-row">
+                    <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                    </svg>
+                    Pagamento seguro · Garantia incondicional de 7 dias
                 </div>
 
                 <button class="btn-nao" onclick="goToMembersArea()">
-                    Não obrigada, já estou satisfeita com o que comprei
+                    Não, prefiro enfrentar as regressões sem suporte — acessar meu material
                 </button>
-
             </div>
+
         </div>
 
-    </main>
+    </div>
 
     <!-- TIMER SCRIPT -->
     <script>
         (function() {
             var TIMER_KEY = 'cjo_upsell_timer';
-            var DURATION = 15 * 60; // 15 minutos em segundos
-
+            var DURATION  = 15 * 60;
             var end = sessionStorage.getItem(TIMER_KEY);
             if (!end) {
                 end = Date.now() + DURATION * 1000;
                 sessionStorage.setItem(TIMER_KEY, end);
             }
-
-            var el = document.getElementById('countdown');
+            var el  = document.getElementById('countdown');
             var bar = document.getElementById('timer-bar');
 
             function update() {
@@ -343,13 +614,13 @@
                 el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
 
                 if (remaining <= 60) {
-                    el.style.color = '#ef4444';
-                    bar.style.background = '#7f1d1d';
+                    el.style.color = '#fca5a5';
+                    bar.style.animation = 'none';
+                    bar.style.background = '#450a0a';
                 }
-
                 if (remaining <= 0) {
                     clearInterval(interval);
-                    bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
+                    bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material agora</a>';
                 }
             }
 
