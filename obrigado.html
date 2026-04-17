@@ -13,7 +13,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'Upsell Masterclass'});
+    fbq('track', 'ViewContent', {content_name: 'Upsell Plano Turbo'});
 
     function getQueryString() {
         return window.location.search;
@@ -21,7 +21,7 @@
 
     function trackUpsell(destination) {
         fbq('track', 'InitiateCheckout', {
-            content_name: 'Masterclass Blindagem',
+            content_name: 'Plano de Implementacao Turbo',
             value: 67.00,
             currency: 'BRL'
         });
@@ -232,7 +232,7 @@
         }
         .upsell-card-header .badge {
             display: inline-block;
-            background: #dc2626;
+            background: #d97706;
             color: white;
             font-size: 9px;
             font-weight: 900;
@@ -255,6 +255,28 @@
             color: #94a3b8;
             line-height: 1.55;
             font-weight: 500;
+        }
+        .upsell-card-header .nights-strip {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .night-pill {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50px;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #cbd5e1;
+            letter-spacing: 0.04em;
+        }
+        .night-pill.highlight {
+            background: rgba(251,191,36,0.15);
+            border-color: #fbbf24;
+            color: #fbbf24;
         }
 
         .upsell-card-body { padding: 22px 20px 0; }
@@ -285,13 +307,33 @@
             margin-top: 2px;
         }
 
+        /* ── NIGHT 3 ALERT ── */
+        .night3-alert {
+            background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+            border: 1.5px solid #fde68a;
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin: 4px 0 16px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .night3-alert .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+        .night3-alert p {
+            font-size: 12px;
+            color: #451a03;
+            font-weight: 600;
+            line-height: 1.55;
+        }
+        .night3-alert p strong { color: #92400e; }
+
         /* ── TESTIMONIAL ── */
         .testimonial {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border-radius: 14px;
             padding: 18px 16px;
             margin: 20px 0;
-            border: 1.5px solid #fde68a;
+            border: 1.5px solid #bae6fd;
             position: relative;
         }
         .testimonial::before {
@@ -300,13 +342,13 @@
             top: -8px;
             left: 16px;
             font-size: 60px;
-            color: #fbbf24;
+            color: #38bdf8;
             font-family: Georgia, serif;
             line-height: 1;
         }
         .testimonial p {
             font-size: 13px;
-            color: #451a03;
+            color: #0c4a6e;
             line-height: 1.65;
             font-weight: 600;
             font-style: italic;
@@ -321,7 +363,7 @@
         .testimonial .author-dot {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            background: linear-gradient(135deg, #0284c7, #0369a1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -334,13 +376,13 @@
         .testimonial .author-info {
             font-size: 11px;
             font-weight: 700;
-            color: #78350f;
+            color: #075985;
             line-height: 1.4;
         }
         .testimonial .author-info span {
             display: block;
             font-weight: 500;
-            color: #92400e;
+            color: #0369a1;
         }
 
         /* ── PRICE BLOCK ── */
@@ -475,75 +517,89 @@
             </svg>
         </div>
         <h1>Compra confirmada! 🎉<br>Acesso ao <span class="gold">Código das Janelas de Ouro</span><br>liberado agora.</h1>
-        <p>Você receberá tudo no seu e-mail em instantes. Mas antes de fechar esta página, leia com atenção — isso pode mudar tudo.</p>
+        <p>Você receberá tudo no seu e-mail em instantes. Mas antes de fechar esta página, leia com atenção — isso pode ser a diferença entre ver resultado ou desistir na Noite 3.</p>
     </div>
 
     <div class="main-wrap">
 
         <!-- BRIDGE HOOK -->
         <div class="bridge">
-            <div class="hook-label">⚠️ Aviso importante</div>
-            <h2>Você aprendeu a <em>abrir</em> as janelas.<br>Mas quem vai garantir que elas <em>não fechem</em>?</h2>
-            <p>Regressões, doenças, dentição, viagens — a maioria das mães perde em <strong>3 noites</strong> tudo que levou <strong>3 semanas</strong> para construir. Não porque o método falhou. Porque ninguém as preparou para o que vem depois.</p>
+            <div class="hook-label">⚠️ Leia antes de fechar</div>
+            <h2>Você tem o método na mão.<br>Mas <em>quem vai estar com você</em><br>noite a noite?</h2>
+            <p>Toda mãe começa animada. Mas na Noite 2, quando o bebê chora mais do que esperava, uma voz pergunta: <strong>"E se eu estiver errando? E se piorar tudo?"</strong> Sem um roteiro claro que diga "isso é normal, continua" — a maioria desiste.</p>
         </div>
 
         <!-- STATS ROW -->
         <div class="stats-row">
             <div class="stat-card">
-                <div class="num">100%</div>
-                <div class="desc">Bebês passam por regressões</div>
+                <div class="num">78%</div>
+                <div class="desc">Veem melhora ao seguir 5+ noites</div>
             </div>
             <div class="stat-card">
-                <div class="num">4x</div>
-                <div class="desc">Regressões antes dos 18 meses</div>
+                <div class="num">Noite 3</div>
+                <div class="desc">É onde a maioria abandona o processo</div>
             </div>
             <div class="stat-card">
-                <div class="num">48h</div>
-                <div class="desc">Recuperação com o protocolo certo</div>
+                <div class="num">7</div>
+                <div class="desc">Noites para transformar o sono</div>
             </div>
         </div>
 
         <!-- FEAR BOX -->
         <div class="fear-box">
-            <p>Sem saber o que fazer, a maioria das mães cede ao resgate às 2h da manhã — e em 72 horas o bebê volta à estaca zero. <strong>A regressão não apaga o método. Mas o desespero apaga tudo.</strong></p>
+            <p>A Noite 3 tem um nome: <strong>extinção de explosão</strong>. O bebê chora mais do que nunca — e parece que tudo piorou. Isso não é sinal de fracasso. É o sinal mais claro de que o método está funcionando. <strong>Mas sem saber disso, toda mãe cede.</strong></p>
         </div>
 
         <!-- UPSELL CARD -->
         <div class="upsell-card">
             <div class="upsell-card-header">
                 <div class="badge">🔒 Oferta exclusiva pós-compra</div>
-                <h3>Masterclass<br><span>Blindagem do Sono Profundo</span></h3>
-                <p>O protocolo avançado para garantir que as janelas que você aprendeu <strong style="color:white;">nunca voltem a fechar</strong> — nas regressões, nas crises e nas viagens.</p>
+                <h3>Plano de Implementação<br><span>Turbo — 7 Noites</span></h3>
+                <p>O roteiro noite a noite para você aplicar o Código das Janelas de Ouro e ver resultados em 7 dias — <strong style="color:white;">mesmo que você já tenha tentado de tudo.</strong></p>
+                <div class="nights-strip">
+                    <div class="night-pill">Noite 1</div>
+                    <div class="night-pill">Noite 2</div>
+                    <div class="night-pill highlight">⚡ Noite 3</div>
+                    <div class="night-pill">Noite 4</div>
+                    <div class="night-pill">Noite 5</div>
+                    <div class="night-pill">Noite 6</div>
+                    <div class="night-pill">Noite 7</div>
+                </div>
             </div>
 
             <div class="upsell-card-body">
 
+                <div class="night3-alert">
+                    <div class="icon">💙</div>
+                    <p><strong>Este guia foi feito para você não desistir.</strong> Vou estar com você todas as 7 noites — com cada passo, cada dica, cada palavra de encorajamento que você vai precisar.</p>
+                </div>
+
                 <div class="benefit-item">
-                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-icon">🗓️</div>
                     <div class="benefit-text">
-                        Como blindar o sono nas 4 grandes regressões
-                        <span>4, 8, 12 e 18 meses — sem perder o que você construiu</span>
+                        Roteiro exato noite a noite (Noites 1 a 7)
+                        <span>Horários, rituais e o que fazer em cada etapa — sem adivinhação</span>
                     </div>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-icon">😢</div>
                     <div class="benefit-text">
-                        Protocolo de recuperação em 48h para noites de crise
-                        <span>Doenças, dentição e viagens — respondendo certo desde a 1ª noite</span>
+                        Protocolo de choro para cada noite
+                        <span>O que fazer quando ele chorar — resposta certa, no tempo certo</span>
                     </div>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-icon">📊</div>
                     <div class="benefit-text">
-                        Como estender as janelas conforme o bebê cresce
-                        <span>Dos 4 meses aos 2 anos — ajuste automático da rotina</span>
+                        Diário das 7 Noites para acompanhar a evolução
+                        <span>Veja os números melhorando — isso te mantém firme nos dias difíceis</span>
                     </div>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-icon">🌙</div>
+                    <div class="benefit-icon">🔄</div>
                     <div class="benefit-text">
-                        Técnica de consolidação do sono noturno
-                        <span>Para bebês que ainda acordam 2-3x por noite após o método</span>
+                        Mini-guia de regressões (4, 8, 12 e 18 meses) incluso
+                        <span>O que fazer quando o sono piorar de repente — sem entrar em pânico</span>
                     </div>
                 </div>
 
@@ -552,12 +608,12 @@
             <!-- TESTIMONIAL -->
             <div style="padding: 0 20px;">
                 <div class="testimonial">
-                    <p>Eu achei que ia precisar começar do zero na regressão dos 8 meses. Com a Masterclass eu soube exatamente o que fazer — e em 4 dias meu filho voltou a dormir igual antes. Sem choro, sem desespero.</p>
+                    <p>Na Noite 3 eu chorei junto com meu filho. Mas o guia dizia que era normal, que era sinal de progresso. Eu continuei. Na Noite 5, ele dormiu 6 horas seguidas pela primeira vez em meses.</p>
                     <div class="author">
-                        <div class="author-dot">R</div>
+                        <div class="author-dot">A</div>
                         <div class="author-info">
-                            Renata M.
-                            <span>Mãe do Theo, 10 meses</span>
+                            Alessandra F.
+                            <span>Mãe da Sofia, 7 meses</span>
                         </div>
                     </div>
                 </div>
@@ -568,14 +624,14 @@
                 <div class="de">De R$197,00</div>
                 <div class="por">Por apenas</div>
                 <div class="valor"><sup>R$</sup>67<sub>,00</sub></div>
-                <div class="once">Uma única vez — não é assinatura</div>
+                <div class="once">Uma única vez — acesso imediato e permanente</div>
             </div>
 
             <!-- CTA -->
             <div class="cta-wrap">
                 <button onclick="trackUpsell('https://pay.kiwify.com.br/yjLTyo4')" class="btn-sim">
-                    <span class="line1">✅ Sim, quero blindar o sono do meu bebê</span>
-                    <span class="line2">Garantir por R$67 · Acesso imediato</span>
+                    <span class="line1">✅ Sim, quero o roteiro das 7 noites</span>
+                    <span class="line2">Garantir por R$67 · Não desistir na Noite 3</span>
                 </button>
 
                 <div class="garantia-row">
@@ -586,7 +642,7 @@
                 </div>
 
                 <button class="btn-nao" onclick="goToMembersArea()">
-                    Não, prefiro enfrentar as regressões sem suporte — acessar meu material
+                    Não, vou tentar aplicar o método por conta própria — acessar meu material
                 </button>
             </div>
 
