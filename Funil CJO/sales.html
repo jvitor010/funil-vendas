@@ -179,6 +179,7 @@
         }
         @media (max-width: 768px) {
             .cta-fixo-mobile {
+                display: none;
                 position: fixed;
                 bottom: 0;
                 left: 0;
@@ -188,6 +189,9 @@
                 border-top: 1px solid #e5e7eb;
                 box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
                 z-index: 999;
+            }
+            .cta-fixo-mobile.visivel {
+                display: block;
             }
             body { padding-bottom: 80px; }
         }
@@ -1055,7 +1059,7 @@
     <style> [x-cloak] { display: none !important; } </style>
 
     <!-- CTA FIXO MOBILE — aparece só após 50% de scroll -->
-    <div class="cta-fixo-mobile" id="ctaFixoMobile" style="display:none;">
+    <div class="cta-fixo-mobile" id="ctaFixoMobile">
         <button onclick="trackCheckout('CTA Fixo Mobile')" style="display:block;width:100%;border:none;cursor:pointer;background:#10b981;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-transform:uppercase;letter-spacing:0.03em;">
             QUERO ACESSAR O MÉTODO AGORA
         </button>
@@ -1068,7 +1072,7 @@
             var scrolled = window.scrollY || window.pageYOffset;
             var total = document.documentElement.scrollHeight - window.innerHeight;
             if (total > 0 && scrolled / total >= 0.50) {
-                document.getElementById('ctaFixoMobile').style.display = 'block';
+                document.getElementById('ctaFixoMobile').classList.add('visivel');
                 shown = true;
                 window.removeEventListener('scroll', checkScroll);
             }
