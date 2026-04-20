@@ -1054,12 +1054,28 @@
     <!-- Hack for proper x-cloak hiding initialized after tailwind -->
     <style> [x-cloak] { display: none !important; } </style>
 
-    <!-- CTA FIXO MOBILE -->
-    <div class="cta-fixo-mobile">
+    <!-- CTA FIXO MOBILE — aparece só após 50% de scroll -->
+    <div class="cta-fixo-mobile" id="ctaFixoMobile" style="display:none;">
         <button onclick="trackCheckout('CTA Fixo Mobile')" style="display:block;width:100%;border:none;cursor:pointer;background:#10b981;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-transform:uppercase;letter-spacing:0.03em;">
             QUERO ACESSAR O MÉTODO AGORA
         </button>
     </div>
+    <script>
+    (function() {
+        var shown = false;
+        function checkScroll() {
+            if (shown) return;
+            var scrolled = window.scrollY || window.pageYOffset;
+            var total = document.documentElement.scrollHeight - window.innerHeight;
+            if (total > 0 && scrolled / total >= 0.50) {
+                document.getElementById('ctaFixoMobile').style.display = 'block';
+                shown = true;
+                window.removeEventListener('scroll', checkScroll);
+            }
+        }
+        window.addEventListener('scroll', checkScroll, { passive: true });
+    })();
+    </script>
 
 
 
