@@ -61,7 +61,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Preload checkout domain -->
-    <link rel="dns-prefetch" href="https://pay.kiwify.com.br">
+    <link rel="dns-prefetch" href="https://lastlink.com">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@
 
         function trackCheckout(location = 'Geral') {
             const params = getPreservedParams();
-            const baseUrl = "https://pay.kiwify.com.br/HHjLKvh";
+            const baseUrl = "https://lastlink.com/p/CDF5A76C7/checkout-payment/";
             const finalUrl = new URL(baseUrl);
             
             // Adiciona parâmetros capturados à URL de checkout
@@ -1054,12 +1054,28 @@
     <!-- Hack for proper x-cloak hiding initialized after tailwind -->
     <style> [x-cloak] { display: none !important; } </style>
 
-    <!-- CTA FIXO MOBILE -->
-    <div class="cta-fixo-mobile">
+    <!-- CTA FIXO MOBILE — aparece só após 50% de scroll -->
+    <div class="cta-fixo-mobile" id="ctaFixoMobile" style="display:none;">
         <button onclick="trackCheckout('CTA Fixo Mobile')" style="display:block;width:100%;border:none;cursor:pointer;background:#10b981;color:white;text-align:center;font-weight:800;font-size:16px;padding:16px;border-radius:12px;text-transform:uppercase;letter-spacing:0.03em;">
             QUERO ACESSAR O MÉTODO AGORA
         </button>
     </div>
+    <script>
+    (function() {
+        var shown = false;
+        function checkScroll() {
+            if (shown) return;
+            var scrolled = window.scrollY || window.pageYOffset;
+            var total = document.documentElement.scrollHeight - window.innerHeight;
+            if (total > 0 && scrolled / total >= 0.50) {
+                document.getElementById('ctaFixoMobile').style.display = 'block';
+                shown = true;
+                window.removeEventListener('scroll', checkScroll);
+            }
+        }
+        window.addEventListener('scroll', checkScroll, { passive: true });
+    })();
+    </script>
 
 
 
