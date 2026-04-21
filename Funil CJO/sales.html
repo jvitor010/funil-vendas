@@ -219,6 +219,9 @@
             <h1 class="text-3xl md:text-[40px] font-extrabold text-gray-900 leading-[1.15] mb-4 max-w-4xl mx-auto">
                 Descubra por que seu bebê "liga" às 3h da manhã — <span class="text-brand-green">não é fome, é Cortisol</span> — e como resolver isso em dias, sem deixar ele chorar.
             </h1>
+            <p class="text-gray-500 text-base md:text-lg font-medium max-w-2xl mx-auto mb-2 leading-relaxed">
+                Você não está falhando como mãe.<br class="hidden md:block"> Você só ainda não teve a informação certa.
+            </p>
         </div>
     </header>
 
@@ -312,9 +315,12 @@
                 </div>
             </div>
 
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">
                 Se o sono do seu bebê está bagunçado, o problema não é você — é a informação que te deram
             </h2>
+            <p class="text-gray-400 text-center text-base md:text-lg font-medium mb-12 max-w-2xl mx-auto">
+                Você está acordando às 3h da manhã enquanto parece que todo mundo ao redor tem bebês que dormem. Não é fraqueza. Não é falta de amor. É solidão — e ninguém fala sobre isso.
+            </p>
 
             <div class="w-full max-w-4xl border border-brand-green rounded-3xl p-8 md:p-12 bg-white/5 text-center">
                 <h3 class="text-brand-green text-2xl md:text-3xl font-bold mb-8">
@@ -595,7 +601,7 @@
                         </div>
                     </div>
                     <div class="flex text-yellow-400 text-sm mb-3">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">"Minha filha dormia só no peito e eu estava destruída. Em 5 dias ela já dormia no berço sozinha. Mudou minha vida de verdade!"</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">"Me sentia culpada por querer dormir — como se fosse egoísmo. Em 5 dias minha filha dormia no berço sozinha e eu me lembrei de quem eu era antes da exaustão."</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                     <div class="flex items-center gap-3 mb-4">
@@ -606,7 +612,7 @@
                         </div>
                     </div>
                     <div class="flex text-yellow-400 text-sm mb-3">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">"Achei que era mais um método milagroso, mas realmente funciona. Meu bebê de 4 meses dorme 10h seguidas agora."</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">"Todo mundo ao redor tinha bebê que dormia e eu me sentia a pior mãe do mundo. O método me mostrou que o problema não era eu — era o timing. Meu filho dorme 10h seguidas agora."</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                     <div class="flex items-center gap-3 mb-4">
@@ -617,7 +623,7 @@
                         </div>
                     </div>
                     <div class="flex text-yellow-400 text-sm mb-3">★★★★★</div>
-                    <p class="text-gray-600 text-sm leading-relaxed">"Eu acordava 6x por noite. Hoje meu bebê dorme das 20h às 6h sem acordar. Recuperei minha saúde mental."</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">"Eu estava sobrevivendo, não vivendo. Acordava 6x por noite e chorava no banheiro sem entender o que estava fazendo de errado. Hoje meu bebê dorme das 20h às 6h. Recuperei minha saúde mental."</p>
                 </div>
             </div>
 
@@ -1057,6 +1063,20 @@
                     </button>
                     <div class="px-6 pb-5 pt-0 text-gray-600 font-medium" x-show="selected === 14" x-collapse x-cloak>
                         Essa é a dúvida mais honesta que existe — e você tem todo o direito de tê-la. A maioria dos métodos que não funcionou provavelmente tentou impor horários sem considerar o timing biológico do seu bebê. O CJO parte do princípio oposto: primeiro entender o relógio interno do seu filho, depois encaixar a rotina nele. É por isso que funciona para bebês que "resistem a tudo". E se não funcionar para você, a garantia de 7 dias cobre esse risco inteiramente.
+                    </div>
+                </div>
+
+                <!-- Pergunta 15 — medo de dano emocional ao bebê -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" @click="selected !== 15 ? selected = 15 : selected = null">
+                        <span class="font-bold text-lg md:text-xl text-gray-800 flex items-center gap-3">
+                            <span class="text-brand-red font-black text-2xl leading-none">?</span>
+                            Tenho medo de machucar meu bebê emocionalmente ao tentar mudar o sono dele.
+                        </span>
+                        <svg class="w-6 h-6 text-gray-400 transform transition-transform" :class="{'rotate-180': selected === 15}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 pt-0 text-gray-600 font-medium" x-show="selected === 15" x-collapse x-cloak>
+                        Esse medo é sinal de que você é uma mãe presente e cuidadosa — e é exatamente por isso que o CJO existe. O método não usa choro controlado, não força o bebê a "se virar", não ignora sinais de necessidade. Ele trabalha <strong>com</strong> a biologia do seu filho, não contra ela. Quando você coloca o bebê para dormir no momento certo — dentro da janela biológica — ele adormece naturalmente, com menos estresse, não mais.
                     </div>
                 </div>
             </div>
