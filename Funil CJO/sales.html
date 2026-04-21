@@ -51,7 +51,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
 
     <script>
         function getPreservedParams() {
@@ -250,7 +249,22 @@
         @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
         /* ── FAQ ── */
-        [x-cloak] { display: none !important; }
+        .faq-btn {
+            width:100%; background:none; border:none; cursor:pointer;
+            font-family:var(--font); padding:18px 20px;
+            display:flex; justify-content:space-between; align-items:center; gap:16px;
+            text-align:left;
+        }
+        .faq-btn:hover { background:rgba(0,0,0,.02); }
+        .faq-icon {
+            width:20px; height:20px; flex-shrink:0;
+            transition:transform .25s ease; color:var(--muted);
+        }
+        .faq-answer {
+            max-height:0; overflow:hidden;
+            transition:max-height .35s ease;
+        }
+        .faq-answer.open { max-height:500px; }
 
         /* ── SEPARATOR ── */
         .sep {
@@ -893,156 +907,126 @@
         <h2 class="sec-title" style="text-align:center;margin-bottom:6px;">Perguntas Frequentes</h2>
         <span class="gold-bar gold-bar-center" style="margin-bottom:32px;"></span>
 
-        <div style="display:flex;flex-direction:column;gap:8px;" x-data="{ selected: null }">
+        <div style="display:flex;flex-direction:column;gap:8px;">
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 1 ? selected = 1 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Preciso deixar meu bebê chorando sozinho para que funcione?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 1 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 1" x-collapse x-cloak>
-                    Absolutamente não. O CJO é baseado no acolhimento e na neurobiologia do bebê. Não usamos e nem recomendamos métodos de "solução pelo choro". Você vai aprender a gerar autonomia de sono respeitando as necessidades do seu filho.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Absolutamente não. O CJO é baseado no acolhimento e na neurobiologia do bebê. Não usamos e nem recomendamos métodos de "solução pelo choro". Você vai aprender a gerar autonomia de sono respeitando as necessidades do seu filho.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 2 ? selected = 2 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Funciona mesmo se meu bebê só dorme no colo ou no peito hoje?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 2 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 2" x-collapse x-cloak>
-                    Sim! Existe um módulo inteiro dedicado a como desfazer as associações de sono ("efeito espinha nas costas", mamar para dormir, etc) de forma gradual e indolor.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Sim! Existe um módulo inteiro dedicado a como desfazer as associações de sono ("efeito espinha nas costas", mamar para dormir, etc) de forma gradual e indolor.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 3 ? selected = 3 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">E se eu já tentei outros métodos e nada funcionou?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 3 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 3" x-collapse x-cloak>
-                    Muitos métodos genéricos focam em forçar horários num bebê que não está biologicamente pronto. Nosso método age na raiz: entender o momento biológico exato (A Janela de Ouro) do seu bebê.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Muitos métodos genéricos focam em forçar horários num bebê que não está biologicamente pronto. Nosso método age na raiz: entender o momento biológico exato (A Janela de Ouro) do seu bebê.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 4 ? selected = 4 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Esse método serve para bebês de qual idade?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 4 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 4" x-collapse x-cloak>
-                    O material é 100% voltado para bebês de 0 a 3 anos. Desde os primeiros meses até as grandes regressões de sono.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">O material é 100% voltado para bebês de 0 a 3 anos. Desde os primeiros meses até as grandes regressões de sono.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 5 ? selected = 5 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Preciso seguir horários rígidos para aplicar o método?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 5 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 5" x-collapse x-cloak>
-                    Não. Ensinamos você a ter uma Rotina Flexível onde você guia o bebê sem ficar "presa" em casa escrava do relógio.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Não. Ensinamos você a ter uma Rotina Flexível onde você guia o bebê sem ficar "presa" em casa escrava do relógio.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 6 ? selected = 6 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">O método é seguro? Tem base científica?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 6 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 6" x-collapse x-cloak>
-                    Completamente. O método foi validado, embasado na neurociência do desenvolvimento infantil, cronobiologia e na prática de mães reais ao redor de todo o mundo.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Completamente. O método foi validado, embasado na neurociência do desenvolvimento infantil, cronobiologia e na prática de mães reais ao redor de todo o mundo.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 7 ? selected = 7 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Posso aplicar o método durante regressão ou salto de desenvolvimento?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 7 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 7" x-collapse x-cloak>
-                    Sim. Essas fases costumam desregular tudo, mas com a previsibilidade do método, você terá a ferramenta exata para manter a rotina nos trilhos sem enlouquecer.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Sim. Essas fases costumam desregular tudo, mas com a previsibilidade do método, você terá a ferramenta exata para manter a rotina nos trilhos sem enlouquecer.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 8 ? selected = 8 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">E se eu não tiver resultados, tem garantia?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 8 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 8" x-collapse x-cloak>
-                    Com certeza. Você pode testar todo o método, e se dentro de 7 dias achar que não ajudou a sua família, devolvemos cada centavo — sem burocracia ou questionamentos.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Com certeza. Você pode testar todo o método, e se dentro de 7 dias achar que não ajudou a sua família, devolvemos cada centavo — sem burocracia ou questionamentos.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 9 ? selected = 9 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Posso acessar pelo celular?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 9 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 9" x-collapse x-cloak>
-                    Sem dúvida. O conteúdo é 100% online e organizado em uma plataforma amigável para ler e assistir confortavelmente no celular a qualquer momento.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Sem dúvida. O conteúdo é 100% online e organizado em uma plataforma amigável para ler e assistir confortavelmente no celular a qualquer momento.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 10 ? selected = 10 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Como recebo o produto após a compra?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 10 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 10" x-collapse x-cloak>
-                    O envio é imediato. Assim que o pagamento for confirmado (PIX e Cartão aprovam na hora), você recebe o link de acesso completo diretamente no e-mail que informou.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">O envio é imediato. Assim que o pagamento for confirmado (PIX e Cartão aprovam na hora), você recebe o link de acesso completo diretamente no e-mail que informou.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 11 ? selected = 11 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">É seguro comprar?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 11 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 11" x-collapse x-cloak>
-                    Totalmente seguro. O processamento é feito por uma das maiores plataformas do Brasil. Nós não armazenamos nenhuma informação financeira e seus dados estão protegidos.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Totalmente seguro. O processamento é feito por uma das maiores plataformas do Brasil. Nós não armazenamos nenhuma informação financeira e seus dados estão protegidos.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 12 ? selected = 12 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Este conteúdo foi criado por inteligência artificial?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 12 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 12" x-collapse x-cloak>
-                    Não. O Código das Janelas de Ouro foi desenvolvido por uma consultora de sono infantil real, a partir de meses de pesquisa em cronobiologia, neurociência do desenvolvimento e experiência prática com mães reais. Nenhum robô cuida de bebê — e nenhum robô escreveu isso.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Não. O Código das Janelas de Ouro foi desenvolvido por uma consultora de sono infantil real, a partir de meses de pesquisa em cronobiologia, neurociência do desenvolvimento e experiência prática com mães reais. Nenhum robô cuida de bebê — e nenhum robô escreveu isso.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 13 ? selected = 13 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Devo consultar o pediatra antes de aplicar o método?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 13 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 13" x-collapse x-cloak>
-                    O método não substitui o acompanhamento médico — e jamais recomendaríamos isso. Para qualquer questão de saúde do bebê, sempre consulte o pediatra. O CJO atua no campo comportamental e circadiano: é complementar, não concorrente, ao cuidado médico.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">O método não substitui o acompanhamento médico — e jamais recomendaríamos isso. Para qualquer questão de saúde do bebê, sempre consulte o pediatra. O CJO atua no campo comportamental e circadiano: é complementar, não concorrente, ao cuidado médico.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 14 ? selected = 14 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Já tentei vários métodos e nenhum funcionou. Por que este seria diferente?</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 14 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 14" x-collapse x-cloak>
-                    Essa é a dúvida mais honesta que existe. A maioria dos métodos tentou impor horários sem considerar o timing biológico do seu bebê. O CJO parte do princípio oposto: primeiro entender o relógio interno do seu filho, depois encaixar a rotina nele. E se não funcionar para você, a garantia de 7 dias cobre esse risco inteiramente.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Essa é a dúvida mais honesta que existe. A maioria dos métodos tentou impor horários sem considerar o timing biológico do seu bebê. O CJO parte do princípio oposto: primeiro entender o relógio interno do seu filho, depois encaixar a rotina nele. E se não funcionar para você, a garantia de 7 dias cobre esse risco inteiramente.</div></div>
             </div>
 
-            <div class="card" style="padding:0;overflow:hidden;">
-                <button class="faq-btn" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;" @click="selected !== 15 ? selected = 15 : selected = null">
+            <div class="card faq-card" style="padding:0;overflow:hidden;">
+                <button class="faq-btn" onclick="faqToggle(this)">
                     <span style="font-size:14px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;">Tenho medo de machucar meu bebê emocionalmente ao tentar mudar o sono dele.</span>
-                    <svg style="width:20px;height:20px;color:var(--muted);flex-shrink:0;transition:transform .2s;" :style="selected === 15 ? 'transform:rotate(180deg)' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                 </button>
-                <div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;" x-show="selected === 15" x-collapse x-cloak>
-                    Esse medo é sinal de que você é uma mãe presente e cuidadosa — e é exatamente por isso que o CJO existe. O método não usa choro controlado, não força o bebê a "se virar", não ignora sinais de necessidade. Ele trabalha <strong>com</strong> a biologia do seu filho, não contra ela.
-                </div>
+                <div class="faq-answer"><div style="padding:0 20px 18px;font-size:13px;font-weight:500;color:var(--muted);line-height:1.75;">Esse medo é sinal de que você é uma mãe presente e cuidadosa — e é exatamente por isso que o CJO existe. O método não usa choro controlado, não força o bebê a "se virar", não ignora sinais de necessidade. Ele trabalha <strong>com</strong> a biologia do seu filho, não contra ela.</div></div>
             </div>
 
         </div>
@@ -1083,8 +1067,22 @@
     </div>
 </footer>
 
-<!-- Alpine cloak -->
-<style>[x-cloak]{display:none!important;}</style>
+<script>
+function faqToggle(btn) {
+    var card = btn.closest('.faq-card');
+    var answer = card.querySelector('.faq-answer');
+    var icon = btn.querySelector('.faq-icon');
+    var isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer.open').forEach(function(a) {
+        a.classList.remove('open');
+        a.closest('.faq-card').querySelector('.faq-icon').style.transform = '';
+    });
+    if (!isOpen) {
+        answer.classList.add('open');
+        icon.style.transform = 'rotate(180deg)';
+    }
+}
+</script>
 
 <!-- CTA FIXO MOBILE — aparece só após 50% de scroll -->
 <div class="cta-fixo" id="ctaFixoMobile">
