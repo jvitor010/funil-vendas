@@ -1,24 +1,12 @@
 # CLAUDE.md — Contexto do Projeto CJO (Código das Janelas de Ouro)
 
-> **ESTADO ATUAL** (20/04/2026)
-> **Preço principal:** R$27 (reduzido de R$37 em 17/04 para tentar melhorar conversão)
-> **Checkout principal:** Lastlink (revertido de Kiwify em 16/04 — histórico: Lastlink → Kiwify 09/04 → Lastlink 16/04)
-> **Checkout URL confirmada:** `https://lastlink.com/p/CDF5A76C7/checkout-payment/`
-> **Upsell:** Plano de Implementação Turbo R$67 → `https://lastlink.com/p/C185193A7/checkout-payment/`
-> **Área de membros:** `https://lastlink.com/f/codigodasjanelasdeourocjo1432/members-area`
-> **Agente WhatsApp X1 V4** ativo com `gemini-flash-latest`. Persona Dra. Renata ajustada.
->
-> ⚠️ **PROBLEMA DE ENTREGA RESOLVIDO:** Houve 2 reembolsos no período 13-17/04 por falha na entrega do produto. Já corrigido. Desconsiderar essas 2 vendas nas métricas de conversão.
-> ⚠️ **VENDA DE TESTE:** A venda de 17/04 foi um teste manual da operadora para verificar o funil. Não conta como venda real.
-> ⚠️ **CAMPANHA ATUAL:** Apenas AD4-Copy ativo. Orçamento vitalício R$189 com programação 07h-23h. Período: 18-25/04. Critério de saída: ROAS < 0,8x ao final = pausa definitiva.
-> ⚠️ **DUPLA CONTAGEM 19/04:** Uma venda do dia 19/04 foi contabilizada duas vezes — o checkout estava com URL da Kiwify ainda no deploy, e a venda apareceu em ambas as plataformas. Não contar como 2 vendas. Total real acumulado: 4 vendas (2 reembolsadas, 1 teste manual, 1 real líquida AD4-Copy).
->
-> 🔴 **INÍCIO DE SESSÃO:** Leia este arquivo completo antes de qualquer análise ou recomendação.
+> **ESTADO ATUAL** (22/04/2026): CRO audit e redesign completo da `sales.html` concluídos e deployados. Próximos passos: monitorar conversão com nova página, configurar retargeting, gravar depoimentos em vídeo.
+> Checkout ativo: **Lastlink** `https://lastlink.com/p/CDF5A76C7/checkout-payment/` | Preço: **R$27** (4x R$7,44)
+> Deploy: **GitHub → Vercel auto-deploy** (NÃO usar Hostgator cPanel).
 
 ---
 
 ## 📂 ESTRUTURA DO FUNIL E ATIVOS
-Os arquivos de produção e ferramentas de suporte estão organizados assim:
 
 ```
 /Funil CJO/          ← Funil Ativo (index, quiz, sales, obrigado)
@@ -33,13 +21,11 @@ Os arquivos de produção e ferramentas de suporte estão organizados assim:
 ## 🎯 RASTREAMENTO E PIXEL (Meta Ads)
 **ID Principal:** 1803679593924822
 
-### Plataforma de Pagamento: Lastlink (revertido em 16/04/2026)
-> Histórico de trocas: Lastlink → Kiwify (09/04) → Lastlink (16/04)
+### Plataforma de Pagamento: Lastlink (migrado de Kiwify em 16/04/2026)
 - **Checkout principal CJO R$27:** `https://lastlink.com/p/CDF5A76C7/checkout-payment/`
-- **Upsell Plano de Implementação Turbo R$67:** `https://lastlink.com/p/C185193A7/checkout-payment/`
-- **Área de membros:** `https://lastlink.com/f/codigodasjanelasdeourocjo1432/members-area`
+- **Upsell Plano de Implementação Turbo:** Lastlink (link configurado na obrigado.html)
 - Pixel Meta ID `1803679593924822`
-- ~~Kiwify (pausado): `https://pay.kiwify.com.br/HHjLKvh`~~ — não usar
+- **Histórico de checkout**: Lastlink → Kiwify (09/04) → Lastlink (sales.html atualizado 16/04) → Kiwify encerrado definitivamente **19/04**
 
 ### Fluxo de Eventos e Delay Técnico:
 | Página | Evento Pixel | Regra de Disparo |
@@ -48,164 +34,181 @@ Os arquivos de produção e ferramentas de suporte estão organizados assim:
 | `quiz.html` | `ViewContent` | Abertura do quiz. |
 | `quiz.html` | `Lead` | Finalização das perguntas (antes do resultado). |
 | `sales.html` | `ViewContent` | Carregamento da oferta. |
-| `sales.html` | `InitiateCheckout` | **Clique no botão Lastlink** da oferta de R$27. Dispara via `trackCheckout()` com delay 300ms antes do redirect. |
-| `obrigado.html` | `Purchase` | Tracking nativo Lastlink + manual para Upsell R$67. |
+| `sales.html` | `InitiateCheckout` | **Clique no botão** Lastlink da oferta de R$27. |
+| `obrigado.html` | `Purchase` | Tracking nativo Lastlink + manual para Upsell. |
 
 > [!IMPORTANT]
-> **Delay de Pixel (Upsell)**: Na `obrigado.html`, delay de 300ms via `setTimeout` antes do redirecionamento para garantir disparo do `InitiateCheckout` no Meta.
+> **Delay de Pixel (Upsell)**: Na `obrigado.html`, delay de 300ms via `setTimeout` antes do redirecionamento.
 
 ---
 
 ## 🛠 DECISÕES DE DESIGN E CRO
-1. **Estrutura Sales**: Headline → CTA scroll (sem VSL — removida por CRO) → oferta.
-2. **Preço atual**: R$27 (reduzido de R$37 em 17/04 para melhorar conversão). Sem parcelamento no novo ticket.
-3. **Upsell**: Plano de Implementação Turbo R$67 — timer 15min na obrigado.html. (Substituiu "Masterclass Blindagem")
-4. **Order Bump**: removido com a saída do Kiwify.
-5. **Bônus**: App Janelas de Ouro em `https://www.fluxovital.top/app.html` — gratuito, entregue na área de membros e email de boas-vindas.
-6. **Popups**: Exit-intent **REMOVIDOS**.
-7. **Segurança**: `shield.js` obrigatório em todas as páginas.
-8. **Área de membros**: Lastlink — `https://lastlink.com/f/codigodasjanelasdeourocjo1432/members-area`
+1. **Estrutura Sales**: Headline → CTA scroll (sem VSL — removida por CRO) → oferta R$27.
+2. **Preço atual**: R$27 (4x R$7,44). Reduzido de R$37 em 17/04/2026.
+3. **CTA Fixo Mobile**: aparece somente após **50% de scroll** (corrigido 17/04 — antes inflava ICs).
+4. **Botão WhatsApp na sales.html**: número `5531973646419` — aparece antes do footer.
+5. **Popups**: Exit-intent **REMOVIDOS**.
+6. **Segurança**: `shield.js` obrigatório em todas as páginas.
+7. **Deploy**: GitHub → Vercel auto-deploy. `git push origin main` publica automaticamente. **NÃO usar Hostgator cPanel.**
+
+### Redesign sales.html (22/04/2026)
+- **Design system unificado** com index/quiz: `--bg:#fdfaf6`, `--gold:#f59e0b`, `--green:#10b981`, `--navy:#0f172a`, fonte Montserrat, gradientes radiais quentes, max-width 640px single-column
+- **Avatar autoridade**: `assets/autora.png` — Dra. Renata Tinoco, Consultora de Sono Infantil
+- **Copy emocional** aprimorada com psicologia da persona: culpa materna, solidão, identidade perdida, medo de dano ao bebê
+- **Urgência honesta**: "preço sobe para R$97 após esta fase" — sem timer/contador falso (risco de moderação)
+- **FAQs Q12-Q15 adicionadas**: IA, pediatra, medo de fracasso, dano emocional ao bebê
+- **FAQ accordion**: Alpine.js **REMOVIDO** — substituído por `faqToggle()` vanilla JS + CSS `max-height` transition. O plugin `@alpinejs/collapse` não estava carregado, mantendo respostas permanentemente ocultas via `x-cloak`
+- **Tailwind removido** da sales.html — pure CSS com custom properties (sem CDN externo desnecessário)
+
+> [!WARNING]
+> ICs de 13-16/04 estão inflados (CTA aparecia desde o início). **NUNCA comparar ICs antes/depois de 17/04** — são métricas diferentes.
 
 ---
 
-## 📈 ESTRATÉGIA E PERFORMANCE (Benchmark 13-17/04/2026)
-- **Fase Atual**: Teste controlado 7 dias — AD4-Copy único adset ativo.
-- **Setup Campanha**: Meta Ads ABO — orçamento **vitalício R$189**, programação **07h-23h**, período **18-25/04/2026**.
-- **Adsets ativos**: apenas AD4-Copy. V2-Stories e V2-HookA pausados. V2-Base pausado.
-- **Público**: Broad / Aberto — Feminino 25-44.
-- **Meta de CTR**: > 2.0% | **Critério de saída**: ROAS < 0,8x ao final de 25/04 = pausa definitiva.
-- **Campanha existente mantida** — não criar nova campanha (preserva aprendizado de audiência).
+## 📈 CAMPANHA ATUAL — Teste Controlado 18-25/04/2026
 
-### ⚠️ MUDANÇA CRÍTICA NO FUNIL — 17/04/2026 às 10:34h
-**CTA Fixo Mobile corrigido**: antes aparecia desde o início da página, enviando leads não qualificados direto ao checkout e inflando IC artificialmente. Após correção, aparece somente após **50% de scroll**.
-- **Efeito nos dados**: ICs do período 13-16/04 estão inflados — não usar como benchmark absoluto
-- **ICs pós-17/04** são menores em volume mas mais qualificados — taxa IC→Compra deve ser mais alta
-- **NÃO comparar volume de ICs antes e depois de 17/04** — são métricas diferentes
+### Setup
+- **Único adset ativo**: AD4-Copy (Bebê Dormindo — copy de texto)
+- **Orçamento**: Vitalício R$189 com programação **07h-23h** (corrigido front-loading madrugada)
+- **Critério de saída**: ROAS < 0,8x ao final de 25/04 → pausa definitiva do produto
+- V2-Stories, V2-HookA, V2-Base: **pausados**
+- Campanha existente mantida (preserva aprendizado de audiência — NÃO criar nova)
 
-### Diagnóstico 18/04 (dados parciais — exportado às 05h):
-- **Front-loading de madrugada**: R$63 gastos entre 2h-5h com 0 ICs. Causa: CPM barato de madrugada + audiência passiva. Resolvido com orçamento vitalício + programação 07h-23h.
-- **V2-Base — Métricas de Vídeo (13-17/04)**:
-  - PLAY RATE DO HOOK: 96% — hook funciona
-  - RETENCAO DO HOOK: 24%
-  - **RETENCAO DO BODY: 4,57%** — corpo do vídeo perde 95% das pessoas. Precisa de edição urgente.
-  - MEDIDOR DE CTA: 11%
-- **AD4-Copy (texto/imagem)**: CTR 1,15% às 5h da manhã — dado não representativo. Histórico: 3,23%.
+### Métricas AD4-Copy (13-17/04 — referência pré-teste)
+- Gasto: R$147,36 | CTR: 3,23% | CPC: R$0,47 | IC: 86 | Custo/IC: R$1,71
+- 1 venda real líquida (R$37) — período com checkout instável
 
-### Resultado Acumulado (13-17/04) — LEITURA CORRIGIDA:
-> ⚠️ Checkout em transição no período: Kiwify (13-15/04) → Lastlink (16/04+). Preço: R$37 → R$27 em 17/04.
-> ⚠️ Das compras registradas: 2 reembolsadas (V2-Stories — problema de entrega, já corrigido). 1 teste manual (17/04). Venda real líquida: **1** (AD4-Copy, R$37).
-
-| Adset | Criativo | Venda Real | Reembolso | Teste | IC | Observação |
+### Métricas Período Limpo 18-21/04 (Lastlink+Kiwify → só Lastlink a partir de 20/04)
+| Adset | Gasto | CTR | CPC | ICs | Compras reais | ROAS real |
 |---|---|---|---|---|---|---|
-| AD4-Copy | Bebê Dormindo (copy) | **1** | 0 | 0 | — | Única venda real no período |
-| V2-Stories | Dormir hora errada (stories) | 0 | **2** | 0 | — | Entrega falhou — corrigido |
-| V2-Base | Dormir hora errada (base) | 0 | 0 | 0 | **~78** | 78 ICs sem conversão — provável bug Kiwify→Lastlink |
-| Teste 17/04 | — | 0 | 0 | **1** | — | Verificação manual do funil |
+| AD4-Copy (ativo) | R$117,99 | 2,23% | R$0,55 | 56 | 0 | 0x |
+| V2-Base (inativo) | R$83,42 | 1,33% | R$0,77 | 26 | 1 | ~0,32x |
+| **Total** | **~R$210** | | | **82** | **1** | **~0,13x** |
 
-### Resultado Acumulado (13-20/04) — LEITURA CORRIGIDA:
-> ⚠️ Gasto total ~R$737 | Receita líquida real: R$54 (2 vendas × R$27) | ROAS acumulado: ~0,07x — INVÁLIDO para diagnóstico (checkout instável, dupla contagem, madrugada queimada).
-> ⚠️ Meta registrou 9 compras. Real: 4 brutas → 2 reembolsadas → 1 dupla contagem 19/04 → **1 venda real líquida** (AD4-Copy, R$37, período 13-17).
-> ✅ **Primeiro dia de dados limpos: 20/04** — todos os erros técnicos corrigidos e deployados via Vercel.
+> **Diagnóstico 21/04**: Ambos os criativos falham na conversão → suspeita de problema na **sales.html** (não nos criativos). Critério de saída ROAS < 0,8x já atingido em 21/04, antes do prazo de 25/04.
 
-| Período | CTR AD4-Copy | CTR V2-Base | Compras Meta | Real Líquido |
+### Vendas Reais Acumuladas (histórico corrigido)
+| Período | Bruto | Reembolso | Teste | Líquido |
 |---|---|---|---|---|
-| 13-17/04 | 3,23% | — | 4 brutas | 1 (+ 2 reimb + 1 teste) |
-| 18/04 (parcial) | 1,15% (5h) | — | — | dados inválidos (madrugada) |
-| 19/04 | ~2,66% | ~2,31% | 1 dupla contagem | 0 real |
-| 20/04+ | *dados limpos* | *dados limpos* | — | — |
+| 03-09/04 | 8 | 0 | 0 | 8 |
+| 13-17/04 | 4 | 2 | 1 | **1** (AD4-Copy R$37) |
+| 18-21/04 | 1 | 0 | 0 | **1** (V2-Base R$27) |
+| **Total** | | | | **~10** |
 
-### Diagnóstico do Período (13-17/04):
-- **V2-Base anomalia**: ~78 ICs sem nenhuma compra — fortemente ligado à transição Kiwify→Lastlink. Checkout pode ter quebrado durante a migração.
-- **V2-Stories reembolsos**: Entrega do produto falhou (arquivo/acesso). Problema corrigido. As 2 vendas não devem ser contadas como conversão real.
-- **AD4-Copy**: Único conjunto com venda real líquida (1 venda a R$37). Sinal de que o copy de texto funciona.
-- **Preço R$27**: Alterado em 17/04 — ainda sem dados de conversão para esse ticket.
-- **Referência histórica IC→Compra**: ~8% na Lastlink. Com os dados contaminados pela migração, usar essa referência com cautela.
+> **Incidente 19/04**: V2-Base contabilizou 2x no Meta — Kiwify dupla contagem. É 1 venda real. Kiwify encerrado definitivamente após 19/04. Dados limpos (somente Lastlink): **20/04/2026**.
 
-### Agente WhatsApp X1 (Versão 4 — 10/04/2026):
-- **Motor**: Gemini API (`gemini-flash-latest`) — Substituiu o 1.5 que gerava erro 404.
-- **Estrutura**: N8N + Evolution API (Instância `fluxovital`).
-- **Build**: Controlado pelo `build-workflow.js`.
-- **Lógica**: Baseada em **Objetivos Dinâmicos** (Estágios 1 a 9).
-- **Diretrizes de Persona**: 
-  - Dra. Renata Tinoco (Autoridade Acolhedora).
-  - Máximo de 1 termo carinhoso ("mamãe"/"meu amor") por mensagem.
-  - Formatação obrigatória com parágrafos duplos (`\n\n`) para legibilidade.
-- **Checkout com UTM (Lastlink)**: `https://lastlink.com/p/CDF5A76C7/checkout-payment/?utm_source=whatsapp&utm_medium=x1&utm_campaign=cjo`
+### Resultado Acumulado 03-09/04 (referência histórica):
+| Adset | Gasto | CTR | IC | Vendas | ROAS |
+|---|---|---|---|---|---|
+| AD4 | R$229 | 2,30% | 41 | 4 | 0,62x |
+| V2 | R$92 | 4,39% | 21 | 2 | 0,80x |
+| V3 | R$75 | 1,68% | 8 | 1 | 0,49x |
+| **TOTAL** | **R$789** | | **~96** | **~8** | **~0,42x** |
+
+---
+
+## 🤖 AGENTE WHATSAPP X1 (V8 — 20/04/2026)
+
+### Stack Técnica
+- **Motor**: Gemini API — modelo `gemini-flash-latest`
+- **Configuração**: `temperature: 0.75`, `maxOutputTokens: 1000`, `thinkingConfig: { thinkingBudget: 0 }`
+- **Estrutura**: N8N (workflow `cjo-agente-v2`) + Evolution API (instância `fluxovital`, porta 8080)
+- **Webhook**: `http://localhost:5678/webhook/cjo-agente-v2/webhook/cjo-whatsapp`
+- **Checkout com UTM**: `https://lastlink.com/p/CDF5A76C7/checkout-payment/?utm_source=whatsapp&utm_medium=x1&utm_campaign=cjo`
+
+### Bugs Corrigidos (20/04/2026)
+| Bug | Causa | Correção |
+|---|---|---|
+| Script antigo sendo usado | `systemPrompt` nunca substituído — marcador de fechamento incorreto | Scan por backtick direto; substituição confirmada |
+| Agente usava só fallbacks (textos fixos) | `gemini-2.0-flash` descontinuado → 404 em 100% das chamadas | Modelo → `gemini-flash-latest` |
+| Mensagens cortadas | `gemini-flash-latest` é thinking model — 477 tokens internos, ~23 pro texto | `thinkingBudget: 0` + `maxOutputTokens: 1000` |
+
+### Script V8 — Regras Ativas no systemPrompt
+- **IDENTIDADE**: Não é vendedora — é especialista que entende o peso da mãe
+- **NUNCA PULE A DOR**: Mínimo 2 trocas dentro da dor antes de mecanismo ou oferta
+- **ESPELHAMENTO**: Usar as palavras exatas que ela usou
+- **TOM**: Acolhedor, firme, presente — "Mamãe" máx 1x por mensagem
+- **EMOJIS**: 1-2 por mensagem, apenas 🌙 💛 🤍
+- **Objeção financeira**: Começa pela dor, não pelo preço
+- **Objeção implícita**: Monossilabos = objeção não verbalizada → perguntar diretamente
+- **Reembolso**: Para completamente o pitch — orienta para plataforma onde comprou
+
+### Objetivos Dinâmicos (Estágios 1-10)
+| Estágio | Foco |
+|---|---|
+| 1 | Conexão genuína — pergunta sobre idade do bebê |
+| 2 | Dor — primeira camada (específica por faixa: 0-3m, 4-6m, 7-11m, 12m+) |
+| 3 | Dor — aprofundamento (obrigatório, nunca pular) |
+| 4 | Mecanismo — revelação (analogia janela de fome, NÃO surfe) |
+| 5 | Mecanismo — solidificação |
+| 6 | Prova social que quebra objeção (Juliana/Camila/Fernanda por tipo) |
+| 7 | Preparação para oferta |
+| 8 | Oferta completa — R$27, 4x R$7,44 |
+| 9 | Fechamento — objeções 4 passos |
+| 10 | Última mensagem — com dignidade |
+
+### Workflows N8N Ativos
+| ID | Nome | Função |
+|---|---|---|
+| `cjo-agente-v2` | CJO — Agente Conversacional WhatsApp V7 | Agente principal (ATIVO) |
+| `cjo-followup-remarketing` | CJO — Follow-up Remarketing (TOFU/MOFU/BOFU) | Follow-up automático (ATIVO) |
+| `QeyL4RHQWdcyLqaf` | Fluxo Vital — Agente Conversacional WhatsApp | Workflow legado (ATIVO — não usado pelo CJO) |
 
 ---
 
 ## 👥 INTELIGÊNCIA DE AUDIÊNCIA (Benchmark 03-06/04/2026)
-> Dados extraídos da campanha Nova ABO (Broad/Aberto) — 5 conjuntos, R$27/dia.
-> Usar como referência para segmentação e posicionamento em campanhas futuras.
 
-### Perfil Demográfico — Quem está consumindo o criativo:
-| Faixa Etária | Gênero | Alcance | Impressões | Frequência |
-|---|---|---|---|---|
-| **25-34** | **Feminino** | **4.019** | **7.056** | **1,76** |
-| **35-44** | **Feminino** | **3.257** | **5.624** | **1,73** |
-| 25-34 | Masculino | 573 | 741 | 1,29 |
-| 35-44 | Masculino | 414 | 606 | 1,46 |
-| 45-54 | Feminino | 198 | 289 | 1,46 |
-| 55-64 | Feminino | 135 | 205 | 1,52 |
+### Perfil Demográfico:
+| Faixa Etária | Gênero | Alcance | Frequência |
+|---|---|---|---|
+| **25-34** | **Feminino** | **4.019** | **1,76** |
+| **35-44** | **Feminino** | **3.257** | **1,73** |
 
-> **Conclusão**: Público dominante é **Feminino 25-44 anos** (70%+ do alcance). Masculino é residual. Em campanhas futuras com segmentação manual, focar nessa faixa.
+> Público dominante: **Feminino 25-44 anos** (70%+ do alcance).
 
-### Posicionamentos — Distribuição de alcance:
-| Posicionamento | Plataforma | Alcance | Impressões | Frequência |
-|---|---|---|---|---|
-| **Instagram Stories** | Instagram | **3.308** | **5.228** | **1,58** |
-| **Feed** | Instagram | **3.181** | **4.464** | **1,40** |
-| Feed | Facebook | 2.947 | 4.388 | 1,49 |
-| Instagram Reels | Instagram | 2.594 | 3.072 | 1,18 |
-| Facebook Reels | Facebook | 303 | 403 | 1,33 |
-| Feed do Threads | Threads | 354 | 373 | 1,05 |
+### Posicionamentos Prioritários:
+1. Instagram Stories (3.308 alcance, freq 1,58)
+2. Feed Instagram (3.181 alcance, freq 1,40)
+3. Facebook Feed (2.947 alcance, freq 1,49)
 
-> **Conclusão**: **Instagram Stories + Feed Instagram** lideram em alcance e frequência — são os posicionamentos prioritários. Facebook Feed performou bem também. Reels teve alcance relevante mas frequência baixa (1,18). Threads é residual — considerar excluir em campanhas futuras para concentrar budget.
+---
+
+## 🧪 METODOLOGIA DE TESTES E ESCALA (Meta Ads)
+
+### Validação de Criativo — Critérios (5–7 dias):
+| Métrica | Mínimo |
+|---|---|
+| CTR (Link) | ≥ 2,0% |
+| Hook Rate | ≥ 30% |
+| Hold Rate | ≥ 15% |
+| CPA | ≤ R$40 |
+| Frequência | < 2,5 |
+| Conversões | ≥ 3 vendas |
+
+**Diagnóstico IC→Compra:**
+- < 5% → problema no criativo
+- 5–8% → problema na sales.html (CRO)
+- > 8% sem compras → atrito no checkout
+
+### Regras de Escala:
+- **NUNCA editar adset original vencedor — sempre duplicar**
+- Vertical: máx 20% a cada 3-5 dias
+- Horizontal: duplicar adset para testar variações
+- CBO: somente com 3+ criativos validados e ≥ 50 compras
 
 ---
 
 ## 🚀 COMO CONTINUAR
-- Use o `spy-dashboard-diário.jsx` para analisar métricas semanais.
-- Antes de subir novos criativos, consulte o `Marketing JV\mecanismos_vencedores.md`.
-- Priorize sempre o **viewport Mobile (375px)** em qualquer alteração visual.
-- UTMs e fbclid persistem nos links Lastlink via `getPreservedParams()` na `sales.html` (confirmar se função está atualizada para Lastlink).
+- Deploy: `git add` → `git commit` → `git push origin main` → Vercel publica automaticamente
+- Use `spy-dashboard-diário.jsx` para métricas semanais
+- Priorize **viewport Mobile (375px)** em qualquer alteração visual
+- Para alterar agente: editar via N8N API (workflow `cjo-agente-v2`) ou diretamente na interface N8N
 
-## 🚢 DEPLOY — FLUXO CORRETO
-> **GitHub → Vercel (auto-deploy)** — configurado e ativo.
-> **NÃO é necessário** fazer upload manual via Hostgator cPanel. Qualquer instrução contrária está errada.
-- Fluxo: editar arquivo local → `git add` → `git commit` → `git push origin main` → Vercel detecta e publica automaticamente.
-- Se o push for rejeitado: `git stash → git pull --rebase → git stash pop → git push`
-- Confirmar deploy em: painel Vercel ou abrindo a URL do funil após o push.
-
-## 🔄 DECISÕES PENDENTES (18/04/2026)
-- [x] Agente WhatsApp V4: Estabilizado com `gemini-flash-latest` (10/04).
-- [x] Checkout revertido para Lastlink (16/04). URL confirmada: `https://lastlink.com/p/CDF5A76C7/checkout-payment/`
-- [x] Preço alterado para R$27 (17/04).
-- [x] Problema de entrega (reembolsos V2-Stories) — corrigido.
-- [x] AD4-Copy configurado com orçamento vitalício R$189, programação 07h-23h, período 18-25/04.
-- [x] V2-Stories e V2-HookA pausados.
-- [x] Depoimentos: 4 roteiros criados (8s por fala). Avatar IA (Veo 3.1) **descartado** — viola CDC Art.37 e política Meta (risco de ban de conta).
-- [x] Campanha existente mantida — não criar nova (preserva aprendizado).
-- [x] sales.html corrigida: URL Lastlink, CTA fixo mobile 50% scroll, parcelamento 4x R$7,44. Deploy via GitHub→Vercel confirmado.
-- [x] Deploy automático GitHub→Vercel configurado e ativo. Não usar Hostgator cPanel.
-- [x] Incidente 19/04 documentado: dupla contagem por URL Kiwify em deploy antigo. Total real: 1 venda líquida.
-- [ ] **Monitorar ROAS AD4-Copy** até 25/04 — critério de saída: ROAS < 0,8x = pausa definitiva.
-- [ ] **V2-Base body**: editar corpo do vídeo — RETENCAO DO BODY de 4,57% está destruindo resultado.
-- [ ] **Typebot funnel**: testar em paralelo como adset separado após 25/04 (dependendo do resultado do teste atual).
-- [ ] **Retargeting**: configurar público IC sem Purchase (~262 pessoas do período 13-17/04).
-- [ ] **obrigado.html**: atualizar link upsell e área de membros para URLs Lastlink corretas.
-- [ ] Monitorar engajamento do Agente WhatsApp X1 com formatação de parágrafos V4.
-
-## 💡 IDEIAS PARA PRÓXIMAS ITERAÇÕES
-
-### Reposicionamento: App como produto principal
-- **Ideia**: trocar o foco do "método" para o "App Janelas de Ouro" como produto principal com pagamento único. O método vira o componente educacional/explicativo incluído.
-- **Por que tem mérito**: app tem percepção de valor maior que guia/método; pagamento único por app é diferenciado; "app que identifica a janela de sono" é mais tangível e compartilhável que "método de sono"
-- **Pré-requisito**: verificar se o app em `fluxovital.top/app.html` entrega experiência suficiente para ser o produto principal (risco de expectativa iOS/Android nativo vs PWA)
-- **Quando executar**: após resultado do teste 18-25/04. Se ROAS < 0,8x → testar esse reposicionamento antes de encerrar o produto. Se ROAS ≥ 0,8x → testar como adset paralelo ao Typebot.
-
----
-
-## 📋 PROTOCOLO DE SESSÃO
-> Sempre que iniciar uma nova sessão: **leia este arquivo antes de qualquer análise ou recomendação.**
-> Se houver contradição entre este arquivo e o que parece óbvio, pergunte antes de agir.
+## 🔄 DECISÕES PENDENTES (22/04/2026)
+- [x] **AD4-Copy**: critério de saída atingido (ROAS 0x em 21/04) — pausado
+- [x] **CRO audit sales.html**: redesign completo deployado em 22/04 — monitorar conversão
+- [ ] **Monitorar sales.html nova**: acompanhar IC→Compra com nova página (meta: ≥ 5%)
+- [ ] **V2-Base**: editar corpo do vídeo (retenção 5,81% — perde ~94% no body)
+- [ ] **Typebot funnel**: testar APÓS confirmar melhora na conversão da sales.html
+- [ ] **Retargeting**: configurar para ICs sem Purchase (~262 pessoas + acumulado)
+- [ ] **Depoimentos em vídeo**: 4 roteiros criados (8s/fala) — gravar e subir
