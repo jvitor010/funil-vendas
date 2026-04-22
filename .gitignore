@@ -61,6 +61,15 @@ node_modules/
 *.pdf
 videos/
 
+# Pastas que não pertencem ao funil web
+Criativos/
+Marketing JV/
+assets/
+app.html
+Pixel.txt
+Dashboard_CJO.xlsx
+update_dashboard.py
+
 # OS generated files
 .DS_Store
 Thumbs.db
