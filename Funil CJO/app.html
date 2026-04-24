@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0d1117">
   <title>Janelas de Ouro — App CJO</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -11,7 +12,11 @@
     :root{
       --bg:#0d1117;--card:#161b22;--card2:#1c2128;
       --gold:#f59e0b;--gold-l:#fbbf24;--gold-d:#d97706;
-      --green:#10b981;--red:#ef4444;--purple:#8b5cf6;
+      --green:#10b981;--green-d:#059669;
+      --red:#ef4444;--red-l:#fca5a5;
+      --amber:#fb923c;
+      --purple:#8b5cf6;--purple-l:#a78bfa;
+      --blue:#3b82f6;--blue-l:#60a5fa;
       --text:#f0f6fc;--muted:#8b949e;--border:rgba(255,255,255,0.08);
       --r:16px;
     }
@@ -34,23 +39,15 @@
     .setup-sub{font-size:13px;color:var(--muted);font-weight:500;text-align:center;margin-bottom:36px;line-height:1.6;}
 
     /* ── APP ── */
-    #app{display:none;flex-direction:column;min-height:100vh;padding-bottom:72px;}
+    #app{display:none;flex-direction:column;min-height:100vh;padding-bottom:74px;}
 
     /* ── HEADER ── */
     .app-header{
       background:linear-gradient(160deg,#0a0f1e 0%,#111827 60%,#0a110a 100%);
       padding:20px 20px 22px;position:relative;overflow:hidden;
     }
-    .header-glow{
-      position:absolute;top:-40px;right:-40px;width:160px;height:160px;
-      background:radial-gradient(circle,rgba(245,158,11,0.12) 0%,transparent 70%);
-      border-radius:50%;pointer-events:none;
-    }
-    .header-glow2{
-      position:absolute;bottom:-30px;left:20px;width:100px;height:100px;
-      background:radial-gradient(circle,rgba(16,185,129,0.08) 0%,transparent 70%);
-      border-radius:50%;pointer-events:none;
-    }
+    .header-glow{position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(245,158,11,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+    .header-glow2{position:absolute;bottom:-30px;left:20px;width:100px;height:100px;background:radial-gradient(circle,rgba(16,185,129,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 
     /* ── BOTTOM NAV ── */
     .bottom-nav{
@@ -61,12 +58,12 @@
     }
     .nav-item{
       flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-      padding:10px 4px 12px;cursor:pointer;transition:all 0.2s;
+      padding:10px 2px 12px;cursor:pointer;transition:all 0.2s;
       border:none;background:none;color:var(--muted);
-      font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;gap:4px;
+      font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;gap:3px;
     }
     .nav-item.active{color:var(--gold);}
-    .nav-item svg{width:22px;height:22px;}
+    .nav-item svg{width:21px;height:21px;}
 
     /* ── TABS ── */
     .tab{display:none;padding:18px 16px 8px;}
@@ -77,13 +74,13 @@
     .card-gold{background:linear-gradient(135deg,rgba(245,158,11,0.06) 0%,rgba(180,120,0,0.04) 100%);border-color:rgba(245,158,11,0.18);}
     .card-green{background:linear-gradient(135deg,rgba(16,185,129,0.06) 0%,rgba(5,130,90,0.04) 100%);border-color:rgba(16,185,129,0.18);}
     .card-purple{background:linear-gradient(135deg,rgba(139,92,246,0.06) 0%,rgba(100,60,200,0.04) 100%);border-color:rgba(139,92,246,0.18);}
+    .card-red{background:linear-gradient(135deg,rgba(239,68,68,0.06) 0%,rgba(180,40,40,0.04) 100%);border-color:rgba(239,68,68,0.18);}
+    .card-blue{background:linear-gradient(135deg,rgba(59,130,246,0.06) 0%,rgba(30,90,200,0.04) 100%);border-color:rgba(59,130,246,0.2);}
 
     /* ── TYPOGRAPHY ── */
     .label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:6px;}
     .section-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-    .gold{color:var(--gold);}
-    .green{color:var(--green);}
-    .muted{color:var(--muted);}
+    .gold{color:var(--gold);} .green{color:var(--green);} .muted{color:var(--muted);} .red{color:var(--red);} .purple{color:var(--purple-l);}
 
     /* ── BUTTONS ── */
     .btn{display:block;width:100%;padding:15px;border-radius:50px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;transition:all 0.2s;}
@@ -91,20 +88,22 @@
     .btn-gold:active{transform:scale(0.98);}
     .btn-green{background:var(--green);color:white;}
     .btn-green:active{transform:scale(0.98);}
+    .btn-purple{background:var(--purple);color:white;}
     .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted);font-size:12px;}
     .btn-sm{padding:10px 18px;font-size:11px;width:auto;display:inline-block;}
 
     /* ── INPUTS ── */
     .input-group{margin-bottom:14px;}
     .input-label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:7px;}
-    input[type="text"],input[type="date"],input[type="time"],select{
+    input[type="text"],input[type="date"],input[type="time"],select,textarea{
       width:100%;background:var(--card2);border:1.5px solid var(--border);border-radius:12px;
       padding:13px 15px;color:var(--text);font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;outline:none;-webkit-appearance:none;appearance:none;
     }
-    input:focus,select:focus{border-color:var(--gold);}
+    input:focus,select:focus,textarea:focus{border-color:var(--gold);}
     input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.6);}
+    textarea{resize:none;min-height:70px;font-family:'Montserrat',sans-serif;}
 
-    /* ── PHASE SELECTOR (Calc) ── */
+    /* ── PHASE SELECTOR ── */
     .phase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}
     .phase-btn{background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:11px 8px;cursor:pointer;text-align:center;transition:all 0.2s;}
     .phase-btn.selected{border-color:var(--gold);background:rgba(245,158,11,0.08);}
@@ -124,26 +123,28 @@
     .check-item.done .check-box{background:var(--green);border-color:var(--green);}
     .check-item.done .check-text{text-decoration:line-through;color:var(--muted);}
     .check-text{font-size:13px;font-weight:500;line-height:1.55;color:var(--text);}
+    .check-text b{color:var(--gold-l);font-weight:800;}
 
     /* ── PROGRESS BAR ── */
     .pbar{height:7px;background:var(--card2);border-radius:4px;overflow:hidden;margin:8px 0;}
     .pbar-fill{height:100%;background:linear-gradient(90deg,var(--gold-d),var(--gold-l));border-radius:4px;transition:width 0.5s ease;}
-    .pbar-fill.g{background:linear-gradient(90deg,#059669,var(--green));}
+    .pbar-fill.g{background:linear-gradient(90deg,var(--green-d),var(--green));}
+    .pbar-fill.p{background:linear-gradient(90deg,#6d28d9,var(--purple));}
 
     /* ── WINDOW RESULT ── */
     .window-result{background:linear-gradient(135deg,rgba(16,185,129,0.07) 0%,rgba(5,100,70,0.05) 100%);border:1px solid rgba(16,185,129,0.25);border-radius:var(--r);padding:24px;text-align:center;margin-top:14px;}
 
-    /* ── PHASE TABS (Protocol) ── */
-    .phase-tabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;}
-    .phase-tabs::-webkit-scrollbar{display:none;}
-    .phase-tab{flex-shrink:0;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);background:none;color:var(--muted);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.2s;}
-    .phase-tab.active{background:rgba(245,158,11,0.12);border-color:var(--gold);color:var(--gold);}
+    /* ── PILL TABS ── */
+    .pill-tabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+    .pill-tabs::-webkit-scrollbar{display:none;}
+    .pill-tab{flex-shrink:0;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);background:none;color:var(--muted);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+    .pill-tab.active{background:rgba(245,158,11,0.12);border-color:var(--gold);color:var(--gold);}
 
     /* ── STARS ── */
     .stars{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;}
     .star{position:absolute;background:rgba(251,191,36,0.5);border-radius:50%;}
 
-    /* ── STREAK BADGE ── */
+    /* ── STREAK ── */
     .streak-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:50px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--gold);}
 
     /* ── STAT ROW ── */
@@ -164,7 +165,7 @@
     /* ── MODAL ── */
     .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);z-index:200;align-items:flex-end;justify-content:center;}
     .modal-overlay.open{display:flex;}
-    .modal{background:var(--card);border-radius:24px 24px 0 0;padding:22px 20px 40px;width:100%;max-width:480px;border-top:1px solid var(--border);animation:slideUp 0.25s ease;}
+    .modal{background:var(--card);border-radius:24px 24px 0 0;padding:22px 20px 40px;width:100%;max-width:480px;border-top:1px solid var(--border);animation:slideUp 0.25s ease;max-height:92vh;overflow-y:auto;}
     @keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
     .modal-handle{width:40px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px;}
 
@@ -175,7 +176,7 @@
     /* ── CHART ── */
     .chart-wrap{position:relative;height:170px;}
 
-    /* ── WAKEUP QUICK BTN ── */
+    /* ── QUICK BTN ── */
     .quick-wake-btn{
       display:flex;align-items:center;justify-content:center;gap:8px;
       background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.25);
@@ -185,21 +186,79 @@
     }
     .quick-wake-btn:active{transform:scale(0.98);}
 
-    /* ── LAST WAKEUP DISPLAY ── */
+    /* ── LW CHIP ── */
     .lw-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);border-radius:50px;padding:4px 12px;font-size:11px;font-weight:700;color:#a78bfa;}
 
-    /* ── TIP CARD ── */
-    .tip-text{font-size:13px;color:rgba(255,255,255,0.75);font-weight:500;line-height:1.65;}
+    /* ── TIP ── */
+    .tip-text{font-size:13px;color:rgba(255,255,255,0.78);font-weight:500;line-height:1.65;}
 
     /* ── GUIDE ROW ── */
-    .guide-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);}
+    .guide-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);gap:10px;}
     .guide-row:last-child{border-bottom:none;}
 
-    /* ── REGRESSION TAG ── */
-    .reg-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:50px;padding:3px 10px;font-size:10px;font-weight:700;color:#fca5a5;}
+    /* ── REG CARD ── */
+    .reg-card{background:var(--card2);border-radius:12px;padding:13px 15px;margin-bottom:8px;border-left:3px solid var(--red);}
 
-    /* ── SETTINGS GEAR ── */
-    .gear-btn{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+    /* ── TRAFFIC LIGHT ── */
+    .tl-card{display:flex;gap:10px;padding:14px;border-radius:14px;margin-bottom:8px;align-items:flex-start;}
+    .tl-green{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);}
+    .tl-amber{background:rgba(251,146,60,0.08);border:1px solid rgba(251,146,60,0.3);}
+    .tl-red{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);}
+    .tl-dot{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:17px;margin-top:2px;}
+    .tl-dot-g{background:var(--green);}
+    .tl-dot-a{background:var(--amber);}
+    .tl-dot-r{background:var(--red);}
+    .tl-title{font-size:13px;font-weight:800;margin-bottom:3px;}
+    .tl-desc{font-size:11.5px;color:rgba(255,255,255,0.65);font-weight:500;line-height:1.5;}
+    .tl-action{font-size:11px;font-weight:800;margin-top:6px;letter-spacing:0.03em;}
+
+    /* ── SCORE ── */
+    .score-row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px;}
+    .score-btn{padding:13px 4px;border-radius:12px;background:var(--card2);border:1.5px solid var(--border);cursor:pointer;text-align:center;transition:all 0.2s;color:var(--text);font-family:'Montserrat',sans-serif;}
+    .score-btn .se{font-size:20px;display:block;line-height:1;}
+    .score-btn .sl{font-size:9px;color:var(--muted);font-weight:700;margin-top:4px;display:block;text-transform:uppercase;}
+    .score-btn.selected{border-color:var(--gold);background:rgba(245,158,11,0.1);}
+
+    /* ── RITUAL ── */
+    .ritual-step{background:var(--card2);border-radius:14px;padding:15px;margin-bottom:10px;border-left:3px solid var(--gold);}
+    .ritual-num{display:inline-block;background:var(--gold);color:#000;width:22px;height:22px;border-radius:50%;text-align:center;line-height:22px;font-size:12px;font-weight:900;margin-right:8px;}
+    .ritual-title{font-size:14px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;}
+    .ritual-desc{font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;line-height:1.6;}
+    .ritual-desc ul{margin-top:8px;padding-left:18px;}
+    .ritual-desc li{margin-bottom:3px;}
+
+    /* ── SOS CARD ── */
+    .sos-item{background:var(--card2);border-radius:12px;padding:14px;margin-bottom:8px;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;}
+    .sos-item.open{border-color:var(--gold);background:rgba(245,158,11,0.04);}
+    .sos-q{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+    .sos-q-text{font-size:13px;font-weight:700;line-height:1.45;flex:1;}
+    .sos-arrow{color:var(--muted);font-size:18px;transition:transform 0.2s;}
+    .sos-item.open .sos-arrow{transform:rotate(180deg);color:var(--gold);}
+    .sos-a{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+    .sos-item.open .sos-a{display:block;}
+    .sos-a p{font-size:12px;color:rgba(255,255,255,0.72);line-height:1.65;font-weight:500;margin-bottom:6px;}
+    .sos-a p b{color:var(--gold-l);font-weight:800;}
+    .sos-cause{display:inline-block;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:50px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--red-l);margin-bottom:8px;}
+
+    /* ── DAY 14 CRISIS ── */
+    .c14-day{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);}
+    .c14-day:last-child{border-bottom:none;}
+    .c14-num{background:var(--card2);color:var(--text);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;border:1.5px solid var(--border);flex-shrink:0;}
+    .c14-day.done .c14-num{background:var(--green);color:#fff;border-color:var(--green);}
+    .c14-body{flex:1;}
+    .c14-title{font-size:12px;font-weight:700;}
+    .c14-desc{font-size:10.5px;color:var(--muted);font-weight:500;margin-top:2px;}
+
+    /* ── INFO ROW ── */
+    .info-row{padding:11px 0;border-bottom:1px solid var(--border);}
+    .info-row:last-child{border-bottom:none;}
+    .info-row-title{font-size:12.5px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .info-row-text{font-size:11.5px;color:rgba(255,255,255,0.65);line-height:1.55;font-weight:500;}
+
+    /* ── ALERT BOX ── */
+    .alert-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:12px;padding:12px 14px;margin:10px 0;}
+    .alert-box .at{font-size:11px;font-weight:800;color:var(--red-l);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;}
+    .alert-box .ad{font-size:12px;color:rgba(255,255,255,0.78);line-height:1.5;font-weight:500;}
   </style>
 </head>
 <body>
@@ -258,7 +317,7 @@
   <!-- ── TAB: HOME ── -->
   <div id="tab-home" class="tab active">
 
-    <!-- Countdown Card -->
+    <!-- Countdown -->
     <div class="card card-gold">
       <p class="label">⏰ próxima janela de sono</p>
       <div style="display:flex;align-items:baseline;gap:10px;margin:8px 0 4px;">
@@ -269,15 +328,29 @@
       <p id="cd-target" style="font-size:12px;color:var(--gold-l);font-weight:700;margin-top:8px;display:none;">Coloque para dormir às: <span id="cd-target-time" style="font-size:15px;font-weight:900;">—</span></p>
     </div>
 
-    <!-- Last wakeup -->
     <button class="quick-wake-btn" onclick="registerWakeupNow()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       Registrar despertar agora
       <span id="lw-chip" class="lw-chip" style="display:none;margin-left:4px;">—</span>
     </button>
 
+    <!-- Traffic Light Quick -->
+    <div class="card" style="padding:14px 16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <p class="section-title" style="margin:0;font-size:13px;">🚦 Sinais de sono agora</p>
+        <button class="btn-ghost" onclick="goTab('guide',null,'signs')" style="background:none;border:none;color:var(--gold);font-size:10px;font-weight:800;cursor:pointer;padding:0;">VER TODOS →</button>
+      </div>
+      <div class="tl-card tl-green" style="padding:10px 12px;margin:0;">
+        <div class="tl-dot tl-dot-g" style="width:26px;height:26px;font-size:14px;">✓</div>
+        <div>
+          <div class="tl-title" style="font-size:12px;">Olhar fixo, bocejo sutil, quietude</div>
+          <div class="tl-desc" style="font-size:10.5px;">Coloque para dormir <b style="color:var(--green);">AGORA</b> — janela ideal aberta.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Today stats -->
-    <p class="section-title">📊 Sono de Hoje</p>
+    <p class="section-title" style="margin-top:18px;">📊 Sono de Hoje</p>
     <div class="stat-row">
       <div class="stat-box">
         <div class="stat-val green" id="s-total">—</div>
@@ -295,8 +368,20 @@
 
     <button class="btn btn-green" onclick="openModal()">+ Registrar sono</button>
 
+    <!-- Daily Score -->
+    <div class="card" style="margin-top:14px;">
+      <p class="label">⭐ como foi a noite de ontem?</p>
+      <div class="score-row" id="score-row">
+        <div class="score-btn" data-s="1" onclick="setScore(1)"><span class="se">😵</span><span class="sl">Ruim</span></div>
+        <div class="score-btn" data-s="2" onclick="setScore(2)"><span class="se">😕</span><span class="sl">Fraca</span></div>
+        <div class="score-btn" data-s="3" onclick="setScore(3)"><span class="se">😐</span><span class="sl">Normal</span></div>
+        <div class="score-btn" data-s="4" onclick="setScore(4)"><span class="se">🙂</span><span class="sl">Boa</span></div>
+        <div class="score-btn" data-s="5" onclick="setScore(5)"><span class="se">😴</span><span class="sl">Perfeita</span></div>
+      </div>
+    </div>
+
     <!-- Recent logs -->
-    <p class="section-title" style="margin-top:20px;">🕐 Registros recentes</p>
+    <p class="section-title" style="margin-top:18px;">🕐 Registros recentes</p>
     <div id="recent-logs-home"></div>
   </div>
 
@@ -329,8 +414,14 @@
 
     <!-- Reference guide -->
     <div class="card" style="margin-top:12px;">
-      <p class="section-title" style="font-size:14px;margin-bottom:10px;">📖 Guia de Janelas por Fase</p>
+      <p class="section-title" style="font-size:14px;margin-bottom:10px;">📖 Guia Oficial — Janela · Sonecas · Total</p>
       <div id="guide-list"></div>
+    </div>
+
+    <!-- Formula card -->
+    <div class="card card-blue">
+      <p class="label" style="margin-bottom:6px;">📐 fórmula das janelas</p>
+      <p class="tip-text"><b>Horário de despertar + Janela de vigília = Horário ideal de dormir.</b><br><br>Ex.: bebê de 6m acordou 7h, janela 2h30 → dormir às <b style="color:var(--gold-l);">9h30</b>.</p>
     </div>
   </div>
 
@@ -367,46 +458,282 @@
         <div class="stat-lbl">Total semana</div>
       </div>
     </div>
+
+    <!-- Score chart -->
+    <div class="card">
+      <p class="label" style="margin-bottom:12px;">⭐ Notas diárias — últimos 7 dias</p>
+      <div class="chart-wrap" style="height:130px;"><canvas id="score-chart"></canvas></div>
+    </div>
+
     <div class="card card-gold">
       <p class="label" style="margin-bottom:6px;">💡 dica da semana</p>
       <p class="tip-text" id="tip-text">Registre o sono por pelo menos 3 dias para receber dicas personalizadas.</p>
     </div>
 
-    <!-- Regression alert section -->
+    <!-- Regression alert -->
     <div class="card card-purple" style="margin-top:4px;">
       <p class="label" style="margin-bottom:8px;">⚠️ regressões do sono</p>
-      <p style="font-size:12px;color:var(--muted);font-weight:500;line-height:1.6;margin-bottom:12px;">Fases críticas onde o sono se reorganiza. Mantenha a estrutura.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;">
-        <span class="reg-tag">4 meses</span>
-        <span class="reg-tag">8-9 meses</span>
-        <span class="reg-tag">12 meses</span>
-        <span class="reg-tag">18 meses</span>
-        <span class="reg-tag">2 anos</span>
-      </div>
-      <p style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:500;line-height:1.6;margin-top:12px;">
-        Se seu bebê piorou nessas idades: é fisiológico, não é falha sua. Mantenha as janelas, reduza estímulos antes de dormir e evite criar novas associações.
+      <p style="font-size:12px;color:var(--muted);font-weight:500;line-height:1.6;margin-bottom:12px;">Fases onde o sono se reorganiza. Mantenha a estrutura — é fisiológico, não é falha sua.</p>
+      <div id="reg-list"></div>
+      <p style="font-size:11.5px;color:rgba(255,255,255,0.55);font-weight:500;line-height:1.6;margin-top:12px;border-top:1px solid var(--border);padding-top:12px;">
+        <b style="color:var(--purple-l);">Regra universal:</b> não crie novas associações, reduza estímulos 20min antes e dê mais tempo antes de intervir. Manter a estrutura acelera a saída.
       </p>
     </div>
   </div>
 
-  <!-- ── TAB: PROTOCOL ── -->
-  <div id="tab-protocol" class="tab">
-    <p class="section-title">✅ Protocolo CJO</p>
-    <div class="phase-tabs">
-      <button class="phase-tab active" onclick="selProto('0-3m',this)">0-3 meses</button>
-      <button class="phase-tab" onclick="selProto('4-6m',this)">4-6 meses</button>
-      <button class="phase-tab" onclick="selProto('7-11m',this)">7-11 meses</button>
-      <button class="phase-tab" onclick="selProto('12m+',this)">12m+</button>
+  <!-- ── TAB: GUIDE (new super-hub) ── -->
+  <div id="tab-guide" class="tab">
+    <p class="section-title">📘 Guia CJO</p>
+    <div class="pill-tabs">
+      <button class="pill-tab active" data-sec="signs" onclick="selGuide('signs',this)">🚦 Sinais</button>
+      <button class="pill-tab" data-sec="ritual" onclick="selGuide('ritual',this)">🕯️ Ritual 15min</button>
+      <button class="pill-tab" data-sec="env" onclick="selGuide('env',this)">🌑 Ambiente</button>
+      <button class="pill-tab" data-sec="proto" onclick="selGuide('proto',this)">✅ Protocolo</button>
+      <button class="pill-tab" data-sec="sos" onclick="selGuide('sos',this)">🆘 SOS</button>
+      <button class="pill-tab" data-sec="c14" onclick="selGuide('c14',this)">🗓️ 14 Dias</button>
+      <button class="pill-tab" data-sec="med" onclick="selGuide('med',this)">💊 Dentes/Vacina</button>
     </div>
-    <div class="card" style="padding:15px 18px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-        <p style="font-size:13px;font-weight:700;">Progresso</p>
-        <p style="font-size:13px;font-weight:800;color:var(--gold);" id="proto-pct">0%</p>
+
+    <!-- Signs -->
+    <div class="guide-sec" id="g-signs">
+      <p class="tip-text" style="margin-bottom:12px;">O bebê passa por 3 zonas antes do sono. Identificar a <b style="color:var(--green);">zona verde</b> é o segredo do CJO.</p>
+      <div class="tl-card tl-green">
+        <div class="tl-dot tl-dot-g">✓</div>
+        <div>
+          <div class="tl-title green">Verde — Janela Ideal</div>
+          <div class="tl-desc">Olhar fixo e distante · bocejo sutil · diminui atividade · esfrega olhos levemente · fica quieto</div>
+          <div class="tl-action green">→ Coloque para dormir AGORA</div>
+        </div>
       </div>
-      <div class="pbar"><div class="pbar-fill g" id="proto-bar" style="width:0%"></div></div>
+      <div class="tl-card tl-amber">
+        <div class="tl-dot tl-dot-a">!</div>
+        <div>
+          <div class="tl-title" style="color:var(--amber);">Amarelo — Atenção</div>
+          <div class="tl-desc">Irritação crescente · movimentos bruscos · choramingos leves · esfrega olhos com força · puxa orelha</div>
+          <div class="tl-action" style="color:var(--amber);">→ Corra — janela fechando</div>
+        </div>
+      </div>
+      <div class="tl-card tl-red">
+        <div class="tl-dot tl-dot-r">✕</div>
+        <div>
+          <div class="tl-title red">Vermelho — Cortisol Ativo</div>
+          <div class="tl-desc">Choro intenso · arqueia as costas · rejeita colo · expressão brava · grito agudo</div>
+          <div class="tl-action red">→ Acalme PRIMEIRO: escuro + ruído branco + colo firme por 5min</div>
+        </div>
+      </div>
+      <div class="card card-blue" style="margin-top:12px;">
+        <p class="tip-text"><b>Por quê?</b> Quando a janela fecha sem sono, o cortisol sobe e o bebê fica "elétrico" mesmo exausto. O choro vermelho é hormonal — não adianta colocar no berço, precisa baixar o cortisol antes.</p>
+      </div>
     </div>
-    <div class="card" id="checklist-cont"></div>
-    <button class="btn btn-ghost" onclick="resetProto()" style="margin-top:8px;font-size:11px;">Reiniciar checklist desta fase</button>
+
+    <!-- Ritual -->
+    <div class="guide-sec" id="g-ritual" style="display:none;">
+      <p class="tip-text" style="margin-bottom:12px;">O ritual de 15 minutos é dividido em <b>3 fases de 5min cada</b>. Repetido todos os dias, vira um gatilho neurológico de sono.</p>
+
+      <div class="ritual-step">
+        <div class="ritual-title"><span class="ritual-num">1</span> Desaceleração <span style="margin-left:auto;font-size:11px;color:var(--muted);font-weight:700;">0–5min</span></div>
+        <div class="ritual-desc">
+          <ul>
+            <li>Abaixar luzes, desligar telas</li>
+            <li>Falar baixo — sussurros</li>
+            <li>Trocar fralda + pijama específico de dormir</li>
+            <li>Escurecimento gradual do ambiente</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ritual-step" style="border-left-color:var(--purple);">
+        <div class="ritual-title"><span class="ritual-num" style="background:var(--purple);color:#fff;">2</span> Conexão <span style="margin-left:auto;font-size:11px;color:var(--muted);font-weight:700;">5–10min</span></div>
+        <div class="ritual-desc">
+          <ul>
+            <li>Massagem suave nas pernas</li>
+            <li>Mamada tranquila no escuro</li>
+            <li>Sempre a mesma canção de ninar</li>
+            <li>Toque firme — bebê precisa sentir presença</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ritual-step" style="border-left-color:var(--green);">
+        <div class="ritual-title"><span class="ritual-num" style="background:var(--green);color:#fff;">3</span> Transição <span style="margin-left:auto;font-size:11px;color:var(--muted);font-weight:700;">10–15min</span></div>
+        <div class="ritual-desc">
+          <ul>
+            <li>Enrolar em swaddle (≤4m) ou oferecer naninha</li>
+            <li>Berço: sonolento mas acordado</li>
+            <li>Ligar ruído branco</li>
+            <li>Mão firme no peito 1–2min, depois retirar</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="btn btn-purple" onclick="startRitualTimer()" style="margin-top:10px;">▶ Iniciar cronômetro do ritual</button>
+      <div id="ritual-timer-display" style="display:none;text-align:center;margin-top:14px;">
+        <p class="label">fase atual</p>
+        <p id="rt-phase" style="font-size:16px;font-weight:800;color:var(--gold);">—</p>
+        <p id="rt-time" style="font-size:40px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--text);margin:8px 0;">15:00</p>
+        <button class="btn btn-ghost" onclick="stopRitualTimer()" style="font-size:11px;">Parar</button>
+      </div>
+
+      <div class="card card-gold" style="margin-top:14px;">
+        <p class="label" style="margin-bottom:6px;">⚡ ritual de soneca ≠ noite</p>
+        <p class="tip-text"><b>Soneca</b> = 5–10min, curto (saco de dormir + frase-gatilho + blackout + ruído branco).<br><b>Noite</b> = 20–30min, completo (banho + massagem + mamada + canção + berço). Nunca use o ritual noturno nas sonecas.</p>
+      </div>
+    </div>
+
+    <!-- Environment -->
+    <div class="guide-sec" id="g-env" style="display:none;">
+      <p class="tip-text" style="margin-bottom:12px;">3 pilares do Ambiente Blindado — comprovado: aumenta duração da soneca em até <b>40%</b>.</p>
+      <div class="card">
+        <div class="info-row">
+          <p class="info-row-title">🌑 Blackout 100%</p>
+          <p class="info-row-text">Cortinas blackout totalmente fechadas. Cubra frestas com fita escura. Luz suprime melatonina.</p>
+        </div>
+        <div class="info-row">
+          <p class="info-row-title">🔊 Ruído branco 60–65 dB</p>
+          <p class="info-row-text">Volume de um chuveiro. Aparelho a 2m+ do bebê. Mascara ruídos domésticos nas transições de ciclo.</p>
+        </div>
+        <div class="info-row">
+          <p class="info-row-title">🌡️ Temperatura 20–22°C</p>
+          <p class="info-row-text">Bebês regulam temperatura mal. Muito quente ou frio = mais despertares.</p>
+        </div>
+      </div>
+      <p class="section-title" style="margin-top:18px;font-size:13px;">Checklist pré-sono</p>
+      <div class="card" id="env-checklist"></div>
+      <button class="btn btn-ghost" onclick="resetEnv()" style="margin-top:8px;font-size:11px;">Reiniciar checklist</button>
+    </div>
+
+    <!-- Protocol -->
+    <div class="guide-sec" id="g-proto" style="display:none;">
+      <div class="pill-tabs">
+        <button class="pill-tab active" onclick="selProto('0-3m',this)">0-3m</button>
+        <button class="pill-tab" onclick="selProto('4-6m',this)">4-6m</button>
+        <button class="pill-tab" onclick="selProto('7-11m',this)">7-11m</button>
+        <button class="pill-tab" onclick="selProto('12m+',this)">12m+</button>
+      </div>
+      <div class="card" style="padding:15px 18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <p style="font-size:13px;font-weight:700;">Progresso desta fase</p>
+          <p style="font-size:13px;font-weight:800;color:var(--gold);" id="proto-pct">0%</p>
+        </div>
+        <div class="pbar"><div class="pbar-fill g" id="proto-bar" style="width:0%"></div></div>
+      </div>
+      <div class="card" id="checklist-cont"></div>
+      <button class="btn btn-ghost" onclick="resetProto()" style="margin-top:8px;font-size:11px;">Reiniciar checklist desta fase</button>
+    </div>
+
+    <!-- SOS -->
+    <div class="guide-sec" id="g-sos" style="display:none;">
+      <p class="tip-text" style="margin-bottom:12px;">Toque no problema para ver <b>causa provável</b> e <b>ação exata</b>.</p>
+      <div id="sos-list"></div>
+    </div>
+
+    <!-- Crisis 14 -->
+    <div class="guide-sec" id="g-c14" style="display:none;">
+      <p class="tip-text" style="margin-bottom:12px;">Bebê em crise de sono? Plano de <b>14 dias</b> — marque cada dia cumprido.</p>
+      <div class="card" style="padding:15px 18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <p style="font-size:13px;font-weight:700;">Progresso</p>
+          <p style="font-size:13px;font-weight:800;color:var(--purple-l);" id="c14-pct">0%</p>
+        </div>
+        <div class="pbar"><div class="pbar-fill p" id="c14-bar" style="width:0%"></div></div>
+      </div>
+      <div class="card" id="c14-list"></div>
+      <div class="card card-green" style="margin-top:8px;">
+        <p class="label" style="margin-bottom:6px;">📈 curva real</p>
+        <p class="tip-text">Dia 1: ~8 despertares → Dia 5-7: ~5 (primeira melhora visível) → Dia 10: ~2 → Dia 14: ≤1 (meta).</p>
+      </div>
+      <button class="btn btn-ghost" onclick="resetC14()" style="margin-top:8px;font-size:11px;">Reiniciar plano</button>
+    </div>
+
+    <!-- Medical SOS -->
+    <div class="guide-sec" id="g-med" style="display:none;">
+      <div class="pill-tabs">
+        <button class="pill-tab active" onclick="selMed('teeth',this)">🦷 Dentes</button>
+        <button class="pill-tab" onclick="selMed('vax',this)">💉 Vacinas</button>
+        <button class="pill-tab" onclick="selMed('travel',this)">✈️ Viagem</button>
+      </div>
+      <div id="med-content"></div>
+    </div>
+  </div>
+
+  <!-- TAB: MAIS CONTEÚDOS -->
+  <div id="tab-mais" class="tab">
+    <p class="section-title">🛍️ Mais conteúdos</p>
+    <p style="font-size:12px;color:var(--muted);font-weight:500;margin-bottom:18px;line-height:1.6;">Materiais complementares ao Código das Janelas de Ouro — desenvolvidos para quem quer ir além.</p>
+
+    <!-- Card Upsell 1 -->
+    <div class="card card-purple" style="margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+        <div style="width:46px;height:46px;background:rgba(139,92,246,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🛡️</div>
+        <div>
+          <p style="font-size:11px;font-weight:800;color:var(--purple-l);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px;">Masterclass</p>
+          <p style="font-size:15px;font-weight:900;color:var(--text);line-height:1.2;">Blindagem do Sono Profundo</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);font-weight:500;line-height:1.55;margin-bottom:14px;">O passo avançado para garantir que as janelas nunca voltem a fechar — nem nas regressões, doenças ou viagens.</p>
+      <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text);font-weight:500;">
+          <span style="color:var(--purple-l);flex-shrink:0;margin-top:1px;">✦</span>
+          <span>Como blindar o sono nas regressões de 4, 8, 12 e 18 meses</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text);font-weight:500;">
+          <span style="color:var(--purple-l);flex-shrink:0;margin-top:1px;">✦</span>
+          <span>Protocolo de recuperação rápida: doenças, dentição e viagens</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text);font-weight:500;">
+          <span style="color:var(--purple-l);flex-shrink:0;margin-top:1px;">✦</span>
+          <span>Técnica de consolidação do sono noturno (2-3 despertares → 0)</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <div>
+          <p style="font-size:11px;color:var(--muted);text-decoration:line-through;font-weight:600;">R$ 197,00</p>
+          <p style="font-size:22px;font-weight:900;color:var(--purple-l);line-height:1;">R$ 67<span style="font-size:13px;color:var(--muted);font-weight:600;">,00</span></p>
+        </div>
+        <p style="font-size:10px;color:var(--muted);font-weight:600;text-align:right;line-height:1.4;">Pagamento único<br>Acesso imediato</p>
+      </div>
+      <a href="https://lastlink.com/p/C185193A7/checkout-payment/" target="_blank"
+         style="display:block;width:100%;background:var(--purple);color:#fff;text-align:center;font-weight:900;font-size:13px;padding:14px 16px;border-radius:50px;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;">
+        Quero a Masterclass →
+      </a>
+    </div>
+
+    <!-- Card Upsell 2 -->
+    <div class="card card-gold" style="margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+        <div style="width:46px;height:46px;background:rgba(245,158,11,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🔐</div>
+        <div>
+          <p style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px;">Protocolo</p>
+          <p style="font-size:15px;font-weight:900;color:var(--text);line-height:1.2;">Cofre: O Escudo Anti-Regressão</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);font-weight:500;line-height:1.55;margin-bottom:14px;">O protocolo focado para blindar tudo que você aprendeu e recuperar o sono em até 72h quando qualquer crise chegar.</p>
+      <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text);font-weight:500;">
+          <span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✦</span>
+          <span>Protocolo para as 4 regressões principais (4, 8, 12, 18 meses)</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text);font-weight:500;">
+          <span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✦</span>
+          <span>Plano de recuperação de 72h após doenças, dentição e viagens</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text);font-weight:500;">
+          <span style="color:var(--gold);flex-shrink:0;margin-top:1px;">✦</span>
+          <span>O que fazer na primeira noite ruim antes que vire semanas de crise</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <div>
+          <p style="font-size:11px;color:var(--muted);text-decoration:line-through;font-weight:600;">R$ 97,00</p>
+          <p style="font-size:22px;font-weight:900;color:var(--gold);line-height:1;">R$ 27<span style="font-size:13px;color:var(--muted);font-weight:600;">,00</span></p>
+        </div>
+        <p style="font-size:10px;color:var(--muted);font-weight:600;text-align:right;line-height:1.4;">Pagamento único<br>Acesso imediato</p>
+      </div>
+      <a href="https://lastlink.com/p/C8C49F705/checkout-payment/" target="_blank"
+         style="display:block;width:100%;background:var(--gold);color:#0d1117;text-align:center;font-weight:900;font-size:13px;padding:14px 16px;border-radius:50px;text-decoration:none;text-transform:uppercase;letter-spacing:0.04em;">
+        Quero o Protocolo Cofre →
+      </a>
+    </div>
+
+    <p style="font-size:11px;color:var(--muted);text-align:center;font-weight:500;padding-bottom:8px;">🔒 Compra segura via Lastlink · Garantia de 7 dias</p>
   </div>
 
   <!-- BOTTOM NAV -->
@@ -427,14 +754,18 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       Progresso
     </button>
-    <button class="nav-item" onclick="goTab('protocol',this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-      Protocolo
+    <button class="nav-item" onclick="goTab('guide',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      Guia
+    </button>
+    <button class="nav-item" onclick="goTab('mais',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Mais
     </button>
   </nav>
 </div>
 
-<!-- MODAL: LOG SONO -->
+<!-- MODAL: LOG -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-handle"></div>
@@ -461,41 +792,45 @@
       <span style="font-size:11px;color:var(--muted);font-weight:600;">Duração</span>
       <span style="font-size:15px;font-weight:800;color:var(--gold);" id="m-dur">—</span>
     </div>
+    <div id="short-nap-alert" style="display:none;" class="alert-box">
+      <p class="at">⚡ soneca curta detectada</p>
+      <p class="ad">Soneca &lt;30 min = transição de ciclo sem reconexão. <b>Reduza a próxima janela em 30 min</b>.</p>
+    </div>
     <button class="btn btn-green" onclick="saveLog()">Salvar</button>
     <button class="btn btn-ghost" onclick="closeModal()" style="margin-top:8px;">Cancelar</button>
   </div>
 </div>
 
 <script>
-// ──────────────────────────────────────────────────────────
-//  DATA CONSTANTS
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+//  DATA CONSTANTS — extraídas dos ebooks CJO
+// ══════════════════════════════════════════════════════════════════════
 
 const WW = [
-  {key:'0-6s',   label:'0-6 semanas',  min:45,  max:60},
-  {key:'6s-3m',  label:'6sem – 3m',    min:60,  max:75},
-  {key:'3-4m',   label:'3-4 meses',    min:75,  max:90},
-  {key:'4-5m',   label:'4-5 meses',    min:90,  max:120},
-  {key:'5-6m',   label:'5-6 meses',    min:120, max:150},
-  {key:'6-8m',   label:'6-8 meses',    min:150, max:180},
-  {key:'8-10m',  label:'8-10 meses',   min:180, max:210},
-  {key:'10-12m', label:'10-12 meses',  min:210, max:240},
-  {key:'12-18m', label:'12-18 meses',  min:240, max:300},
-  {key:'18-24m', label:'18-24 meses',  min:300, max:360},
-  {key:'24m+',   label:'2+ anos',      min:330, max:420},
+  {key:'0-6s',   label:'0-6 semanas',  min:45,  max:60,  naps:'5-6', total:'16-18h'},
+  {key:'6s-3m',  label:'6sem – 3m',    min:60,  max:75,  naps:'4-5', total:'15-17h'},
+  {key:'3-4m',   label:'3-4 meses',    min:75,  max:90,  naps:'4-5', total:'14-16h'},
+  {key:'4-5m',   label:'4-5 meses',    min:90,  max:120, naps:'3-4', total:'14-15h'},
+  {key:'5-6m',   label:'5-6 meses',    min:120, max:135, naps:'3',   total:'14-15h'},
+  {key:'6-8m',   label:'6-8 meses',    min:135, max:180, naps:'2-3', total:'13-15h'},
+  {key:'8-10m',  label:'8-10 meses',   min:180, max:210, naps:'2',   total:'13-14h'},
+  {key:'10-12m', label:'10-12 meses',  min:210, max:240, naps:'1-2', total:'12-14h'},
+  {key:'12-18m', label:'12-18 meses',  min:240, max:300, naps:'1',   total:'12-13h'},
+  {key:'18-24m', label:'18-24 meses',  min:300, max:360, naps:'1',   total:'11-13h'},
+  {key:'24m+',   label:'2+ anos',      min:330, max:420, naps:'0-1', total:'11-12h'},
 ];
 
 const WW_MONTHS = [
-  {months:[0],          key:'0-6s'},
-  {months:[1,2],        key:'6s-3m'},
-  {months:[3],          key:'3-4m'},
-  {months:[4],          key:'4-5m'},
-  {months:[5],          key:'5-6m'},
-  {months:[6,7],        key:'6-8m'},
-  {months:[8,9],        key:'8-10m'},
-  {months:[10,11],      key:'10-12m'},
-  {months:[12,13,14,15,16,17], key:'12-18m'},
-  {months:[18,19,20,21,22,23], key:'18-24m'},
+  {months:[0],                           key:'0-6s'},
+  {months:[1,2],                         key:'6s-3m'},
+  {months:[3],                           key:'3-4m'},
+  {months:[4],                           key:'4-5m'},
+  {months:[5],                           key:'5-6m'},
+  {months:[6,7],                         key:'6-8m'},
+  {months:[8,9],                         key:'8-10m'},
+  {months:[10,11],                       key:'10-12m'},
+  {months:[12,13,14,15,16,17],           key:'12-18m'},
+  {months:[18,19,20,21,22,23],           key:'18-24m'},
 ];
 
 function wwForMonths(m){
@@ -505,87 +840,247 @@ function wwForMonths(m){
 
 const PROTO = {
   '0-3m':[
-    {id:'a1',text:'Identifique a janela: coloque para dormir 45–75 min após despertar'},
-    {id:'a2',text:'Observe sinais precoces: bocejo, olhos rubros, esfregar olhos, olhar fixo'},
-    {id:'a3',text:'Evite superestimulação nos 15 min antes de dormir (telas, brincadeiras agitadas)'},
-    {id:'a4',text:'Ambiente escuro (blackout) e temperatura de 20–22 °C'},
-    {id:'a5',text:'Use ruído branco se necessário — baixo e constante, nunca pulsante'},
-    {id:'a6',text:'Rotina pré-sono curta (5–10 min): troca, embrulho, ninar, berço'},
-    {id:'a7',text:'Última soneca do dia: encerrar no mínimo 1h antes do sono noturno'},
-    {id:'a8',text:'Até 5–6 sonecas por dia são normais nesta fase — não force menos'},
-    {id:'a9',text:'Não deixe o bebê acordado além da janela — excesso de cortisol dificulta o adormecer'},
+    {id:'a1',text:'Identifique a janela: coloque para dormir <b>45–75 min</b> após despertar'},
+    {id:'a2',text:'Observe <b>sinais verdes</b>: olhar fixo distante, bocejo sutil, quietude'},
+    {id:'a3',text:'Zero superestimulação nos 15 min antes de dormir (telas, brincadeiras agitadas)'},
+    {id:'a4',text:'Ambiente <b>blackout 100%</b> e temperatura 20–22°C'},
+    {id:'a5',text:'Ruído branco 60–65 dB se necessário — constante, nunca pulsante'},
+    {id:'a6',text:'Rotina pré-sono curta (5–10 min): troca, swaddle, ninar, berço'},
+    {id:'a7',text:'Última soneca: encerrar no mínimo <b>1h antes</b> do sono noturno'},
+    {id:'a8',text:'Até <b>5–6 sonecas</b>/dia são normais nesta fase — não force menos'},
+    {id:'a9',text:'Não passe da janela — excesso de cortisol trava o adormecer'},
   ],
   '4-6m':[
-    {id:'b1',text:'Ajuste a janela para 90–120 min entre cada soneca'},
-    {id:'b2',text:'Inicie transição gradual para 3–4 sonecas regulares no dia'},
-    {id:'b3',text:'Defina horário de dormir noturno: entre 19h e 20h'},
-    {id:'b4',text:'Evite soneca após 17h — interfere no sono noturno'},
-    {id:'b5',text:'Observe sinais precoces — a janela fecha rápido nesta fase'},
-    {id:'b6',text:'Reduza estimulação visual 20 min antes de dormir'},
-    {id:'b7',text:'Estabeleça rotina pré-sono de 10–15 min (banho, massagem, amamentação, berço)'},
+    {id:'b1',text:'Ajuste a janela para <b>90–120 min</b> entre sonecas'},
+    {id:'b2',text:'Transição gradual para <b>3–4 sonecas</b> regulares no dia'},
+    {id:'b3',text:'Horário noturno: entre <b>19h e 20h</b>'},
+    {id:'b4',text:'Evite soneca após <b>17h</b> — interfere no sono noturno'},
+    {id:'b5',text:'Observe sinais precoces — janela fecha rápido nesta fase'},
+    {id:'b6',text:'Reduza estímulo visual <b>20 min</b> antes de dormir'},
+    {id:'b7',text:'Rotina pré-sono de 10–15min (banho, massagem, mamada, berço)'},
     {id:'b8',text:'Identifique a principal associação de sono (colo, seio, chupeta) e planeje a transição'},
-    {id:'b9',text:'Prepare-se para a regressão dos 4 meses — é fisiológica, mantenha a estrutura'},
+    {id:'b9',text:'Prepare-se para a regressão dos 4m — fisiológica, mantenha estrutura'},
   ],
   '7-11m':[
-    {id:'c1',text:'Transição para 2 sonecas: manhã (~9h) e tarde (~13h)'},
-    {id:'c2',text:'Janela de 2,5–3,5h entre as sonecas'},
-    {id:'c3',text:'Defina horário fixo de acordar pela manhã — ancora o ritmo circadiano'},
-    {id:'c4',text:'Última soneca: terminar até 15h–15h30'},
-    {id:'c5',text:'Inicie a rotina noturna entre 18h30 e 19h30'},
-    {id:'c6',text:'Trabalhe a consolidação do sono noturno (reduzir associações ao despertar)'},
-    {id:'c7',text:'Regressão 8–9 meses: mantenha a estrutura, não crie novas associações de sono'},
-    {id:'c8',text:'Introduza objeto de apego (naninha) como âncora de sono independente'},
-    {id:'c9',text:'Garanta sonecas de pelo menos 45 min (1 ciclo completo)'},
+    {id:'c1',text:'Transição para <b>2 sonecas</b>: manhã (~9h) e tarde (~13h)'},
+    {id:'c2',text:'Janela de <b>2h30–3h30</b> entre as sonecas'},
+    {id:'c3',text:'Horário fixo de acordar pela manhã — ancora o ritmo circadiano'},
+    {id:'c4',text:'Última soneca: terminar até <b>15h–15h30</b>'},
+    {id:'c5',text:'Rotina noturna entre 18h30 e 19h30'},
+    {id:'c6',text:'Reduzir associações de sono ao despertar noturno'},
+    {id:'c7',text:'Regressão 8–9m: mantenha estrutura, não crie novas associações'},
+    {id:'c8',text:'Introduza <b>objeto de apego</b> (naninha) como âncora de sono independente'},
+    {id:'c9',text:'Garanta sonecas de pelo menos <b>45min</b> (1 ciclo completo)'},
   ],
   '12m+':[
-    {id:'d1',text:'Transição para 1 soneca única — geralmente entre 12 e 18 meses'},
-    {id:'d2',text:'Janela de 4–5h da manhã até a soneca única'},
-    {id:'d3',text:'Soneca única: idealmente entre 12h30 e 13h30'},
-    {id:'d4',text:'Duração ideal da soneca: 1–1,5h (máximo 2h)'},
-    {id:'d5',text:'Janela para dormir à noite: entre 19h e 20h'},
-    {id:'d6',text:'Mantenha a rotina nos fins de semana (flexibilidade de ±30 min apenas)'},
-    {id:'d7',text:'Recusa de sono? Verifique se a janela não passou — criança superestimulada'},
-    {id:'d8',text:'Regressão dos 18 meses: comportamental, mantenha limites com acolhimento'},
-    {id:'d9',text:'Ambiente: escuridão total + silêncio ou ruído branco + 20–22 °C'},
+    {id:'d1',text:'Transição para <b>soneca única</b> — entre 12 e 18 meses'},
+    {id:'d2',text:'Janela de <b>4–5h</b> da manhã até a soneca única'},
+    {id:'d3',text:'Soneca única: idealmente <b>12h30 às 13h30</b>'},
+    {id:'d4',text:'Duração ideal da soneca: <b>1–1h30</b> (máximo 2h)'},
+    {id:'d5',text:'Janela para dormir à noite: <b>19h–20h</b>'},
+    {id:'d6',text:'Consistência nos fins de semana (flexibilidade de ±30min apenas)'},
+    {id:'d7',text:'Recusa de sono? Verifique se a janela não passou — superestimulação'},
+    {id:'d8',text:'Regressão 18m: comportamental, mantenha limites com acolhimento'},
+    {id:'d9',text:'Ambiente: escuridão total + silêncio/ruído branco + 20–22°C'},
   ],
 };
 
-const TIPS = [
-  'Bebês que dormem bem de dia dormem melhor à noite. Nunca pule sonecas para "cansar" o bebê.',
-  'O cortisol começa a subir assim que a janela fecha. Quanto mais você espera, mais difícil fica adormecer.',
-  'Consistência supera perfeição. Uma rotina simples repetida toda noite cria a segurança que o bebê precisa para dormir.',
-  'O blackout é o sinal mais poderoso que você pode dar ao cérebro do bebê: "é hora de dormir".',
-  'Se a soneca foi curta (<30 min), reduza a próxima janela de vigília em aproximadamente 30 min.',
-  'Criança exausta não dorme facilmente. O excesso de cansaço libera cortisol e dificulta o adormecer.',
-  'O método das Janelas funciona por sincronização — não é treino de sono, é respeitar a biologia do bebê.',
+const ENV_CHECK = [
+  {id:'e1',text:'Cortinas blackout totalmente fechadas'},
+  {id:'e2',text:'Frestas de luz cobertas (fita escura)'},
+  {id:'e3',text:'Ruído branco ligado ANTES de deitar o bebê'},
+  {id:'e4',text:'Temperatura entre 20°C e 22°C'},
+  {id:'e5',text:'Celulares no silencioso'},
+  {id:'e6',text:'Campainha desligada'},
+  {id:'e7',text:'Bebê vestido adequadamente para a temperatura'},
+  {id:'e8',text:'Chupeta disponível (se usar)'},
+  {id:'e9',text:'Animais de estimação fora do quarto'},
+  {id:'e10',text:'Berço limpo — sem móbile ou estímulos visuais'},
 ];
 
-// ──────────────────────────────────────────────────────────
-//  STATE
-// ──────────────────────────────────────────────────────────
+const SOS = [
+  {q:'Chora quando coloco no berço', cause:'Janela fechou (cortisol ativo)',
+   a:'Acalme no colo <b>5 min em quarto escuro</b>, tente novamente. Se repetir, <b>reduza a próxima janela em 15 min</b>.'},
+  {q:'Soneca durou menos de 30 min', cause:'Transição de ciclo sem reconexão',
+   a:'Espere <b>5–10 min</b> antes de intervir (pode reconectar sozinho). Se acordou de vez, <b>reduza a próxima janela em 30 min</b>.'},
+  {q:'Acorda 45 min depois de dormir', cause:'Associação de sono (braço, peito)',
+   a:'Não repita a associação. <b>Toque firme no peito</b> + "shh" + ruído branco. Dê tempo. Pode levar dias para desaparecer.'},
+  {q:'Acorda às 5h e não volta a dormir', cause:'Muito sono diurno OU hora de dormir cedo demais',
+   a:'<b>Limite a última soneca</b> do dia. Ajuste hora do sono noturno para 19h–19h30.'},
+  {q:'Recusa totalmente a soneca', cause:'Janela curta OU longa demais',
+   a:'Teste <b>aumentar/diminuir em 15 min</b>. Se for 12m+, pode estar pronto para reduzir número de sonecas.'},
+  {q:'Dorme só no colo/peito', cause:'Associação de sono dominante',
+   a:'Inicie transição gradual: dormir parte do tempo no colo e transferir para berço ainda sonolento. <b>Objeto de apego</b> ajuda.'},
+  {q:'Regressão dos 4 meses', cause:'Maturação permanente de ciclos',
+   a:'É fisiológico — dura 2–4 semanas. <b>Mantenha janelas e ambiente</b>. NÃO crie novas associações. Vai passar.'},
+  {q:'Bebê "elétrico" sem sono óbvio', cause:'Cortisol — passou da janela',
+   a:'Escureça ambiente + ruído branco + colo firme <b>5 min</b> antes de tentar berço. Acalme antes de deitar.'},
+];
 
-let S = {
-  baby: null,           // {name, birthDate, parentName}
-  logs: [],             // [{id, type, date, start, end}]
-  checklist: {},        // {phase: {id: bool}}
-  lastWakeup: null,     // "YYYY-MM-DDTHH:MM:00"
-  calcPhase: null,
-  calcWakeupResult: null,
-  selectedType: 'night',
-  currentProtoPhase: '0-3m',
-  chart: null,
-  cdInterval: null,
+const C14 = [
+  {d:1,t:'PARAR — só calma',desc:'Esqueça horários ideais. Peito, colo, o que funcionar. Zero culpa.'},
+  {d:2,t:'PARAR — só calma',desc:'Continue só acolhendo. Observe padrões sem tentar mudar.'},
+  {d:3,t:'AMBIENTE',desc:'Blackout 100%, 20–22°C, ruído branco constante, retire móbile.'},
+  {d:4,t:'AMBIENTE',desc:'Teste o ambiente em todas as sonecas e na noite.'},
+  {d:5,t:'UMA JANELA',desc:'Foco só na PRIMEIRA janela do dia. Respeite no minuto. Outras flexíveis.'},
+  {d:6,t:'UMA JANELA',desc:'Mantenha a primeira janela. Registre como o bebê reage.'},
+  {d:7,t:'UMA JANELA',desc:'1ª janela respeitada por 3 dias seguidos — primeira melhora já visível.'},
+  {d:8,t:'SEGUNDA JANELA',desc:'Adicione controle da segunda janela do dia.'},
+  {d:9,t:'SEGUNDA JANELA',desc:'Primeira + segunda janela travadas. Noite ainda flexível.'},
+  {d:10,t:'SEGUNDA JANELA',desc:'Queda esperada de despertares noturnos para ~2.'},
+  {d:11,t:'NOITE',desc:'Ritual noturno completo (15min). Hora de dormir entre 19h–20h.'},
+  {d:12,t:'NOITE',desc:'Consistência no ritual e horário noturno.'},
+  {d:13,t:'NOITE',desc:'Rotina completa ancorada. Observe regulação.'},
+  {d:14,t:'META ATINGIDA',desc:'Rotina completa funcionando. Meta: ≤1 despertar/noite.'},
+];
+
+const REG = [
+  {age:'4 meses',dur:'2–4 semanas',desc:'Maturação de ciclos — sono muda de "neonatal" para "adulto". Mais impactante.'},
+  {age:'8–9 meses',dur:'1–3 semanas',desc:'Salto motor (engatinhar, sentar) + ansiedade de separação. Bebê "treina" no berço.'},
+  {age:'12 meses',dur:'1–2 semanas',desc:'Primeiros passos + transição de 2→1 soneca. Rotina parece "quebrada".'},
+  {age:'18 meses',dur:'2–6 semanas',desc:'Comportamental — testa limites, diz "não". Mantenha limites com acolhimento.'},
+  {age:'2 anos',dur:'variável',desc:'Medo do escuro, pesadelos, imaginação se desenvolvendo. Pode resistir à soneca diurna.'},
+];
+
+const TIPS = [
+  'Bebês que dormem bem de dia dormem MELHOR à noite. Nunca pule sonecas para "cansar" o bebê.',
+  'O cortisol começa a subir assim que a janela fecha. Quanto mais você espera, mais difícil fica adormecer.',
+  'Consistência supera perfeição. Rotina simples repetida cria a segurança que o bebê precisa.',
+  'Blackout é o sinal mais poderoso que você pode dar ao cérebro do bebê: "é hora de dormir".',
+  'Soneca curta (<30 min)? Reduza a próxima janela em aproximadamente 30 min.',
+  'Criança exausta NÃO dorme fácil. Excesso de cansaço libera cortisol e trava o adormecer.',
+  'O método das Janelas funciona por sincronização — não é treino, é respeitar a biologia.',
+  'Ciclos de sono de bebê = 30–45 min. O "problema" da soneca curta é reconectar, não o ciclo em si.',
+  'Berço: sonolento, mas acordado. Essa é a diferença entre "associação" e "habilidade de dormir".',
+  'Regressão é sinal de que o cérebro está evoluindo — NÃO é falha sua. Mantenha a estrutura.',
+  'Ritual de soneca ≠ ritual de noite. 5–10 min na soneca, 20–30 min na noite. Misturar confunde.',
+  'Frase-gatilho igual, toda soneca. O cérebro do bebê aprende por repetição acústica.',
+  'Autoridade não é não ter medo — é saber o que fazer quando o medo aparece.',
+];
+
+const MED = {
+  teeth: [
+    {t:'Sinais REAIS de dentinho',icon:'✅',items:[
+      'Salivação excessiva',
+      'Irritabilidade moderada, inquietação',
+      'Gengivas inchadas, sensíveis ao toque',
+      'Vontade de morder objetos firmes',
+      'Febre baixa (até 37,8°C)',
+      'Alteração leve do sono',
+    ]},
+    {t:'MITOS — procure pediatra',icon:'⚠️',items:[
+      'Febre alta (>38,5°C) → infecção',
+      'Diarreia intensa ou muco nas fezes',
+      'Vômitos repetidos',
+      'Tosse, coriza, congestão',
+      'Convulsão ou prostração',
+    ]},
+    {t:'Regra dos 3 dias de pico',icon:'📅',items:[
+      'Pré-pico → Pico → Declínio → Resolução',
+      'Pico de dentinho NÃO dura mais de 72h',
+      'Se piorar após 3º dia ou surgirem novos sinais → pediatra',
+    ]},
+    {t:'Alívio comprovado',icon:'💊',items:[
+      'Mordedores refrigerados (NÃO congelados), máx 10min',
+      'Massagem na gengiva com dedo limpo ou gaze úmida',
+      'Paracetamol/ibuprofeno com prescrição nos dias de pico',
+      'EVITAR géis tópicos com benzocaína',
+      'Colo e distração — subestimado e muito eficaz',
+    ]},
+  ],
+  vax: [
+    {t:'Protocolo 24h antes',icon:'🕐',items:[
+      'Confirme cartão de vacinas',
+      'Consulte pediatra se houver febre/infecção ativa',
+      'Noite anterior: sono tranquilo, zero mudança de rotina',
+      'Se pediatra orientou, tenha paracetamol com dose calculada',
+    ]},
+    {t:'Dia da vacina',icon:'💉',items:[
+      'Alimentação completa antes',
+      'Leve objeto de apego (chupeta, brinquedo)',
+      'Roupa de manga curta para acesso',
+      'Fique calma — sua ansiedade passa para o bebê',
+      'Elogie DEPOIS, não antes',
+      'Aguarde 20min na clínica para reações alérgicas',
+    ]},
+    {t:'Reações NORMAIS',icon:'✅',items:[
+      'Febre baixa-moderada (até 38,5°C) primeiras 48h',
+      'Vermelhidão, inchaço e dor no local 2–3 dias',
+      'Irritabilidade aumentada primeiras 24h',
+      'Sonolência leve ou recusa alimentar passageira',
+    ]},
+    {t:'🚨 SINAIS DE ALERTA — médico AGORA',icon:'🚨',items:[
+      'Febre >39,5°C ou sem resposta a medicamento',
+      'Choro inconsolável >3h',
+      'Convulsão ou alteração de consciência',
+      'Inchaço generalizado, urticária, dificuldade respiratória',
+      'Nódulo no local >2cm após 1 semana',
+    ]},
+  ],
+  travel: [
+    {t:'Kit Sobrevivência (0–10 anos)',icon:'🎒',items:[
+      'Paracetamol + ibuprofeno (doses calculadas)',
+      'Anti-histamínico oral + pomada',
+      'Sais de reidratação oral (sachês)',
+      'Antieméticos (com orientação médica)',
+      'Curativos, gaze, micropore, tesoura de ponta redonda',
+      'Termômetro digital',
+      'Álcool em gel, lenços antissépticos',
+    ]},
+    {t:'Documentos essenciais',icon:'📋',items:[
+      'Cartão de vacinas (foto no celular)',
+      'Receitas atuais',
+      'Contato do pediatra + plano de saúde',
+      'Lista de alergias em inglês (viagem internacional)',
+    ]},
+    {t:'Regra 80/20',icon:'⚖️',items:[
+      '<b>20% que você controla:</b>',
+      '→ Horário de sono (mantenha janela mesmo com fuso)',
+      '→ Kit de saúde completo de fácil acesso',
+      '→ Uma refeição "âncora" com comida familiar',
+      '→ Objeto de apego sempre à mão',
+      '<b>80% que varia:</b>',
+      '→ Roteiro, passeios, clima, transporte — não define a qualidade da viagem',
+    ]},
+    {t:'🚨 Emergência — pronto-socorro',icon:'🚨',items:[
+      'Choro alta intensidade >3h + febre >38,5°C',
+      'Manchas na pele ou prostração',
+      'Não espere — vá direto',
+    ]},
+  ],
 };
 
-// ──────────────────────────────────────────────────────────
-//  PERSIST
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════════════════════
+let S = {
+  baby:null, logs:[], checklist:{}, lastWakeup:null,
+  calcPhase:null, calcWakeupResult:null,
+  selectedType:'night', currentProtoPhase:'0-3m',
+  chart:null, scoreChart:null, cdInterval:null,
+  scores:{},           // {date: 1-5}
+  envCheck:{},         // {id: bool, date: 'YYYY-MM-DD'}
+  envCheckDate:null,
+  c14:{},              // {dayNum: bool}
+  c14Start:null,       // date ISO
+  guideSec:'signs',
+  medSec:'teeth',
+  ritualTimer:null, ritualSecs:0,
+};
 
+// ══════════════════════════════════════════════════════════════════════
+//  PERSIST
+// ══════════════════════════════════════════════════════════════════════
 function persist(){
-  localStorage.setItem('cjo_baby', JSON.stringify(S.baby));
-  localStorage.setItem('cjo_logs', JSON.stringify(S.logs));
-  localStorage.setItem('cjo_cl', JSON.stringify(S.checklist));
-  localStorage.setItem('cjo_lw', S.lastWakeup||'');
+  try{
+    localStorage.setItem('cjo_baby', JSON.stringify(S.baby));
+    localStorage.setItem('cjo_logs', JSON.stringify(S.logs));
+    localStorage.setItem('cjo_cl',   JSON.stringify(S.checklist));
+    localStorage.setItem('cjo_lw',   S.lastWakeup||'');
+    localStorage.setItem('cjo_sc',   JSON.stringify(S.scores));
+    localStorage.setItem('cjo_env',  JSON.stringify({c:S.envCheck,d:S.envCheckDate}));
+    localStorage.setItem('cjo_c14',  JSON.stringify({c:S.c14,s:S.c14Start}));
+  }catch(e){console.warn('localStorage indisponível:',e);}
 }
 function hydrate(){
   try{
@@ -593,83 +1088,53 @@ function hydrate(){
     S.logs      = JSON.parse(localStorage.getItem('cjo_logs'))||[];
     S.checklist = JSON.parse(localStorage.getItem('cjo_cl'))||{};
     S.lastWakeup= localStorage.getItem('cjo_lw')||null;
+    S.scores    = JSON.parse(localStorage.getItem('cjo_sc'))||{};
+    const env   = JSON.parse(localStorage.getItem('cjo_env'))||{};
+    S.envCheck  = env.c||{}; S.envCheckDate=env.d||null;
+    const c14   = JSON.parse(localStorage.getItem('cjo_c14'))||{};
+    S.c14       = c14.c||{}; S.c14Start=c14.s||null;
   }catch(e){}
 }
 
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  HELPERS
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+function ageMonths(bd){const b=new Date(bd),n=new Date();return (n.getFullYear()-b.getFullYear())*12+(n.getMonth()-b.getMonth());}
+function phaseLabel(m){if(m<1) return '0-6 semanas';if(m<12) return m+' meses';const y=Math.floor(m/12),r=m%12;return r===0?`${y} ${y===1?'ano':'anos'}`:`${y}a ${r}m`;}
+function fmtDur(min){if(min<=0||isNaN(min))return '—';const h=Math.floor(min/60),m=min%60;if(h===0)return m+'min';if(m===0)return h+'h';return `${h}h${String(m).padStart(2,'0')}min`;}
+function addMins(t,mins){const [h,m]=t.split(':').map(Number);const tot=(h*60+m+mins);return `${String(Math.floor(tot/60)%24).padStart(2,'0')}:${String(tot%60).padStart(2,'0')}`;}
+function minsBetween(s,e){const [sh,sm]=s.split(':').map(Number);const [eh,em]=e.split(':').map(Number);let d=(eh*60+em)-(sh*60+sm);if(d<0)d+=1440;return d;}
+function today(){return new Date().toISOString().slice(0,10);}
+function yesterday(){const d=new Date();d.setDate(d.getDate()-1);return d.toISOString().slice(0,10);}
+function greeting(){const h=new Date().getHours();return h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';}
 
-function ageMonths(bd){
-  const b=new Date(bd), n=new Date();
-  return (n.getFullYear()-b.getFullYear())*12+(n.getMonth()-b.getMonth());
-}
-function phaseLabel(m){
-  if(m<1) return '0-6 semanas';
-  if(m<12) return m+' meses';
-  const y=Math.floor(m/12), r=m%12;
-  return r===0?`${y} ${y===1?'ano':'anos'}`:`${y}a ${r}m`;
-}
-function fmtDur(min){
-  if(min<=0||isNaN(min)) return '—';
-  const h=Math.floor(min/60), m=min%60;
-  if(h===0) return m+'min';
-  if(m===0) return h+'h';
-  return `${h}h${String(m).padStart(2,'0')}min`;
-}
-function addMins(t, mins){
-  const [h,m]=t.split(':').map(Number);
-  const tot=(h*60+m+mins);
-  return `${String(Math.floor(tot/60)%24).padStart(2,'0')}:${String(tot%60).padStart(2,'0')}`;
-}
-function minsBetween(s, e){
-  const [sh,sm]=s.split(':').map(Number);
-  const [eh,em]=e.split(':').map(Number);
-  let d=(eh*60+em)-(sh*60+sm);
-  if(d<0) d+=1440;
-  return d;
-}
-function today(){ return new Date().toISOString().slice(0,10); }
-function greeting(){ const h=new Date().getHours(); return h<12?'Bom dia':h<18?'Boa tarde':'Boa noite'; }
-
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  STARS
-// ──────────────────────────────────────────────────────────
-
+// ══════════════════════════════════════════════════════════════════════
 function makeStars(){
   const c=document.getElementById('stars');
-  for(let i=0;i<22;i++){
-    const s=document.createElement('div');
-    s.className='star';
+  for(let i=0;i<22;i++){const s=document.createElement('div');s.className='star';
     const sz=(Math.random()*2+1)+'px';
     s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz};height:${sz};opacity:${(Math.random()*0.5+0.15).toFixed(2)};`;
-    c.appendChild(s);
-  }
+    c.appendChild(s);}
 }
 
-// ──────────────────────────────────────────────────────────
-//  SETUP
-// ──────────────────────────────────────────────────────────
-
+// ══════════════════════════════════════════════════════════════════════
+//  SETUP / BOOT
+// ══════════════════════════════════════════════════════════════════════
 function setupApp(){
   const name=document.getElementById('s-name').value.trim();
   const birth=document.getElementById('s-birth').value;
   const parent=document.getElementById('s-parent').value.trim()||'Mamãe';
   if(!name||!birth){alert('Preencha o nome e a data de nascimento do bebê.');return;}
   S.baby={name,birthDate:birth,parentName:parent};
-  persist();
-  bootApp();
+  persist(); bootApp();
 }
-
-// ──────────────────────────────────────────────────────────
-//  BOOT
-// ──────────────────────────────────────────────────────────
 
 function bootApp(){
   document.getElementById('setup-screen').style.display='none';
   document.getElementById('app').style.display='flex';
   document.getElementById('app').style.flexDirection='column';
-
   makeStars();
 
   const m=ageMonths(S.baby.birthDate);
@@ -679,37 +1144,24 @@ function bootApp(){
   document.getElementById('h-baby').textContent=S.baby.name;
   document.getElementById('h-phase').textContent=phaseLabel(m);
 
-  // Init log date
   document.getElementById('log-filter').value=today();
   document.getElementById('m-date').value=today();
 
-  // Build calc phase grid
-  buildPhaseGrid();
-  buildGuide();
+  buildPhaseGrid(); buildGuide(); buildRegList(); buildEnvCheck(); buildSOS(); buildC14(); renderMed('teeth');
 
-  // Auto-select phase in calc
   const ww=wwForMonths(m);
   S.calcPhase=ww?ww.key:WW[WW.length-1].key;
   const btn=document.querySelector(`[data-pk="${S.calcPhase}"]`);
   if(btn) btn.classList.add('selected');
 
-  // Protocol
   renderProto('0-3m');
-
-  // Home
-  updateHome();
-  startCD();
-  updateStreak();
-  renderChart();
-
-  // Last wakeup chip
-  updateLWChip();
+  updateHome(); startCD(); updateStreak(); renderChart(); renderScoreChart();
+  updateLWChip(); renderScoreRow();
 }
 
-// ──────────────────────────────────────────────────────────
-//  PHASE GRID (Calc)
-// ──────────────────────────────────────────────────────────
-
+// ══════════════════════════════════════════════════════════════════════
+//  PHASE GRID / GUIDE
+// ══════════════════════════════════════════════════════════════════════
 function buildPhaseGrid(){
   document.getElementById('phase-grid').innerHTML=WW.map(w=>`
     <div class="phase-btn" data-pk="${w.key}" onclick="selPhase('${w.key}',this)">
@@ -723,65 +1175,59 @@ function selPhase(k,el){
   S.calcPhase=k;
   document.getElementById('calc-result').style.display='none';
 }
-
 function buildGuide(){
   document.getElementById('guide-list').innerHTML=WW.map(w=>`
     <div class="guide-row">
-      <span style="font-size:12px;font-weight:600;color:var(--muted);">${w.label}</span>
-      <span style="font-size:13px;font-weight:800;color:var(--gold);">${fmtDur(w.min)}–${fmtDur(w.max)}</span>
+      <div style="flex:1;">
+        <div style="font-size:12px;font-weight:700;color:var(--text);">${w.label}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px;">${w.naps} sonecas · total ${w.total}</div>
+      </div>
+      <span style="font-size:13px;font-weight:800;color:var(--gold);white-space:nowrap;">${fmtDur(w.min)}–${fmtDur(w.max)}</span>
+    </div>`).join('');
+}
+function buildRegList(){
+  document.getElementById('reg-list').innerHTML=REG.map(r=>`
+    <div class="reg-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <p style="font-size:13px;font-weight:800;color:var(--text);">${r.age}</p>
+        <span style="font-size:10px;font-weight:700;color:var(--purple-l);">${r.dur}</span>
+      </div>
+      <p style="font-size:11.5px;color:rgba(255,255,255,0.65);line-height:1.5;font-weight:500;">${r.desc}</p>
     </div>`).join('');
 }
 
-// ──────────────────────────────────────────────────────────
-//  CALC WINDOW
-// ──────────────────────────────────────────────────────────
-
+// ══════════════════════════════════════════════════════════════════════
+//  CALC
+// ══════════════════════════════════════════════════════════════════════
 function calcWindow(){
   const t=document.getElementById('c-wakeup').value;
   const ww=WW.find(w=>w.key===S.calcPhase);
   if(!t||!ww){alert('Selecione a fase e o horário de despertar.');return;}
   const ideal=Math.round((ww.min+ww.max)/2);
-  const tIdeal=addMins(t,ideal);
-  const tMin=addMins(t,ww.min);
-  const tMax=addMins(t,ww.max);
-  document.getElementById('r-time').textContent=tIdeal;
-  document.getElementById('r-range').textContent=`Janela: entre ${tMin} e ${tMax}`;
+  document.getElementById('r-time').textContent=addMins(t,ideal);
+  document.getElementById('r-range').textContent=`Janela: entre ${addMins(t,ww.min)} e ${addMins(t,ww.max)}`;
   document.getElementById('r-ww').textContent=`${fmtDur(ww.min)} – ${fmtDur(ww.max)}`;
   document.getElementById('calc-result').style.display='block';
-  S.calcWakeupResult={time:t, phase:S.calcPhase};
+  S.calcWakeupResult={time:t,phase:S.calcPhase};
 }
-
 function useAsCountdown(){
   if(!S.calcWakeupResult) return;
   S.lastWakeup=today()+'T'+S.calcWakeupResult.time+':00';
-  persist();
-  updateCD();
-  updateLWChip();
-  goTab('home', document.querySelector('.nav-item'));
+  persist(); updateCD(); updateLWChip();
   document.querySelectorAll('.nav-item')[0].click();
 }
 
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  COUNTDOWN
-// ──────────────────────────────────────────────────────────
-
-function startCD(){
-  if(S.cdInterval) clearInterval(S.cdInterval);
-  updateCD();
-  S.cdInterval=setInterval(updateCD,30000);
-}
-
+// ══════════════════════════════════════════════════════════════════════
+function startCD(){if(S.cdInterval)clearInterval(S.cdInterval);updateCD();S.cdInterval=setInterval(updateCD,30000);}
 function updateCD(){
   const disp=document.getElementById('countdown-display');
   const sub=document.getElementById('cd-sub');
   const unit=document.getElementById('cd-unit');
   const target=document.getElementById('cd-target');
   const ttime=document.getElementById('cd-target-time');
-
-  if(!S.lastWakeup||!S.baby){
-    disp.textContent='--:--';
-    return;
-  }
+  if(!S.lastWakeup||!S.baby){disp.textContent='--:--';return;}
   const m=ageMonths(S.baby.birthDate);
   const ww=wwForMonths(m);
   if(!ww) return;
@@ -790,72 +1236,52 @@ function updateCD(){
   const sleepAt=new Date(wakeup.getTime()+ideal*60000);
   const now=new Date();
   const diffMin=Math.round((sleepAt-now)/60000);
-
   if(diffMin<=0){
-    disp.textContent='00:00';
-    disp.style.color='var(--green)';
-    sub.textContent='✅ Janela aberta! Momento ideal para dormir.';
-    unit.textContent='';
+    disp.textContent='00:00'; disp.style.color='var(--green)';
+    sub.textContent='✅ Janela aberta! Momento ideal para dormir.'; unit.textContent='';
   } else {
-    const h=Math.floor(diffMin/60), mn=diffMin%60;
+    const h=Math.floor(diffMin/60),mn=diffMin%60;
     disp.textContent=h>0?`${h}h${String(mn).padStart(2,'0')}`:`${mn}min`;
     disp.style.color=diffMin<=15?'#ef4444':'var(--gold)';
     sub.textContent=diffMin<=15?'⚡ Janela abrindo em breve — prepare o ambiente!':'Baseado no último despertar registrado';
     unit.textContent='restantes';
   }
-  const th=String(sleepAt.getHours()).padStart(2,'0');
-  const tm=String(sleepAt.getMinutes()).padStart(2,'0');
-  ttime.textContent=`${th}:${tm}`;
+  ttime.textContent=`${String(sleepAt.getHours()).padStart(2,'0')}:${String(sleepAt.getMinutes()).padStart(2,'0')}`;
   target.style.display='block';
 }
-
 function registerWakeupNow(){
   const now=new Date();
-  const hh=String(now.getHours()).padStart(2,'0');
-  const mm=String(now.getMinutes()).padStart(2,'0');
-  S.lastWakeup=today()+'T'+hh+':'+mm+':00';
-  persist();
-  updateCD();
-  updateLWChip();
+  S.lastWakeup=today()+'T'+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':00';
+  persist(); updateCD(); updateLWChip();
 }
-
 function updateLWChip(){
   const chip=document.getElementById('lw-chip');
   if(!S.lastWakeup){chip.style.display='none';return;}
-  const t=S.lastWakeup.slice(11,16);
-  chip.textContent='Acordou '+t;
+  chip.textContent='Acordou '+S.lastWakeup.slice(11,16);
   chip.style.display='inline-flex';
 }
 
-// ──────────────────────────────────────────────────────────
-//  HOME UPDATE
-// ──────────────────────────────────────────────────────────
-
+// ══════════════════════════════════════════════════════════════════════
+//  HOME
+// ══════════════════════════════════════════════════════════════════════
 function updateHome(){
   const td=today();
   const tl=S.logs.filter(l=>l.date===td);
-  let tot=0, naps=0, night=0;
-  tl.forEach(l=>{
-    const d=minsBetween(l.start,l.end);
-    tot+=d;
-    if(l.type==='nap'){naps++;}else{night+=d;}
-  });
+  let tot=0,naps=0,night=0;
+  tl.forEach(l=>{const d=minsBetween(l.start,l.end);tot+=d;if(l.type==='nap')naps++;else night+=d;});
   document.getElementById('s-total').textContent=fmtDur(tot);
   document.getElementById('s-naps').textContent=naps;
   document.getElementById('s-night').textContent=fmtDur(night);
-
   const rc=document.getElementById('recent-logs-home');
   const recent=[...tl].sort((a,b)=>b.start.localeCompare(a.start)).slice(0,3);
-  if(!recent.length){
-    rc.innerHTML='<p style="color:var(--muted);font-size:13px;text-align:center;padding:16px;">Nenhum registro hoje ainda.</p>';
-    return;
-  }
+  if(!recent.length){rc.innerHTML='<p style="color:var(--muted);font-size:13px;text-align:center;padding:16px;">Nenhum registro hoje ainda.</p>';return;}
   rc.innerHTML=recent.map(l=>{
     const d=minsBetween(l.start,l.end);
+    const short=l.type==='nap'&&d<30;
     return `<div class="log-item">
       <div class="log-icon ${l.type==='night'?'li-night':'li-nap'}">${l.type==='night'?'🌙':'☀️'}</div>
       <div style="flex:1;">
-        <p style="font-size:13px;font-weight:700;">${l.type==='night'?'Sono noturno':'Soneca'}</p>
+        <p style="font-size:13px;font-weight:700;">${l.type==='night'?'Sono noturno':'Soneca'}${short?' <span style=\"color:#fb923c;font-size:10px;font-weight:800;\">⚠ curta</span>':''}</p>
         <p style="font-size:11px;color:var(--muted);margin-top:2px;">${l.start} – ${l.end}</p>
       </div>
       <span style="font-size:14px;font-weight:800;color:var(--gold);">${fmtDur(d)}</span>
@@ -863,28 +1289,39 @@ function updateHome(){
   }).join('');
 }
 
-// ──────────────────────────────────────────────────────────
-//  LOG TAB
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+//  DAILY SCORE
+// ══════════════════════════════════════════════════════════════════════
+function setScore(v){
+  S.scores[yesterday()]=v;
+  persist(); renderScoreRow(); renderScoreChart();
+}
+function renderScoreRow(){
+  const v=S.scores[yesterday()];
+  document.querySelectorAll('.score-btn').forEach(b=>{
+    b.classList.toggle('selected',+b.dataset.s===v);
+  });
+}
 
+// ══════════════════════════════════════════════════════════════════════
+//  LOG TAB
+// ══════════════════════════════════════════════════════════════════════
 function renderLogTab(){
   const date=document.getElementById('log-filter').value||today();
   const dl=S.logs.filter(l=>l.date===date).sort((a,b)=>a.start.localeCompare(b.start));
   const c=document.getElementById('log-list');
-  if(!dl.length){
-    c.innerHTML='<p style="color:var(--muted);font-size:13px;text-align:center;padding:32px;">Nenhum registro para esta data.</p>';
-    return;
-  }
+  if(!dl.length){c.innerHTML='<p style="color:var(--muted);font-size:13px;text-align:center;padding:32px;">Nenhum registro para esta data.</p>';return;}
   const tot=dl.reduce((s,l)=>s+minsBetween(l.start,l.end),0);
   c.innerHTML=`<div style="background:var(--card2);border-radius:11px;padding:11px 15px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;">
     <span style="font-size:11px;color:var(--muted);font-weight:600;">Total do dia</span>
     <span style="font-size:15px;font-weight:800;color:var(--green);">${fmtDur(tot)}</span>
   </div>`+dl.map(l=>{
     const d=minsBetween(l.start,l.end);
+    const short=l.type==='nap'&&d<30;
     return `<div class="log-item">
       <div class="log-icon ${l.type==='night'?'li-night':'li-nap'}">${l.type==='night'?'🌙':'☀️'}</div>
       <div style="flex:1;">
-        <p style="font-size:13px;font-weight:700;">${l.type==='night'?'Sono noturno':'Soneca'}</p>
+        <p style="font-size:13px;font-weight:700;">${l.type==='night'?'Sono noturno':'Soneca'}${short?' <span style=\"color:#fb923c;font-size:10px;font-weight:800;\">⚠ curta</span>':''}</p>
         <p style="font-size:11px;color:var(--muted);margin-top:2px;">${l.start} – ${l.end}</p>
       </div>
       <span style="font-size:13px;font-weight:800;color:var(--gold);">${fmtDur(d)}</span>
@@ -894,160 +1331,108 @@ function renderLogTab(){
     </div>`;
   }).join('');
 }
+function delLog(id){S.logs=S.logs.filter(l=>l.id!==id);persist();renderLogTab();updateHome();renderChart();updateStreak();}
 
-function delLog(id){
-  S.logs=S.logs.filter(l=>l.id!==id);
-  persist();
-  renderLogTab();
-  updateHome();
-  renderChart();
-  updateStreak();
-}
-
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  MODAL
-// ──────────────────────────────────────────────────────────
-
-function openModal(){
-  document.getElementById('m-date').value=today();
-  document.getElementById('modal').classList.add('open');
-}
-function closeModal(){document.getElementById('modal').classList.remove('open');}
-
+// ══════════════════════════════════════════════════════════════════════
+function openModal(){document.getElementById('m-date').value=today();document.getElementById('modal').classList.add('open');}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('short-nap-alert').style.display='none';}
 function selType(t){
   S.selectedType=t;
   document.getElementById('tb-night').className='type-btn'+(t==='night'?' tn':'');
   document.getElementById('tb-nap').className='type-btn'+(t==='nap'?' ts':'');
+  calcDur();
 }
-
 function calcDur(){
-  const s=document.getElementById('m-start').value;
-  const e=document.getElementById('m-end').value;
-  if(s&&e) document.getElementById('m-dur').textContent=fmtDur(minsBetween(s,e));
+  const s=document.getElementById('m-start').value, e=document.getElementById('m-end').value;
+  if(s&&e){
+    const d=minsBetween(s,e);
+    document.getElementById('m-dur').textContent=fmtDur(d);
+    document.getElementById('short-nap-alert').style.display=(S.selectedType==='nap'&&d>0&&d<30)?'block':'none';
+  }
 }
-
 function saveLog(){
-  const date=document.getElementById('m-date').value;
-  const start=document.getElementById('m-start').value;
-  const end=document.getElementById('m-end').value;
+  const date=document.getElementById('m-date').value, start=document.getElementById('m-start').value, end=document.getElementById('m-end').value;
   if(!date||!start||!end){alert('Preencha todos os campos.');return;}
   const d=minsBetween(start,end);
-  if(d<=0||d>1440){alert('Horários inválidos — verifique o início e fim.');return;}
-
-  S.logs.push({id:Date.now().toString(), type:S.selectedType, date, start, end});
-  // Update lastWakeup to end of this sleep
+  if(d<=0||d>1440){alert('Horários inválidos.');return;}
+  S.logs.push({id:Date.now().toString(),type:S.selectedType,date,start,end});
   S.lastWakeup=date+'T'+end+':00';
-  persist();
-
-  closeModal();
-  updateHome();
-  renderLogTab();
-  renderChart();
-  updateCD();
-  updateLWChip();
-  updateStreak();
+  persist(); closeModal();
+  updateHome(); renderLogTab(); renderChart(); updateCD(); updateLWChip(); updateStreak();
 }
 
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  CHART
-// ──────────────────────────────────────────────────────────
-
-function last7(){
-  const d=[];
-  for(let i=6;i>=0;i--){
-    const dt=new Date();
-    dt.setDate(dt.getDate()-i);
-    d.push(dt.toISOString().slice(0,10));
-  }
-  return d;
-}
-
+// ══════════════════════════════════════════════════════════════════════
+function last7(){const d=[];for(let i=6;i>=0;i--){const dt=new Date();dt.setDate(dt.getDate()-i);d.push(dt.toISOString().slice(0,10));}return d;}
 function renderChart(){
   const days=last7();
-  const data=days.map(d=>{
-    const mins=S.logs.filter(l=>l.date===d).reduce((s,l)=>s+minsBetween(l.start,l.end),0);
-    return +(mins/60).toFixed(1);
-  });
+  const data=days.map(d=>{const m=S.logs.filter(l=>l.date===d).reduce((s,l)=>s+minsBetween(l.start,l.end),0);return +(m/60).toFixed(1);});
   const labels=days.map(d=>new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short'}).replace('.',''));
-
   const ctx=document.getElementById('sleep-chart').getContext('2d');
   if(S.chart) S.chart.destroy();
-
-  S.chart=new Chart(ctx,{
-    type:'bar',
-    data:{
-      labels,
-      datasets:[{
-        data,
-        backgroundColor:data.map(v=>v>=12?'rgba(16,185,129,0.65)':v>=6?'rgba(245,158,11,0.65)':'rgba(239,68,68,0.45)'),
-        borderColor:data.map(v=>v>=12?'#10b981':v>=6?'#f59e0b':'#ef4444'),
-        borderWidth:1.5,
-        borderRadius:8,
-      }]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false}},
-      scales:{
-        y:{beginAtZero:true,max:18,
-          ticks:{color:'#8b949e',font:{family:'Montserrat',size:10},callback:v=>v+'h'},
-          grid:{color:'rgba(255,255,255,0.04)'}},
-        x:{ticks:{color:'#8b949e',font:{family:'Montserrat',size:10}},grid:{display:false}}
-      }
-    }
-  });
-
+  S.chart=new Chart(ctx,{type:'bar',data:{labels,datasets:[{
+    data,
+    backgroundColor:data.map(v=>v>=12?'rgba(16,185,129,0.65)':v>=6?'rgba(245,158,11,0.65)':'rgba(239,68,68,0.45)'),
+    borderColor:data.map(v=>v>=12?'#10b981':v>=6?'#f59e0b':'#ef4444'),
+    borderWidth:1.5,borderRadius:8,
+  }]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+    scales:{y:{beginAtZero:true,max:18,ticks:{color:'#8b949e',font:{family:'Montserrat',size:10},callback:v=>v+'h'},grid:{color:'rgba(255,255,255,0.04)'}},
+    x:{ticks:{color:'#8b949e',font:{family:'Montserrat',size:10}},grid:{display:false}}}}});
   const valid=data.filter(v=>v>0);
   const tot=data.reduce((a,b)=>a+b,0);
   const avg=valid.length?tot/valid.length:0;
   const best=valid.length?Math.max(...valid):0;
-
   document.getElementById('p-avg').textContent=avg>0?avg.toFixed(1)+'h':'—';
   document.getElementById('p-best').textContent=best>0?best+'h':'—';
   document.getElementById('p-total').textContent=tot>0?tot.toFixed(1)+'h':'—';
-
-  // Tip
-  if(valid.length>=3){
-    document.getElementById('tip-text').textContent=TIPS[Math.floor(Math.random()*TIPS.length)];
-  }
+  if(valid.length>=3) document.getElementById('tip-text').textContent=TIPS[Math.floor(Math.random()*TIPS.length)];
+}
+function renderScoreChart(){
+  const days=last7();
+  const data=days.map(d=>S.scores[d]||null);
+  const labels=days.map(d=>new Date(d+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short'}).replace('.',''));
+  const ctx=document.getElementById('score-chart').getContext('2d');
+  if(S.scoreChart) S.scoreChart.destroy();
+  S.scoreChart=new Chart(ctx,{type:'line',data:{labels,datasets:[{
+    data, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,0.15)',
+    tension:0.35, fill:true, pointRadius:5, pointBackgroundColor:'#fbbf24', pointBorderColor:'#000', pointBorderWidth:2,
+    spanGaps:true,
+  }]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+    scales:{y:{min:0,max:5,ticks:{color:'#8b949e',font:{family:'Montserrat',size:10},stepSize:1},grid:{color:'rgba(255,255,255,0.04)'}},
+    x:{ticks:{color:'#8b949e',font:{family:'Montserrat',size:10}},grid:{display:false}}}}});
 }
 
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  STREAK
-// ──────────────────────────────────────────────────────────
-
+// ══════════════════════════════════════════════════════════════════════
 function updateStreak(){
-  let streak=0;
-  const now=new Date();
-  for(let i=0;i<60;i++){
-    const dt=new Date(now);dt.setDate(dt.getDate()-i);
+  let streak=0;const now=new Date();
+  for(let i=0;i<60;i++){const dt=new Date(now);dt.setDate(dt.getDate()-i);
     const ds=dt.toISOString().slice(0,10);
     const tot=S.logs.filter(l=>l.date===ds).reduce((s,l)=>s+minsBetween(l.start,l.end),0);
-    if(tot>0){streak++;}else if(i>0){break;}
-  }
+    if(tot>0)streak++;else if(i>0)break;}
   document.getElementById('streak-el').textContent=`🔥 ${streak} ${streak===1?'dia':'dias'}`;
 }
 
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  PROTOCOL
-// ──────────────────────────────────────────────────────────
-
-function selProto(phase, el){
-  document.querySelectorAll('.phase-tab').forEach(t=>t.classList.remove('active'));
+// ══════════════════════════════════════════════════════════════════════
+function selProto(phase,el){
+  el.parentNode.querySelectorAll('.pill-tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   renderProto(phase);
 }
-
 function renderProto(phase){
   S.currentProtoPhase=phase;
   const items=PROTO[phase]||[];
   const cl=S.checklist[phase]||{};
   const done=items.filter(i=>cl[i.id]).length;
   const pct=items.length?Math.round((done/items.length)*100):0;
-
   document.getElementById('proto-pct').textContent=pct+'%';
   document.getElementById('proto-bar').style.width=pct+'%';
-
   document.getElementById('checklist-cont').innerHTML=items.map(item=>{
     const checked=!!cl[item.id];
     return `<div class="check-item${checked?' done':''}" onclick="toggleCheck('${phase}','${item.id}')">
@@ -1056,39 +1441,146 @@ function renderProto(phase){
     </div>`;
   }).join('');
 }
+function toggleCheck(phase,id){if(!S.checklist[phase])S.checklist[phase]={};S.checklist[phase][id]=!S.checklist[phase][id];persist();renderProto(phase);}
+function resetProto(){if(!confirm('Reiniciar checklist desta fase?'))return;S.checklist[S.currentProtoPhase]={};persist();renderProto(S.currentProtoPhase);}
 
-function toggleCheck(phase, id){
-  if(!S.checklist[phase]) S.checklist[phase]={};
-  S.checklist[phase][id]=!S.checklist[phase][id];
-  persist();
-  renderProto(phase);
+// ══════════════════════════════════════════════════════════════════════
+//  GUIDE TAB — sub-sections
+// ══════════════════════════════════════════════════════════════════════
+function selGuide(sec,el){
+  if(el){document.querySelectorAll('#tab-guide > .pill-tabs .pill-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
+  else{document.querySelectorAll('#tab-guide > .pill-tabs .pill-tab').forEach(t=>t.classList.toggle('active',t.dataset.sec===sec));}
+  S.guideSec=sec;
+  document.querySelectorAll('.guide-sec').forEach(s=>s.style.display='none');
+  const g=document.getElementById('g-'+sec);
+  if(g) g.style.display='block';
 }
 
-function resetProto(){
-  if(!confirm('Reiniciar checklist desta fase?')) return;
-  S.checklist[S.currentProtoPhase]={};
-  persist();
-  renderProto(S.currentProtoPhase);
+// ══════════════════════════════════════════════════════════════════════
+//  ENV CHECKLIST
+// ══════════════════════════════════════════════════════════════════════
+function buildEnvCheck(){
+  if(S.envCheckDate!==today()){S.envCheck={};S.envCheckDate=today();persist();}
+  document.getElementById('env-checklist').innerHTML=ENV_CHECK.map(e=>{
+    const ck=!!S.envCheck[e.id];
+    return `<div class="check-item${ck?' done':''}" onclick="toggleEnv('${e.id}')">
+      <div class="check-box">${ck?'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>':''}</div>
+      <p class="check-text">${e.text}</p>
+    </div>`;
+  }).join('');
+}
+function toggleEnv(id){S.envCheck[id]=!S.envCheck[id];persist();buildEnvCheck();}
+function resetEnv(){S.envCheck={};persist();buildEnvCheck();}
+
+// ══════════════════════════════════════════════════════════════════════
+//  SOS
+// ══════════════════════════════════════════════════════════════════════
+function buildSOS(){
+  document.getElementById('sos-list').innerHTML=SOS.map((s,i)=>`
+    <div class="sos-item" id="sos-${i}" onclick="toggleSOS(${i})">
+      <div class="sos-q">
+        <span class="sos-q-text">${s.q}</span>
+        <span class="sos-arrow">⌄</span>
+      </div>
+      <div class="sos-a">
+        <span class="sos-cause">CAUSA · ${s.cause}</span>
+        <p>${s.a}</p>
+      </div>
+    </div>`).join('');
+}
+function toggleSOS(i){document.getElementById('sos-'+i).classList.toggle('open');}
+
+// ══════════════════════════════════════════════════════════════════════
+//  14-DAY CRISIS
+// ══════════════════════════════════════════════════════════════════════
+function buildC14(){
+  const done=Object.values(S.c14).filter(v=>v).length;
+  const pct=Math.round((done/14)*100);
+  document.getElementById('c14-pct').textContent=pct+'%';
+  document.getElementById('c14-bar').style.width=pct+'%';
+  document.getElementById('c14-list').innerHTML=C14.map(d=>`
+    <div class="c14-day${S.c14[d.d]?' done':''}" onclick="toggleC14(${d.d})">
+      <div class="c14-num">${S.c14[d.d]?'✓':'D'+d.d}</div>
+      <div class="c14-body">
+        <div class="c14-title">Dia ${d.d} · ${d.t}</div>
+        <div class="c14-desc">${d.desc}</div>
+      </div>
+    </div>`).join('');
+}
+function toggleC14(d){S.c14[d]=!S.c14[d];if(!S.c14Start)S.c14Start=today();persist();buildC14();}
+function resetC14(){if(!confirm('Reiniciar plano de 14 dias?'))return;S.c14={};S.c14Start=null;persist();buildC14();}
+
+// ══════════════════════════════════════════════════════════════════════
+//  MEDICAL
+// ══════════════════════════════════════════════════════════════════════
+function selMed(sec,el){
+  el.parentNode.querySelectorAll('.pill-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderMed(sec);
+}
+function renderMed(sec){
+  S.medSec=sec;
+  const blocks=MED[sec]||[];
+  document.getElementById('med-content').innerHTML=blocks.map(b=>`
+    <div class="card">
+      <p class="section-title" style="font-size:13px;margin-bottom:10px;">${b.icon} ${b.t}</p>
+      ${b.items.map(it=>`<div class="info-row"><p class="info-row-text">${it}</p></div>`).join('')}
+    </div>`).join('');
 }
 
-// ──────────────────────────────────────────────────────────
-//  TAB NAVIGATION
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
+//  RITUAL TIMER
+// ══════════════════════════════════════════════════════════════════════
+function startRitualTimer(){
+  if(S.ritualTimer) clearInterval(S.ritualTimer);
+  S.ritualSecs=15*60;
+  document.getElementById('ritual-timer-display').style.display='block';
+  updateRitualUI();
+  S.ritualTimer=setInterval(()=>{
+    S.ritualSecs--;
+    if(S.ritualSecs<=0){clearInterval(S.ritualTimer);S.ritualTimer=null;
+      document.getElementById('rt-phase').textContent='✅ Ritual completo!';
+      document.getElementById('rt-time').textContent='00:00';
+      if(navigator.vibrate) navigator.vibrate([200,100,200]);
+      return;}
+    updateRitualUI();
+  },1000);
+}
+function updateRitualUI(){
+  const elapsed=15*60-S.ritualSecs;
+  let phase='';
+  if(elapsed<300) phase='1️⃣ Desaceleração';
+  else if(elapsed<600) phase='2️⃣ Conexão';
+  else phase='3️⃣ Transição';
+  document.getElementById('rt-phase').textContent=phase;
+  const m=Math.floor(S.ritualSecs/60), s=S.ritualSecs%60;
+  document.getElementById('rt-time').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+function stopRitualTimer(){if(S.ritualTimer)clearInterval(S.ritualTimer);S.ritualTimer=null;document.getElementById('ritual-timer-display').style.display='none';}
 
-function goTab(tab, el){
+// ══════════════════════════════════════════════════════════════════════
+//  NAVIGATION
+// ══════════════════════════════════════════════════════════════════════
+function goTab(tab,el,sub){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('tab-'+tab).classList.add('active');
-  el.classList.add('active');
-  if(tab==='progress') renderChart();
+  if(el) el.classList.add('active');
+  else {
+    // find nav by tab name
+    const map={home:0,calc:1,log:2,progress:3,guide:4,mais:5};
+    const i=map[tab]; if(i!=null) document.querySelectorAll('.nav-item')[i].classList.add('active');
+  }
+  if(tab==='progress'){renderChart();renderScoreChart();}
   if(tab==='log') renderLogTab();
-  if(tab==='home'){updateHome();updateCD();}
+  if(tab==='home'){updateHome();updateCD();renderScoreRow();}
+  if(tab==='guide'){buildEnvCheck();if(sub) selGuide(sub);}
+  window.scrollTo(0,0);
 }
 
-// ──────────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════
 //  BOOT
-// ──────────────────────────────────────────────────────────
-
+// ══════════════════════════════════════════════════════════════════════
 hydrate();
 if(S.baby) bootApp();
 </script>
