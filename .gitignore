@@ -64,8 +64,8 @@ videos/
 # Pastas que não pertencem ao funil web
 Criativos/
 Marketing JV/
-assets/
-app.html
+/assets/
+/app.html
 Pixel.txt
 Dashboard_CJO.xlsx
 update_dashboard.py
