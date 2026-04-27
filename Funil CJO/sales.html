@@ -101,10 +101,6 @@
         body {
             font-family: var(--font);
             background-color: var(--bg);
-            background-image:
-                radial-gradient(circle at 15% 30%, rgba(255,230,200,0.5), transparent 35%),
-                radial-gradient(circle at 85% 70%, rgba(250,220,190,0.4), transparent 35%);
-            background-attachment: fixed;
             color: var(--text);
             -webkit-font-smoothing: antialiased;
         }
@@ -115,27 +111,41 @@
 
         /* ── SECTIONS ── */
         .s-cream   { background: var(--bg); }
-        .s-white   { background: #fff; }
+        .s-white   { background: #faf7f2; }
         .s-navy    { background: var(--navy); background-image: radial-gradient(circle at 80% 10%, rgba(245,158,11,0.07), transparent 45%); }
         .s-gold    { background: #fffbeb; border-top: 1px solid #fde68a; border-bottom: 1px solid #fde68a; }
 
         /* ── TYPOGRAPHY ── */
         .label {
-            font-size: 10px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.14em; color: var(--muted);
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--muted);
         }
         .label-gold { color: var(--gold-d); }
         .label-green { color: var(--green); }
 
-        h1 { font-size: 26px; line-height: 1.2; font-weight: 900; }
-        @media (min-width:480px) { h1 { font-size: 32px; } }
+        h1 { font-size: 30px; line-height: 1.15; font-weight: 900; }
+        @media (min-width:480px) { h1 { font-size: 36px; } }
 
         h2.sec-title {
-            font-size: 22px; font-weight: 900; line-height: 1.25;
+            font-size: 23px; font-weight: 900; line-height: 1.25;
             color: var(--text);
         }
-        @media (min-width:480px) { h2.sec-title { font-size: 27px; } }
+        @media (min-width:480px) { h2.sec-title { font-size: 28px; } }
         h2.sec-title-light { color: #fff; }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
 
         .gold-bar {
             display: block; width: 36px; height: 3px; border-radius: 3px;
@@ -244,10 +254,6 @@
         }
         @media (min-width:769px) { .cta-fixo { display: none; } }
 
-        /* ── ANIMATIONS ── */
-        .fade-up { animation: fadeUp .6s ease-out forwards; }
-        @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-
         /* ── FAQ ── */
         .faq-btn {
             width:100%; background:none; border:none; cursor:pointer;
@@ -349,15 +355,15 @@
     <div class="wrap-sm">
         <p class="label" style="margin-bottom:14px;">O que muda na sua vida</p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
-            <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div class="reveal" style="display:flex;align-items:flex-start;gap:12px;">
                 <svg class="ico-check" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-top:1px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                 <span style="font-size:15px;font-weight:600;color:#374151;line-height:1.6;">Bebê adormecendo no berço sozinho em até 5 dias — sem peito, sem colo, sem choro</span>
             </div>
-            <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div class="reveal reveal-delay-1" style="display:flex;align-items:flex-start;gap:12px;">
                 <svg class="ico-check" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-top:1px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                 <span style="font-size:15px;font-weight:600;color:#374151;line-height:1.6;">Saber exatamente o que fazer às 2h da manhã — sem entrar em pânico, sem ficar no escuro</span>
             </div>
-            <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div class="reveal reveal-delay-2" style="display:flex;align-items:flex-start;gap:12px;">
                 <svg class="ico-check" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-top:1px;flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                 <span style="font-size:15px;font-weight:600;color:#374151;line-height:1.6;">Para quem já tentou rotina, ruído branco e banho morno — e nada funcionou</span>
             </div>
@@ -474,21 +480,21 @@
         <span class="gold-bar gold-bar-center" style="margin-bottom:32px;"></span>
 
         <div style="display:flex;flex-direction:column;gap:16px;margin-top:24px;">
-            <div class="card" style="display:flex;align-items:flex-start;gap:16px;">
+            <div class="card reveal" style="display:flex;align-items:flex-start;gap:16px;">
                 <div class="step-circle">1</div>
                 <div>
                     <h3 style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">Entenda o relógio biológico do seu bebê</h3>
                     <p style="font-size:13px;font-weight:500;color:var(--muted);line-height:1.7;">Todo bebê possui um <strong style="color:var(--text);">ritmo circadiano próprio</strong> que regula os ciclos de Cortisol e Melatonina. A <strong style="color:var(--text);">Janela de Ouro</strong> é o intervalo preciso em que o Cortisol cai e o bebê entra em pré-sono natural.</p>
                 </div>
             </div>
-            <div class="card" style="display:flex;align-items:flex-start;gap:16px;">
+            <div class="card reveal reveal-delay-1" style="display:flex;align-items:flex-start;gap:16px;">
                 <div class="step-circle">2</div>
                 <div>
                     <h3 style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">Identifique a janela — e o que acontece quando ela passa</h3>
                     <p style="font-size:13px;font-weight:500;color:var(--muted);line-height:1.7;">Dentro da janela, o bebê adormece sem resistência. Quando ela passa — por 10 a 15 minutos — o Cortisol sobe de novo e o bebê "relança". É o famoso "passou do ponto".</p>
                 </div>
             </div>
-            <div class="card" style="display:flex;align-items:flex-start;gap:16px;">
+            <div class="card reveal reveal-delay-2" style="display:flex;align-items:flex-start;gap:16px;">
                 <div class="step-circle">3</div>
                 <div>
                     <h3 style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;">Reorganize a rotina em torno do momento biológico</h3>
@@ -657,7 +663,7 @@
         <h2 class="sec-title" style="text-align:center;margin-bottom:32px;">Mães que já aplicaram o método:</h2>
 
         <!-- WhatsApp screenshots -->
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px;">
+        <div class="reveal" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px;">
             <img src="assets/dep_ana_paula_nova.png" alt="Depoimento Ana Paula" style="width:100%;border-radius:16px;box-shadow:0 8px 24px -4px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,.06);">
             <img src="assets/dep_fernanda_nova.png" alt="Depoimento Fernanda" style="width:100%;border-radius:16px;box-shadow:0 8px 24px -4px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,.06);">
             <img src="assets/dep_mariana.png" alt="Depoimento Mariana" style="width:100%;border-radius:16px;box-shadow:0 8px 24px -4px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,.06);">
@@ -768,7 +774,7 @@
 ════════════════════════════════════════════ -->
 <section class="s-white" style="padding:48px 0 64px;border-top:1px solid rgba(0,0,0,.05);" id="oferta">
     <div class="wrap-sm">
-        <div class="card" style="border-color:rgba(16,185,129,.2);">
+        <div class="card reveal" style="border-color:rgba(16,185,129,.2);">
 
             <!-- Stack de valor -->
             <div style="border:1px solid rgba(0,0,0,.06);border-radius:14px;overflow:hidden;margin-bottom:20px;">
@@ -1105,6 +1111,23 @@ function faqToggle(btn) {
         }
     }
     window.addEventListener('scroll', checkScroll, { passive: true });
+})();
+</script>
+
+<!-- Scroll Reveal -->
+<script>
+(function() {
+    var targets = document.querySelectorAll('.reveal');
+    if (!targets.length) return;
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    targets.forEach(function(el) { io.observe(el); });
 })();
 </script>
 
