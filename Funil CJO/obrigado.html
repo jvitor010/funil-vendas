@@ -15,9 +15,7 @@
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', {content_name: 'Upsell Plano Turbo'});
 
-    function getQueryString() {
-        return window.location.search;
-    }
+    function getQueryString() { return window.location.search; }
 
     function trackUpsell(destination) {
         fbq('track', 'InitiateCheckout', {
@@ -43,7 +41,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compra Confirmada | Código das Janelas de Ouro</title>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -51,11 +48,25 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        :root {
+            --bg:      #fdfaf6;
+            --navy:    #0f172a;
+            --gold:    #f59e0b;
+            --gold-d:  #d97706;
+            --gold-l:  #fbbf24;
+            --green:   #10b981;
+            --red:     #dc2626;
+            --text:    #1a1a1a;
+            --muted:   #6b7280;
+            --font:    'Montserrat', sans-serif;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: #f5f3ef;
-            color: #1a1a1a;
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* ── TIMER BAR ── */
@@ -72,18 +83,18 @@
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.02em;
-            line-height: 1.4;
+            line-height: 1.5;
         }
         @keyframes shimmer-bar {
             0%   { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
-        #timer-bar .label { color: #fca5a5; }
+        #timer-bar .tl { color: #fca5a5; }
         #countdown {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 900;
             color: #fef08a;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.06em;
         }
 
         /* ── HERO CONFIRMAÇÃO ── */
@@ -91,278 +102,380 @@
             background: linear-gradient(160deg, #064e3b 0%, #065f46 60%, #047857 100%);
             color: white;
             text-align: center;
-            padding: 36px 20px 40px;
+            padding: 36px 20px 48px;
         }
         .check-circle {
-            width: 68px;
-            height: 68px;
-            background: #10b981;
+            width: 72px;
+            height: 72px;
+            background: var(--green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
-            box-shadow: 0 0 0 12px rgba(16,185,129,0.2), 0 0 0 24px rgba(16,185,129,0.08);
+            margin: 0 auto 20px;
+            box-shadow: 0 0 0 12px rgba(16,185,129,0.18), 0 0 0 26px rgba(16,185,129,0.07);
             animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
         }
         @keyframes pop-in {
-            0%   { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+            from { transform: scale(0); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
         }
-        .check-circle svg { width: 34px; height: 34px; color: white; }
+        .check-circle svg { width: 36px; height: 36px; color: white; }
+
         .hero-confirm h1 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
             line-height: 1.25;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-        .hero-confirm h1 .gold { color: #fbbf24; }
-        .hero-confirm p {
+        .hero-confirm h1 .gold { color: var(--gold-l); }
+        .hero-confirm .sub {
             font-size: 14px;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.78);
             font-weight: 500;
-            line-height: 1.6;
+            line-height: 1.65;
             max-width: 380px;
             margin: 0 auto;
         }
 
-        /* ── WRAPPER PRINCIPAL ── */
-        .main-wrap {
-            max-width: 620px;
+        /* ── WRAP ── */
+        .wrap {
+            max-width: 600px;
             margin: 0 auto;
             padding: 0 16px 80px;
         }
 
-        /* ── BRIDGE HOOK ── */
+        /* ── BRIDGE ── */
         .bridge {
             background: white;
-            border-radius: 16px;
-            padding: 24px 20px;
-            margin-top: -20px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border-radius: 18px;
+            padding: 26px 22px;
+            margin-top: -22px;
+            box-shadow: 0 6px 28px rgba(0,0,0,0.09);
             text-align: center;
         }
-        .bridge .hook-label {
+        .bridge-tag {
             display: inline-block;
             background: #fef3c7;
             color: #92400e;
             font-size: 10px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 4px 14px;
+            letter-spacing: 0.12em;
+            padding: 5px 16px;
             border-radius: 50px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
         .bridge h2 {
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 900;
             line-height: 1.3;
-            color: #1a1a1a;
-            margin-bottom: 10px;
+            color: var(--text);
+            margin-bottom: 12px;
         }
-        .bridge h2 em { font-style: normal; color: #dc2626; }
+        .bridge h2 em { font-style: normal; color: var(--red); }
         .bridge p {
-            font-size: 13px;
+            font-size: 14px;
             color: #4b5563;
-            line-height: 1.65;
-            font-weight: 500;
-        }
-
-        /* ── STATS ROW ── */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .stat-card {
-            background: white;
-            border-radius: 12px;
-            padding: 16px 10px;
-            text-align: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-        }
-        .stat-card .num {
-            font-size: 22px;
-            font-weight: 900;
-            color: #dc2626;
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-        .stat-card .desc {
-            font-size: 10px;
-            font-weight: 700;
-            color: #6b7280;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            line-height: 1.4;
-        }
-
-        /* ── FEAR BOX ── */
-        .fear-box {
-            background: #1a1a1a;
-            border-radius: 14px;
-            padding: 20px 18px;
-            margin: 20px 0;
-            border-left: 4px solid #dc2626;
-        }
-        .fear-box p {
-            font-size: 13px;
-            color: #e5e7eb;
             line-height: 1.7;
             font-weight: 500;
         }
-        .fear-box strong { color: #fca5a5; }
 
-        /* ── UPSELL CARD ── */
-        .upsell-card {
+        /* ── JORNADA DAS 7 NOITES ── */
+        .journey {
+            margin: 22px 0;
+            padding: 22px 20px;
+            background: var(--navy);
+            border-radius: 16px;
+        }
+        .journey-label {
+            font-size: 10px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .journey-track {
+            display: flex;
+            align-items: flex-end;
+            gap: 0;
+            position: relative;
+        }
+        .journey-night {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+        }
+        .night-bar {
+            width: 100%;
+            border-radius: 4px 4px 0 0;
+            transition: height 0.3s ease;
+        }
+        .night-num {
+            font-size: 9px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.04em;
+        }
+        .night-key {
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            font-weight: 900;
+            white-space: nowrap;
+            padding: 3px 8px;
+            border-radius: 50px;
+        }
+        .journey-insight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .insight-item {
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 12px 14px;
+        }
+        .insight-item .ins-num {
+            font-size: 22px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .insight-item .ins-text {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        /* ── FEAR SECTION ── */
+        .fear-section {
+            background: #1c1917;
+            border-radius: 14px;
+            padding: 22px 20px;
+            margin: 16px 0;
+        }
+        .fear-section .fear-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .fear-section .fear-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(220,38,38,0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+        .fear-section .fear-title {
+            font-size: 13px;
+            font-weight: 900;
+            color: #fca5a5;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .fear-section p {
+            font-size: 14px;
+            color: #d1d5db;
+            line-height: 1.75;
+            font-weight: 500;
+        }
+        .fear-section strong { color: white; }
+        .fear-section .highlight {
+            background: rgba(220,38,38,0.1);
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin-top: 14px;
+            font-size: 13px;
+            color: #fca5a5;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        /* ── PRODUCT SECTION ── */
+        .product-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 6px 32px rgba(0,0,0,0.1);
-            margin: 20px 0;
+            box-shadow: 0 8px 36px rgba(0,0,0,0.1);
+            margin: 20px 0 0;
         }
-        .upsell-card-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            padding: 24px 20px 20px;
+        .product-header {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            padding: 28px 22px 22px;
             text-align: center;
         }
-        .upsell-card-header .badge {
+        .product-badge {
             display: inline-block;
-            background: #d97706;
-            color: white;
-            font-size: 9px;
+            background: rgba(245,158,11,0.18);
+            color: var(--gold-l);
+            font-size: 10px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            padding: 4px 14px;
+            padding: 5px 16px;
             border-radius: 50px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
-        .upsell-card-header h3 {
-            font-size: 21px;
+        .product-header h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+        .product-header h2 {
+            font-size: 26px;
             font-weight: 900;
             color: white;
-            line-height: 1.25;
+            line-height: 1.2;
             margin-bottom: 8px;
         }
-        .upsell-card-header h3 span { color: #fbbf24; }
-        .upsell-card-header p {
+        .product-header h2 span { color: var(--gold-l); }
+        .product-header .tagline {
             font-size: 13px;
-            color: #94a3b8;
-            line-height: 1.55;
+            color: rgba(255,255,255,0.6);
             font-weight: 500;
+            line-height: 1.55;
+            max-width: 340px;
+            margin: 0 auto 20px;
         }
-        .upsell-card-header .nights-strip {
+
+        /* Nights strip */
+        .nights-strip {
             display: flex;
             justify-content: center;
-            gap: 6px;
-            margin-top: 16px;
+            gap: 5px;
             flex-wrap: wrap;
         }
         .night-pill {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.07);
             border-radius: 50px;
-            padding: 4px 10px;
+            padding: 5px 11px;
             font-size: 10px;
             font-weight: 700;
-            color: #cbd5e1;
+            color: rgba(255,255,255,0.5);
             letter-spacing: 0.04em;
         }
-        .night-pill.highlight {
-            background: rgba(251,191,36,0.15);
-            border-color: #fbbf24;
-            color: #fbbf24;
+        .night-pill.active {
+            background: rgba(245,158,11,0.2);
+            color: var(--gold-l);
+            font-weight: 900;
         }
 
-        .upsell-card-body { padding: 22px 20px 0; }
+        .product-body { padding: 24px 22px 0; }
 
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-        .benefit-icon {
-            font-size: 20px;
-            line-height: 1;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-        .benefit-text {
-            font-size: 13px;
-            color: #1f2937;
-            font-weight: 600;
-            line-height: 1.5;
-        }
-        .benefit-text span {
-            display: block;
-            font-size: 12px;
-            font-weight: 500;
-            color: #6b7280;
-            margin-top: 2px;
-        }
-
-        /* ── NIGHT 3 ALERT ── */
-        .night3-alert {
+        /* Promise box */
+        .promise-box {
             background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
-            border: 1.5px solid #fde68a;
             border-radius: 12px;
-            padding: 14px 16px;
-            margin: 4px 0 16px;
+            padding: 16px 18px;
+            margin-bottom: 22px;
             display: flex;
-            gap: 10px;
+            gap: 12px;
             align-items: flex-start;
         }
-        .night3-alert .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-        .night3-alert p {
-            font-size: 12px;
+        .promise-box .promise-icon { font-size: 22px; flex-shrink: 0; }
+        .promise-box p {
+            font-size: 13px;
             color: #451a03;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.55;
         }
-        .night3-alert p strong { color: #92400e; }
 
-        /* ── TESTIMONIAL ── */
-        .testimonial {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-radius: 14px;
-            padding: 18px 16px;
-            margin: 20px 0;
-            border: 1.5px solid #bae6fd;
-            position: relative;
+        /* Benefits */
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
         }
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: -8px;
-            left: 16px;
-            font-size: 60px;
-            color: #38bdf8;
-            font-family: Georgia, serif;
-            line-height: 1;
+        .benefit + .benefit {
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
-        .testimonial p {
-            font-size: 13px;
-            color: #0c4a6e;
-            line-height: 1.65;
-            font-weight: 600;
-            font-style: italic;
-            padding-top: 10px;
-        }
-        .testimonial .author {
+        .benefit-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--navy);
+            color: var(--gold-l);
+            font-size: 12px;
+            font-weight: 900;
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 12px;
+            justify-content: center;
+            flex-shrink: 0;
         }
-        .testimonial .author-dot {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #0284c7, #0369a1);
+        .benefit-content {}
+        .benefit-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 3px;
+            line-height: 1.35;
+        }
+        .benefit-desc {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        /* ── TESTIMONIAL ── */
+        .testimonial-wrap {
+            padding: 22px 22px 0;
+        }
+        .testimonial {
+            background: #fdfaf6;
+            border-radius: 14px;
+            padding: 22px 20px 18px;
+            position: relative;
+        }
+        .quote-mark {
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--gold-l);
+            line-height: 0.7;
+            margin-bottom: 12px;
+            display: block;
+            font-family: Georgia, serif;
+            opacity: 0.6;
+        }
+        .testimonial p {
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.7;
+            font-weight: 600;
+            font-style: italic;
+        }
+        .testimonial .author-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(0,0,0,0.07);
+        }
+        .author-avatar {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-d));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -371,58 +484,80 @@
             color: white;
             flex-shrink: 0;
         }
-        .testimonial .author-info {
-            font-size: 11px;
-            font-weight: 700;
-            color: #075985;
+        .author-info {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text);
             line-height: 1.4;
         }
-        .testimonial .author-info span {
+        .author-info span {
             display: block;
             font-weight: 500;
-            color: #0369a1;
+            color: var(--muted);
+            font-size: 11px;
         }
 
         /* ── PRICE BLOCK ── */
         .price-block {
-            background: #0f172a;
-            border-radius: 16px;
-            padding: 24px 20px;
+            background: var(--navy);
+            padding: 28px 22px;
             text-align: center;
-            margin: 4px 0 0;
+            margin-top: 22px;
         }
-        .price-block .de {
+        .price-de {
             font-size: 13px;
-            color: #64748b;
+            color: #475569;
             font-weight: 600;
             text-decoration: line-through;
+            margin-bottom: 4px;
         }
-        .price-block .por {
-            font-size: 12px;
+        .price-por {
+            font-size: 11px;
             font-weight: 700;
-            color: #94a3b8;
+            color: #64748b;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin: 4px 0 2px;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
         }
-        .price-block .valor {
-            font-size: 52px;
+        .price-value {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 3px;
+            margin-bottom: 8px;
+        }
+        .price-currency {
+            font-size: 22px;
             font-weight: 900;
-            color: #10b981;
+            color: var(--green);
+        }
+        .price-main {
+            font-size: 60px;
+            font-weight: 900;
+            color: var(--green);
             line-height: 1;
         }
-        .price-block .valor sup { font-size: 22px; vertical-align: top; margin-top: 10px; display: inline-block; }
-        .price-block .valor sub { font-size: 18px; color: #6ee7b7; font-weight: 700; }
-        .price-block .once {
+        .price-cents {
+            font-size: 20px;
+            font-weight: 700;
+            color: #6ee7b7;
+        }
+        .price-note {
             font-size: 11px;
             color: #475569;
             font-weight: 600;
-            margin-top: 6px;
+        }
+        .price-breakdown {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--gold-l);
+            font-weight: 700;
         }
 
-        /* ── CTA BUTTON ── */
-        .cta-wrap { padding: 20px 20px 24px; }
-        .btn-sim {
+        /* ── CTA WRAP ── */
+        .cta-wrap { padding: 20px 22px 26px; }
+
+        .btn-yes {
             display: block;
             width: 100%;
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
@@ -432,48 +567,45 @@
             font-size: 15px;
             padding: 20px 16px;
             border-radius: 14px;
-            text-decoration: none;
             border: none;
             cursor: pointer;
             line-height: 1.4;
-            animation: pulse-glow 2s infinite;
             position: relative;
             overflow: hidden;
+            animation: pulse-green 2s infinite;
         }
-        .btn-sim::after {
+        .btn-yes::after {
             content: '';
             position: absolute;
             top: 0; left: -100%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
             animation: sweep 2.5s ease-in-out infinite;
         }
         @keyframes sweep {
             0%   { left: -100%; }
             100% { left: 200%; }
         }
-        @keyframes pulse-glow {
+        @keyframes pulse-green {
             0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
             70%  { box-shadow: 0 0 0 18px rgba(16,185,129,0); }
             100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
         }
-        .btn-sim .line1 { font-size: 16px; display: block; }
-        .btn-sim .line2 { font-size: 12px; display: block; opacity: 0.88; margin-top: 3px; font-weight: 600; }
+        .btn-yes-line1 { font-size: 16px; display: block; }
+        .btn-yes-line2 { font-size: 12px; display: block; opacity: 0.85; margin-top: 4px; font-weight: 600; }
 
-        .garantia-row {
+        .security-row {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
             font-size: 11px;
-            color: #6b7280;
+            color: var(--muted);
             font-weight: 600;
-            margin-top: 10px;
-            text-align: center;
+            margin-top: 12px;
         }
 
-        .btn-nao {
+        .btn-no {
             display: block;
             width: 100%;
             text-align: center;
@@ -481,209 +613,243 @@
             color: #9ca3af;
             font-weight: 600;
             padding: 16px 8px 0;
-            text-decoration: none;
             cursor: pointer;
             background: none;
             border: none;
-            line-height: 1.5;
+            line-height: 1.55;
         }
-        .btn-nao:hover { color: #6b7280; text-decoration: underline; }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 380px) {
-            .hero-confirm h1 { font-size: 21px; }
-            .stats-row { gap: 7px; }
-            .stat-card .num { font-size: 19px; }
-            .price-block .valor { font-size: 44px; }
-        }
+        .btn-no:hover { color: var(--muted); text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <!-- TIMER BAR -->
-    <div id="timer-bar">
-        <span class="label">⚡ Oferta exclusiva expira em: </span>
-        <span id="countdown">15:00</span>
-        <span class="label"> — só para quem acabou de comprar</span>
+<!-- TIMER BAR -->
+<div id="timer-bar">
+    <span class="tl">⚡ Oferta exclusiva expira em: </span>
+    <span id="countdown">15:00</span>
+    <span class="tl"> — só para quem acabou de comprar</span>
+</div>
+
+<!-- HERO CONFIRMAÇÃO -->
+<div class="hero-confirm">
+    <div class="check-circle">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+        </svg>
+    </div>
+    <h1>Compra confirmada!<br>Acesso ao <span class="gold">Código das Janelas de Ouro</span> liberado.</h1>
+    <p class="sub">Você receberá tudo no e-mail em instantes. Antes de fechar esta página, leia com atenção — isso pode ser a diferença entre ver resultado ou desistir na Noite 3.</p>
+</div>
+
+<div class="wrap">
+
+    <!-- BRIDGE HOOK -->
+    <div class="bridge">
+        <div class="bridge-tag">⚠️ Leia antes de fechar</div>
+        <h2>Você tem o método.<br>Mas <em>quem vai estar com você</em><br>noite a noite?</h2>
+        <p>Toda mãe começa animada. Mas na Noite 2, quando o bebê chora mais do que esperava, uma voz pergunta: <strong>"E se eu estiver errando?"</strong> Sem um roteiro que diga "isso é normal, continua" — a maioria desiste.</p>
     </div>
 
-    <!-- HERO CONFIRMAÇÃO -->
-    <div class="hero-confirm">
-        <div class="check-circle">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-            </svg>
+    <!-- JORNADA 7 NOITES -->
+    <div class="journey">
+        <div class="journey-label">A jornada real das 7 noites</div>
+        <div class="journey-track" style="height:80px;align-items:flex-end;gap:4px;padding:30px 0 0;">
+            <div class="journey-night">
+                <div class="night-bar" style="height:30px;background:rgba(16,185,129,0.3);"></div>
+                <div class="night-num">N1</div>
+            </div>
+            <div class="journey-night">
+                <div class="night-bar" style="height:40px;background:rgba(220,38,38,0.35);"></div>
+                <div class="night-num">N2</div>
+            </div>
+            <div class="journey-night" style="position:relative;">
+                <div class="night-key" style="background:#dc2626;color:white;">Crise</div>
+                <div class="night-bar" style="height:60px;background:#dc2626;"></div>
+                <div class="night-num" style="color:#fca5a5;font-weight:900;">N3</div>
+            </div>
+            <div class="journey-night">
+                <div class="night-bar" style="height:45px;background:rgba(220,38,38,0.25);"></div>
+                <div class="night-num">N4</div>
+            </div>
+            <div class="journey-night">
+                <div class="night-bar" style="height:30px;background:rgba(16,185,129,0.4);"></div>
+                <div class="night-num">N5</div>
+            </div>
+            <div class="journey-night">
+                <div class="night-bar" style="height:20px;background:rgba(16,185,129,0.6);"></div>
+                <div class="night-num">N6</div>
+            </div>
+            <div class="journey-night" style="position:relative;">
+                <div class="night-key" style="background:var(--green);color:white;">Conquista</div>
+                <div class="night-bar" style="height:10px;background:var(--green);"></div>
+                <div class="night-num" style="color:#6ee7b7;font-weight:900;">N7</div>
+            </div>
         </div>
-        <h1>Compra confirmada! 🎉<br>Acesso ao <span class="gold">Código das Janelas de Ouro</span><br>liberado agora.</h1>
-        <p>Você receberá tudo no seu e-mail em instantes. Mas antes de fechar esta página, leia com atenção — isso pode ser a diferença entre ver resultado ou desistir na Noite 3.</p>
+        <div class="journey-insight">
+            <div class="insight-item">
+                <div class="ins-num" style="color:#fca5a5;">Noite 3</div>
+                <div class="ins-text">É onde a maioria abandona — sem saber que é o pico da mudança</div>
+            </div>
+            <div class="insight-item">
+                <div class="ins-num" style="color:#6ee7b7;">78%</div>
+                <div class="ins-text">Veem melhora visível ao completar as 7 noites com roteiro</div>
+            </div>
+        </div>
     </div>
 
-    <div class="main-wrap">
+    <!-- FEAR SECTION -->
+    <div class="fear-section">
+        <div class="fear-header">
+            <div class="fear-icon">⚡</div>
+            <div class="fear-title">Extinção de explosão — por que a Noite 3 parece um fracasso</div>
+        </div>
+        <p>O bebê chora mais do que nunca na Noite 3. Parece que <strong>tudo piorou</strong>. Isso não é sinal de fracasso — é o sinal mais claro de que o método está funcionando. O sistema nervoso dele está resistindo a uma mudança real.</p>
+        <div class="highlight">Mas sem saber disso, toda mãe cede. E aí é que tudo desmorona de verdade.</div>
+    </div>
 
-        <!-- BRIDGE HOOK -->
-        <div class="bridge">
-            <div class="hook-label">⚠️ Leia antes de fechar</div>
-            <h2>Você tem o método na mão.<br>Mas <em>quem vai estar com você</em><br>noite a noite?</h2>
-            <p>Toda mãe começa animada. Mas na Noite 2, quando o bebê chora mais do que esperava, uma voz pergunta: <strong>"E se eu estiver errando? E se piorar tudo?"</strong> Sem um roteiro claro que diga "isso é normal, continua" — a maioria desiste.</p>
+    <!-- PRODUCT CARD -->
+    <div class="product-card">
+        <div class="product-header">
+            <div class="product-badge">🔒 Oferta exclusiva pós-compra</div>
+            <h3>Plano de Implementação</h3>
+            <h2>Turbo — <span>7 Noites</span></h2>
+            <p class="tagline">O roteiro noite a noite para aplicar o CJO e ver resultado em 7 dias — mesmo que você já tenha tentado de tudo.</p>
+            <div class="nights-strip">
+                <div class="night-pill">Noite 1</div>
+                <div class="night-pill">Noite 2</div>
+                <div class="night-pill active">⚡ Noite 3</div>
+                <div class="night-pill">Noite 4</div>
+                <div class="night-pill">Noite 5</div>
+                <div class="night-pill">Noite 6</div>
+                <div class="night-pill">Noite 7</div>
+            </div>
         </div>
 
-        <!-- STATS ROW -->
-        <div class="stats-row">
-            <div class="stat-card">
-                <div class="num">78%</div>
-                <div class="desc">Veem melhora ao seguir 5+ noites</div>
+        <div class="product-body">
+
+            <div class="promise-box">
+                <div class="promise-icon">💙</div>
+                <p>Este guia foi feito para você não desistir. Vou estar com você todas as 7 noites — com cada passo, cada dica, cada palavra de encorajamento que você vai precisar.</p>
             </div>
-            <div class="stat-card">
-                <div class="num">Noite 3</div>
-                <div class="desc">É onde a maioria abandona o processo</div>
+
+            <div class="benefit">
+                <div class="benefit-num">01</div>
+                <div class="benefit-content">
+                    <div class="benefit-title">Roteiro exato noite a noite (Noites 1 a 7)</div>
+                    <div class="benefit-desc">Horários, rituais e o que fazer em cada etapa — sem adivinhação, sem margem para dúvida</div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="num">7</div>
-                <div class="desc">Noites para transformar o sono</div>
+            <div class="benefit">
+                <div class="benefit-num">02</div>
+                <div class="benefit-content">
+                    <div class="benefit-title">Protocolo de choro para cada noite</div>
+                    <div class="benefit-desc">O que fazer quando ele chorar — a resposta certa, no tempo certo, sem entrar em pânico</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-num">03</div>
+                <div class="benefit-content">
+                    <div class="benefit-title">Diário das 7 Noites</div>
+                    <div class="benefit-desc">Registre a evolução noite a noite — ver os números melhorando te mantém firme quando tudo parece difícil</div>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-num">04</div>
+                <div class="benefit-content">
+                    <div class="benefit-title">Mini-guia de regressões incluso</div>
+                    <div class="benefit-desc">O que fazer quando o sono piorar de repente — 4, 8, 12 e 18 meses cobertos, sem entrar em pânico</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TESTIMONIAL -->
+        <div class="testimonial-wrap">
+            <div class="testimonial">
+                <span class="quote-mark">"</span>
+                <p>Na Noite 3 eu chorei junto com meu filho. Mas o guia dizia que era normal, que era sinal de progresso. Eu continuei. Na Noite 5, ele dormiu 6 horas seguidas pela primeira vez em meses.</p>
+                <div class="author-row">
+                    <div class="author-avatar">A</div>
+                    <div class="author-info">
+                        Alessandra F.
+                        <span>Mãe da Sofia, 7 meses</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- FEAR BOX -->
-        <div class="fear-box">
-            <p>A Noite 3 tem um nome: <strong>extinção de explosão</strong>. O bebê chora mais do que nunca — e parece que tudo piorou. Isso não é sinal de fracasso. É o sinal mais claro de que o método está funcionando. <strong>Mas sem saber disso, toda mãe cede.</strong></p>
+        <!-- PRICE -->
+        <div class="price-block">
+            <div class="price-de">De R$197,00</div>
+            <div class="price-por">Por apenas</div>
+            <div class="price-value">
+                <span class="price-currency">R$</span>
+                <span class="price-main">67</span>
+                <span class="price-cents">,00</span>
+            </div>
+            <div class="price-note">Uma única vez — acesso imediato e permanente</div>
+            <div class="price-breakdown">= menos de R$10 por noite de acompanhamento</div>
         </div>
 
-        <!-- UPSELL CARD -->
-        <div class="upsell-card">
-            <div class="upsell-card-header">
-                <div class="badge">🔒 Oferta exclusiva pós-compra</div>
-                <h3>Plano de Implementação<br><span>Turbo — 7 Noites</span></h3>
-                <p>O roteiro noite a noite para você aplicar o Código das Janelas de Ouro e ver resultados em 7 dias — <strong style="color:white;">mesmo que você já tenha tentado de tudo.</strong></p>
-                <div class="nights-strip">
-                    <div class="night-pill">Noite 1</div>
-                    <div class="night-pill">Noite 2</div>
-                    <div class="night-pill highlight">⚡ Noite 3</div>
-                    <div class="night-pill">Noite 4</div>
-                    <div class="night-pill">Noite 5</div>
-                    <div class="night-pill">Noite 6</div>
-                    <div class="night-pill">Noite 7</div>
-                </div>
+        <!-- CTA -->
+        <div class="cta-wrap">
+            <button onclick="trackUpsell('https://lastlink.com/p/C185193A7/checkout-payment/')" class="btn-yes">
+                <span class="btn-yes-line1">✅ Sim, quero o roteiro das 7 noites</span>
+                <span class="btn-yes-line2">Garantir por R$67 · Não desistir na Noite 3</span>
+            </button>
+
+            <div class="security-row">
+                <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                </svg>
+                Pagamento seguro · Garantia incondicional de 7 dias
             </div>
 
-            <div class="upsell-card-body">
-
-                <div class="night3-alert">
-                    <div class="icon">💙</div>
-                    <p><strong>Este guia foi feito para você não desistir.</strong> Vou estar com você todas as 7 noites — com cada passo, cada dica, cada palavra de encorajamento que você vai precisar.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-icon">🗓️</div>
-                    <div class="benefit-text">
-                        Roteiro exato noite a noite (Noites 1 a 7)
-                        <span>Horários, rituais e o que fazer em cada etapa — sem adivinhação</span>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">😢</div>
-                    <div class="benefit-text">
-                        Protocolo de choro para cada noite
-                        <span>O que fazer quando ele chorar — resposta certa, no tempo certo</span>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">📊</div>
-                    <div class="benefit-text">
-                        Diário das 7 Noites para acompanhar a evolução
-                        <span>Veja os números melhorando — isso te mantém firme nos dias difíceis</span>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🔄</div>
-                    <div class="benefit-text">
-                        Mini-guia de regressões (4, 8, 12 e 18 meses) incluso
-                        <span>O que fazer quando o sono piorar de repente — sem entrar em pânico</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- TESTIMONIAL -->
-            <div style="padding: 0 20px;">
-                <div class="testimonial">
-                    <p>Na Noite 3 eu chorei junto com meu filho. Mas o guia dizia que era normal, que era sinal de progresso. Eu continuei. Na Noite 5, ele dormiu 6 horas seguidas pela primeira vez em meses.</p>
-                    <div class="author">
-                        <div class="author-dot">A</div>
-                        <div class="author-info">
-                            Alessandra F.
-                            <span>Mãe da Sofia, 7 meses</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRICE BLOCK -->
-            <div class="price-block">
-                <div class="de">De R$197,00</div>
-                <div class="por">Por apenas</div>
-                <div class="valor"><sup>R$</sup>67<sub>,00</sub></div>
-                <div class="once">Uma única vez — acesso imediato e permanente</div>
-            </div>
-
-            <!-- CTA -->
-            <div class="cta-wrap">
-                <button onclick="trackUpsell('https://lastlink.com/p/C185193A7/checkout-payment/')" class="btn-sim">
-                    <span class="line1">✅ Sim, quero o roteiro das 7 noites</span>
-                    <span class="line2">Garantir por R$67 · Não desistir na Noite 3</span>
-                </button>
-
-                <div class="garantia-row">
-                    <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                    </svg>
-                    Pagamento seguro · Garantia incondicional de 7 dias
-                </div>
-
-                <button class="btn-nao" onclick="goToMembersArea()">
-                    Não, vou tentar aplicar o método por conta própria — acessar meu material
-                </button>
-            </div>
-
+            <button class="btn-no" onclick="goToMembersArea()">
+                Não, vou tentar aplicar o método por conta própria
+            </button>
         </div>
 
     </div>
 
-    <!-- TIMER SCRIPT -->
-    <script>
-        (function() {
-            var TIMER_KEY = 'cjo_upsell_timer';
-            var DURATION  = 15 * 60;
-            var end = sessionStorage.getItem(TIMER_KEY);
-            if (!end) {
-                end = Date.now() + DURATION * 1000;
-                sessionStorage.setItem(TIMER_KEY, end);
-            }
-            var el  = document.getElementById('countdown');
-            var bar = document.getElementById('timer-bar');
+</div>
 
-            function update() {
-                var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
-                var m = Math.floor(remaining / 60);
-                var s = remaining % 60;
-                el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+<!-- TIMER SCRIPT -->
+<script>
+(function() {
+    var TIMER_KEY = 'cjo_upsell_timer';
+    var DURATION  = 15 * 60;
+    var end = sessionStorage.getItem(TIMER_KEY);
+    if (!end) {
+        end = Date.now() + DURATION * 1000;
+        sessionStorage.setItem(TIMER_KEY, end);
+    }
+    var el  = document.getElementById('countdown');
+    var bar = document.getElementById('timer-bar');
 
-                if (remaining <= 60) {
-                    el.style.color = '#fca5a5';
-                    bar.style.animation = 'none';
-                    bar.style.background = '#450a0a';
-                }
-                if (remaining <= 0) {
-                    clearInterval(interval);
-                    bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material agora</a>';
-                }
-            }
+    function update() {
+        var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
+        var m = Math.floor(remaining / 60);
+        var s = remaining % 60;
+        el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
 
-            update();
-            var interval = setInterval(update, 1000);
-        })();
-    </script>
+        if (remaining <= 60) {
+            el.style.color = '#fca5a5';
+            bar.style.animation = 'none';
+            bar.style.background = '#450a0a';
+        }
+        if (remaining <= 0) {
+            clearInterval(interval);
+            bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material agora</a>';
+        }
+    }
 
-    <!-- Anti-Spy Shield -->
-    <script src="./assets/shield.js" defer></script>
+    update();
+    var interval = setInterval(update, 1000);
+})();
+</script>
+
+<!-- Anti-Spy Shield -->
+<script src="./assets/shield.js" defer></script>
 </body>
 </html>

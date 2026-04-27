@@ -15,9 +15,7 @@
     fbq('track', 'PageView');
     fbq('track', 'ViewContent', { content_name: 'Upsell2 Protocolo Cofre' });
 
-    function getQueryString() {
-        return window.location.search;
-    }
+    function getQueryString() { return window.location.search; }
 
     function trackUpsell2(destination) {
         fbq('track', 'InitiateCheckout', {
@@ -28,9 +26,7 @@
         var params = getQueryString();
         var baseChar = destination.includes('?') ? '&' : '?';
         var finalUrl = destination + (params ? baseChar + params.substring(1) : '');
-        setTimeout(function() {
-            window.location.href = finalUrl;
-        }, 300);
+        setTimeout(function() { window.location.href = finalUrl; }, 300);
     }
 
     function goToMembersArea() {
@@ -45,399 +41,642 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Última Chance | Protocolo Cofre</title>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #fdfaf6;
-            color: #1a1a1a;
-            min-height: 100vh;
+        :root {
+            --bg:     #fdfaf6;
+            --navy:   #0f172a;
+            --gold:   #f59e0b;
+            --gold-d: #d97706;
+            --gold-l: #fbbf24;
+            --green:  #10b981;
+            --red:    #dc2626;
+            --text:   #1a1a1a;
+            --muted:  #6b7280;
+            --font:   'Montserrat', sans-serif;
         }
 
-        /* TIMER */
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── TIMER ── */
         #timer-bar {
-            background: #7f1d1d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 40%, #7f1d1d 100%);
+            background-size: 200% 100%;
+            animation: shimmer-bar 3s ease-in-out infinite;
             color: white;
             text-align: center;
-            padding: 10px 16px;
+            padding: 11px 16px;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.02em;
+            line-height: 1.5;
         }
-        #timer-bar span { color: #fbbf24; }
-        #countdown { font-size: 17px; font-weight: 900; color: #fca5a5; }
+        @keyframes shimmer-bar {
+            0%   { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        #timer-bar .tl { color: #fca5a5; }
+        #countdown { font-size: 18px; font-weight: 900; color: #fef08a; letter-spacing: 0.06em; }
 
-        /* ALERTA TOPO */
-        .alerta-topo {
+        /* ── ALERTA TOPO ── */
+        .alerta {
             background: #fffbeb;
-            border-bottom: 2px solid #f59e0b;
+            border-bottom: 2px solid var(--gold);
             text-align: center;
             padding: 14px 16px;
             font-size: 13px;
             font-weight: 700;
             color: #92400e;
         }
-        .alerta-topo strong { color: #b45309; }
 
-        /* CARD PRINCIPAL */
-        .card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-            overflow: hidden;
-            max-width: 600px;
+        /* ── WRAP ── */
+        .wrap { max-width: 600px; margin: 0 auto; padding: 28px 16px 64px; }
+
+        /* ── HEADLINE ── */
+        .headline-block {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .headline-label {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--gold-d);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 14px;
+        }
+        .headline-block h1 {
+            font-size: 26px;
+            font-weight: 900;
+            line-height: 1.25;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+        .headline-block h1 em {
+            font-style: normal;
+            color: var(--red);
+        }
+        .headline-block p {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: 500;
+            line-height: 1.7;
+            max-width: 440px;
             margin: 0 auto;
         }
 
-        .card-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            padding: 28px 24px 24px;
+        /* ── REGRESSÕES — VISUAL PROGRESSIVO ── */
+        .regressoes-wrap {
+            margin-bottom: 36px;
+        }
+        .regressoes-label {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .regressoes-track {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        .reg-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .reg-bar {
+            width: 100%;
+            border-radius: 6px 6px 0 0;
+        }
+        .reg-num {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .reg-suffix {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .regressoes-note {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            margin-top: 16px;
+            line-height: 1.6;
+        }
+
+        /* ── PRODUCT CARD ── */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 36px rgba(0,0,0,0.1);
+        }
+
+        .product-header {
+            background: linear-gradient(145deg, var(--navy) 0%, #1e293b 100%);
+            padding: 28px 22px 24px;
             text-align: center;
             position: relative;
         }
-        .card-header::after {
+        .product-header::after {
             content: '';
             position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #f59e0b, #d97706);
+            background: linear-gradient(90deg, var(--gold), var(--gold-d), var(--gold));
         }
 
-        .tag-alerta {
+        .badge-alert {
             display: inline-block;
-            background: #ef4444;
-            color: white;
+            background: rgba(239,68,68,0.15);
+            color: #fca5a5;
             font-size: 10px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            padding: 5px 14px;
+            padding: 5px 16px;
             border-radius: 50px;
             margin-bottom: 16px;
-            animation: blink-tag 1.5s ease-in-out infinite;
         }
-        @keyframes blink-tag {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .product-header h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 6px;
         }
-
-        .card-body { padding: 24px 20px; }
-
-        /* DEPOIMENTO */
-        .depo {
-            background: #f0fdf4;
-            border-left: 3px solid #10b981;
-            border-radius: 0 12px 12px 0;
-            padding: 14px 16px;
-            margin: 20px 0;
+        .product-subtitle {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .product-header .desc {
             font-size: 13px;
-            color: #374151;
-            font-style: italic;
+            color: rgba(255,255,255,0.58);
+            font-weight: 500;
             line-height: 1.6;
+            max-width: 360px;
+            margin: 0 auto;
         }
-        .depo strong { display: block; font-style: normal; font-size: 11px; color: #6b7280; margin-top: 8px; }
 
-        /* BENEFÍCIOS */
-        .beneficio {
+        /* ── PRODUCT BODY ── */
+        .product-body { padding: 24px 22px 0; }
+
+        .benefits-label {
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 18px;
+        }
+
+        .benefit {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 14px;
+            padding: 14px 0;
+        }
+        .benefit + .benefit {
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .benefit-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+        .benefit-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 3px;
+            line-height: 1.35;
+        }
+        .benefit-desc {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* ── TESTIMONIAL ── */
+        .testimonial-wrap { padding: 0 22px; }
+        .testimonial {
+            background: #fdfaf6;
+            border-radius: 14px;
+            padding: 22px 20px 18px;
+            margin: 22px 0;
+        }
+        .quote-mark {
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--gold-l);
+            line-height: 0.7;
             margin-bottom: 12px;
+            display: block;
+            font-family: Georgia, serif;
+            opacity: 0.55;
+        }
+        .testimonial p {
             font-size: 14px;
             color: #374151;
-            font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.7;
+            font-weight: 600;
+            font-style: italic;
         }
-        .check-icon {
-            width: 22px;
-            height: 22px;
-            background: #f59e0b;
+        .author-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(0,0,0,0.07);
+        }
+        .author-avatar {
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-d));
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 13px;
+            font-weight: 900;
+            color: white;
             flex-shrink: 0;
-            margin-top: 1px;
         }
-        .check-icon svg { width: 12px; height: 12px; color: white; }
+        .author-info {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        .author-info span {
+            display: block;
+            font-weight: 500;
+            color: var(--muted);
+            font-size: 11px;
+        }
 
-        /* PREÇO */
-        .preco-box {
-            background: linear-gradient(135deg, #fdf4e7 0%, #fefce8 100%);
-            border: 2px solid #f59e0b;
+        /* ── PRICE BLOCK ── */
+        .price-section {
+            margin: 0 22px 22px;
+        }
+        .price-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .price-divider::before, .price-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.08);
+        }
+        .price-divider span {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 2px solid var(--gold);
             border-radius: 16px;
-            padding: 20px;
+            padding: 24px 20px;
             text-align: center;
-            margin: 24px 0;
+        }
+        .price-context {
+            font-size: 11px;
+            font-weight: 800;
+            color: #92400e;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+        .price-original {
+            font-size: 13px;
+            font-weight: 700;
+            color: #9ca3af;
+            text-decoration: line-through;
+            margin-bottom: 6px;
+        }
+        .price-value {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 3px;
+            margin-bottom: 8px;
+        }
+        .price-currency { font-size: 22px; font-weight: 900; color: var(--navy); }
+        .price-main     { font-size: 62px; font-weight: 900; color: var(--navy); line-height: 1; }
+        .price-cents    { font-size: 20px; font-weight: 700; color: var(--muted); }
+        .price-note {
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+        .price-anchor {
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--gold-d);
         }
 
-        /* BOTÕES */
-        .btn-sim {
+        /* ── CTA ── */
+        .cta-section { padding: 0 22px 26px; }
+
+        .btn-yes {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            background: linear-gradient(135deg, var(--gold-d) 0%, var(--gold) 100%);
             color: white;
             text-align: center;
             font-weight: 900;
             font-size: 15px;
-            padding: 18px 20px;
-            border-radius: 50px;
+            padding: 20px 16px;
+            border-radius: 14px;
             border: none;
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            line-height: 1.3;
+            line-height: 1.4;
             animation: pulse-gold 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-yes::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+            animation: sweep 2.5s ease-in-out infinite;
+        }
+        @keyframes sweep {
+            0%   { left: -100%; }
+            100% { left: 200%; }
         }
         @keyframes pulse-gold {
             0%   { box-shadow: 0 0 0 0 rgba(245,158,11,0.5); }
-            70%  { box-shadow: 0 0 0 16px rgba(245,158,11,0); }
+            70%  { box-shadow: 0 0 0 18px rgba(245,158,11,0); }
             100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
         }
-        .btn-nao {
-            display: block;
-            width: 100%;
-            text-align: center;
-            font-size: 11px;
-            color: #9ca3af;
-            font-weight: 500;
-            padding: 14px 8px 4px;
-            text-decoration: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            line-height: 1.5;
-        }
-        .btn-nao:hover { color: #6b7280; }
+        .btn-yes-line1 { font-size: 16px; display: block; }
+        .btn-yes-line2 { font-size: 12px; display: block; opacity: 0.85; margin-top: 4px; font-weight: 600; }
 
-        /* GARANTIA */
-        .garantia {
+        .security-row {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
             font-size: 11px;
-            color: #6b7280;
+            color: var(--muted);
             font-weight: 600;
             margin-top: 12px;
         }
 
-        /* DIVIDER */
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .divider::before, .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e5e7eb;
-        }
-        .divider span {
+        .btn-no {
+            display: block;
+            width: 100%;
+            text-align: center;
             font-size: 11px;
             color: #9ca3af;
             font-weight: 600;
-            white-space: nowrap;
+            padding: 16px 8px 0;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1.55;
         }
-
-        /* REGRESSÃO VISUAL */
-        .regressoes {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin: 16px 0;
-        }
-        .reg-item {
-            background: #fef2f2;
-            border: 1.5px solid #fca5a5;
-            border-radius: 10px;
-            padding: 10px 6px;
-            text-align: center;
-        }
-        .reg-item .mes {
-            font-size: 18px;
-            font-weight: 900;
-            color: #dc2626;
-            line-height: 1;
-        }
-        .reg-item .label {
-            font-size: 9px;
-            color: #6b7280;
-            font-weight: 600;
-            margin-top: 3px;
-        }
+        .btn-no:hover { color: var(--muted); text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <!-- TIMER -->
-    <div id="timer-bar">
-        ⏳ Esta oferta desaparece em: <span id="countdown">10:00</span>
+<!-- TIMER -->
+<div id="timer-bar">
+    <span class="tl">⏳ Esta oferta desaparece em: </span>
+    <span id="countdown">10:00</span>
+</div>
+
+<!-- ALERTA -->
+<div class="alerta">
+    Espera — <strong>só mais um segundo antes de acessar seu material.</strong>
+</div>
+
+<div class="wrap">
+
+    <!-- HEADLINE -->
+    <div class="headline-block">
+        <div class="headline-label">⚠️ Uma coisa antes de ir</div>
+        <h1>
+            Você aprendeu as janelas.<br>
+            <em>Mas e quando a regressão chegar?</em>
+        </h1>
+        <p>Toda mãe que aprende o método passa por isso: tudo funciona perfeitamente — e então vem a regressão dos 4, 8 ou 12 meses. Parece que perdeu tudo. Não perdeu. Mas precisa saber o que fazer.</p>
     </div>
 
-    <!-- ALERTA -->
-    <div class="alerta-topo">
-        Espera — <strong>só mais um segundo antes de acessar seu material.</strong>
+    <!-- REGRESSÕES — PROGRESSÃO VISUAL -->
+    <div class="regressoes-wrap">
+        <div class="regressoes-label">As 4 crises que vão desafiar você</div>
+        <div class="regressoes-track">
+            <div class="reg-col">
+                <div class="reg-bar" style="height:36px;background:rgba(220,38,38,0.25);"></div>
+                <div class="reg-num" style="color:#ef4444;">4</div>
+                <div class="reg-suffix">meses</div>
+            </div>
+            <div class="reg-col">
+                <div class="reg-bar" style="height:54px;background:rgba(220,38,38,0.45);"></div>
+                <div class="reg-num" style="color:#ef4444;">8</div>
+                <div class="reg-suffix">meses</div>
+            </div>
+            <div class="reg-col">
+                <div class="reg-bar" style="height:72px;background:rgba(220,38,38,0.7);"></div>
+                <div class="reg-num" style="color:#dc2626;font-weight:900;">12</div>
+                <div class="reg-suffix">meses</div>
+            </div>
+            <div class="reg-col">
+                <div class="reg-bar" style="height:88px;background:#dc2626;border-radius:6px 6px 0 0;"></div>
+                <div class="reg-num" style="color:#dc2626;font-weight:900;">18</div>
+                <div class="reg-suffix" style="font-weight:900;color:#dc2626;">meses</div>
+            </div>
+        </div>
+        <p class="regressoes-note">Cada fase é mais intensa que a anterior. Sem o protocolo certo, semanas de conquista se perdem em 2 noites.</p>
     </div>
 
-    <main style="max-width:640px;margin:0 auto;padding:28px 16px 60px;">
+    <!-- PRODUCT CARD -->
+    <div class="product-card">
 
-        <!-- HEADLINE -->
-        <div style="text-align:center;margin-bottom:28px;">
-            <p style="font-size:13px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">
-                ⚠️ Uma coisa antes de ir
-            </p>
-            <h1 style="font-size:24px;font-weight:900;line-height:1.25;color:#0f172a;margin-bottom:14px;">
-                Você acabou de aprender as janelas de ouro.<br>
-                <span style="color:#dc2626;">Mas o que acontece quando a regressão chega?</span>
-            </h1>
-            <p style="font-size:14px;color:#6b7280;font-weight:500;line-height:1.6;">
-                Toda mãe que aprende o método passa por isso: tudo funciona perfeitamente — e então vem a regressão dos 4, 8 ou 12 meses. E parece que perdeu tudo.
-            </p>
+        <div class="product-header">
+            <div class="badge-alert">🛡️ Oferta de saída — última chance</div>
+            <h2>Protocolo Cofre</h2>
+            <div class="product-subtitle">O Escudo Anti-Regressão</div>
+            <p class="desc">O protocolo focado para blindar tudo que você aprendeu no CJO e recuperar o sono em até 72h quando qualquer crise chegar.</p>
         </div>
 
-        <!-- REGRESSÕES VISUAIS -->
-        <p style="font-size:12px;font-weight:800;color:#374151;text-align:center;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">As regressões que vão desafiar você:</p>
-        <div class="regressoes">
-            <div class="reg-item">
-                <div class="mes">4</div>
-                <div class="label">meses</div>
+        <div class="product-body">
+            <div class="benefits-label">O que você recebe:</div>
+
+            <div class="benefit">
+                <div class="benefit-dot"></div>
+                <div>
+                    <div class="benefit-title">Protocolo passo a passo para as 4 regressões</div>
+                    <div class="benefit-desc">4, 8, 12 e 18 meses cobertos — o que fazer em cada fase sem perder o progresso conquistado</div>
+                </div>
             </div>
-            <div class="reg-item">
-                <div class="mes">8</div>
-                <div class="label">meses</div>
+            <div class="benefit">
+                <div class="benefit-dot"></div>
+                <div>
+                    <div class="benefit-title">Plano de recuperação rápida em 72h</div>
+                    <div class="benefit-desc">Como restabelecer as janelas depois de doenças, dentição e viagens — sem começar do zero</div>
+                </div>
             </div>
-            <div class="reg-item">
-                <div class="mes">12</div>
-                <div class="label">meses</div>
+            <div class="benefit">
+                <div class="benefit-dot"></div>
+                <div>
+                    <div class="benefit-title">O que fazer na primeira noite ruim</div>
+                    <div class="benefit-desc">A resposta exata para a noite que parece que tudo desmoronou — antes que vire semanas de privação</div>
+                </div>
             </div>
-            <div class="reg-item">
-                <div class="mes">18</div>
-                <div class="label">meses</div>
+            <div class="benefit">
+                <div class="benefit-dot"></div>
+                <div>
+                    <div class="benefit-title">Checklist de proteção preventiva</div>
+                    <div class="benefit-desc">O que ajustar nas janelas antes da regressão chegar — para minimizar o impacto antes que ele aconteça</div>
+                </div>
             </div>
         </div>
-        <p style="font-size:12px;color:#9ca3af;text-align:center;margin-bottom:28px;font-weight:500;">Sem proteção, cada uma dessas fases pode apagar semanas de conquista.</p>
 
-        <!-- CARD PRODUTO -->
-        <div class="card">
-            <div class="card-header">
-                <div class="tag-alerta">🛡️ Oferta de saída — última chance</div>
-                <h2 style="font-size:22px;font-weight:900;color:white;line-height:1.2;margin-bottom:10px;">
-                    Protocolo Cofre
-                </h2>
-                <p style="font-size:14px;color:#f59e0b;font-weight:800;margin-bottom:8px;">
-                    O Escudo Anti-Regressão
-                </p>
-                <p style="font-size:13px;color:#94a3b8;font-weight:500;line-height:1.5;">
-                    O protocolo focado para blindar tudo que você aprendeu no Código das Janelas de Ouro — e recuperar o sono em até 72h quando qualquer crise chegar.
-                </p>
-            </div>
-
-            <div class="card-body">
-
-                <p style="font-size:12px;font-weight:800;color:#374151;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.05em;">O que você recebe:</p>
-
-                <div class="beneficio">
-                    <div class="check-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Protocolo passo a passo para as 4 regressões principais (4, 8, 12 e 18 meses) — o que fazer em cada fase sem perder o progresso</span>
-                </div>
-                <div class="beneficio">
-                    <div class="check-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Plano de recuperação rápida de 72h — como restabelecer as janelas depois de doenças, dentição e viagens</span>
-                </div>
-                <div class="beneficio">
-                    <div class="check-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>O que fazer na <strong>primeira noite ruim</strong> antes que vire semanas de privação de sono</span>
-                </div>
-                <div class="beneficio">
-                    <div class="check-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
-                    <span>Checklist de proteção preventiva: o que ajustar nas janelas <strong>antes</strong> da regressão chegar</span>
-                </div>
-
-                <div class="depo">
-                    "Quando veio a regressão dos 8 meses eu entrei em pânico — achei que tinha perdido tudo. O Protocolo Cofre me mostrou exatamente o que fazer. Em 3 dias ele voltou a dormir como antes."
-                    <strong>— Aline C., mãe do Lorenzo (10 meses)</strong>
-                </div>
-
-                <div class="divider"><span>investimento</span></div>
-
-                <!-- PREÇO -->
-                <div class="preco-box">
-                    <p style="font-size:12px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">O mesmo valor que você já investiu hoje</p>
-                    <p style="font-size:13px;font-weight:700;color:#9ca3af;text-decoration:line-through;margin-bottom:4px;">De R$97,00</p>
-                    <div style="display:flex;align-items:baseline;justify-content:center;gap:4px;margin-bottom:6px;">
-                        <span style="font-size:20px;font-weight:900;color:#0f172a;">R$</span>
-                        <span style="font-size:48px;font-weight:900;color:#0f172a;line-height:1;">27</span>
-                        <span style="font-size:18px;font-weight:700;color:#6b7280;">,00</span>
+        <!-- TESTIMONIAL -->
+        <div class="testimonial-wrap">
+            <div class="testimonial">
+                <span class="quote-mark">"</span>
+                <p>Quando veio a regressão dos 8 meses eu entrei em pânico — achei que tinha perdido tudo. O Protocolo Cofre me mostrou exatamente o que fazer. Em 3 dias ele voltou a dormir como antes.</p>
+                <div class="author-row">
+                    <div class="author-avatar">A</div>
+                    <div class="author-info">
+                        Aline C.
+                        <span>Mãe do Lorenzo, 10 meses</span>
                     </div>
-                    <p style="font-size:11px;color:#9ca3af;font-weight:600;">Pagamento único · Acesso imediato · Não é assinatura</p>
                 </div>
-
-                <!-- CTA -->
-                <button onclick="trackUpsell2('https://lastlink.com/p/C8C49F705/checkout-payment/')" class="btn-sim">
-                    🛡️ Sim, quero proteger o que aprendi
-                </button>
-
-                <div class="garantia" style="margin-top:14px;">
-                    <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
-                    Pagamento seguro · Garantia de 7 dias
-                </div>
-
-                <button class="btn-nao" onclick="goToMembersArea()">
-                    Não, prefiro arriscar perder o progresso nas regressões
-                </button>
-
             </div>
         </div>
 
-    </main>
+        <!-- PRICE -->
+        <div class="price-section">
+            <div class="price-divider"><span>investimento</span></div>
+            <div class="price-box">
+                <div class="price-context">O mesmo valor que você já investiu hoje</div>
+                <div class="price-original">De R$97,00</div>
+                <div class="price-value">
+                    <span class="price-currency">R$</span>
+                    <span class="price-main">27</span>
+                    <span class="price-cents">,00</span>
+                </div>
+                <div class="price-note">Pagamento único · Acesso imediato · Não é assinatura</div>
+                <div class="price-anchor">= proteção para os próximos 18 meses</div>
+            </div>
+        </div>
 
-    <!-- TIMER SCRIPT -->
-    <script>
-        (function() {
-            var TIMER_KEY = 'cjo_upsell2_timer';
-            var DURATION = 10 * 60;
+        <!-- CTA -->
+        <div class="cta-section">
+            <button onclick="trackUpsell2('https://lastlink.com/p/C8C49F705/checkout-payment/')" class="btn-yes">
+                <span class="btn-yes-line1">🛡️ Sim, quero proteger o que aprendi</span>
+                <span class="btn-yes-line2">Garantir por R$27 · Acesso imediato</span>
+            </button>
 
-            var end = sessionStorage.getItem(TIMER_KEY);
-            if (!end) {
-                end = Date.now() + DURATION * 1000;
-                sessionStorage.setItem(TIMER_KEY, end);
+            <div class="security-row">
+                <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                </svg>
+                Pagamento seguro · Garantia de 7 dias
+            </div>
+
+            <button class="btn-no" onclick="goToMembersArea()">
+                Não, prefiro arriscar perder o progresso nas regressões
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- TIMER SCRIPT -->
+<script>
+(function() {
+    var TIMER_KEY = 'cjo_upsell2_timer';
+    var DURATION  = 10 * 60;
+    var end = sessionStorage.getItem(TIMER_KEY);
+    if (!end) {
+        end = Date.now() + DURATION * 1000;
+        sessionStorage.setItem(TIMER_KEY, end);
+    }
+    var el  = document.getElementById('countdown');
+    var bar = document.getElementById('timer-bar');
+
+    function update() {
+        var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
+        var m = Math.floor(remaining / 60);
+        var s = remaining % 60;
+        el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+
+        if (remaining <= 60) {
+            el.style.color = '#fca5a5';
+            bar.style.animation = 'none';
+            bar.style.background = '#450a0a';
+        }
+        if (remaining <= 0) {
+            clearInterval(interval);
+            bar.innerHTML = '⏰ Oferta encerrada.';
+            var btn = document.querySelector('.btn-yes');
+            if (btn) {
+                btn.disabled = true;
+                btn.style.opacity = '0.35';
+                btn.style.cursor  = 'not-allowed';
+                btn.style.animation = 'none';
+                btn.querySelector('.btn-yes-line1').textContent = 'Oferta encerrada';
             }
+        }
+    }
 
-            var el = document.getElementById('countdown');
-            var bar = document.getElementById('timer-bar');
+    update();
+    var interval = setInterval(update, 1000);
+})();
+</script>
 
-            function update() {
-                var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
-                var m = Math.floor(remaining / 60);
-                var s = remaining % 60;
-                el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
-
-                if (remaining <= 0) {
-                    clearInterval(interval);
-                    bar.innerHTML = '⏰ Oferta encerrada.';
-                    document.querySelector('.btn-sim').disabled = true;
-                    document.querySelector('.btn-sim').style.opacity = '0.4';
-                    document.querySelector('.btn-sim').style.cursor = 'not-allowed';
-                    document.querySelector('.btn-sim').textContent = 'Oferta encerrada';
-                }
-            }
-
-            update();
-            var interval = setInterval(update, 1000);
-        })();
-    </script>
-
-    <!-- Anti-Spy Shield -->
-    <script src="./assets/shield.js" defer></script>
+<!-- Anti-Spy Shield -->
+<script src="./assets/shield.js" defer></script>
 </body>
 </html>
