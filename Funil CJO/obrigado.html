@@ -21,7 +21,7 @@
     function trackUpsell(destination) {
         fbq('track', 'InitiateCheckout', {
             content_name: 'Protocolo Cofre Anti-Regressao',
-            value: 27.00, currency: 'BRL'
+            value: 67.00, currency: 'BRL'
         });
         const params = getQueryString();
         const baseChar = destination.includes('?') ? '&' : '?';
@@ -316,19 +316,19 @@
         <div class="price-block">
             <div class="anchor-row">
                 <div class="anchor-item">
-                    <strong>R$97,00</strong>
+                    <strong>R$197,00</strong>
                     Pre&ccedil;o normal do protocolo
                 </div>
                 <div class="anchor-divider">vs</div>
                 <div class="anchor-item" style="color:#fbbf24;">
-                    <strong style="color:var(--gold-l);text-decoration:none;font-size:20px;">R$27</strong>
-                    O mesmo que voc&ecirc; j&aacute; investiu hoje
+                    <strong style="color:var(--gold-l);text-decoration:none;font-size:20px;">R$67</strong>
+                    Oferta exclusiva p&oacute;s-compra
                 </div>
             </div>
             <div class="price-label">Pelo escudo anti-regress&atilde;o</div>
             <div class="price-value">
                 <span class="price-currency">R$</span>
-                <span class="price-main">27</span>
+                <span class="price-main">67</span>
                 <span class="price-cents">,00</span>
             </div>
             <div class="price-note">Pagamento &uacute;nico &middot; Acesso imediato &middot; N&atilde;o &eacute; assinatura</div>
@@ -337,9 +337,9 @@
 
         <!-- CTAs -->
         <div class="cta-wrap">
-            <button onclick="trackUpsell('https://lastlink.com/p/C8C49F705/checkout-payment/')" class="btn-yes">
+            <button onclick="trackUpsell('https://lastlink.com/p/C185193A7/checkout-payment/')" class="btn-yes">
                 <span class="btn-yes-line1">&#128737;&#65039; Sim, quero levar o escudo junto</span>
-                <span class="btn-yes-line2">Garantir por R$27 &middot; Acesso imediato</span>
+                <span class="btn-yes-line2">Garantir por R$67 &middot; Acesso imediato</span>
             </button>
             <div class="security-row">
                 <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
