@@ -13,14 +13,14 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
-    fbq('track', 'ViewContent', { content_name: 'Upsell2 Protocolo Cofre' });
+    fbq('track', 'ViewContent', { content_name: 'Upsell2 Turbo 7 Noites' });
 
     function getQueryString() { return window.location.search; }
 
     function trackUpsell2(destination) {
         fbq('track', 'InitiateCheckout', {
-            content_name: 'Protocolo Cofre Anti-Regressao',
-            value: 27.00,
+            content_name: 'Plano de Implementacao Turbo',
+            value: 67.00,
             currency: 'BRL'
         });
         var params = getQueryString();
@@ -36,11 +36,10 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Última Chance | Protocolo Cofre</title>
+    <title>Uma Última Coisa | Turbo 7 Noites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -69,460 +68,141 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ── TIMER ── */
+        /* TIMER */
         #timer-bar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 40%, #7f1d1d 100%);
             background-size: 200% 100%;
             animation: shimmer-bar 3s ease-in-out infinite;
-            color: white;
-            text-align: center;
-            padding: 11px 16px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            line-height: 1.5;
+            color: white; text-align: center; padding: 11px 16px;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5;
         }
-        @keyframes shimmer-bar {
-            0%   { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
+        @keyframes shimmer-bar { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         #timer-bar .tl { color: #fca5a5; }
         #countdown { font-size: 18px; font-weight: 900; color: #fef08a; letter-spacing: 0.06em; }
 
-        /* ── ALERTA TOPO ── */
+        /* ALERTA TOPO */
         .alerta {
             background: #fffbeb;
             border-bottom: 2px solid var(--gold);
             text-align: center;
             padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 700;
-            color: #92400e;
+            font-size: 13px; font-weight: 700; color: #92400e;
         }
 
-        /* ── WRAP ── */
+        /* WRAP */
         .wrap { max-width: 600px; margin: 0 auto; padding: 28px 16px 64px; }
 
-        /* ── HEADLINE ── */
-        .headline-block {
-            text-align: center;
-            margin-bottom: 28px;
-        }
+        /* HEADLINE */
+        .headline-block { text-align: center; margin-bottom: 28px; }
         .headline-label {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 900;
-            color: var(--gold-d);
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            margin-bottom: 14px;
+            display: inline-block; font-size: 10px; font-weight: 900;
+            color: var(--gold-d); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px;
         }
-        .headline-block h1 {
-            font-size: 26px;
-            font-weight: 900;
-            line-height: 1.25;
-            color: var(--navy);
-            margin-bottom: 14px;
-        }
-        .headline-block h1 em {
-            font-style: normal;
-            color: var(--red);
-        }
-        .headline-block p {
-            font-size: 14px;
-            color: var(--muted);
-            font-weight: 500;
-            line-height: 1.7;
-            max-width: 440px;
-            margin: 0 auto;
-        }
+        .headline-block h1 { font-size: 26px; font-weight: 900; line-height: 1.25; color: var(--navy); margin-bottom: 14px; }
+        .headline-block h1 em { font-style: normal; color: var(--red); }
+        .headline-block p { font-size: 14px; color: var(--muted); font-weight: 500; line-height: 1.7; max-width: 440px; margin: 0 auto; }
 
-        /* ── SCENE BOX ── */
-        .scene-box {
-            background: var(--navy);
-            border-radius: 16px;
-            padding: 24px 20px;
-            margin-bottom: 28px;
-            position: relative;
-            overflow: hidden;
+        /* CENÁRIO NOITE 3 */
+        .night3-scene {
+            background: var(--navy); border-radius: 16px;
+            padding: 28px 22px; margin-bottom: 18px;
+            position: relative; overflow: hidden;
         }
-        .scene-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
+        .night3-scene::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, var(--gold), var(--gold-d), var(--gold));
         }
-        .scene-time {
-            font-size: 10px;
-            font-weight: 900;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            margin-bottom: 14px;
-        }
-        .scene-text {
-            font-size: 14px;
-            color: rgba(255,255,255,0.82);
-            line-height: 1.75;
-            font-weight: 500;
-        }
-        .scene-text strong { color: white; font-weight: 800; }
-        .scene-caption {
-            margin-top: 16px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 12px;
-            color: var(--gold-l);
-            font-weight: 700;
-            font-style: italic;
+        .night3-scene .time { font-size: 11px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px; }
+        .night3-scene h2 { font-size: 22px; font-weight: 900; color: white; line-height: 1.25; margin-bottom: 14px; }
+        .night3-scene h2 em { font-style: normal; color: #fca5a5; }
+        .night3-scene p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.75; font-weight: 500; margin-bottom: 12px; }
+        .night3-scene p strong { color: white; }
+        .night3-scene .alerta-inline {
+            background: rgba(220,38,38,0.12); border-radius: 10px; padding: 14px 16px; margin-top: 14px;
+            font-size: 14px; color: #fca5a5; font-weight: 700; line-height: 1.55;
         }
 
-        /* ── REGRESSÕES — VISUAL PROGRESSIVO ── */
-        .regressoes-wrap {
-            margin-bottom: 32px;
+        /* PONTE */
+        .ponte {
+            background: white; border-radius: 16px;
+            padding: 24px 22px; margin: 18px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
         }
-        .regressoes-label {
-            font-size: 10px;
-            font-weight: 800;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            text-align: center;
-            margin-bottom: 16px;
+        .ponte .tag {
+            display: inline-block; background: #fef3c7; color: #92400e;
+            font-size: 10px; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 0.1em; padding: 4px 14px; border-radius: 50px; margin-bottom: 14px;
         }
-        .regressoes-track {
-            display: flex;
-            align-items: flex-end;
-            gap: 8px;
-        }
-        .reg-col {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        .reg-bar {
-            width: 100%;
-            border-radius: 6px 6px 0 0;
-        }
-        .reg-num {
-            font-size: 20px;
-            font-weight: 900;
-            line-height: 1;
-        }
-        .reg-suffix {
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-        .regressoes-note {
-            text-align: center;
-            font-size: 12px;
-            color: var(--muted);
-            font-weight: 500;
-            margin-top: 16px;
-            line-height: 1.6;
-        }
+        .ponte h3 { font-size: 17px; font-weight: 900; color: var(--navy); line-height: 1.3; margin-bottom: 10px; }
+        .ponte p { font-size: 14px; color: #374151; line-height: 1.75; font-weight: 500; }
+        .ponte p strong { color: var(--navy); }
 
-        /* ── TESTIMONIAL (standalone) ── */
-        .testimonial-standalone {
-            margin-bottom: 28px;
-        }
-        .testimonial {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border-radius: 14px;
-            padding: 22px 20px 18px;
-        }
-        .quote-mark {
-            font-size: 52px;
-            font-weight: 900;
-            color: var(--gold);
-            line-height: 0.7;
-            margin-bottom: 12px;
-            display: block;
-            font-family: Georgia, serif;
-            opacity: 0.6;
-        }
-        .testimonial p {
-            font-size: 14px;
-            color: #374151;
-            line-height: 1.7;
-            font-weight: 600;
-            font-style: italic;
-        }
-        .author-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(217,119,6,0.15);
-        }
-        .author-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-d));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 900;
-            color: white;
-            flex-shrink: 0;
-        }
-        .author-info {
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--text);
-            line-height: 1.4;
-        }
-        .author-info span {
-            display: block;
-            font-weight: 500;
-            color: var(--muted);
-            font-size: 11px;
-        }
+        /* PRODUTO */
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 36px rgba(0,0,0,0.1); }
+        .product-header { background: linear-gradient(145deg, var(--navy) 0%, #1e293b 100%); padding: 28px 22px 24px; text-align: center; position: relative; }
+        .product-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-d), var(--gold)); }
+        .badge-alert { display: inline-block; background: rgba(239,68,68,0.15); color: #fca5a5; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; padding: 5px 16px; border-radius: 50px; margin-bottom: 16px; }
+        .product-header h2 { font-size: 28px; font-weight: 900; color: white; line-height: 1.2; margin-bottom: 6px; }
+        .product-header h2 span { color: var(--gold-l); }
+        .product-subtitle { font-size: 14px; font-weight: 800; color: var(--gold); margin-bottom: 12px; }
+        .product-header .desc { font-size: 13px; color: rgba(255,255,255,0.58); font-weight: 500; line-height: 1.6; max-width: 360px; margin: 0 auto; }
 
-        /* ── PRODUCT CARD ── */
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 36px rgba(0,0,0,0.1);
-        }
+        /* NIGHTS STRIP */
+        .nights-strip { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; margin-top: 20px; }
+        .night-pill { background: rgba(255,255,255,0.07); border-radius: 50px; padding: 5px 10px; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45); }
+        .night-pill.active { background: rgba(220,38,38,0.25); color: #fca5a5; font-weight: 900; }
 
-        .product-header {
-            background: linear-gradient(145deg, var(--navy) 0%, #1e293b 100%);
-            padding: 28px 22px 24px;
-            text-align: center;
-            position: relative;
-        }
-        .product-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-d), var(--gold));
-        }
-
-        .badge-alert {
-            display: inline-block;
-            background: rgba(239,68,68,0.15);
-            color: #fca5a5;
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 5px 16px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-        }
-        .product-header h2 {
-            font-size: 28px;
-            font-weight: 900;
-            color: white;
-            line-height: 1.2;
-            margin-bottom: 6px;
-        }
-        .product-subtitle {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-        .product-header .desc {
-            font-size: 13px;
-            color: rgba(255,255,255,0.58);
-            font-weight: 500;
-            line-height: 1.6;
-            max-width: 360px;
-            margin: 0 auto;
-        }
-
-        /* ── PRODUCT BODY ── */
+        /* PRODUTO BODY */
         .product-body { padding: 24px 22px 0; }
 
-        .benefits-label {
-            font-size: 10px;
-            font-weight: 900;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 18px;
-        }
+        /* DEPOIMENTO */
+        .depo-early { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-radius: 14px; padding: 20px 18px; margin-bottom: 24px; }
+        .quote-mark { font-size: 48px; font-weight: 900; color: var(--gold); line-height: 0.7; margin-bottom: 10px; display: block; font-family: Georgia, serif; opacity: 0.6; }
+        .depo-early p { font-size: 14px; color: #374151; line-height: 1.7; font-weight: 600; font-style: italic; }
+        .depo-early .author-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(217,119,6,0.15); }
+        .author-av { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-d)); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: white; flex-shrink: 0; }
+        .author-name { font-size: 12px; font-weight: 800; color: var(--text); line-height: 1.4; }
+        .author-name span { display: block; font-weight: 500; color: var(--muted); font-size: 11px; }
 
-        .benefit {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 14px 0;
-        }
-        .benefit + .benefit {
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-        .benefit-num {
-            font-size: 11px;
-            font-weight: 900;
-            color: var(--gold-d);
-            flex-shrink: 0;
-            margin-top: 3px;
-            min-width: 24px;
-            letter-spacing: 0.05em;
-        }
-        .benefit-title {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 3px;
-            line-height: 1.35;
-        }
-        .benefit-desc {
-            font-size: 12px;
-            color: var(--muted);
-            font-weight: 500;
-            line-height: 1.6;
-        }
+        /* BENEFÍCIOS */
+        .benefit { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; }
+        .benefit + .benefit { border-top: 1px solid rgba(0,0,0,0.05); }
+        .benefit-num { width: 28px; height: 28px; border-radius: 8px; background: var(--navy); color: var(--gold-l); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .benefit-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 3px; line-height: 1.35; }
+        .benefit-desc { font-size: 12px; color: var(--muted); font-weight: 500; line-height: 1.6; }
 
-        /* ── PRICE BLOCK ── */
-        .price-section {
-            margin: 0 22px 22px;
-        }
-        .price-divider {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .price-divider::before, .price-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(0,0,0,0.08);
-        }
-        .price-divider span {
-            font-size: 10px;
-            font-weight: 800;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
+        /* PREÇO */
+        .price-block { background: var(--navy); padding: 28px 22px; text-align: center; margin-top: 22px; }
+        .anchor-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .anchor-item { font-size: 12px; color: #475569; text-align: center; line-height: 1.4; }
+        .anchor-item strong { display: block; font-size: 16px; color: #64748b; text-decoration: line-through; }
+        .anchor-divider { font-size: 18px; color: #334155; font-weight: 900; }
+        .price-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        .price-value { display: flex; align-items: baseline; justify-content: center; gap: 3px; margin-bottom: 8px; }
+        .price-currency { font-size: 22px; font-weight: 900; color: var(--green); }
+        .price-main { font-size: 62px; font-weight: 900; color: var(--green); line-height: 1; }
+        .price-cents { font-size: 20px; font-weight: 700; color: #6ee7b7; }
+        .price-note { font-size: 11px; color: #475569; font-weight: 600; }
+        .price-breakdown { margin-top: 10px; font-size: 13px; color: var(--gold-l); font-weight: 800; }
 
-        .price-box {
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 2px solid var(--gold);
-            border-radius: 16px;
-            padding: 24px 20px;
-            text-align: center;
-        }
-        .price-context {
-            font-size: 11px;
-            font-weight: 800;
-            color: #92400e;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 10px;
-        }
-        .price-original {
-            font-size: 13px;
-            font-weight: 700;
-            color: #9ca3af;
-            text-decoration: line-through;
-            margin-bottom: 6px;
-        }
-        .price-value {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 3px;
-            margin-bottom: 8px;
-        }
-        .price-currency { font-size: 22px; font-weight: 900; color: var(--navy); }
-        .price-main     { font-size: 62px; font-weight: 900; color: var(--navy); line-height: 1; }
-        .price-cents    { font-size: 20px; font-weight: 700; color: var(--muted); }
-        .price-note {
-            font-size: 11px;
-            color: var(--muted);
-            font-weight: 600;
-        }
-        .price-anchor {
-            margin-top: 10px;
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--gold-d);
-        }
-
-        /* ── CTA ── */
-        .cta-section { padding: 0 22px 26px; }
-
+        /* CTAs */
+        .cta-section { padding: 20px 22px 26px; }
         .btn-yes {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, var(--gold-d) 0%, var(--gold) 100%);
-            color: white;
-            text-align: center;
-            font-weight: 900;
-            font-size: 15px;
-            padding: 20px 16px;
-            border-radius: 14px;
-            border: none;
-            cursor: pointer;
-            line-height: 1.4;
-            animation: pulse-gold 2s infinite;
-            position: relative;
-            overflow: hidden;
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #059669 0%, var(--green) 100%);
+            color: white; text-align: center; font-weight: 900; font-size: 15px;
+            padding: 20px 16px; border-radius: 14px; border: none; cursor: pointer;
+            line-height: 1.4; position: relative; overflow: hidden;
+            animation: pulse-green 2s infinite;
         }
-        .btn-yes::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-            animation: sweep 2.5s ease-in-out infinite;
-        }
-        @keyframes sweep {
-            0%   { left: -100%; }
-            100% { left: 200%; }
-        }
-        @keyframes pulse-gold {
-            0%   { box-shadow: 0 0 0 0 rgba(245,158,11,0.5); }
-            70%  { box-shadow: 0 0 0 18px rgba(245,158,11,0); }
-            100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
-        }
+        .btn-yes::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); animation: sweep 2.5s ease-in-out infinite; }
+        @keyframes sweep { 0% { left: -100%; } 100% { left: 200%; } }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); } 70% { box-shadow: 0 0 0 18px rgba(16,185,129,0); } 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); } }
         .btn-yes-line1 { font-size: 16px; display: block; }
         .btn-yes-line2 { font-size: 12px; display: block; opacity: 0.85; margin-top: 4px; font-weight: 600; }
-
-        .security-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 11px;
-            color: var(--muted);
-            font-weight: 600;
-            margin-top: 12px;
-        }
-
-        .btn-no {
-            display: block;
-            width: 100%;
-            text-align: center;
-            font-size: 11px;
-            color: #9ca3af;
-            font-weight: 600;
-            padding: 16px 8px 0;
-            cursor: pointer;
-            background: none;
-            border: none;
-            line-height: 1.55;
-        }
+        .security-row { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--muted); font-weight: 600; margin-top: 12px; }
+        .btn-no { display: block; width: 100%; text-align: center; font-size: 11px; color: #9ca3af; font-weight: 600; padding: 16px 8px 0; cursor: pointer; background: none; border: none; line-height: 1.55; }
         .btn-no:hover { color: var(--muted); text-decoration: underline; }
     </style>
 </head>
@@ -536,149 +216,139 @@
 
 <!-- ALERTA -->
 <div class="alerta">
-    Antes de acessar o seu material &#8212; <strong>tem uma coisa que nenhuma m&#227;e te avisa.</strong>
+    Antes de acessar o seu material &mdash; <strong>uma &uacute;ltima coisa importante.</strong>
 </div>
 
 <div class="wrap">
 
     <!-- HEADLINE -->
     <div class="headline-block">
-        <div class="headline-label">&#128161; Leia isso antes de ir</div>
+        <div class="headline-label">&#127769; Leia antes de ir</div>
         <h1>
-            Vai funcionar. E depois<br>
-            <em>vai chegar uma noite assim.</em>
+            Voc&ecirc; tem o c&oacute;digo.<br>
+            <em>Mas tem uma noite que vai testar tudo.</em>
         </h1>
-        <p>Semana 3 de CJO. Ele dorme 5 horas seguidas. Voc&#234; chora de alegria. E ent&#227;o &#8212; de uma noite para a outra &#8212; ele volta a acordar de 2 em 2 horas. Mais agitado do que antes. Voc&#234; n&#227;o entende o que mudou.</p>
+        <p>Aplicar o CJO &eacute; um processo de 7 noites. E existe uma noite espec&iacute;fica &mdash; a Noite 3 &mdash; em que quase toda m&atilde;e desiste. N&atilde;o por falta de esfor&ccedil;o. Por falta de um roteiro que diga: <em>continue, voc&ecirc; est&aacute; no caminho certo.</em></p>
     </div>
 
-    <!-- SCENE BOX -->
-    <div class="scene-box">
-        <div class="scene-time">&#127769; Cena real — regressão dos 4 meses</div>
-        <div class="scene-text">
-            <strong>Ele estava dormindo.</strong> Voc&#234; tinha conseguido. Cinco horas seguidas, quase sem interrup&#231;&#227;o. Voc&#234; j&#225; n&#227;o lembrava mais o que era isso.<br><br>
-            E ent&#227;o, sem aviso, ele acorda &#224;s 2h. &#192;s 3h. &#192;s 4h. Mais choroso do que nunca. Mais dif&#237;cil de acalmar. Como se o que voc&#234; tinha aprendido tivesse <strong>deixado de existir de uma hora para outra.</strong>
-        </div>
-        <div class="scene-caption">Isso n&#227;o &#233; fracasso. &#201; a regress&#227;o. E ela &#233; neurol&#243;gica &#8212; acontece com todas. A diferen&#231;a est&#225; em saber o que fazer quando ela chegar.</div>
-    </div>
-
-    <!-- REGRESSÕES — PROGRESSÃO VISUAL -->
-    <div class="regressoes-wrap">
-        <div class="regressoes-label">As 4 crises que est&#227;o no caminho</div>
-        <div class="regressoes-track">
-            <div class="reg-col">
-                <div class="reg-bar" style="height:36px;background:rgba(220,38,38,0.25);"></div>
-                <div class="reg-num" style="color:#ef4444;">4</div>
-                <div class="reg-suffix">meses</div>
-            </div>
-            <div class="reg-col">
-                <div class="reg-bar" style="height:54px;background:rgba(220,38,38,0.45);"></div>
-                <div class="reg-num" style="color:#ef4444;">8</div>
-                <div class="reg-suffix">meses</div>
-            </div>
-            <div class="reg-col">
-                <div class="reg-bar" style="height:72px;background:rgba(220,38,38,0.7);"></div>
-                <div class="reg-num" style="color:#dc2626;font-weight:900;">12</div>
-                <div class="reg-suffix">meses</div>
-            </div>
-            <div class="reg-col">
-                <div class="reg-bar" style="height:88px;background:#dc2626;border-radius:6px 6px 0 0;"></div>
-                <div class="reg-num" style="color:#dc2626;font-weight:900;">18</div>
-                <div class="reg-suffix" style="font-weight:900;color:#dc2626;">meses</div>
-            </div>
-        </div>
-        <p class="regressoes-note">Cada fase &#233; mais intensa que a anterior. Sem o protocolo certo, semanas de conquista se perdem em 2 noites.</p>
-    </div>
-
-    <!-- TESTIMONIAL — antes do produto -->
-    <div class="testimonial-standalone">
-        <div class="testimonial">
-            <span class="quote-mark">&#8220;</span>
-            <p>Quando veio a regress&#227;o dos 8 meses eu entrei em p&#226;nico. Achei que tinha perdido tudo o que tinha conquistado. O Protocolo Cofre me mostrou exatamente o que fazer, noite por noite. Em 3 dias ele voltou a dormir como antes. Sem esse guia eu teria desistido.</p>
-            <div class="author-row">
-                <div class="author-avatar">A</div>
-                <div class="author-info">
-                    Aline C.
-                    <span>M&#227;e do Lorenzo, 10 meses</span>
-                </div>
-            </div>
+    <!-- CENÁRIO NOITE 3 -->
+    <div class="night3-scene">
+        <div class="time">&#128338; 3h da manh&atilde;. Noite 3.</div>
+        <h2>Ele est&aacute; chorando.<br><em>Mais do que ontem.<br>Muito mais.</em></h2>
+        <p>Voc&ecirc; aplicou o m&eacute;todo certinho. As Noites 1 e 2 at&eacute; foram melhores. E agora, de repente, parece que tudo <strong>piorou</strong>.</p>
+        <p>Uma voz diz: <strong>&ldquo;Est&aacute; funcionando ao contr&aacute;rio. Eu fiz algo errado. Ele est&aacute; sofrendo por minha causa.&rdquo;</strong></p>
+        <p>E &eacute; exatamente nesse momento &mdash; quando a maioria das m&atilde;es cede &mdash; que o m&eacute;todo estava <strong>mais pr&oacute;ximo de funcionar do que nunca.</strong></p>
+        <div class="alerta-inline">
+            O choro intenso da Noite 3 tem nome: <strong>extin&ccedil;&atilde;o de explos&atilde;o</strong>. &Eacute; o sistema nervoso do beb&ecirc; resistindo a uma mudan&ccedil;a real. N&atilde;o &eacute; regress&atilde;o. &Eacute; progresso. Mas sem saber disso, 8 em cada 10 m&atilde;es param aqui.
         </div>
     </div>
 
-    <!-- PRODUCT CARD -->
+    <!-- PONTE -->
+    <div class="ponte">
+        <div class="tag">&#9888;&#65039; O que faz a diferen&ccedil;a</div>
+        <h3>Voc&ecirc; tem o c&oacute;digo. Mas &agrave;s 3h da manh&atilde;, na Noite 3, voc&ecirc; n&atilde;o precisa do mapa &mdash; precisa de algu&eacute;m que diga: <em>continue.</em></h3>
+        <p>O Turbo 7 Noites &eacute; o roteiro noite a noite que transforma o CJO de teoria em resultado. Cada noite tem o que fazer, o que esperar e o que n&atilde;o ceder. <strong>Sem adivinha&ccedil;&atilde;o. Sem tentativa e erro &agrave;s 2h da manh&atilde;.</strong></p>
+    </div>
+
+    <!-- PRODUTO -->
     <div class="product-card">
-
         <div class="product-header">
-            <div class="badge-alert">&#128737;&#65039; Oferta de sa&#237;da &#8212; &#250;ltima chance</div>
-            <h2>Protocolo Cofre</h2>
-            <div class="product-subtitle">O Escudo Anti-Regress&#227;o</div>
-            <p class="desc">O protocolo exato para blindar o que voc&#234; aprendeu no CJO e recuperar o sono em at&#233; 72h quando qualquer crise chegar &#8212; sem come&#231;ar do zero.</p>
+            <div class="badge-alert">&#9889; Oferta de sa&iacute;da &mdash; &uacute;ltima chance</div>
+            <h2>Turbo &mdash; <span>7 Noites</span></h2>
+            <div class="product-subtitle">Plano de Implementa&ccedil;&atilde;o CJO</div>
+            <p class="desc">O roteiro noite a noite para que voc&ecirc; nunca fique sem saber o que fazer &mdash; do entardecer at&eacute; a madrugada, durante 7 dias seguidos.</p>
+            <div class="nights-strip">
+                <div class="night-pill">Noite 1</div>
+                <div class="night-pill">Noite 2</div>
+                <div class="night-pill active">&#9889; Noite 3</div>
+                <div class="night-pill">Noite 4</div>
+                <div class="night-pill">Noite 5</div>
+                <div class="night-pill">Noite 6</div>
+                <div class="night-pill">Noite 7</div>
+            </div>
         </div>
 
         <div class="product-body">
-            <div class="benefits-label">O que voc&#234; recebe:</div>
+
+            <!-- DEPOIMENTO ANTES DOS BENEFÍCIOS -->
+            <div class="depo-early">
+                <span class="quote-mark">&#8220;</span>
+                <p>Na Noite 3 eu chorei junto com meu filho. O guia dizia que era normal &mdash; que era sinal de progresso. Eu continuei com medo, mas continuei. Na Noite 5, ele dormiu 6 horas seguidas. Pela primeira vez em meses. Eu fiquei parada olhando o monitor sem acreditar.</p>
+                <div class="author-row">
+                    <div class="author-av">A</div>
+                    <div>
+                        <div class="author-name">Alessandra F.<span>M&atilde;e da Sofia, 7 meses</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;">O que voc&ecirc; recebe noite a noite:</p>
 
             <div class="benefit">
                 <div class="benefit-num">01</div>
                 <div>
-                    <div class="benefit-title">Protocolo exato para as 4 regress&#245;es</div>
-                    <div class="benefit-desc">4, 8, 12 e 18 meses cobertos &#8212; o que fazer em cada fase sem perder o progresso que voc&#234; conquistou</div>
+                    <div class="benefit-title">O roteiro exato de cada uma das 7 noites</div>
+                    <div class="benefit-desc">Hor&aacute;rio da janela, ritual de 15min, o que fazer se ele resistir &mdash; tudo descrito, sem espa&ccedil;o para d&uacute;vida &agrave;s 2h da manh&atilde;</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">02</div>
                 <div>
-                    <div class="benefit-title">Plano de recupera&#231;&#227;o r&#225;pida em 72h</div>
-                    <div class="benefit-desc">Como restabelecer as janelas depois de doen&#231;as, denti&#231;&#227;o e viagens &#8212; sem recome&#231;ar do zero</div>
+                    <div class="benefit-title">Protocolo de choro para cada noite</div>
+                    <div class="benefit-desc">Quando ele chorar, voc&ecirc; saber&aacute; exatamente o que fazer &mdash; sem entrar em p&acirc;nico, sem ceder sem inten&ccedil;&atilde;o, sem culpa</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">03</div>
                 <div>
-                    <div class="benefit-title">O que fazer na primeira noite ruim</div>
-                    <div class="benefit-desc">A resposta exata para a noite que parece que tudo desmoronou &#8212; antes que vire semanas de priva&#231;&#227;o</div>
+                    <div class="benefit-title">Di&aacute;rio das 7 Noites &mdash; para voc&ecirc; n&atilde;o desistir</div>
+                    <div class="benefit-desc">Ver os n&uacute;meros melhorando (mesmo que devagar) &eacute; o que mant&eacute;m a m&atilde;e firme quando a voz interna quer parar</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">04</div>
                 <div>
-                    <div class="benefit-title">Checklist de prote&#231;&#227;o preventiva</div>
-                    <div class="benefit-desc">O que ajustar nas janelas antes da regress&#227;o chegar &#8212; para minimizar o impacto antes que ele aconte&#231;a</div>
+                    <div class="benefit-title">Mini-guia de regress&otilde;es incluso</div>
+                    <div class="benefit-desc">Para quando o sono melhorar e depois travar de novo &mdash; 4, 8, 12 e 18 meses &mdash; voc&ecirc; saber&aacute; que n&atilde;o perdeu tudo</div>
                 </div>
             </div>
         </div>
 
-        <!-- PRICE -->
-        <div class="price-section">
-            <div class="price-divider"><span>investimento</span></div>
-            <div class="price-box">
-                <div class="price-context">O mesmo valor que voc&#234; j&#225; investiu hoje</div>
-                <div class="price-original">De R$97,00</div>
-                <div class="price-value">
-                    <span class="price-currency">R$</span>
-                    <span class="price-main">27</span>
-                    <span class="price-cents">,00</span>
+        <!-- PREÇO COM ANCORAGEM -->
+        <div class="price-block">
+            <div class="anchor-row">
+                <div class="anchor-item">
+                    <strong>R$350+</strong>
+                    Uma sess&atilde;o com consultora
                 </div>
-                <div class="price-note">Pagamento &#250;nico &middot; Acesso imediato &middot; N&#227;o &#233; assinatura</div>
-                <div class="price-anchor">= prote&#231;&#227;o para os pr&#243;ximos 18 meses</div>
+                <div class="anchor-divider">vs</div>
+                <div class="anchor-item" style="color:#6ee7b7;">
+                    <strong style="color:var(--green);text-decoration:none;font-size:20px;">R$67</strong>
+                    7 noites do roteiro completo
+                </div>
             </div>
+            <div class="price-label">Pelo roteiro das 7 noites</div>
+            <div class="price-value">
+                <span class="price-currency">R$</span>
+                <span class="price-main">67</span>
+                <span class="price-cents">,00</span>
+            </div>
+            <div class="price-note">Pagamento &uacute;nico &middot; Acesso permanente &middot; N&atilde;o &eacute; assinatura</div>
+            <div class="price-breakdown">= menos de R$10 por noite de acompanhamento</div>
         </div>
 
-        <!-- CTA -->
+        <!-- CTAs -->
         <div class="cta-section">
-            <button onclick="trackUpsell2('https://lastlink.com/p/C8C49F705/checkout-payment/')" class="btn-yes">
-                <span class="btn-yes-line1">&#128737;&#65039; Sim, quero proteger o que aprendi</span>
-                <span class="btn-yes-line2">Garantir por R$27 &middot; Acesso imediato</span>
+            <button onclick="trackUpsell2('https://lastlink.com/p/C185193A7/checkout-payment/')" class="btn-yes">
+                <span class="btn-yes-line1">&#9989; Sim, quero o roteiro das 7 noites</span>
+                <span class="btn-yes-line2">Quero estar preparada para a Noite 3 &middot; R$67</span>
             </button>
-
             <div class="security-row">
-                <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                </svg>
-                Pagamento seguro &middot; Garantia de 7 dias
+                <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                Pagamento seguro &middot; Garantia incondicional de 7 dias
             </div>
-
             <button class="btn-no" onclick="goToMembersArea()">
-                N&#227;o, prefiro aplicar sem prote&#231;&#227;o e ver o que acontece
+                N&atilde;o, vou tentar aplicar sozinha e ver o que acontece
             </button>
         </div>
 
@@ -729,7 +399,6 @@
 })();
 </script>
 
-<!-- Anti-Spy Shield -->
 <script src="./assets/shield.js" defer></script>
 </body>
 </html>

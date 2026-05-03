@@ -13,14 +13,15 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'Upsell Plano Turbo'});
+    fbq('track', 'Purchase', { value: 27.00, currency: 'BRL', content_name: 'CJO Principal' });
+    fbq('track', 'ViewContent', {content_name: 'Upsell1 Protocolo Cofre'});
 
     function getQueryString() { return window.location.search; }
 
     function trackUpsell(destination) {
         fbq('track', 'InitiateCheckout', {
-            content_name: 'Plano de Implementacao Turbo',
-            value: 67.00, currency: 'BRL'
+            content_name: 'Protocolo Cofre Anti-Regressao',
+            value: 27.00, currency: 'BRL'
         });
         const params = getQueryString();
         const baseChar = destination.includes('?') ? '&' : '?';
@@ -87,20 +88,29 @@
         /* WRAP */
         .wrap { max-width: 600px; margin: 0 auto; padding: 0 16px 80px; }
 
-        /* CENÁRIO NOITE 3 */
-        .night3-scene {
+        /* SCENE BOX */
+        .scene-box {
             background: var(--navy);
             border-radius: 18px;
             padding: 28px 22px;
             margin-top: -22px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
         }
-        .night3-scene .time { font-size: 11px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px; }
-        .night3-scene h2 { font-size: 22px; font-weight: 900; color: white; line-height: 1.25; margin-bottom: 14px; }
-        .night3-scene h2 em { font-style: normal; color: #fca5a5; }
-        .night3-scene p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.75; font-weight: 500; margin-bottom: 12px; }
-        .night3-scene p strong { color: white; }
-        .night3-scene .alerta {
+        .scene-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-d), var(--gold));
+        }
+        .scene-box .time { font-size: 11px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px; }
+        .scene-box h2 { font-size: 22px; font-weight: 900; color: white; line-height: 1.25; margin-bottom: 14px; }
+        .scene-box h2 em { font-style: normal; color: #fca5a5; }
+        .scene-box p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.75; font-weight: 500; margin-bottom: 12px; }
+        .scene-box p strong { color: white; }
+        .scene-box .alerta {
             background: rgba(220,38,38,0.12);
             border-radius: 10px; padding: 14px 16px; margin-top: 14px;
             font-size: 14px; color: #fca5a5; font-weight: 700; line-height: 1.55;
@@ -130,18 +140,19 @@
         .product-header h2 span { color: var(--gold-l); }
         .product-header .tagline { font-size: 13px; color: rgba(255,255,255,0.58); font-weight: 500; line-height: 1.6; max-width: 340px; margin: 0 auto; }
 
-        /* NIGHTS STRIP */
-        .nights-strip { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; margin-top: 20px; }
-        .night-pill { background: rgba(255,255,255,0.07); border-radius: 50px; padding: 5px 10px; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45); }
-        .night-pill.active { background: rgba(220,38,38,0.25); color: #fca5a5; font-weight: 900; }
+        /* REGRESSÕES MINI */
+        .reg-mini { display: flex; justify-content: center; align-items: flex-end; gap: 6px; margin-top: 20px; }
+        .reg-mini-col { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .reg-mini-bar { width: 30px; border-radius: 4px 4px 0 0; }
+        .reg-mini-label { font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; }
 
         .product-body { padding: 24px 22px 0; }
 
-        /* DEPOIMENTO PRIMEIRO */
-        .depo-early { background: #fdfaf6; border-radius: 14px; padding: 20px 18px; margin-bottom: 24px; }
-        .quote-mark { font-size: 48px; font-weight: 900; color: var(--gold-l); line-height: 0.7; margin-bottom: 10px; display: block; font-family: Georgia, serif; opacity: 0.5; }
+        /* DEPOIMENTO */
+        .depo-early { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-radius: 14px; padding: 20px 18px; margin-bottom: 24px; }
+        .quote-mark { font-size: 48px; font-weight: 900; color: var(--gold); line-height: 0.7; margin-bottom: 10px; display: block; font-family: Georgia, serif; opacity: 0.6; }
         .depo-early p { font-size: 14px; color: #374151; line-height: 1.7; font-weight: 600; font-style: italic; }
-        .depo-early .author-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.07); }
+        .depo-early .author-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(217,119,6,0.15); }
         .author-av { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-d)); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: white; flex-shrink: 0; }
         .author-name { font-size: 12px; font-weight: 800; color: var(--text); line-height: 1.4; }
         .author-name span { display: block; font-weight: 500; color: var(--muted); font-size: 11px; }
@@ -161,9 +172,9 @@
         .anchor-divider { font-size: 18px; color: #334155; font-weight: 900; }
         .price-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
         .price-value { display: flex; align-items: baseline; justify-content: center; gap: 3px; margin-bottom: 8px; }
-        .price-currency { font-size: 22px; font-weight: 900; color: var(--green); }
-        .price-main { font-size: 62px; font-weight: 900; color: var(--green); line-height: 1; }
-        .price-cents { font-size: 20px; font-weight: 700; color: #6ee7b7; }
+        .price-currency { font-size: 22px; font-weight: 900; color: var(--gold-l); }
+        .price-main { font-size: 62px; font-weight: 900; color: var(--gold-l); line-height: 1; }
+        .price-cents { font-size: 20px; font-weight: 700; color: var(--gold); }
         .price-note { font-size: 11px; color: #475569; font-weight: 600; }
         .price-breakdown { margin-top: 10px; font-size: 13px; color: var(--gold-l); font-weight: 800; }
 
@@ -171,15 +182,15 @@
         .cta-wrap { padding: 20px 22px 26px; }
         .btn-yes {
             display: block; width: 100%;
-            background: linear-gradient(135deg, #059669 0%, var(--green) 100%);
+            background: linear-gradient(135deg, var(--gold-d) 0%, var(--gold) 100%);
             color: white; text-align: center; font-weight: 900; font-size: 15px;
             padding: 20px 16px; border-radius: 14px; border: none; cursor: pointer;
             line-height: 1.4; position: relative; overflow: hidden;
-            animation: pulse-green 2s infinite;
+            animation: pulse-gold 2s infinite;
         }
-        .btn-yes::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); animation: sweep 2.5s ease-in-out infinite; }
+        .btn-yes::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent); animation: sweep 2.5s ease-in-out infinite; }
         @keyframes sweep { 0% { left: -100%; } 100% { left: 200%; } }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); } 70% { box-shadow: 0 0 0 18px rgba(16,185,129,0); } 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); } }
+        @keyframes pulse-gold { 0% { box-shadow: 0 0 0 0 rgba(245,158,11,0.5); } 70% { box-shadow: 0 0 0 18px rgba(245,158,11,0); } 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); } }
         .btn-yes-line1 { font-size: 16px; display: block; }
         .btn-yes-line2 { font-size: 12px; display: block; opacity: 0.85; margin-top: 4px; font-weight: 600; }
         .security-row { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--muted); font-weight: 600; margin-top: 12px; }
@@ -191,9 +202,9 @@
 
 <!-- TIMER -->
 <div id="timer-bar">
-    <span class="tl">⚡ Oferta exclusiva expira em: </span>
+    <span class="tl">&#9889; Oferta exclusiva expira em: </span>
     <span id="countdown">15:00</span>
-    <span class="tl"> — só para quem acabou de comprar</span>
+    <span class="tl"> &#8212; s&oacute; para quem acabou de comprar</span>
 </div>
 
 <!-- HERO -->
@@ -203,91 +214,99 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
         </svg>
     </div>
-    <h1>Acesso ao <span class="gold">Código das Janelas de Ouro</span> confirmado!</h1>
-    <p class="sub">O e-mail com seu acesso chegará em instantes. Mas antes de fechar — leia a próxima tela. Ela pode ser a diferença entre ver resultado ou desistir.</p>
+    <h1>Acesso ao <span class="gold">C&oacute;digo das Janelas de Ouro</span> confirmado!</h1>
+    <p class="sub">Seu e-mail de acesso chega em instantes. Mas antes de voc&ecirc; come&ccedil;ar &mdash; tem uma coisa que toda m&atilde;e s&oacute; descobre quando j&aacute; est&aacute; no meio da aplica&ccedil;&atilde;o.</p>
 </div>
 
 <div class="wrap">
 
-    <!-- CENÁRIO VISCERAL DA NOITE 3 -->
-    <div class="night3-scene">
-        <div class="time">🕒 3h da manhã. Noite 3.</div>
-        <h2>Ele está chorando.<br><em>Mais do que ontem.<br>Muito mais.</em></h2>
-        <p>Você aplicou o método certinho. As Noites 1 e 2 até foram melhores. E agora, de repente, parece que tudo <strong>piorou</strong>.</p>
-        <p>Nesse momento, uma voz diz: <strong>"Está funcionando ao contrário. Eu fiz algo errado. Ele está sofrendo por minha causa."</strong></p>
-        <p>E é exatamente nesse momento — quando a maioria das mães cede — que o método estava <strong>mais próximo de funcionar do que nunca.</strong></p>
+    <!-- CENA DA REGRESSÃO -->
+    <div class="scene-box">
+        <div class="time">&#127769; Semana 3 de aplica&ccedil;&atilde;o</div>
+        <h2>Ele estava dormindo.<br><em>E ent&atilde;o parou.</em></h2>
+        <p>Voc&ecirc; aplicou o m&eacute;todo. As janelas funcionaram. Ele dormiu mais. Voc&ecirc; acreditou. E ent&atilde;o &mdash; de uma noite para a outra &mdash; ele voltou a acordar de 2 em 2 horas. <strong>Mais agitado do que antes do in&iacute;cio.</strong></p>
+        <p>Voc&ecirc; entra em p&acirc;nico. Acha que fez algo errado. Que perdeu tudo. Que o m&eacute;todo n&atilde;o funcionou com o seu beb&ecirc;.</p>
         <div class="alerta">
-            O choro intenso da Noite 3 tem nome: <strong>extinção de explosão</strong>. É o sistema nervoso do bebê resistindo a uma mudança real. Não é regressão. É progresso. Mas sem saber disso, 8 em cada 10 mães param aqui.
+            Isso &eacute; a regress&atilde;o. Ela &eacute; neurol&oacute;gica, inevit&aacute;vel, e acontece com <strong>todos os beb&ecirc;s</strong>. A diferen&ccedil;a est&aacute; em saber exatamente o que fazer quando ela chegar &mdash; antes de perder semanas de progresso em 2 noites.
         </div>
     </div>
 
     <!-- PONTE -->
     <div class="ponte">
-        <div class="tag">⚠️ O problema real</div>
-        <h3>Você tem o código biológico. Mas não tem ninguém com você nas 7 noites.</h3>
-        <p>O Código das Janelas de Ouro te dá o mapa. Mas às 3h da manhã, na Noite 3, você não precisa do mapa — você precisa de alguém que diga: <strong>"Isso é normal. Continue. Você está no caminho certo."</strong></p>
+        <div class="tag">&#128737;&#65039; Uma prote&ccedil;&atilde;o que a maioria n&atilde;o leva</div>
+        <h3>O CJO te ensina as janelas. Mas n&atilde;o te ensina o que fazer quando tudo que funcionava parece ter parado.</h3>
+        <p>A regress&atilde;o dos 4 meses. A dos 8. A dos 12. Cada uma parece que voc&ecirc; perdeu tudo. <strong>Mas voc&ecirc; n&atilde;o perdeu &mdash; voc&ecirc; s&oacute; precisava do protocolo certo para recuperar em 72h.</strong></p>
     </div>
 
     <!-- PRODUTO -->
     <div class="product-card">
         <div class="product-header">
-            <div class="product-badge">🔒 Oferta exclusiva pós-compra</div>
-            <div class="label">Plano de Implementação</div>
-            <h2>Turbo — <span>7 Noites</span></h2>
-            <p class="tagline">O roteiro noite a noite para que você nunca fique sem saber o que fazer — do entardecer até a madrugada, durante 7 dias seguidos.</p>
-            <div class="nights-strip">
-                <div class="night-pill">Noite 1</div>
-                <div class="night-pill">Noite 2</div>
-                <div class="night-pill active">⚡ Noite 3</div>
-                <div class="night-pill">Noite 4</div>
-                <div class="night-pill">Noite 5</div>
-                <div class="night-pill">Noite 6</div>
-                <div class="night-pill">Noite 7</div>
+            <div class="product-badge">&#128274; Oferta exclusiva p&oacute;s-compra</div>
+            <div class="label">Escudo Anti-Regress&atilde;o</div>
+            <h2>Protocolo <span>Cofre</span></h2>
+            <p class="tagline">O protocolo exato para blindar o que voc&ecirc; vai conquistar com o CJO &mdash; e recuperar o sono em at&eacute; 72h quando qualquer crise chegar.</p>
+            <div class="reg-mini">
+                <div class="reg-mini-col">
+                    <div class="reg-mini-bar" style="height:18px;background:rgba(220,38,38,0.3);"></div>
+                    <div class="reg-mini-label">4m</div>
+                </div>
+                <div class="reg-mini-col">
+                    <div class="reg-mini-bar" style="height:28px;background:rgba(220,38,38,0.5);"></div>
+                    <div class="reg-mini-label">8m</div>
+                </div>
+                <div class="reg-mini-col">
+                    <div class="reg-mini-bar" style="height:38px;background:rgba(220,38,38,0.7);"></div>
+                    <div class="reg-mini-label">12m</div>
+                </div>
+                <div class="reg-mini-col">
+                    <div class="reg-mini-bar" style="height:48px;background:#dc2626;"></div>
+                    <div class="reg-mini-label" style="color:#fca5a5;">18m</div>
+                </div>
             </div>
         </div>
 
         <div class="product-body">
 
-            <!-- DEPOIMENTO PRIMEIRO — antes dos benefícios -->
+            <!-- DEPOIMENTO ANTES DOS BENEFÍCIOS -->
             <div class="depo-early">
-                <span class="quote-mark">"</span>
-                <p>Na Noite 3 eu chorei junto com meu filho. O guia dizia que era normal — que era sinal de progresso. Eu continuei com medo, mas continuei. Na Noite 5, ele dormiu 6 horas seguidas. Pela primeira vez em meses. Eu fiquei parada olhando o monitor sem acreditar.</p>
+                <span class="quote-mark">&#8220;</span>
+                <p>Quando veio a regress&atilde;o dos 8 meses eu entrei em p&acirc;nico &mdash; achei que tinha perdido tudo o que tinha conquistado. O Protocolo Cofre me mostrou exatamente o que fazer, noite por noite. Em 3 dias ele voltou a dormir como antes. Sem esse guia eu teria desistido.</p>
                 <div class="author-row">
                     <div class="author-av">A</div>
                     <div>
-                        <div class="author-name">Alessandra F.<span>Mãe da Sofia, 7 meses</span></div>
+                        <div class="author-name">Aline C.<span>M&atilde;e do Lorenzo, 10 meses</span></div>
                     </div>
                 </div>
             </div>
 
-            <p style="font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;">O que você recebe noite a noite:</p>
+            <p style="font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;">O que voc&ecirc; recebe:</p>
 
             <div class="benefit">
                 <div class="benefit-num">01</div>
                 <div>
-                    <div class="benefit-title">O roteiro exato de cada uma das 7 noites</div>
-                    <div class="benefit-desc">Horário da janela, ritual de 15min, o que fazer se ele resistir — tudo descrito, sem espaço para dúvida às 2h da manhã</div>
+                    <div class="benefit-title">Protocolo exato para as 4 regress&otilde;es</div>
+                    <div class="benefit-desc">4, 8, 12 e 18 meses cobertos &mdash; o que fazer em cada fase sem perder o progresso conquistado</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">02</div>
                 <div>
-                    <div class="benefit-title">Protocolo de choro para cada noite</div>
-                    <div class="benefit-desc">Quando ele chorar, você saberá exatamente o que fazer — sem entrar em pânico, sem ceder sem intenção, sem culpa</div>
+                    <div class="benefit-title">Plano de recupera&ccedil;&atilde;o r&aacute;pida em 72h</div>
+                    <div class="benefit-desc">Como restabelecer as janelas depois de doen&ccedil;as, denti&ccedil;&atilde;o e viagens &mdash; sem come&ccedil;ar do zero</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">03</div>
                 <div>
-                    <div class="benefit-title">Diário das 7 Noites — para você não desistir</div>
-                    <div class="benefit-desc">Ver os números melhorando (mesmo que devagar) é o que mantém a mãe firme quando a voz interna quer parar</div>
+                    <div class="benefit-title">O que fazer na primeira noite ruim</div>
+                    <div class="benefit-desc">A resposta exata para a noite que parece que tudo desmoronou &mdash; antes que vire semanas de priva&ccedil;&atilde;o</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">04</div>
                 <div>
-                    <div class="benefit-title">Mini-guia de regressões incluso</div>
-                    <div class="benefit-desc">Para quando o sono melhorar e depois travar de novo — 4, 8, 12 e 18 meses — você saberá que não perdeu tudo</div>
+                    <div class="benefit-title">Checklist de prote&ccedil;&atilde;o preventiva</div>
+                    <div class="benefit-desc">O que ajustar nas janelas antes da regress&atilde;o chegar &mdash; para minimizar o impacto antes que ele aconte&ccedil;a</div>
                 </div>
             </div>
 
@@ -297,37 +316,37 @@
         <div class="price-block">
             <div class="anchor-row">
                 <div class="anchor-item">
-                    <strong>R$350+</strong>
-                    Uma sessão com consultora
+                    <strong>R$97,00</strong>
+                    Pre&ccedil;o normal do protocolo
                 </div>
                 <div class="anchor-divider">vs</div>
-                <div class="anchor-item" style="color:#6ee7b7;">
-                    <strong style="color:var(--green);text-decoration:none;font-size:20px;">R$67</strong>
-                    7 noites do roteiro completo
+                <div class="anchor-item" style="color:#fbbf24;">
+                    <strong style="color:var(--gold-l);text-decoration:none;font-size:20px;">R$27</strong>
+                    O mesmo que voc&ecirc; j&aacute; investiu hoje
                 </div>
             </div>
-            <div class="price-label">Pelo roteiro das 7 noites</div>
+            <div class="price-label">Pelo escudo anti-regress&atilde;o</div>
             <div class="price-value">
                 <span class="price-currency">R$</span>
-                <span class="price-main">67</span>
+                <span class="price-main">27</span>
                 <span class="price-cents">,00</span>
             </div>
-            <div class="price-note">Pagamento único · Acesso permanente · Não é assinatura</div>
-            <div class="price-breakdown">= menos de R$10 por noite de acompanhamento</div>
+            <div class="price-note">Pagamento &uacute;nico &middot; Acesso imediato &middot; N&atilde;o &eacute; assinatura</div>
+            <div class="price-breakdown">= prote&ccedil;&atilde;o para os pr&oacute;ximos 18 meses</div>
         </div>
 
         <!-- CTAs -->
         <div class="cta-wrap">
-            <button onclick="trackUpsell('https://lastlink.com/p/C185193A7/checkout-payment/')" class="btn-yes">
-                <span class="btn-yes-line1">✅ Sim, quero o roteiro das 7 noites</span>
-                <span class="btn-yes-line2">Quero estar preparada para a Noite 3 · R$67</span>
+            <button onclick="trackUpsell('https://lastlink.com/p/C8C49F705/checkout-payment/')" class="btn-yes">
+                <span class="btn-yes-line1">&#128737;&#65039; Sim, quero levar o escudo junto</span>
+                <span class="btn-yes-line2">Garantir por R$27 &middot; Acesso imediato</span>
             </button>
             <div class="security-row">
                 <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-                Pagamento seguro · Garantia incondicional de 7 dias
+                Pagamento seguro &middot; Garantia incondicional de 7 dias
             </div>
             <button class="btn-no" onclick="goToMembersArea()">
-                Não, vou tentar aplicar sozinha e ver o que acontece
+                N&atilde;o, prefiro aplicar sem o escudo e ver o que acontece
             </button>
         </div>
 
@@ -350,7 +369,7 @@
         if (remaining <= 60) { el.style.color = '#fca5a5'; bar.style.animation = 'none'; bar.style.background = '#450a0a'; }
         if (remaining <= 0) {
             clearInterval(interval);
-            bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
+            bar.innerHTML = '&#9200; Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
         }
     }
     update();
