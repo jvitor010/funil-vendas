@@ -109,7 +109,7 @@
         /* ── HEADLINE ── */
         .headline-block {
             text-align: center;
-            margin-bottom: 36px;
+            margin-bottom: 28px;
         }
         .headline-label {
             display: inline-block;
@@ -140,9 +140,50 @@
             margin: 0 auto;
         }
 
+        /* ── SCENE BOX ── */
+        .scene-box {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .scene-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-d), var(--gold));
+        }
+        .scene-time {
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 14px;
+        }
+        .scene-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.75;
+            font-weight: 500;
+        }
+        .scene-text strong { color: white; font-weight: 800; }
+        .scene-caption {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 12px;
+            color: var(--gold-l);
+            font-weight: 700;
+            font-style: italic;
+        }
+
         /* ── REGRESSÕES — VISUAL PROGRESSIVO ── */
         .regressoes-wrap {
-            margin-bottom: 36px;
+            margin-bottom: 32px;
         }
         .regressoes-label {
             font-size: 10px;
@@ -188,6 +229,66 @@
             font-weight: 500;
             margin-top: 16px;
             line-height: 1.6;
+        }
+
+        /* ── TESTIMONIAL (standalone) ── */
+        .testimonial-standalone {
+            margin-bottom: 28px;
+        }
+        .testimonial {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-radius: 14px;
+            padding: 22px 20px 18px;
+        }
+        .quote-mark {
+            font-size: 52px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 0.7;
+            margin-bottom: 12px;
+            display: block;
+            font-family: Georgia, serif;
+            opacity: 0.6;
+        }
+        .testimonial p {
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.7;
+            font-weight: 600;
+            font-style: italic;
+        }
+        .author-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(217,119,6,0.15);
+        }
+        .author-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-d));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 900;
+            color: white;
+            flex-shrink: 0;
+        }
+        .author-info {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        .author-info span {
+            display: block;
+            font-weight: 500;
+            color: var(--muted);
+            font-size: 11px;
         }
 
         /* ── PRODUCT CARD ── */
@@ -267,13 +368,14 @@
         .benefit + .benefit {
             border-top: 1px solid rgba(0,0,0,0.05);
         }
-        .benefit-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--gold);
+        .benefit-num {
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--gold-d);
             flex-shrink: 0;
-            margin-top: 6px;
+            margin-top: 3px;
+            min-width: 24px;
+            letter-spacing: 0.05em;
         }
         .benefit-title {
             font-size: 14px;
@@ -287,65 +389,6 @@
             color: var(--muted);
             font-weight: 500;
             line-height: 1.6;
-        }
-
-        /* ── TESTIMONIAL ── */
-        .testimonial-wrap { padding: 0 22px; }
-        .testimonial {
-            background: #fdfaf6;
-            border-radius: 14px;
-            padding: 22px 20px 18px;
-            margin: 22px 0;
-        }
-        .quote-mark {
-            font-size: 52px;
-            font-weight: 900;
-            color: var(--gold-l);
-            line-height: 0.7;
-            margin-bottom: 12px;
-            display: block;
-            font-family: Georgia, serif;
-            opacity: 0.55;
-        }
-        .testimonial p {
-            font-size: 14px;
-            color: #374151;
-            line-height: 1.7;
-            font-weight: 600;
-            font-style: italic;
-        }
-        .author-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(0,0,0,0.07);
-        }
-        .author-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-d));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 900;
-            color: white;
-            flex-shrink: 0;
-        }
-        .author-info {
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--text);
-            line-height: 1.4;
-        }
-        .author-info span {
-            display: block;
-            font-weight: 500;
-            color: var(--muted);
-            font-size: 11px;
         }
 
         /* ── PRICE BLOCK ── */
@@ -487,30 +530,40 @@
 
 <!-- TIMER -->
 <div id="timer-bar">
-    <span class="tl">⏳ Esta oferta desaparece em: </span>
+    <span class="tl">&#9203; Esta oferta desaparece em: </span>
     <span id="countdown">10:00</span>
 </div>
 
 <!-- ALERTA -->
 <div class="alerta">
-    Espera — <strong>só mais um segundo antes de acessar seu material.</strong>
+    Antes de acessar o seu material &#8212; <strong>tem uma coisa que nenhuma m&#227;e te avisa.</strong>
 </div>
 
 <div class="wrap">
 
     <!-- HEADLINE -->
     <div class="headline-block">
-        <div class="headline-label">⚠️ Uma coisa antes de ir</div>
+        <div class="headline-label">&#128161; Leia isso antes de ir</div>
         <h1>
-            Você aprendeu as janelas.<br>
-            <em>Mas e quando a regressão chegar?</em>
+            Vai funcionar. E depois<br>
+            <em>vai chegar uma noite assim.</em>
         </h1>
-        <p>Toda mãe que aprende o método passa por isso: tudo funciona perfeitamente — e então vem a regressão dos 4, 8 ou 12 meses. Parece que perdeu tudo. Não perdeu. Mas precisa saber o que fazer.</p>
+        <p>Semana 3 de CJO. Ele dorme 5 horas seguidas. Voc&#234; chora de alegria. E ent&#227;o &#8212; de uma noite para a outra &#8212; ele volta a acordar de 2 em 2 horas. Mais agitado do que antes. Voc&#234; n&#227;o entende o que mudou.</p>
+    </div>
+
+    <!-- SCENE BOX -->
+    <div class="scene-box">
+        <div class="scene-time">&#127769; Cena real — regressão dos 4 meses</div>
+        <div class="scene-text">
+            <strong>Ele estava dormindo.</strong> Voc&#234; tinha conseguido. Cinco horas seguidas, quase sem interrup&#231;&#227;o. Voc&#234; j&#225; n&#227;o lembrava mais o que era isso.<br><br>
+            E ent&#227;o, sem aviso, ele acorda &#224;s 2h. &#192;s 3h. &#192;s 4h. Mais choroso do que nunca. Mais dif&#237;cil de acalmar. Como se o que voc&#234; tinha aprendido tivesse <strong>deixado de existir de uma hora para outra.</strong>
+        </div>
+        <div class="scene-caption">Isso n&#227;o &#233; fracasso. &#201; a regress&#227;o. E ela &#233; neurol&#243;gica &#8212; acontece com todas. A diferen&#231;a est&#225; em saber o que fazer quando ela chegar.</div>
     </div>
 
     <!-- REGRESSÕES — PROGRESSÃO VISUAL -->
     <div class="regressoes-wrap">
-        <div class="regressoes-label">As 4 crises que vão desafiar você</div>
+        <div class="regressoes-label">As 4 crises que est&#227;o no caminho</div>
         <div class="regressoes-track">
             <div class="reg-col">
                 <div class="reg-bar" style="height:36px;background:rgba(220,38,38,0.25);"></div>
@@ -533,63 +586,63 @@
                 <div class="reg-suffix" style="font-weight:900;color:#dc2626;">meses</div>
             </div>
         </div>
-        <p class="regressoes-note">Cada fase é mais intensa que a anterior. Sem o protocolo certo, semanas de conquista se perdem em 2 noites.</p>
+        <p class="regressoes-note">Cada fase &#233; mais intensa que a anterior. Sem o protocolo certo, semanas de conquista se perdem em 2 noites.</p>
+    </div>
+
+    <!-- TESTIMONIAL — antes do produto -->
+    <div class="testimonial-standalone">
+        <div class="testimonial">
+            <span class="quote-mark">&#8220;</span>
+            <p>Quando veio a regress&#227;o dos 8 meses eu entrei em p&#226;nico. Achei que tinha perdido tudo o que tinha conquistado. O Protocolo Cofre me mostrou exatamente o que fazer, noite por noite. Em 3 dias ele voltou a dormir como antes. Sem esse guia eu teria desistido.</p>
+            <div class="author-row">
+                <div class="author-avatar">A</div>
+                <div class="author-info">
+                    Aline C.
+                    <span>M&#227;e do Lorenzo, 10 meses</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- PRODUCT CARD -->
     <div class="product-card">
 
         <div class="product-header">
-            <div class="badge-alert">🛡️ Oferta de saída — última chance</div>
+            <div class="badge-alert">&#128737;&#65039; Oferta de sa&#237;da &#8212; &#250;ltima chance</div>
             <h2>Protocolo Cofre</h2>
-            <div class="product-subtitle">O Escudo Anti-Regressão</div>
-            <p class="desc">O protocolo focado para blindar tudo que você aprendeu no CJO e recuperar o sono em até 72h quando qualquer crise chegar.</p>
+            <div class="product-subtitle">O Escudo Anti-Regress&#227;o</div>
+            <p class="desc">O protocolo exato para blindar o que voc&#234; aprendeu no CJO e recuperar o sono em at&#233; 72h quando qualquer crise chegar &#8212; sem come&#231;ar do zero.</p>
         </div>
 
         <div class="product-body">
-            <div class="benefits-label">O que você recebe:</div>
+            <div class="benefits-label">O que voc&#234; recebe:</div>
 
             <div class="benefit">
-                <div class="benefit-dot"></div>
+                <div class="benefit-num">01</div>
                 <div>
-                    <div class="benefit-title">Protocolo passo a passo para as 4 regressões</div>
-                    <div class="benefit-desc">4, 8, 12 e 18 meses cobertos — o que fazer em cada fase sem perder o progresso conquistado</div>
+                    <div class="benefit-title">Protocolo exato para as 4 regress&#245;es</div>
+                    <div class="benefit-desc">4, 8, 12 e 18 meses cobertos &#8212; o que fazer em cada fase sem perder o progresso que voc&#234; conquistou</div>
                 </div>
             </div>
             <div class="benefit">
-                <div class="benefit-dot"></div>
+                <div class="benefit-num">02</div>
                 <div>
-                    <div class="benefit-title">Plano de recuperação rápida em 72h</div>
-                    <div class="benefit-desc">Como restabelecer as janelas depois de doenças, dentição e viagens — sem começar do zero</div>
+                    <div class="benefit-title">Plano de recupera&#231;&#227;o r&#225;pida em 72h</div>
+                    <div class="benefit-desc">Como restabelecer as janelas depois de doen&#231;as, denti&#231;&#227;o e viagens &#8212; sem recome&#231;ar do zero</div>
                 </div>
             </div>
             <div class="benefit">
-                <div class="benefit-dot"></div>
+                <div class="benefit-num">03</div>
                 <div>
                     <div class="benefit-title">O que fazer na primeira noite ruim</div>
-                    <div class="benefit-desc">A resposta exata para a noite que parece que tudo desmoronou — antes que vire semanas de privação</div>
+                    <div class="benefit-desc">A resposta exata para a noite que parece que tudo desmoronou &#8212; antes que vire semanas de priva&#231;&#227;o</div>
                 </div>
             </div>
             <div class="benefit">
-                <div class="benefit-dot"></div>
+                <div class="benefit-num">04</div>
                 <div>
-                    <div class="benefit-title">Checklist de proteção preventiva</div>
-                    <div class="benefit-desc">O que ajustar nas janelas antes da regressão chegar — para minimizar o impacto antes que ele aconteça</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TESTIMONIAL -->
-        <div class="testimonial-wrap">
-            <div class="testimonial">
-                <span class="quote-mark">"</span>
-                <p>Quando veio a regressão dos 8 meses eu entrei em pânico — achei que tinha perdido tudo. O Protocolo Cofre me mostrou exatamente o que fazer. Em 3 dias ele voltou a dormir como antes.</p>
-                <div class="author-row">
-                    <div class="author-avatar">A</div>
-                    <div class="author-info">
-                        Aline C.
-                        <span>Mãe do Lorenzo, 10 meses</span>
-                    </div>
+                    <div class="benefit-title">Checklist de prote&#231;&#227;o preventiva</div>
+                    <div class="benefit-desc">O que ajustar nas janelas antes da regress&#227;o chegar &#8212; para minimizar o impacto antes que ele aconte&#231;a</div>
                 </div>
             </div>
         </div>
@@ -598,34 +651,34 @@
         <div class="price-section">
             <div class="price-divider"><span>investimento</span></div>
             <div class="price-box">
-                <div class="price-context">O mesmo valor que você já investiu hoje</div>
+                <div class="price-context">O mesmo valor que voc&#234; j&#225; investiu hoje</div>
                 <div class="price-original">De R$97,00</div>
                 <div class="price-value">
                     <span class="price-currency">R$</span>
                     <span class="price-main">27</span>
                     <span class="price-cents">,00</span>
                 </div>
-                <div class="price-note">Pagamento único · Acesso imediato · Não é assinatura</div>
-                <div class="price-anchor">= proteção para os próximos 18 meses</div>
+                <div class="price-note">Pagamento &#250;nico &middot; Acesso imediato &middot; N&#227;o &#233; assinatura</div>
+                <div class="price-anchor">= prote&#231;&#227;o para os pr&#243;ximos 18 meses</div>
             </div>
         </div>
 
         <!-- CTA -->
         <div class="cta-section">
             <button onclick="trackUpsell2('https://lastlink.com/p/C8C49F705/checkout-payment/')" class="btn-yes">
-                <span class="btn-yes-line1">🛡️ Sim, quero proteger o que aprendi</span>
-                <span class="btn-yes-line2">Garantir por R$27 · Acesso imediato</span>
+                <span class="btn-yes-line1">&#128737;&#65039; Sim, quero proteger o que aprendi</span>
+                <span class="btn-yes-line2">Garantir por R$27 &middot; Acesso imediato</span>
             </button>
 
             <div class="security-row">
                 <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
                 </svg>
-                Pagamento seguro · Garantia de 7 dias
+                Pagamento seguro &middot; Garantia de 7 dias
             </div>
 
             <button class="btn-no" onclick="goToMembersArea()">
-                Não, prefiro arriscar perder o progresso nas regressões
+                N&#227;o, prefiro aplicar sem prote&#231;&#227;o e ver o que acontece
             </button>
         </div>
 
@@ -659,7 +712,7 @@
         }
         if (remaining <= 0) {
             clearInterval(interval);
-            bar.innerHTML = '⏰ Oferta encerrada.';
+            bar.innerHTML = '&#9200; Oferta encerrada.';
             var btn = document.querySelector('.btn-yes');
             if (btn) {
                 btn.disabled = true;

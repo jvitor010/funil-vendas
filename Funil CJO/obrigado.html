@@ -20,8 +20,7 @@
     function trackUpsell(destination) {
         fbq('track', 'InitiateCheckout', {
             content_name: 'Plano de Implementacao Turbo',
-            value: 67.00,
-            currency: 'BRL'
+            value: 67.00, currency: 'BRL'
         });
         const params = getQueryString();
         const baseChar = destination.includes('?') ? '&' : '?';
@@ -36,7 +35,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1803679593924822&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,673 +45,196 @@
 
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         :root {
-            --bg:      #fdfaf6;
-            --navy:    #0f172a;
-            --gold:    #f59e0b;
-            --gold-d:  #d97706;
-            --gold-l:  #fbbf24;
-            --green:   #10b981;
-            --red:     #dc2626;
-            --text:    #1a1a1a;
-            --muted:   #6b7280;
-            --font:    'Montserrat', sans-serif;
+            --bg: #fdfaf6; --navy: #0f172a; --gold: #f59e0b;
+            --gold-d: #d97706; --gold-l: #fbbf24; --green: #10b981;
+            --red: #dc2626; --text: #1a1a1a; --muted: #6b7280;
+            --font: 'Montserrat', sans-serif;
         }
+        body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-        body {
-            font-family: var(--font);
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ── TIMER BAR ── */
+        /* TIMER */
         #timer-bar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 40%, #7f1d1d 100%);
             background-size: 200% 100%;
             animation: shimmer-bar 3s ease-in-out infinite;
-            color: white;
-            text-align: center;
-            padding: 11px 16px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            line-height: 1.5;
+            color: white; text-align: center; padding: 11px 16px;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5;
         }
-        @keyframes shimmer-bar {
-            0%   { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
+        @keyframes shimmer-bar { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         #timer-bar .tl { color: #fca5a5; }
-        #countdown {
-            font-size: 18px;
-            font-weight: 900;
-            color: #fef08a;
-            letter-spacing: 0.06em;
-        }
+        #countdown { font-size: 18px; font-weight: 900; color: #fef08a; letter-spacing: 0.06em; }
 
-        /* ── HERO CONFIRMAÇÃO ── */
+        /* HERO */
         .hero-confirm {
             background: linear-gradient(160deg, #064e3b 0%, #065f46 60%, #047857 100%);
-            color: white;
-            text-align: center;
-            padding: 36px 20px 48px;
+            color: white; text-align: center; padding: 36px 20px 48px;
         }
         .check-circle {
-            width: 72px;
-            height: 72px;
-            background: var(--green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 0 0 12px rgba(16,185,129,0.18), 0 0 0 26px rgba(16,185,129,0.07);
+            width: 68px; height: 68px; background: var(--green); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 18px;
+            box-shadow: 0 0 0 10px rgba(16,185,129,0.15), 0 0 0 22px rgba(16,185,129,0.07);
             animation: pop-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
         }
-        @keyframes pop-in {
-            from { transform: scale(0); opacity: 0; }
-            to   { transform: scale(1); opacity: 1; }
-        }
-        .check-circle svg { width: 36px; height: 36px; color: white; }
-
-        .hero-confirm h1 {
-            font-size: 26px;
-            font-weight: 900;
-            line-height: 1.25;
-            margin-bottom: 12px;
-        }
+        @keyframes pop-in { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .check-circle svg { width: 34px; height: 34px; color: white; }
+        .hero-confirm h1 { font-size: 24px; font-weight: 900; line-height: 1.25; margin-bottom: 10px; }
         .hero-confirm h1 .gold { color: var(--gold-l); }
-        .hero-confirm .sub {
-            font-size: 14px;
-            color: rgba(255,255,255,0.78);
-            font-weight: 500;
-            line-height: 1.65;
-            max-width: 380px;
-            margin: 0 auto;
-        }
+        .hero-confirm .sub { font-size: 13px; color: rgba(255,255,255,0.72); font-weight: 500; line-height: 1.6; max-width: 360px; margin: 0 auto; }
 
-        /* ── WRAP ── */
-        .wrap {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 16px 80px;
-        }
+        /* WRAP */
+        .wrap { max-width: 600px; margin: 0 auto; padding: 0 16px 80px; }
 
-        /* ── BRIDGE ── */
-        .bridge {
-            background: white;
-            border-radius: 18px;
-            padding: 26px 22px;
-            margin-top: -22px;
-            box-shadow: 0 6px 28px rgba(0,0,0,0.09);
-            text-align: center;
-        }
-        .bridge-tag {
-            display: inline-block;
-            background: #fef3c7;
-            color: #92400e;
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            padding: 5px 16px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-        }
-        .bridge h2 {
-            font-size: 21px;
-            font-weight: 900;
-            line-height: 1.3;
-            color: var(--text);
-            margin-bottom: 12px;
-        }
-        .bridge h2 em { font-style: normal; color: var(--red); }
-        .bridge p {
-            font-size: 14px;
-            color: #4b5563;
-            line-height: 1.7;
-            font-weight: 500;
-        }
-
-        /* ── JORNADA DAS 7 NOITES ── */
-        .journey {
-            margin: 22px 0;
-            padding: 22px 20px;
+        /* CENÁRIO NOITE 3 */
+        .night3-scene {
             background: var(--navy);
-            border-radius: 16px;
+            border-radius: 18px;
+            padding: 28px 22px;
+            margin-top: -22px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
         }
-        .journey-label {
-            font-size: 10px;
-            font-weight: 800;
-            color: rgba(255,255,255,0.45);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-        .journey-track {
-            display: flex;
-            align-items: flex-end;
-            gap: 0;
-            position: relative;
-        }
-        .journey-night {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            position: relative;
-        }
-        .night-bar {
-            width: 100%;
-            border-radius: 4px 4px 0 0;
-            transition: height 0.3s ease;
-        }
-        .night-num {
-            font-size: 9px;
-            font-weight: 800;
-            color: rgba(255,255,255,0.5);
-            letter-spacing: 0.04em;
-        }
-        .night-key {
-            position: absolute;
-            top: -28px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 9px;
-            font-weight: 900;
-            white-space: nowrap;
-            padding: 3px 8px;
-            border-radius: 50px;
-        }
-        .journey-insight {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 18px;
-        }
-        .insight-item {
-            background: rgba(255,255,255,0.06);
-            border-radius: 10px;
-            padding: 12px 14px;
-        }
-        .insight-item .ins-num {
-            font-size: 22px;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-        .insight-item .ins-text {
-            font-size: 11px;
-            color: rgba(255,255,255,0.6);
-            font-weight: 600;
-            line-height: 1.45;
+        .night3-scene .time { font-size: 11px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px; }
+        .night3-scene h2 { font-size: 22px; font-weight: 900; color: white; line-height: 1.25; margin-bottom: 14px; }
+        .night3-scene h2 em { font-style: normal; color: #fca5a5; }
+        .night3-scene p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.75; font-weight: 500; margin-bottom: 12px; }
+        .night3-scene p strong { color: white; }
+        .night3-scene .alerta {
+            background: rgba(220,38,38,0.12);
+            border-radius: 10px; padding: 14px 16px; margin-top: 14px;
+            font-size: 14px; color: #fca5a5; font-weight: 700; line-height: 1.55;
         }
 
-        /* ── FEAR SECTION ── */
-        .fear-section {
-            background: #1c1917;
-            border-radius: 14px;
-            padding: 22px 20px;
-            margin: 16px 0;
+        /* PONTE */
+        .ponte {
+            background: white; border-radius: 16px;
+            padding: 24px 22px; margin: 18px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
         }
-        .fear-section .fear-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
+        .ponte .tag {
+            display: inline-block; background: #fef3c7; color: #92400e;
+            font-size: 10px; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 0.1em; padding: 4px 14px; border-radius: 50px; margin-bottom: 14px;
         }
-        .fear-section .fear-icon {
-            width: 32px;
-            height: 32px;
-            background: rgba(220,38,38,0.15);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 16px;
-        }
-        .fear-section .fear-title {
-            font-size: 13px;
-            font-weight: 900;
-            color: #fca5a5;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-        .fear-section p {
-            font-size: 14px;
-            color: #d1d5db;
-            line-height: 1.75;
-            font-weight: 500;
-        }
-        .fear-section strong { color: white; }
-        .fear-section .highlight {
-            background: rgba(220,38,38,0.1);
-            border-radius: 8px;
-            padding: 12px 14px;
-            margin-top: 14px;
-            font-size: 13px;
-            color: #fca5a5;
-            font-weight: 700;
-            line-height: 1.55;
-        }
+        .ponte h3 { font-size: 17px; font-weight: 900; color: var(--navy); line-height: 1.3; margin-bottom: 10px; }
+        .ponte p { font-size: 14px; color: #374151; line-height: 1.75; font-weight: 500; }
+        .ponte p strong { color: var(--navy); }
 
-        /* ── PRODUCT SECTION ── */
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 36px rgba(0,0,0,0.1);
-            margin: 20px 0 0;
-        }
-        .product-header {
-            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-            padding: 28px 22px 22px;
-            text-align: center;
-        }
-        .product-badge {
-            display: inline-block;
-            background: rgba(245,158,11,0.18);
-            color: var(--gold-l);
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 5px 16px;
-            border-radius: 50px;
-            margin-bottom: 14px;
-        }
-        .product-header h3 {
-            font-size: 13px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 6px;
-        }
-        .product-header h2 {
-            font-size: 26px;
-            font-weight: 900;
-            color: white;
-            line-height: 1.2;
-            margin-bottom: 8px;
-        }
+        /* PRODUTO */
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 36px rgba(0,0,0,0.1); margin: 18px 0 0; }
+        .product-header { background: linear-gradient(145deg, var(--navy) 0%, #1e293b 100%); padding: 28px 22px 24px; text-align: center; }
+        .product-badge { display: inline-block; background: rgba(245,158,11,0.18); color: var(--gold-l); font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; padding: 5px 16px; border-radius: 50px; margin-bottom: 14px; }
+        .product-header .label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+        .product-header h2 { font-size: 28px; font-weight: 900; color: white; line-height: 1.2; margin-bottom: 8px; }
         .product-header h2 span { color: var(--gold-l); }
-        .product-header .tagline {
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-            font-weight: 500;
-            line-height: 1.55;
-            max-width: 340px;
-            margin: 0 auto 20px;
-        }
+        .product-header .tagline { font-size: 13px; color: rgba(255,255,255,0.58); font-weight: 500; line-height: 1.6; max-width: 340px; margin: 0 auto; }
 
-        /* Nights strip */
-        .nights-strip {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-        .night-pill {
-            background: rgba(255,255,255,0.07);
-            border-radius: 50px;
-            padding: 5px 11px;
-            font-size: 10px;
-            font-weight: 700;
-            color: rgba(255,255,255,0.5);
-            letter-spacing: 0.04em;
-        }
-        .night-pill.active {
-            background: rgba(245,158,11,0.2);
-            color: var(--gold-l);
-            font-weight: 900;
-        }
+        /* NIGHTS STRIP */
+        .nights-strip { display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; margin-top: 20px; }
+        .night-pill { background: rgba(255,255,255,0.07); border-radius: 50px; padding: 5px 10px; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.45); }
+        .night-pill.active { background: rgba(220,38,38,0.25); color: #fca5a5; font-weight: 900; }
 
         .product-body { padding: 24px 22px 0; }
 
-        /* Promise box */
-        .promise-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
-            border-radius: 12px;
-            padding: 16px 18px;
-            margin-bottom: 22px;
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-        .promise-box .promise-icon { font-size: 22px; flex-shrink: 0; }
-        .promise-box p {
-            font-size: 13px;
-            color: #451a03;
-            font-weight: 700;
-            line-height: 1.55;
-        }
+        /* DEPOIMENTO PRIMEIRO */
+        .depo-early { background: #fdfaf6; border-radius: 14px; padding: 20px 18px; margin-bottom: 24px; }
+        .quote-mark { font-size: 48px; font-weight: 900; color: var(--gold-l); line-height: 0.7; margin-bottom: 10px; display: block; font-family: Georgia, serif; opacity: 0.5; }
+        .depo-early p { font-size: 14px; color: #374151; line-height: 1.7; font-weight: 600; font-style: italic; }
+        .depo-early .author-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.07); }
+        .author-av { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-d)); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: white; flex-shrink: 0; }
+        .author-name { font-size: 12px; font-weight: 800; color: var(--text); line-height: 1.4; }
+        .author-name span { display: block; font-weight: 500; color: var(--muted); font-size: 11px; }
 
-        /* Benefits */
-        .benefit {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 14px 0;
-        }
-        .benefit + .benefit {
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-        .benefit-num {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            background: var(--navy);
-            color: var(--gold-l);
-            font-size: 12px;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .benefit-content {}
-        .benefit-title {
-            font-size: 14px;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 3px;
-            line-height: 1.35;
-        }
-        .benefit-desc {
-            font-size: 12px;
-            color: var(--muted);
-            font-weight: 500;
-            line-height: 1.55;
-        }
+        /* BENEFÍCIOS */
+        .benefit { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; }
+        .benefit + .benefit { border-top: 1px solid rgba(0,0,0,0.05); }
+        .benefit-num { width: 28px; height: 28px; border-radius: 8px; background: var(--navy); color: var(--gold-l); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .benefit-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 3px; line-height: 1.35; }
+        .benefit-desc { font-size: 12px; color: var(--muted); font-weight: 500; line-height: 1.6; }
 
-        /* ── TESTIMONIAL ── */
-        .testimonial-wrap {
-            padding: 22px 22px 0;
-        }
-        .testimonial {
-            background: #fdfaf6;
-            border-radius: 14px;
-            padding: 22px 20px 18px;
-            position: relative;
-        }
-        .quote-mark {
-            font-size: 56px;
-            font-weight: 900;
-            color: var(--gold-l);
-            line-height: 0.7;
-            margin-bottom: 12px;
-            display: block;
-            font-family: Georgia, serif;
-            opacity: 0.6;
-        }
-        .testimonial p {
-            font-size: 14px;
-            color: #374151;
-            line-height: 1.7;
-            font-weight: 600;
-            font-style: italic;
-        }
-        .testimonial .author-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 16px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(0,0,0,0.07);
-        }
-        .author-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-d));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 900;
-            color: white;
-            flex-shrink: 0;
-        }
-        .author-info {
-            font-size: 12px;
-            font-weight: 800;
-            color: var(--text);
-            line-height: 1.4;
-        }
-        .author-info span {
-            display: block;
-            font-weight: 500;
-            color: var(--muted);
-            font-size: 11px;
-        }
+        /* PREÇO */
+        .price-block { background: var(--navy); padding: 28px 22px; text-align: center; margin-top: 22px; }
+        .anchor-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .anchor-item { font-size: 12px; color: #475569; text-align: center; line-height: 1.4; }
+        .anchor-item strong { display: block; font-size: 16px; color: #64748b; text-decoration: line-through; }
+        .anchor-divider { font-size: 18px; color: #334155; font-weight: 900; }
+        .price-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        .price-value { display: flex; align-items: baseline; justify-content: center; gap: 3px; margin-bottom: 8px; }
+        .price-currency { font-size: 22px; font-weight: 900; color: var(--green); }
+        .price-main { font-size: 62px; font-weight: 900; color: var(--green); line-height: 1; }
+        .price-cents { font-size: 20px; font-weight: 700; color: #6ee7b7; }
+        .price-note { font-size: 11px; color: #475569; font-weight: 600; }
+        .price-breakdown { margin-top: 10px; font-size: 13px; color: var(--gold-l); font-weight: 800; }
 
-        /* ── PRICE BLOCK ── */
-        .price-block {
-            background: var(--navy);
-            padding: 28px 22px;
-            text-align: center;
-            margin-top: 22px;
-        }
-        .price-de {
-            font-size: 13px;
-            color: #475569;
-            font-weight: 600;
-            text-decoration: line-through;
-            margin-bottom: 4px;
-        }
-        .price-por {
-            font-size: 11px;
-            font-weight: 700;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 6px;
-        }
-        .price-value {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 3px;
-            margin-bottom: 8px;
-        }
-        .price-currency {
-            font-size: 22px;
-            font-weight: 900;
-            color: var(--green);
-        }
-        .price-main {
-            font-size: 60px;
-            font-weight: 900;
-            color: var(--green);
-            line-height: 1;
-        }
-        .price-cents {
-            font-size: 20px;
-            font-weight: 700;
-            color: #6ee7b7;
-        }
-        .price-note {
-            font-size: 11px;
-            color: #475569;
-            font-weight: 600;
-        }
-        .price-breakdown {
-            margin-top: 8px;
-            font-size: 12px;
-            color: var(--gold-l);
-            font-weight: 700;
-        }
-
-        /* ── CTA WRAP ── */
+        /* CTAs */
         .cta-wrap { padding: 20px 22px 26px; }
-
         .btn-yes {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: white;
-            text-align: center;
-            font-weight: 900;
-            font-size: 15px;
-            padding: 20px 16px;
-            border-radius: 14px;
-            border: none;
-            cursor: pointer;
-            line-height: 1.4;
-            position: relative;
-            overflow: hidden;
+            display: block; width: 100%;
+            background: linear-gradient(135deg, #059669 0%, var(--green) 100%);
+            color: white; text-align: center; font-weight: 900; font-size: 15px;
+            padding: 20px 16px; border-radius: 14px; border: none; cursor: pointer;
+            line-height: 1.4; position: relative; overflow: hidden;
             animation: pulse-green 2s infinite;
         }
-        .btn-yes::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
-            animation: sweep 2.5s ease-in-out infinite;
-        }
-        @keyframes sweep {
-            0%   { left: -100%; }
-            100% { left: 200%; }
-        }
-        @keyframes pulse-green {
-            0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
-            70%  { box-shadow: 0 0 0 18px rgba(16,185,129,0); }
-            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
-        }
+        .btn-yes::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); animation: sweep 2.5s ease-in-out infinite; }
+        @keyframes sweep { 0% { left: -100%; } 100% { left: 200%; } }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); } 70% { box-shadow: 0 0 0 18px rgba(16,185,129,0); } 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); } }
         .btn-yes-line1 { font-size: 16px; display: block; }
         .btn-yes-line2 { font-size: 12px; display: block; opacity: 0.85; margin-top: 4px; font-weight: 600; }
-
-        .security-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 11px;
-            color: var(--muted);
-            font-weight: 600;
-            margin-top: 12px;
-        }
-
-        .btn-no {
-            display: block;
-            width: 100%;
-            text-align: center;
-            font-size: 11px;
-            color: #9ca3af;
-            font-weight: 600;
-            padding: 16px 8px 0;
-            cursor: pointer;
-            background: none;
-            border: none;
-            line-height: 1.55;
-        }
+        .security-row { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--muted); font-weight: 600; margin-top: 12px; }
+        .btn-no { display: block; width: 100%; text-align: center; font-size: 11px; color: #9ca3af; font-weight: 600; padding: 16px 8px 0; cursor: pointer; background: none; border: none; line-height: 1.55; }
         .btn-no:hover { color: var(--muted); text-decoration: underline; }
     </style>
 </head>
 <body>
 
-<!-- TIMER BAR -->
+<!-- TIMER -->
 <div id="timer-bar">
     <span class="tl">⚡ Oferta exclusiva expira em: </span>
     <span id="countdown">15:00</span>
     <span class="tl"> — só para quem acabou de comprar</span>
 </div>
 
-<!-- HERO CONFIRMAÇÃO -->
+<!-- HERO -->
 <div class="hero-confirm">
     <div class="check-circle">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
         </svg>
     </div>
-    <h1>Compra confirmada!<br>Acesso ao <span class="gold">Código das Janelas de Ouro</span> liberado.</h1>
-    <p class="sub">Você receberá tudo no e-mail em instantes. Antes de fechar esta página, leia com atenção — isso pode ser a diferença entre ver resultado ou desistir na Noite 3.</p>
+    <h1>Acesso ao <span class="gold">Código das Janelas de Ouro</span> confirmado!</h1>
+    <p class="sub">O e-mail com seu acesso chegará em instantes. Mas antes de fechar — leia a próxima tela. Ela pode ser a diferença entre ver resultado ou desistir.</p>
 </div>
 
 <div class="wrap">
 
-    <!-- BRIDGE HOOK -->
-    <div class="bridge">
-        <div class="bridge-tag">⚠️ Leia antes de fechar</div>
-        <h2>Você tem o método.<br>Mas <em>quem vai estar com você</em><br>noite a noite?</h2>
-        <p>Toda mãe começa animada. Mas na Noite 2, quando o bebê chora mais do que esperava, uma voz pergunta: <strong>"E se eu estiver errando?"</strong> Sem um roteiro que diga "isso é normal, continua" — a maioria desiste.</p>
-    </div>
-
-    <!-- JORNADA 7 NOITES -->
-    <div class="journey">
-        <div class="journey-label">A jornada real das 7 noites</div>
-        <div class="journey-track" style="height:80px;align-items:flex-end;gap:4px;padding:30px 0 0;">
-            <div class="journey-night">
-                <div class="night-bar" style="height:30px;background:rgba(16,185,129,0.3);"></div>
-                <div class="night-num">N1</div>
-            </div>
-            <div class="journey-night">
-                <div class="night-bar" style="height:40px;background:rgba(220,38,38,0.35);"></div>
-                <div class="night-num">N2</div>
-            </div>
-            <div class="journey-night" style="position:relative;">
-                <div class="night-key" style="background:#dc2626;color:white;">Crise</div>
-                <div class="night-bar" style="height:60px;background:#dc2626;"></div>
-                <div class="night-num" style="color:#fca5a5;font-weight:900;">N3</div>
-            </div>
-            <div class="journey-night">
-                <div class="night-bar" style="height:45px;background:rgba(220,38,38,0.25);"></div>
-                <div class="night-num">N4</div>
-            </div>
-            <div class="journey-night">
-                <div class="night-bar" style="height:30px;background:rgba(16,185,129,0.4);"></div>
-                <div class="night-num">N5</div>
-            </div>
-            <div class="journey-night">
-                <div class="night-bar" style="height:20px;background:rgba(16,185,129,0.6);"></div>
-                <div class="night-num">N6</div>
-            </div>
-            <div class="journey-night" style="position:relative;">
-                <div class="night-key" style="background:var(--green);color:white;">Conquista</div>
-                <div class="night-bar" style="height:10px;background:var(--green);"></div>
-                <div class="night-num" style="color:#6ee7b7;font-weight:900;">N7</div>
-            </div>
-        </div>
-        <div class="journey-insight">
-            <div class="insight-item">
-                <div class="ins-num" style="color:#fca5a5;">Noite 3</div>
-                <div class="ins-text">É onde a maioria abandona — sem saber que é o pico da mudança</div>
-            </div>
-            <div class="insight-item">
-                <div class="ins-num" style="color:#6ee7b7;">78%</div>
-                <div class="ins-text">Veem melhora visível ao completar as 7 noites com roteiro</div>
-            </div>
+    <!-- CENÁRIO VISCERAL DA NOITE 3 -->
+    <div class="night3-scene">
+        <div class="time">🕒 3h da manhã. Noite 3.</div>
+        <h2>Ele está chorando.<br><em>Mais do que ontem.<br>Muito mais.</em></h2>
+        <p>Você aplicou o método certinho. As Noites 1 e 2 até foram melhores. E agora, de repente, parece que tudo <strong>piorou</strong>.</p>
+        <p>Nesse momento, uma voz diz: <strong>"Está funcionando ao contrário. Eu fiz algo errado. Ele está sofrendo por minha causa."</strong></p>
+        <p>E é exatamente nesse momento — quando a maioria das mães cede — que o método estava <strong>mais próximo de funcionar do que nunca.</strong></p>
+        <div class="alerta">
+            O choro intenso da Noite 3 tem nome: <strong>extinção de explosão</strong>. É o sistema nervoso do bebê resistindo a uma mudança real. Não é regressão. É progresso. Mas sem saber disso, 8 em cada 10 mães param aqui.
         </div>
     </div>
 
-    <!-- FEAR SECTION -->
-    <div class="fear-section">
-        <div class="fear-header">
-            <div class="fear-icon">⚡</div>
-            <div class="fear-title">Extinção de explosão — por que a Noite 3 parece um fracasso</div>
-        </div>
-        <p>O bebê chora mais do que nunca na Noite 3. Parece que <strong>tudo piorou</strong>. Isso não é sinal de fracasso — é o sinal mais claro de que o método está funcionando. O sistema nervoso dele está resistindo a uma mudança real.</p>
-        <div class="highlight">Mas sem saber disso, toda mãe cede. E aí é que tudo desmorona de verdade.</div>
+    <!-- PONTE -->
+    <div class="ponte">
+        <div class="tag">⚠️ O problema real</div>
+        <h3>Você tem o código biológico. Mas não tem ninguém com você nas 7 noites.</h3>
+        <p>O Código das Janelas de Ouro te dá o mapa. Mas às 3h da manhã, na Noite 3, você não precisa do mapa — você precisa de alguém que diga: <strong>"Isso é normal. Continue. Você está no caminho certo."</strong></p>
     </div>
 
-    <!-- PRODUCT CARD -->
+    <!-- PRODUTO -->
     <div class="product-card">
         <div class="product-header">
             <div class="product-badge">🔒 Oferta exclusiva pós-compra</div>
-            <h3>Plano de Implementação</h3>
+            <div class="label">Plano de Implementação</div>
             <h2>Turbo — <span>7 Noites</span></h2>
-            <p class="tagline">O roteiro noite a noite para aplicar o CJO e ver resultado em 7 dias — mesmo que você já tenha tentado de tudo.</p>
+            <p class="tagline">O roteiro noite a noite para que você nunca fique sem saber o que fazer — do entardecer até a madrugada, durante 7 dias seguidos.</p>
             <div class="nights-strip">
                 <div class="night-pill">Noite 1</div>
                 <div class="night-pill">Noite 2</div>
@@ -727,129 +248,116 @@
 
         <div class="product-body">
 
-            <div class="promise-box">
-                <div class="promise-icon">💙</div>
-                <p>Este guia foi feito para você não desistir. Vou estar com você todas as 7 noites — com cada passo, cada dica, cada palavra de encorajamento que você vai precisar.</p>
+            <!-- DEPOIMENTO PRIMEIRO — antes dos benefícios -->
+            <div class="depo-early">
+                <span class="quote-mark">"</span>
+                <p>Na Noite 3 eu chorei junto com meu filho. O guia dizia que era normal — que era sinal de progresso. Eu continuei com medo, mas continuei. Na Noite 5, ele dormiu 6 horas seguidas. Pela primeira vez em meses. Eu fiquei parada olhando o monitor sem acreditar.</p>
+                <div class="author-row">
+                    <div class="author-av">A</div>
+                    <div>
+                        <div class="author-name">Alessandra F.<span>Mãe da Sofia, 7 meses</span></div>
+                    </div>
+                </div>
             </div>
+
+            <p style="font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;">O que você recebe noite a noite:</p>
 
             <div class="benefit">
                 <div class="benefit-num">01</div>
-                <div class="benefit-content">
-                    <div class="benefit-title">Roteiro exato noite a noite (Noites 1 a 7)</div>
-                    <div class="benefit-desc">Horários, rituais e o que fazer em cada etapa — sem adivinhação, sem margem para dúvida</div>
+                <div>
+                    <div class="benefit-title">O roteiro exato de cada uma das 7 noites</div>
+                    <div class="benefit-desc">Horário da janela, ritual de 15min, o que fazer se ele resistir — tudo descrito, sem espaço para dúvida às 2h da manhã</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">02</div>
-                <div class="benefit-content">
+                <div>
                     <div class="benefit-title">Protocolo de choro para cada noite</div>
-                    <div class="benefit-desc">O que fazer quando ele chorar — a resposta certa, no tempo certo, sem entrar em pânico</div>
+                    <div class="benefit-desc">Quando ele chorar, você saberá exatamente o que fazer — sem entrar em pânico, sem ceder sem intenção, sem culpa</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">03</div>
-                <div class="benefit-content">
-                    <div class="benefit-title">Diário das 7 Noites</div>
-                    <div class="benefit-desc">Registre a evolução noite a noite — ver os números melhorando te mantém firme quando tudo parece difícil</div>
+                <div>
+                    <div class="benefit-title">Diário das 7 Noites — para você não desistir</div>
+                    <div class="benefit-desc">Ver os números melhorando (mesmo que devagar) é o que mantém a mãe firme quando a voz interna quer parar</div>
                 </div>
             </div>
             <div class="benefit">
                 <div class="benefit-num">04</div>
-                <div class="benefit-content">
+                <div>
                     <div class="benefit-title">Mini-guia de regressões incluso</div>
-                    <div class="benefit-desc">O que fazer quando o sono piorar de repente — 4, 8, 12 e 18 meses cobertos, sem entrar em pânico</div>
+                    <div class="benefit-desc">Para quando o sono melhorar e depois travar de novo — 4, 8, 12 e 18 meses — você saberá que não perdeu tudo</div>
                 </div>
             </div>
 
         </div>
 
-        <!-- TESTIMONIAL -->
-        <div class="testimonial-wrap">
-            <div class="testimonial">
-                <span class="quote-mark">"</span>
-                <p>Na Noite 3 eu chorei junto com meu filho. Mas o guia dizia que era normal, que era sinal de progresso. Eu continuei. Na Noite 5, ele dormiu 6 horas seguidas pela primeira vez em meses.</p>
-                <div class="author-row">
-                    <div class="author-avatar">A</div>
-                    <div class="author-info">
-                        Alessandra F.
-                        <span>Mãe da Sofia, 7 meses</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PRICE -->
+        <!-- PREÇO COM ANCORAGEM -->
         <div class="price-block">
-            <div class="price-de">De R$197,00</div>
-            <div class="price-por">Por apenas</div>
+            <div class="anchor-row">
+                <div class="anchor-item">
+                    <strong>R$350+</strong>
+                    Uma sessão com consultora
+                </div>
+                <div class="anchor-divider">vs</div>
+                <div class="anchor-item" style="color:#6ee7b7;">
+                    <strong style="color:var(--green);text-decoration:none;font-size:20px;">R$67</strong>
+                    7 noites do roteiro completo
+                </div>
+            </div>
+            <div class="price-label">Pelo roteiro das 7 noites</div>
             <div class="price-value">
                 <span class="price-currency">R$</span>
                 <span class="price-main">67</span>
                 <span class="price-cents">,00</span>
             </div>
-            <div class="price-note">Uma única vez — acesso imediato e permanente</div>
+            <div class="price-note">Pagamento único · Acesso permanente · Não é assinatura</div>
             <div class="price-breakdown">= menos de R$10 por noite de acompanhamento</div>
         </div>
 
-        <!-- CTA -->
+        <!-- CTAs -->
         <div class="cta-wrap">
             <button onclick="trackUpsell('https://lastlink.com/p/C185193A7/checkout-payment/')" class="btn-yes">
                 <span class="btn-yes-line1">✅ Sim, quero o roteiro das 7 noites</span>
-                <span class="btn-yes-line2">Garantir por R$67 · Não desistir na Noite 3</span>
+                <span class="btn-yes-line2">Quero estar preparada para a Noite 3 · R$67</span>
             </button>
-
             <div class="security-row">
-                <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                </svg>
+                <svg style="width:13px;height:13px;flex-shrink:0;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
                 Pagamento seguro · Garantia incondicional de 7 dias
             </div>
-
             <button class="btn-no" onclick="goToMembersArea()">
-                Não, vou tentar aplicar o método por conta própria
+                Não, vou tentar aplicar sozinha e ver o que acontece
             </button>
         </div>
 
     </div>
-
 </div>
 
 <!-- TIMER SCRIPT -->
 <script>
 (function() {
     var TIMER_KEY = 'cjo_upsell_timer';
-    var DURATION  = 15 * 60;
+    var DURATION = 15 * 60;
     var end = sessionStorage.getItem(TIMER_KEY);
-    if (!end) {
-        end = Date.now() + DURATION * 1000;
-        sessionStorage.setItem(TIMER_KEY, end);
-    }
-    var el  = document.getElementById('countdown');
+    if (!end) { end = Date.now() + DURATION * 1000; sessionStorage.setItem(TIMER_KEY, end); }
+    var el = document.getElementById('countdown');
     var bar = document.getElementById('timer-bar');
-
     function update() {
         var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
-        var m = Math.floor(remaining / 60);
-        var s = remaining % 60;
+        var m = Math.floor(remaining / 60), s = remaining % 60;
         el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
-
-        if (remaining <= 60) {
-            el.style.color = '#fca5a5';
-            bar.style.animation = 'none';
-            bar.style.background = '#450a0a';
-        }
+        if (remaining <= 60) { el.style.color = '#fca5a5'; bar.style.animation = 'none'; bar.style.background = '#450a0a'; }
         if (remaining <= 0) {
             clearInterval(interval);
-            bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material agora</a>';
+            bar.innerHTML = '⏰ Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
         }
     }
-
     update();
     var interval = setInterval(update, 1000);
 })();
 </script>
 
-<!-- Anti-Spy Shield -->
 <script src="./assets/shield.js" defer></script>
 </body>
 </html>
