@@ -13,7 +13,10 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1803679593924822');
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', { value: 27.00, currency: 'BRL', content_name: 'CJO Principal' });
+    if (!sessionStorage.getItem('cjo_purchase_fired')) {
+        fbq('track', 'Purchase', { value: 27.00, currency: 'BRL', content_name: 'CJO Principal' });
+        sessionStorage.setItem('cjo_purchase_fired', '1');
+    }
     fbq('track', 'ViewContent', {content_name: 'Upsell1 Protocolo Cofre'});
 
     function getQueryString() { return window.location.search; }
