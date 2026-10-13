@@ -74,18 +74,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ── TIMER ── */
-        #timer-bar {
-            position: sticky; top: 0; z-index: 100;
-            background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 40%, #7f1d1d 100%);
-            background-size: 200% 100%;
-            animation: shimmer-bar 3s ease-in-out infinite;
-            color: white; text-align: center; padding: 11px 16px;
-            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5;
-        }
-        @keyframes shimmer-bar { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        #timer-bar .tl { color: #fca5a5; }
-        #countdown { font-size: 18px; font-weight: 900; color: #fef08a; letter-spacing: 0.06em; }
 
         /* ── ALERTA ── */
         .alerta-topo {
@@ -293,12 +281,6 @@
 </head>
 <body>
 
-<!-- TIMER -->
-<div id="timer-bar">
-    <span class="tl">&#9203; Oferta expira em: </span>
-    <span id="countdown">08:00</span>
-</div>
-
 <!-- ALERTA -->
 <div class="alerta-topo">
     Espera &#8212; <strong>s&oacute; mais 30 segundos antes de voc&ecirc; ir.</strong>
@@ -400,6 +382,8 @@
 
         <!-- CTAs -->
         <div class="cta-section">
+            <!-- Oculto em 13/10/2026: o checkout standalone do SOS Adormecimento ainda não existe na Lastlink (link era XXXXXXXXX).
+                 Para reativar, troque o link abaixo pelo real e remova este comentário.
             <button onclick="trackDownsell('https://lastlink.com/p/XXXXXXXXX/checkout-payment/')" class="btn-yes">
                 <span class="btn-yes-line1">&#9989; Sim, quero aplicar hoje &agrave; noite</span>
                 <span class="btn-yes-line2">SOS Adormecimento &middot; R$19 &middot; Acesso imediato</span>
@@ -411,6 +395,7 @@
                 </svg>
                 Pagamento seguro &middot; Garantia de 7 dias
             </div>
+            -->
 
             <button class="btn-no" onclick="goToMembersArea()">
                 N&atilde;o, vou continuar tentando colocar no ber&ccedil;o sozinha
@@ -420,47 +405,6 @@
     </div>
 
 </div>
-
-<!-- TIMER SCRIPT -->
-<script>
-(function() {
-    var TIMER_KEY = 'cjo_downsell_timer';
-    var DURATION  = 8 * 60;
-    var end = sessionStorage.getItem(TIMER_KEY);
-    if (!end) {
-        end = Date.now() + DURATION * 1000;
-        sessionStorage.setItem(TIMER_KEY, end);
-    }
-    var el  = document.getElementById('countdown');
-    var bar = document.getElementById('timer-bar');
-
-    function update() {
-        var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
-        var m = Math.floor(remaining / 60);
-        var s = remaining % 60;
-        el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
-        if (remaining <= 60) {
-            el.style.color = '#fca5a5';
-            bar.style.animation = 'none';
-            bar.style.background = '#450a0a';
-        }
-        if (remaining <= 0) {
-            clearInterval(interval);
-            bar.innerHTML = '&#9200; Oferta encerrada.';
-            var btn = document.querySelector('.btn-yes');
-            if (btn) {
-                btn.disabled = true;
-                btn.style.opacity = '0.35';
-                btn.style.cursor = 'not-allowed';
-                btn.style.animation = 'none';
-                btn.querySelector('.btn-yes-line1').textContent = 'Oferta encerrada';
-            }
-        }
-    }
-    update();
-    var interval = setInterval(update, 1000);
-})();
-</script>
 
 <!-- Anti-Spy Shield -->
 <script src="./assets/shield.js" defer></script>

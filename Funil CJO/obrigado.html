@@ -53,18 +53,6 @@
         }
         body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-        /* TIMER */
-        #timer-bar {
-            position: sticky; top: 0; z-index: 100;
-            background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 40%, #7f1d1d 100%);
-            background-size: 200% 100%;
-            animation: shimmer-bar 3s ease-in-out infinite;
-            color: white; text-align: center; padding: 11px 16px;
-            font-size: 13px; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5;
-        }
-        @keyframes shimmer-bar { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        #timer-bar .tl { color: #fca5a5; }
-        #countdown { font-size: 18px; font-weight: 900; color: #fef08a; letter-spacing: 0.06em; }
 
         /* HERO */
         .hero-confirm {
@@ -198,13 +186,6 @@
     </style>
 </head>
 <body>
-
-<!-- TIMER -->
-<div id="timer-bar">
-    <span class="tl">&#9889; Oferta exclusiva expira em: </span>
-    <span id="countdown">15:00</span>
-    <span class="tl"> &#8212; s&oacute; para quem acabou de comprar</span>
-</div>
 
 <!-- HERO -->
 <div class="hero-confirm">
@@ -347,30 +328,6 @@
 
     </div>
 </div>
-
-<!-- TIMER SCRIPT -->
-<script>
-(function() {
-    var TIMER_KEY = 'cjo_upsell_timer';
-    var DURATION = 15 * 60;
-    var end = sessionStorage.getItem(TIMER_KEY);
-    if (!end) { end = Date.now() + DURATION * 1000; sessionStorage.setItem(TIMER_KEY, end); }
-    var el = document.getElementById('countdown');
-    var bar = document.getElementById('timer-bar');
-    function update() {
-        var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
-        var m = Math.floor(remaining / 60), s = remaining % 60;
-        el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
-        if (remaining <= 60) { el.style.color = '#fca5a5'; bar.style.animation = 'none'; bar.style.background = '#450a0a'; }
-        if (remaining <= 0) {
-            clearInterval(interval);
-            bar.innerHTML = '&#9200; Oferta encerrada. <a href="javascript:void(0)" onclick="goToMembersArea()" style="color:#fbbf24;text-decoration:underline;">Acessar meu material</a>';
-        }
-    }
-    update();
-    var interval = setInterval(update, 1000);
-})();
-</script>
 
 <script src="./assets/shield.js" defer></script>
 </body>
