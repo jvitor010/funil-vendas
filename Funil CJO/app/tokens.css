@@ -1,0 +1,114 @@
+/* Lume — generated from tokens.json */
+:root, [data-theme="anoitecer"] {
+  --fundo: #141c3b;
+  --superficie: #1d2850;
+  --superficie-2: #27345f;
+  --linha: #2f3d6b;
+  --vidro: rgba(29, 40, 80, 0.82);
+  --tinta: #f4f6ff;
+  --tinta-2: #b4bde0;
+  --sol: #ffd15c;
+  --on-sol: #2a2200;
+  --sol-texto: #ffd15c;
+  --sol-suave: #3b3516;
+  --ceu: #3554e0;
+  --on-ceu: #ffffff;
+  --on-ceu-2: #dce3ff;
+  --trilho-ceu: #5470e6;
+  --folha: #7fd8ae;
+  --folha-suave: #1b3a33;
+  --coral: #ff9c85;
+  --coral-suave: #43262a;
+  --grafico: #6f86f7;
+  --grafico-grade: #2a3663;
+  --foco: #ffd15c;
+  --sombra-cartao: none;
+  --sombra-flutuante: 0 12px 32px rgba(5, 9, 28, 0.5);
+  color-scheme: dark;
+}
+[data-theme="dia"] {
+  --fundo: #f6f8fc;
+  --superficie: #ffffff;
+  --superficie-2: #ecf0ff;
+  --linha: #e2e7f3;
+  --vidro: rgba(255, 255, 255, 0.84);
+  --tinta: #16213a;
+  --tinta-2: #56627d;
+  --sol: #ffd15c;
+  --on-sol: #2a2200;
+  --sol-texto: #7a5a00;
+  --sol-suave: #fff3cc;
+  --ceu: #2f4fd8;
+  --on-ceu: #ffffff;
+  --on-ceu-2: #dce3ff;
+  --trilho-ceu: #4964dc;
+  --folha: #1e7a55;
+  --folha-suave: #dff2e8;
+  --coral: #b23c2a;
+  --coral-suave: #fbe4df;
+  --grafico: #2f4fd8;
+  --grafico-grade: #ecf0ff;
+  --foco: #2f4fd8;
+  --sombra-cartao: 0 1px 2px rgba(22, 33, 58, 0.05), 0 8px 24px rgba(22, 33, 58, 0.06);
+  --sombra-flutuante: 0 10px 30px rgba(22, 33, 58, 0.14);
+  color-scheme: light;
+}
+[data-theme="madrugada"] {
+  --fundo: #0d0705;
+  --superficie: #180e0a;
+  --superficie-2: #23150f;
+  --linha: #2e1c14;
+  --vidro: rgba(24, 14, 10, 0.88);
+  --tinta: #e9b48c;
+  --tinta-2: #b08262;
+  --sol: #d98b3e;
+  --on-sol: #140a04;
+  --sol-texto: #e39c56;
+  --sol-suave: #2c1a0c;
+  --ceu: #2c1911;
+  --on-ceu: #e9b48c;
+  --on-ceu-2: #b08262;
+  --trilho-ceu: #45291b;
+  --folha: #b9ac6e;
+  --folha-suave: #24200f;
+  --coral: #de7652;
+  --coral-suave: #2c130b;
+  --grafico: #bf7c3a;
+  --grafico-grade: #2a1a12;
+  --foco: #e39c56;
+  --sombra-cartao: none;
+  --sombra-flutuante: 0 10px 30px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-full: 999px;
+  --alvo-min: 44px;
+  --alvo-acao: 56px;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-texto: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+}
+.relogio { font-family: var(--font-display); font-size: 76px; line-height: 80px; font-weight: 800; letter-spacing: -0.04em; }
+.titulo-grande { font-family: var(--font-display); font-size: 34px; line-height: 41px; font-weight: 800; letter-spacing: -0.03em; }
+.titulo-1 { font-family: var(--font-display); font-size: 28px; line-height: 34px; font-weight: 800; letter-spacing: -0.03em; }
+.numero { font-family: var(--font-display); font-size: 24px; line-height: 28px; font-weight: 800; letter-spacing: -0.02em; }
+.titulo-2 { font-family: var(--font-texto); font-size: 22px; line-height: 28px; font-weight: 700; }
+.titulo-3 { font-family: var(--font-texto); font-size: 20px; line-height: 25px; font-weight: 600; }
+.destaque { font-family: var(--font-texto); font-size: 17px; line-height: 22px; font-weight: 700; }
+.corpo { font-family: var(--font-texto); font-size: 17px; line-height: 24px; font-weight: 400; }
+.chamada { font-family: var(--font-texto); font-size: 16px; line-height: 21px; font-weight: 400; }
+.subtitulo { font-family: var(--font-texto); font-size: 15px; line-height: 20px; font-weight: 400; }
+.nota { font-family: var(--font-texto); font-size: 13px; line-height: 18px; font-weight: 400; }
+.rotulo { font-family: var(--font-texto); font-size: 13px; line-height: 18px; font-weight: 600; letter-spacing: 0.01em; }
+.legenda { font-family: var(--font-texto); font-size: 12px; line-height: 16px; font-weight: 600; }

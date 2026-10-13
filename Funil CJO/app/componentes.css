@@ -1,0 +1,132 @@
+/* Lume · componentes (CSS puro, prefixo lu-). Valores vêm de tokens.css: nada de cor ou medida solta aqui. */
+
+body { margin: 0; font-family: var(--font-texto); background: var(--fundo); color: var(--tinta); -webkit-font-smoothing: antialiased; }
+.lu-num { font-variant-numeric: tabular-nums; }
+.lu-tela { font-family: var(--font-texto); background: var(--fundo); color: var(--tinta); }
+.lu-tela :focus-visible, .lu-btn:focus-visible, .lu-opcao:focus-visible, .lu-plano:focus-within, .lu-abas__item:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+.lu-icone { width: 24px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.lu-icone--sm { width: 18px; height: 18px; }
+
+/* ── Botão ── */
+.lu-btn { appearance: none; border: 0; margin: 0; font-family: var(--font-texto); min-height: var(--alvo-acao); padding: 0 var(--space-6); border-radius: var(--radius-full); display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); cursor: pointer; text-decoration: none; transition: transform .2s cubic-bezier(.32, .72, 0, 1), opacity .2s; }
+.lu-btn:active { transform: scale(.97); }
+.lu-btn:disabled { opacity: .4; cursor: default; transform: none; }
+.lu-btn--primario { background: var(--sol); color: var(--on-sol); }
+.lu-btn--ceu { background: var(--ceu); color: var(--on-ceu); }
+.lu-btn--suave { background: var(--superficie-2); color: var(--tinta); }
+.lu-btn--texto { background: transparent; color: var(--sol-texto); min-height: var(--alvo-min); padding: 0 var(--space-3); }
+.lu-btn--bloco { display: flex; width: 100%; box-sizing: border-box; }
+
+/* ── Selo de estado (sempre palavra + ícone) ── */
+.lu-selo { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); background: var(--sol); color: var(--on-sol); }
+.lu-selo--bom { background: var(--folha-suave); color: var(--folha); }
+.lu-selo--atencao { background: var(--coral-suave); color: var(--coral); }
+.lu-selo--neutro { background: var(--superficie-2); color: var(--tinta-2); }
+
+/* ── Barra de progresso ── */
+.lu-progresso { height: 10px; border-radius: var(--radius-full); background: var(--superficie-2); overflow: hidden; }
+.lu-progresso__valor { height: 100%; width: calc(100% * var(--p, 0)); border-radius: var(--radius-full); background: var(--sol); transition: width .35s cubic-bezier(.32, .72, 0, 1); }
+.lu-progresso--ceu { background: var(--trilho-ceu); }
+.lu-progresso--fino { height: 6px; }
+
+/* ── Anel de sono ── */
+.lu-anel { position: relative; width: 96px; height: 96px; flex: none; }
+.lu-anel svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.lu-anel__trilho { fill: none; stroke: var(--superficie-2); stroke-width: 9; }
+.lu-anel__valor { fill: none; stroke: var(--sol); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 263.9; stroke-dashoffset: calc(263.9 * (1 - var(--p, 0))); transition: stroke-dashoffset .35s cubic-bezier(.32, .72, 0, 1); }
+.lu-anel__centro { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.lu-anel__unidade { color: var(--tinta-2); }
+.lu-anel--ceu .lu-anel__trilho { stroke: var(--trilho-ceu); }
+.lu-anel--ceu .lu-anel__centro { color: var(--on-ceu); }
+.lu-anel--ceu .lu-anel__unidade { color: var(--on-ceu-2); }
+
+/* ── Cartão da próxima janela ── */
+.lu-janela { position: relative; overflow: hidden; background: var(--ceu); color: var(--on-ceu); border-radius: var(--radius-lg); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-1); }
+.lu-janela__sol { position: absolute; top: -40px; right: -40px; width: 150px; height: 150px; border-radius: var(--radius-full); background: var(--sol); }
+.lu-janela > :not(.lu-janela__sol) { position: relative; }
+.lu-janela__rotulo { margin: 0; color: var(--on-ceu-2); }
+.lu-janela__hora { margin: 0; color: var(--on-ceu); font-variant-numeric: tabular-nums; }
+.lu-janela__faixa { margin: 0; color: var(--on-ceu-2); font-variant-numeric: tabular-nums; }
+.lu-janela__progresso { margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); }
+.lu-janela__legenda { display: flex; justify-content: space-between; gap: var(--space-3); color: var(--on-ceu-2); font-variant-numeric: tabular-nums; }
+.lu-janela__rodape { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--trilho-ceu); display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.lu-janela__porque { color: var(--on-ceu); background: none; border: 0; padding: 0; font-family: var(--font-texto); cursor: pointer; min-height: var(--alvo-min); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Linha do tempo do dia ── */
+.lu-tempo { list-style: none; margin: 0; padding: var(--space-1) var(--space-4); background: var(--superficie); border-radius: var(--radius-md); box-shadow: var(--sombra-cartao); display: flex; flex-direction: column; }
+.lu-tempo__item { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 0 var(--space-2); min-height: 48px; }
+.lu-tempo__item + .lu-tempo__item { border-top: 1px solid var(--linha); }
+.lu-tempo__hora { color: var(--tinta-2); font-variant-numeric: tabular-nums; }
+.lu-tempo__estado { color: var(--tinta-2); text-align: right; }
+.lu-tempo__item--feito .lu-tempo__titulo { color: var(--tinta-2); }
+.lu-tempo__item--feito .lu-tempo__estado { color: var(--folha); }
+.lu-tempo__item--agora .lu-tempo__hora { color: var(--sol-texto); font-weight: 700; }
+.lu-tempo__item--agora .lu-tempo__estado { padding: 2px var(--space-3); border-radius: var(--radius-full); background: var(--sol); color: var(--on-sol); font-weight: 700; }
+
+/* ── Registro rápido (Acordou / Dormiu) ── */
+.lu-registro { display: flex; flex-direction: column; gap: var(--space-2); }
+.lu-registro__botoes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.lu-registro__ajuda { margin: 0; text-align: center; color: var(--tinta-2); }
+
+/* ── Opção do quiz ── */
+.lu-opcoes { display: flex; flex-direction: column; gap: var(--space-3); margin: 0; padding: 0; border: 0; }
+.lu-opcao { appearance: none; font-family: var(--font-texto); text-align: left; width: 100%; min-height: var(--alvo-acao); padding: var(--space-3) var(--space-4); display: flex; align-items: center; gap: var(--space-3); border-radius: var(--radius-md); background: var(--superficie); color: var(--tinta); border: 2px solid var(--linha); cursor: pointer; transition: transform .2s cubic-bezier(.32, .72, 0, 1); }
+.lu-opcao:active { transform: scale(.98); }
+.lu-opcao__marca { margin-left: auto; width: 24px; height: 24px; border-radius: var(--radius-full); border: 2px solid var(--linha); box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: transparent; flex: none; }
+.lu-opcao[aria-pressed="true"] { background: var(--sol-suave); border-color: var(--sol-texto); }
+.lu-opcao[aria-pressed="true"] .lu-opcao__marca { background: var(--sol-texto); border-color: var(--sol-texto); color: var(--superficie); }
+
+/* ── Escolha de plano ── */
+.lu-planos { display: flex; flex-direction: column; gap: var(--space-3); margin: 0; padding: 0; border: 0; }
+.lu-plano { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2px var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--superficie); border: 2px solid var(--linha); cursor: pointer; }
+.lu-plano input { position: absolute; opacity: 0; pointer-events: none; }
+.lu-plano__radio { grid-row: 1 / span 2; width: 24px; height: 24px; border-radius: var(--radius-full); border: 2px solid var(--linha); box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: transparent; }
+.lu-plano__nome { margin: 0; }
+.lu-plano__termos { margin: 0; color: var(--tinta-2); grid-column: 2; }
+.lu-plano__preco { text-align: right; grid-row: 1 / span 2; grid-column: 3; display: flex; flex-direction: column; align-items: flex-end; }
+.lu-plano__preco .numero { font-variant-numeric: tabular-nums; }
+.lu-plano__mes { color: var(--tinta-2); }
+.lu-plano__selo { position: absolute; top: -12px; right: var(--space-4); }
+.lu-plano:has(input:checked) { background: var(--sol-suave); border-color: var(--sol-texto); }
+.lu-plano:has(input:checked) .lu-plano__radio { background: var(--sol-texto); border-color: var(--sol-texto); color: var(--superficie); }
+
+/* ── Lista agrupada ── */
+.lu-lista { list-style: none; margin: 0; padding: 0; background: var(--superficie); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--sombra-cartao); }
+.lu-lista__titulo { margin: 0 0 var(--space-2) var(--space-4); color: var(--tinta-2); }
+.lu-linha { display: flex; align-items: center; gap: var(--space-3); min-height: var(--alvo-min); padding: var(--space-2) var(--space-4); position: relative; }
+.lu-linha + .lu-linha::before { content: ""; position: absolute; top: 0; right: 0; left: calc(var(--space-4) + 32px + var(--space-3)); height: 1px; background: var(--linha); }
+.lu-linha__icone { width: 32px; height: 32px; border-radius: var(--radius-xs); display: flex; align-items: center; justify-content: center; flex: none; background: var(--sol-suave); color: var(--sol-texto); }
+.lu-linha__icone--ceu { background: var(--ceu); color: var(--sol); }
+.lu-linha__icone--bom { background: var(--folha-suave); color: var(--folha); }
+.lu-linha__texto { flex: 1; min-width: 0; margin: 0; }
+.lu-linha__valor { margin: 0; color: var(--tinta-2); text-align: right; }
+.lu-linha__seta { color: var(--tinta-2); }
+.lu-chave { appearance: none; margin: 0; width: 51px; height: 31px; border-radius: var(--radius-full); background: var(--superficie-2); position: relative; cursor: pointer; flex: none; transition: background-color .2s; }
+.lu-chave::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: var(--radius-full); background: var(--on-ceu); box-shadow: var(--sombra-cartao); transition: transform .25s cubic-bezier(.32, .72, 0, 1); }
+.lu-chave:checked { background: var(--sol); }
+.lu-chave:checked::after { transform: translateX(20px); }
+.lu-chave:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+
+/* ── Aviso (notificação) ── */
+.lu-aviso { display: grid; grid-template-columns: 40px 1fr; gap: 2px var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); background: var(--vidro); color: var(--tinta); box-shadow: var(--sombra-flutuante); -webkit-backdrop-filter: blur(24px) saturate(1.4); backdrop-filter: blur(24px) saturate(1.4); }
+.lu-aviso__icone { width: 40px; height: 40px; grid-row: 1 / span 3; align-self: start; }
+.lu-aviso__topo { display: flex; justify-content: space-between; gap: var(--space-2); color: var(--tinta-2); }
+.lu-aviso__titulo { margin: 0; }
+.lu-aviso__texto { margin: 0; color: var(--tinta); }
+
+/* ── Barra de abas ── */
+.lu-abas { display: grid; grid-template-columns: repeat(5, 1fr); padding: var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom, 0px)); background: var(--vidro); border-top: 1px solid var(--linha); -webkit-backdrop-filter: blur(20px) saturate(1.4); backdrop-filter: blur(20px) saturate(1.4); }
+.lu-abas__item { appearance: none; border: 0; background: none; font-family: var(--font-texto); min-height: var(--alvo-min); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--tinta-2); cursor: pointer; border-radius: var(--radius-sm); }
+.lu-abas__item[aria-current="page"] { color: var(--sol-texto); }
+
+/* ── Dica (por que este horário) ── */
+.lu-dica { display: grid; grid-template-columns: 32px 1fr; gap: var(--space-2) var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--superficie); box-shadow: var(--sombra-cartao); }
+.lu-dica__icone { width: 32px; height: 32px; border-radius: var(--radius-xs); background: var(--sol-suave); color: var(--sol-texto); display: flex; align-items: center; justify-content: center; }
+.lu-dica__titulo { margin: 0; align-self: center; }
+.lu-dica__texto { margin: 0; grid-column: 2; color: var(--tinta-2); }
+.lu-dica__acao { grid-column: 2; justify-self: start; margin-left: calc(-1 * var(--space-3)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lu-btn, .lu-opcao, .lu-anel__valor, .lu-progresso__valor, .lu-chave, .lu-chave::after { transition: none; }
+  .lu-btn:active, .lu-opcao:active { transform: none; }
+}

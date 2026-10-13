@@ -1,0 +1,23 @@
+rules_version = '2';
+// Regras do Firebase próprio do Lume (separado do melasma e do lipedema).
+// Quem escreve em entitlements, eventos, leads, códigos, push e avisos é o servidor (conta de serviço, que ignora estas regras).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Dados do bebê e registros de sono: só a própria mãe lê e escreve.
+    match /usuarios/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // O próprio acesso (plano e validade): só leitura, pelo e-mail do login.
+    match /entitlements/{email} {
+      allow read: if request.auth != null && request.auth.token.lume_email == email;
+      allow write: if false;
+    }
+
+    // Todo o resto fica fechado para o app.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
